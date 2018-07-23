@@ -1,6 +1,7 @@
 {
-  "name": "pagebuilder",
+  "name": "page-builder",
   "version": "0.1.0",
+  "description": "Vue.js page builder.",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
