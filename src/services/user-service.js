@@ -25,8 +25,8 @@ function addUser(newUser) {
         .then(res => res.data)
 }
 
-function updateUser(newUser) {
-    return axios.put(`${USER_URL}/${newUser._id}`, newUser)
+function updateUser(updatedUser) {
+    return axios.put(`${USER_URL}/${updatedUser._id}`, updatedUser)
         .then(res => res.data)
 }
 
