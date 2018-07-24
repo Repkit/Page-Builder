@@ -8,7 +8,8 @@
             userName: {{user.userName}}<br>
             firstName: {{user.firstName}}<br>
             lastName: {{user.lastName}}<br>
-            site:<a :href="user.site">go to site</a>--->>> adress: {{user.site}}<br>  
+            site:<a :href="user.site">go to site</a>--->>> adress: {{user.site}}<br> 
+            <site-list :userId="user._id"></site-list> 
         </div>
         
 
@@ -17,10 +18,11 @@
 
 <script>
 import MainNav from "@/components/MainNav.vue";
+import SiteList from '@/components/SiteList.vue';
 
 export default {
   name: "profile",
-  components: { MainNav },
+  components: { MainNav,SiteList },
   created() {
     this.userConnect();
   },
