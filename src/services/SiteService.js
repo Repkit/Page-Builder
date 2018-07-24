@@ -4,7 +4,8 @@ import axios from 'axios';
 //     ? '/site'
 //     : '//localhost:3000/site'
 
-const BASE_URL = 'mongodb://page_builder_user:page_builder43@ds145921.mlab.com:45921/page_builder/site';
+// const BASE_URL = 'mongodb://page_builder_user:page_builder43@ds145921.mlab.com:45921/page_builder/site';
+const BASE_URL = '//localhost:3000/site';
 
 function query() {
     return axios.get(BASE_URL)
