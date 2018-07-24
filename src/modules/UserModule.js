@@ -25,7 +25,7 @@ export default {
             
             return AuthService.login(user)
                 .then(user => {
-                    if (user) {
+                    if (user) {                        
                         context.commit({ type: 'setUser', user });
                         localStorage.setItem('loggedInUser', JSON.stringify(user));
                     }
