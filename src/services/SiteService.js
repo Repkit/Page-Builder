@@ -8,8 +8,16 @@ import axios from 'axios';
 const BASE_URL = '//localhost:3000/site';
 
 function query(userId='') {
-    return axios.get(BASE_URL,userId)
+    console.log('services site userId:',userId)
+    if(userId){
+        return axios.get(`${BASE_URL}/${userId}`)
         .then(res => res.data);
+    }
+    else{
+
+        return axios.get(BASE_URL,userId)
+        .then(res => res.data);
+    }
 }
 
 function getById(id) {

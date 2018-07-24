@@ -8,7 +8,7 @@ import axios from 'axios';
 const BASE_URL = 'http://localhost:3000';
 
 function login( user ) {    
-    return axios.put(`${BASE_URL}/login`,  user )
+    return axios.put(`${BASE_URL}/login`,user )
         .then(res => res.data);
 }
 
