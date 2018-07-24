@@ -1,5 +1,5 @@
 <template>
-    <div class="widget map-widget" :style="styles">
+    <div class="widget map-widget" :style="element.styles">
 
         MAP WIDGET
 
@@ -9,6 +9,6 @@
 <script>
 export default {
     name: 'map-widget',
-    props: [ 'data', 'styles' ],
+    props: [ 'element' ],
 };
 </script>

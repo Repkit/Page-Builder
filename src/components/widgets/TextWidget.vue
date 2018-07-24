@@ -1,7 +1,7 @@
 <template>
-    <div class="widget text-widget" :style="styles">
+    <div class="widget text-widget" :style="element.styles">
 
-        {{data.text}}
+        {{element.data.text}}
 
     </div>
 </template>
@@ -9,6 +9,6 @@
 <script>
 export default {
     name: 'text-widget',
-    props: [ 'data', 'styles' ],
+    props: [ 'element' ],
 };
 </script>

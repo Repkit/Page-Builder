@@ -1,7 +1,7 @@
 <template>
-    <div class="widget image-widget" :style="styles">
+    <div class="widget image-widget" :style="element.styles">
 
-        <img :src="data.src" :alt="data.alt" />
+        <img :src="element.data.src" :alt="element.data.alt" />
 
     </div>
 </template>
@@ -9,6 +9,6 @@
 <script>
 export default {
     name: 'image-widget',
-    props: [ 'data', 'styles' ],
+    props: [ 'element' ],
 };
 </script>

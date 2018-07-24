@@ -1,20 +1,26 @@
 <template>
     <div class="site-details">
 
-        <div v-if="site">
-            <component v-if="site.sections" v-for="(section, idx) in site.sections"
-                :key="idx" :is="section.settings.type+'-widget'" :data="section.data" :styles="section.styles">
+        <template v-if="site">
+
+            <component v-if="site.elements" v-for="element in site.elements"
+                :key="element._id" :is="element.settings.type+'-widget'" :element="element">
             </component>
-        </div>
-        <div v-else>
+
+        </template>
+        <template v-else>
+
             Site Not Found.
-        </div>
+
+        </template>
 
     </div>
 </template>
 
 <script>
 import SiteService from '@/services/SiteService.js';
+
+import SectionWidget from '@/components/widgets/SectionWidget.vue';
 import TextWidget from '@/components/widgets/TextWidget.vue';
 import ImageWidget from '@/components/widgets/ImageWidget.vue';
 import ListWidget from '@/components/widgets/ListWidget.vue';
@@ -23,6 +29,7 @@ import MapWidget from '@/components/widgets/MapWidget.vue';
 export default {
     name: 'site-details',
     components: {
+        SectionWidget,
         TextWidget,
         ImageWidget,
         ListWidget,
@@ -33,7 +40,8 @@ export default {
             site: {
                 name: '',
                 thumb: '',
-                sections: null,
+                date: {},
+                elements: null,
             }
         }
     },
