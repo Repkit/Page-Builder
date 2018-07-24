@@ -16,8 +16,9 @@ export default {
         loadSites(context, payload) {
             return SiteService.query()
                 .then(sites => {
-                    console.log({ sites })
+                    console.log('sites are loaded',sites)
                     context.commit({ type: 'setSites', sites });
+                    return sites
                 })
         }
     }
