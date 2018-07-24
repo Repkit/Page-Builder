@@ -1,21 +1,20 @@
 <template>
     <section class="site-preview">
-        Hello this is a preview,
-        <h1>Name:<span>{{site.name}}</span></h1>
-        <img :src="site.thumb">
+        <h1><router-link :to="'/'+site._id">{{site.name}}</router-link></h1>
+        <router-link :to="'/'+site._id"><img :src="site.thumb"></router-link>
     </section>
 </template>
 
 <script>
 export default {
+  name: "site-nav",
   props: ["site"],
-  name: "site-nav"
 };
 </script>
 <style scoped>
-h1 span{
-    font-size: 15px;
-    padding-left: 12px;
+h1 span {
+  font-size: 15px;
+  padding-left: 12px;
 }
 </style>
 

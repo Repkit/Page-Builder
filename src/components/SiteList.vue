@@ -1,5 +1,5 @@
 <template>
-    <div class="site-app">
+    <div class="site-list">
         Welcome to site app
       <div class="sites-container">
         <div v-if="sites" v-for="site in sites" :key="site._id" class="site-container">
@@ -12,14 +12,15 @@
 <script>
 import SitePreview from "@/components/SitePreview.vue";
 export default {
-  name: "site-app",
+  name: "site-list",
+  props:['userId'],
   data() {
     return {
       sites: null
     };
   },
   created() {
-    this.$store.dispatch({ type: "loadSites" }).then(sites => {
+    this.$store.dispatch({ type: "loadSites",userId:this.userId }).then(sites => {
       this.sites = sites;
     });
   },
