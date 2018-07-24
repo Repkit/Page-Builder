@@ -4,7 +4,8 @@
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link> |
         <router-link to="/profile" v-if="isUserLogin">Profile</router-link>
-        {{ $store.getters.isUserLoggedIn ? 'hey ' + $store.getters.loggedInUser.userName : 'please login' }}
+        <span v-if="isUserLogin"> hey {{loggedInUser}}</span>
+        <span v-else >please login</span>
         <user-login></user-login>
         <button v-if="isUserLogin" @click.prevent="logOut">log-out</button>
 
@@ -19,6 +20,9 @@ export default {
   computed: {
     isUserLogin() {
       return this.$store.getters.isUserLoggedIn;
+    },
+    loggedInUser() {
+      return this.$store.getters.loggedInUser.userName;
     }
   },
   methods: {
@@ -31,6 +35,6 @@ export default {
         .then();
     }
   },
-  components: { UserLogin, }
+  components: { UserLogin }
 };
 </script>
