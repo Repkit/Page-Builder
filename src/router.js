@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import About from './views/About.vue';
 import Profile from './views/Profile.vue';
+import UserSites from './views/UserSites.vue';
 import SiteEdit from './views/SiteEdit.vue';
 import SiteDetails from './views/SiteDetails.vue';
 
@@ -13,9 +14,9 @@ export default new Router({
         { path: '/', name: 'Home', component: Home },
         { path: '/about', name: 'About', component: About },
         { path: '/profile', name: 'Profile', component: Profile },
-        { path: '/user/:userName', name: 'Profile', component: Profile },
+        { path: '/user/:userName', name: 'UserSites', component: UserSites },
         { path: '/add', name: 'SiteAdd', component: SiteEdit },
-        { path: '/:siteID/edit', name: 'SiteEdit', component: SiteEdit },
-        { path: '/:siteID', name: 'SiteDetails', component: SiteDetails },
+        { path: '/:siteId/edit', name: 'SiteEdit', component: SiteEdit },
+        { path: '/:siteId', name: 'SiteDetails', component: SiteDetails },
     ]
 })
