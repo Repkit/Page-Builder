@@ -1,9 +1,8 @@
-import axios from 'axios'
-import moment from 'moment'
+import axios from 'axios';
 
 // const USER_URL = (process.env.NODE_ENV !== 'development')
 //     ? '/user'
-//     : '//localhost:3003/user';
+//     : '//localhost:3000/user';
 
 const BASE_URL = 'mongodb://page_builder_user:page_builder43@ds145921.mlab.com:45921/page_builder/user';
 
