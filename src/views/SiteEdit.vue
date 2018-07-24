@@ -3,3 +3,9 @@
 
     </div>
 </template>
+
+<script>
+export default {
+    name: 'site-edit',
+};
+</script>
