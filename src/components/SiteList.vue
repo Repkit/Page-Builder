@@ -13,16 +13,18 @@
 import SitePreview from "@/components/SitePreview.vue";
 export default {
   name: "site-list",
-  props:['userId'],
+  props: ["userId"],
   data() {
     return {
       sites: null
     };
   },
   created() {
-    this.$store.dispatch({ type: "loadSites",userId:this.userId }).then(sites => {
-      this.sites = sites;
-    });
+    this.$store
+      .dispatch({ type: "loadSites", userId: this.userId })
+      .then(sites => {
+        this.sites = sites;
+      });
   },
   computed: {
     sitesToDisplay() {
@@ -43,12 +45,12 @@ export default {
   align-items: center;
   border: 2px solid #00000014;
 }
-.sites-container{
+.sites-container {
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
 .site-container {
-  width:300px;
+  width: 300px;
 }
 </style>
 
