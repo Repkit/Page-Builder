@@ -1,15 +1,13 @@
 <template>
     <div class="user-login">
-<form @submit.prevent="login">
-      <input v-model="user.userName"
-             type="text" >
-             <input v-model="user.password" type="password" >
-      <button>login</button>
-      <span v-if="isWorng"> worng credinatls</span>
-      <span v-if="loginSucsess"> welcome {{user.userName}}</span>
-
-    </form>
-
+        
+     <form @submit.prevent="login">
+        <input v-model="user.userName" type="text" >
+        <input v-model="user.password" type="password" >
+        <button>login</button>
+        <span v-if="isWorng"> worng credinatls</span>
+        <span v-if="loginSucsess"> welcome {{user.userName}}</span>
+      </form>
 
     </div>
 </template>

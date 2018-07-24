@@ -3,8 +3,12 @@ import AuthService from '@/services/AuthService';
 export default {
     state: {
         user: {
-            username: '',
-            _id: ''
+            userName: '',
+            password:'',
+            _id: '',
+            firstName:'',
+            lastName:'',
+            image:''
         }
     },
     getters: {
@@ -18,6 +22,7 @@ export default {
     },
     actions: {
         login(context, { user }) {
+            
             return AuthService.login(user)
                 .then(user => {
                     if (user) {
@@ -26,6 +31,10 @@ export default {
                     }
                     return user;
                 });
+        },
+        logOut(){
+            console.log('mod log out');
+            
         }
     }
 }
