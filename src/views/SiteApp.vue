@@ -1,9 +1,11 @@
 <template>
     <div class="site-app">
-        welcome to site app
-       <div v-if="sites" v-for="site in sites" :key="site._id" class="site-container">
-           <site-preview :site="site"></site-preview>
-       </div>
+        Welcome to site app
+      <div class="sites-container">
+        <div v-if="sites" v-for="site in sites" :key="site._id" class="site-container">
+          <site-preview :site="site"></site-preview>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -33,9 +35,19 @@ export default {
 </script>
 
 <style scoped>
-.site-container{
-margin: 10px;
-padding:25px;
+.site-container {
+  margin: 10px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  border: 2px solid #00000014;
+}
+.sites-container{
+  display: flex;
+  flex-wrap: wrap
+}
+.site-container {
+  width:300px;
 }
 </style>
 
