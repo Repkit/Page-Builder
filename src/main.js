@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import axios from 'axios';
 import '@/assets/scss/style.scss';
 
 import App from './App.vue';
