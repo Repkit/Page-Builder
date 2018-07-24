@@ -1,12 +1,12 @@
 <template>
     <div class="user-login">
-        
+
      <form @submit.prevent="login">
         <input v-model="user.userName" type="text" >
         <input v-model="user.password" type="password" >
         <button>login</button>
         <span v-if="isWorng"> worng credinatls</span>
-        <span v-if="loginSucsess"> welcome {{user.userName}}</span>
+        <span v-if="showLoginWelcome"> welcome {{user.userName}}</span>
       </form>
 
     </div>
@@ -19,12 +19,11 @@ export default {
     return {
       user: { userName: "shuvy", password: "pass" },
       isWorng: false,
-      loginSucsess: false
+      showLoginWelcome: false
     };
   },
   methods: {
     login() {
-      console.log("login front comp");
 
       this.$store
         .dispatch({
@@ -39,11 +38,10 @@ export default {
             this.isWorng = true;
           } else {
             this.isWorng = false;
-            this.loginSucsess = true;
-            console.log("user connect", user);
+            this.showLoginWelcome = true;
 
             setTimeout(() => {
-              this.loginSucsess = false;
+              this.showLoginWelcome = false;
             }, 2000);
           }
         });
