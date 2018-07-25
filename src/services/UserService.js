@@ -20,7 +20,6 @@ function query() {
 }
 
 function addUser(newUser) {
-    console.log('new user', newUser)
     return axios.post(BASE_URL, newUser)
         .then(res => res.data);
 }
