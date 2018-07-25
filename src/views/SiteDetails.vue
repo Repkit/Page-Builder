@@ -50,7 +50,7 @@ export default {
                     this.site = site;
                 })
                 .catch(err => {
-                    this.$router.push(`/notfound`);
+                    this.$router.push('/notfound');
                 });
         }
 	}
