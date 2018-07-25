@@ -28,7 +28,8 @@ export default {
   },
   data() {
     return {
-      items: [
+      items: this.element.element.data||
+      [
         { id:'sdsd',name: "Gal", content: 27 ,isShown:false},
         { id:'qdsc',name: "Idan", content: 28 ,isShown:false},
         { id:'sdsw',name: "Ofir", content: 24 ,isShown:false}
