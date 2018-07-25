@@ -20,6 +20,9 @@ import TextWidget from '@/components/widgets/TextWidget.vue';
 import ImageWidget from '@/components/widgets/ImageWidget.vue';
 import ListWidget from '@/components/widgets/ListWidget.vue';
 import MapWidget from '@/components/widgets/MapWidget.vue';
+import ButtonWidget from '@/components/widgets/ButtonWidget.vue';
+import ProgressBarWidget from '@/components/widgets/ProgressBarWidget.vue';
+import AcordionGroupWidget from '@/components/widgets/AcordionGroupWidget.vue';
 
 export default {
     name: 'site-details',
@@ -28,7 +31,10 @@ export default {
         TextWidget,
         ImageWidget,
         ListWidget,
-        MapWidget
+        MapWidget,
+        ButtonWidget,
+        ProgressBarWidget,
+        AcordionGroupWidget
     },
     data() {
         return {
