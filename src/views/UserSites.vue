@@ -21,7 +21,7 @@ export default {
     },
     created() {
         const userName = this.$route.params.userName;
-        this.$store.dispatch({ type: 'loadSites', userName })
+        this.$store.dispatch({ type: 'loadSitesByUserName', userName:userName })
             .then(sites => {
                 this.sites = sites;
             });
