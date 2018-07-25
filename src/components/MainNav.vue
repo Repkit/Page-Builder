@@ -7,7 +7,10 @@
             <li><router-link to="/profile" v-if="isUserLogin"> My Profile </router-link></li>
             <li><span @click="logout" v-if="isUserLogin"> Logout </span></li>
             <li><router-link to="/signup" v-if="!isUserLogin"> Signup </router-link></li>
-            <li><user-login v-if="!isUserLogin"></user-login></li>
+            <li>
+                <span @click="login" v-if="!isUserLogin"> Login </span>
+                <user-login v-if="!isUserLogin"></user-login>
+            </li>
         </ul>
 
     </div>
@@ -20,6 +23,9 @@ export default {
     name: 'main-nav',
     components: { UserLogin },
     methods: {
+        login() {
+            // TODO: Open a modal with user-login component
+        },
         logout() {
             this.$store.dispatch({ type: 'logOut' })
                 .then( () => {
