@@ -4,11 +4,11 @@ export default {
     state: {
         user: {
             userName: '',
-            password:'',
+            password: '',
             _id: '',
-            firstName:'',
-            lastName:'',
-            image:''
+            firstName: '',
+            lastName: '',
+            image: ''
         }
     },
     getters: {
@@ -18,23 +18,37 @@ export default {
     mutations: {
         setUser(state, { user }) {
             state.user = user;
+        },
+        logout(state) {
+            state.user = {
+                userName: '',
+                password: '',
+                _id: '',
+                firstName: '',
+                lastName: '',
+                image: ''
+            }
         }
     },
     actions: {
         login(context, { user }) {
-            
+
             return AuthService.login(user)
                 .then(user => {
-                    if (user) {                        
+                    if (user) {
                         context.commit({ type: 'setUser', user });
                         localStorage.setItem('loggedInUser', JSON.stringify(user));
                     }
                     return user;
                 });
         },
-        logOut(){
-            console.log('mod log out');
-            
+        logOut(context) {
+            return AuthService.logout()
+                .then(() => {
+                    context.commit({ type: 'logout', });
+                    localStorage.removeItem('loggedInUser');
+                })
+
         }
     }
 }
