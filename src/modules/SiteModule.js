@@ -37,7 +37,6 @@ export default {
         loadSitesByUserName(context, payload) {
             return SiteService.queryByName(payload.userName)
                 .then(sites => {
-                    console.log('frontend got sites', sites)
                     context.commit({ type: 'loadSites', sites });
                     return sites;
                 });
