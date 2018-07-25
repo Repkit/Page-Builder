@@ -1,4 +1,5 @@
 import AuthService from '@/services/AuthService';
+import UserService from '@/services/UserService';
 
 export default {
     state: {
@@ -31,6 +32,12 @@ export default {
         }
     },
     actions: {
+        signup(context, { user }) {
+            return UserService.addUser({ user })
+                .then(user => {
+                    return user;
+                });
+        },
         login(context, { user }) {
 
             return AuthService.login(user)

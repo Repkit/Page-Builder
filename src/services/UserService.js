@@ -4,7 +4,8 @@ import axios from 'axios';
 //     ? '/user'
 //     : '//localhost:3000/user';
 
-const BASE_URL = 'mongodb://page_builder_user:page_builder43@ds145921.mlab.com:45921/page_builder/user';
+// const BASE_URL = 'mongodb://page_builder_user:page_builder43@ds145921.mlab.com:45921/page_builder/user';
+const BASE_URL = 'http://localhost:3000';
 
 export default {
     addUser,
@@ -20,8 +21,7 @@ function query() {
 }
 
 function addUser(newUser) {
-    console.log('new user', newUser)
-    return axios.post(BASE_URL, newUser)
+    return axios.post(`${BASE_URL}/user`, newUser)
         .then(res => res.data);
 }
 
