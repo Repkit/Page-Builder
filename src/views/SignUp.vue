@@ -56,7 +56,6 @@ export default {
   methods: {
     signup() {
       var user = this.user;
-      console.log("signup", this.user);
       this.$store
         .dispatch({
           type: "signup",
