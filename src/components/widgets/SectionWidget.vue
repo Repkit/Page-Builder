@@ -11,6 +11,7 @@
 <script>
 import SectionWidget from '@/components/widgets/SectionWidget.vue';
 import TextWidget from '@/components/widgets/TextWidget.vue';
+import ButtonWidget from '@/components/widgets/ButtonWidget.vue';
 import ImageWidget from '@/components/widgets/ImageWidget.vue';
 import ListWidget from '@/components/widgets/ListWidget.vue';
 import MapWidget from '@/components/widgets/MapWidget.vue';
@@ -23,7 +24,8 @@ export default {
         TextWidget,
         ImageWidget,
         ListWidget,
-        MapWidget
+        MapWidget,
+        ButtonWidget
     }
 };
 </script>
