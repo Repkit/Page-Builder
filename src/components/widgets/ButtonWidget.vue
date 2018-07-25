@@ -1,9 +1,9 @@
 <template>
-    <div class="widget button-widget" :style="element.styles">
+    <button class="widget button-widget" :style="element.styles">
 
-        <button>{{element.data.text}}</button>
+        {{element.data.text}}
 
-    </div>
+    </button>
 </template>
 
 <script>
