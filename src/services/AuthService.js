@@ -11,7 +11,12 @@ function login( user ) {
     return axios.put(`${BASE_URL}/login`,user )
         .then(res => res.data);
 }
+function logout(){    
+    return axios.post(`${BASE_URL}/logout`)
+    .then(res => res.data);
+}
 
 export default {
-    login
+    login,
+    logout
 }

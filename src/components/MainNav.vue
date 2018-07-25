@@ -3,11 +3,8 @@
 
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link> |
-        <router-link to="/profile" v-if="isUserLogin">Profile</router-link>
-        <span v-if="isUserLogin"> hey {{loggedInUser}}</span>
-        <span v-else >please login</span>
-        <user-login></user-login>
-        <button v-if="isUserLogin" @click.prevent="logOut">log-out</button>
+        <router-link to="/profile" v-if="showProfile">Profile</router-link>
+        <user-login @is-login="isUser"></user-login>
 
     </div>
 </template>
@@ -16,25 +13,16 @@
 import UserLogin from "@/components/UserLogin.vue";
 export default {
   name: "main-nav",
-
-  computed: {
-    isUserLogin() {
-      return this.$store.getters.isUserLoggedIn;
-    },
-    loggedInUser() {
-      return this.$store.getters.loggedInUser.userName;
-    }
+  components: { UserLogin },
+  data() {
+    return {
+      showProfile: true
+    };
   },
   methods: {
-    logOut() {
-      console.log("log out");
-      this.$store
-        .dispatch({
-          type: "logOut"
-        })
-        .then();
+    isUser(val) {
+      this.showProfile = val;
     }
-  },
-  components: { UserLogin }
+  }
 };
 </script>
