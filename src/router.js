@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-
 import Home from './views/Home.vue';
 import About from './views/About.vue';
+import NotFound from './views/NotFound.vue';
 import SignUp from './views/SignUp.vue';
 import Profile from './views/Profile.vue';
 import UserSites from './views/UserSites.vue';
@@ -16,6 +16,7 @@ export default new Router({
         // Marketing Pages
         { path: '/', name: 'Home', component: Home },
         { path: '/about', name: 'About', component: About },
+        { path: '/notfound', name: 'NotFound', component: NotFound },
 
         // User
         { path: '/signup', name: 'SignUp', component: SignUp },
