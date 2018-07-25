@@ -15,7 +15,7 @@ export default {
   components: { UserLogin },
   data() {
     return {
-      showProfile: true
+      showProfile: false
     };
   },
   methods: {
