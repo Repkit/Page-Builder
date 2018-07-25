@@ -42,11 +42,14 @@ export default {
 section {
     padding: 50px 0;
     text-align: center;
+
     &.main {
         background-color: #ffcc46;
+
         .container {
             max-width: 800px;
             margin: 0 auto;
+
             h1 {
                 margin-top: 0;
                 font-size: 3em;
@@ -54,6 +57,7 @@ section {
                 line-height: 1.25;
                 color: #f52;
             }
+
             p {
                 margin-top: 0;
                 font-size: 1.75em;
@@ -62,16 +66,20 @@ section {
             }
         }
     }
+
     &.anything {
         background-color: #fff;
+
         .container {
             max-width: 800px;
             margin: 0 auto;
+
             h2 {
                 margin-top: 0;
                 font-size: 1.75em;
                 font-weight: 700;
             }
+
             p {
                 margin-bottom: 0;
                 font-size: 1.5em;
@@ -79,16 +87,20 @@ section {
             }
         }
     }
+
     &.customization {
         background-color: #f7f7f7;
+
         .container {
             max-width: 800px;
             margin: 0 auto;
+
             h2 {
                 margin-top: 0;
                 font-size: 1.75em;
                 font-weight: 700;
             }
+
             p {
                 margin-bottom: 0;
                 font-size: 1.25em;

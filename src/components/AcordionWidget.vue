@@ -1,21 +1,17 @@
-
 <template>
     <section class="accordion" @click="onClickHandler">
+
         <section class="accordion-container">
             <div name="title">{{item.name}}</div>
             <div name="content" v-if="item.isShown">{{item.content}}</div>
-        </section>        
+        </section>
+
     </section>        
 </template>
 
-
 <script>
 export default {
-    props:['item'],
-    data() {
-        return {
-        }
-    },
+    props: [ 'item' ],
     methods: {
         onClickHandler() {
             this.$emit('clicked',this.item.id)
@@ -28,5 +24,4 @@ export default {
 .accordion-container{
     text-align: center;
 }
-
 </style>

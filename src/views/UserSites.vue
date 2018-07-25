@@ -53,12 +53,15 @@ export default {
 section {
     padding: 20px 0;
     text-align: center;
+
     &.user-data {
         background-color: #ffcc46;
     }
+
     .container {
         max-width: 1000px;
         margin: 0 auto;
+
         img {
             margin: 0 auto;
             display: block;
@@ -68,6 +71,7 @@ section {
             width: 150px;
             height: auto;
         }
+
         h1 {
             margin: 0;
             font-size: 2.5em;
@@ -75,6 +79,7 @@ section {
             line-height: 1.25;
             color: #f52;
         }
+
         p {
             margin: 0;
             font-size: 1.5em;

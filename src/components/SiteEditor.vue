@@ -20,17 +20,18 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .site-editor {
     background-color: #333;
     color: #eee;
     height: 100vh;
-}
-h1 {
-    margin: 0;
-    padding: 0;
-    line-height: 1.5;
-    text-align: center;
-    border-bottom: 1px solid #eee;
+
+    h1 {
+        margin: 0;
+        padding: 0;
+        line-height: 1.5;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
 }
 </style>

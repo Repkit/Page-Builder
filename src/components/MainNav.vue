@@ -49,8 +49,8 @@ export default {
     padding: 20px 0;
     text-align: center;
 
-li {
-    padding: 0.5em 1em;
+    li {
+        padding: 0.5em 1em;
 
         a {
             font-weight: bold;
