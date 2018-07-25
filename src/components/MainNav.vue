@@ -22,7 +22,9 @@ export default {
     methods: {
         logout() {
             this.$store.dispatch({ type: 'logOut' })
-                .then();
+                .then( () => {
+                    this.$router.push('/');
+                });
         }
     },
     computed: {
