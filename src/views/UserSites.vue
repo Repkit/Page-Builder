@@ -1,10 +1,9 @@
 <template>
     <div class="user-sites">
 
-
         <h1>This is the user sites list</h1>
 
-        <site-list></site-list>
+        <site-list :sites="sitesToDisplay"></site-list>
 
     </div>
 </template>
@@ -14,6 +13,23 @@ import SiteList from '@/components/SiteList.vue';
 
 export default {
     name: 'user-sites',
-    components: { SiteList }
+    components: { SiteList },
+    data() {
+        return {
+            sites: null
+        };
+    },
+    created() {
+        const userName = this.$route.params.userName;
+        this.$store.dispatch({ type: 'loadSites', userName })
+            .then(sites => {
+                this.sites = sites;
+            });
+    },
+    computed: {
+        sitesToDisplay() {
+            return this.$store.getters.sitesToDisplay;
+        }
+    }
 };
 </script>

@@ -1,21 +1,31 @@
 <template>
-    <section class="site-preview">
-        <h1><router-link :to="'/'+site._id">{{site.name}}</router-link></h1>
+    <div class="site-preview">
+
+        <h3><router-link :to="'/'+site._id">{{site.name}}</router-link></h3>
+
         <router-link :to="'/'+site._id"><img :src="site.thumb"></router-link>
-    </section>
+
+    </div>
 </template>
 
 <script>
 export default {
-  name: "site-nav",
-  props: ["site"],
+    name: 'site-preview',
+    props: [ 'site' ],
 };
 </script>
-<style scoped>
-h1 span {
-  font-size: 15px;
-  padding-left: 12px;
+
+<style>
+.site-preview {
+    margin: 10px;
+    padding: 25px;
+    align-items: center;
+    border: 2px solid #00000014;
+    width: 300px;
+}
+h3 {
+    text-align: center;
+    display: block;
+    margin-top: 0;
 }
 </style>
-
-
