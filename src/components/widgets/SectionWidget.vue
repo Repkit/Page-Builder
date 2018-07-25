@@ -11,10 +11,12 @@
 <script>
 import SectionWidget from '@/components/widgets/SectionWidget.vue';
 import TextWidget from '@/components/widgets/TextWidget.vue';
-import ButtonWidget from '@/components/widgets/ButtonWidget.vue';
 import ImageWidget from '@/components/widgets/ImageWidget.vue';
 import ListWidget from '@/components/widgets/ListWidget.vue';
 import MapWidget from '@/components/widgets/MapWidget.vue';
+import ButtonWidget from '@/components/widgets/ButtonWidget.vue';
+import ProgressBarWidget from '@/components/widgets/ProgressBarWidget.vue';
+import AcordionGroupWidget from '@/components/widgets/AcordionGroupWidget.vue';
 
 export default {
     name: 'section-widget',
@@ -25,7 +27,9 @@ export default {
         ImageWidget,
         ListWidget,
         MapWidget,
-        ButtonWidget
+        ButtonWidget,
+        ProgressBarWidget,
+        AcordionGroupWidget
     }
 };
 </script>
