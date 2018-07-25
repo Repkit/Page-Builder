@@ -1,13 +1,12 @@
 <template>
-    <div class="user-details">
+    <div class="user-details" v-if="user">
 
-        <div v-if="user">
-            <p><strong>User Name:</strong> {{user.userName}}</p>
-            <p><strong>First Name:</strong> {{user.firstName}}</p>
-            <p><strong>Last Name:</strong> {{user.lastName}}</p>
-            <p><strong>Site URL:</strong> <a :href="user.site">{{user.site}}</a></p>
-            <button v-if="user">edit my profile</button>
-        </div>
+        <a v-if="user.site" :href="user.site">
+            <img :src="user.image" />
+        </a>
+        <img v-else :src="user.image">
+        <h1>{{user.firstName}} {{user.lastName}}</h1>
+        <p>({{user.userName}})</p>
 
     </div>
 </template>
@@ -18,3 +17,29 @@ export default {
     props: ['user'],
 };
 </script>
+
+<style scoped lang="scss">
+img {
+    margin: 0 auto;
+    display: block;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: #000 0 0 10px;
+    width: 150px;
+    height: auto;
+}
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #f52;
+}
+p {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #111;
+}
+</style>

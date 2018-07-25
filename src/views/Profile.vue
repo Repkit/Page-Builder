@@ -3,16 +3,18 @@
 
         <main-nav></main-nav>
 
-        <h1>User Profile</h1>
+        <section class="user-data" v-if="isUserLogin">
+            <div class="container">
+                <user-details :user="loggedInUser"></user-details>
+            </div>
+        </section>
 
-        <div v-if="isUserLogin">
-
-            <user-details :user="loggedInUser"></user-details>
-
-            <h2>User Sites</h2>
-            <site-list :sites="sitesToDisplay"></site-list>
-
-        </div>
+        <section class="user-sites" v-if="isUserLogin">
+            <div class="container">
+                <site-list v-if="sites" :sites="sites"></site-list>
+                <p v-else>No sites yet, create new site now.</p>
+            </div>
+        </section>
 
     </div>
 </template>
@@ -56,3 +58,17 @@ export default {
     }
 };
 </script>
+
+<style scoped lang="scss">
+section {
+    padding: 20px 0;
+    text-align: center;
+    &.user-data {
+        background-color: #ffcc46;
+    }
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
+</style>

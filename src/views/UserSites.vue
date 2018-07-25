@@ -8,7 +8,6 @@
                 <img src="https://randomuser.me/api/portraits/men/9.jpg">
                 <h1>{{this.$route.params.userName}}</h1>
                 <p>First-Name, Last-Name</p>
-
             </div>
         </section>
 
@@ -66,6 +65,8 @@ section {
             border-radius: 50%;
             border: 3px solid #fff;
             box-shadow: #000 0 0 10px;
+            width: 150px;
+            height: auto;
         }
         h1 {
             margin: 0;
