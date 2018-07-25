@@ -26,8 +26,16 @@ export default {
         }
     },
     actions: {
-        loadSites(context, { userId }) {
-            return SiteService.query(userId)
+        loadSites(context, payload) {
+            var filterBy = { user_id: payload.user._id }
+            return SiteService.query(filterBy)
+                .then(sites => {
+                    context.commit({ type: 'loadSites', sites });
+                    return sites;
+                });
+        },
+        loadSitesByUserName(context, payload) {
+            return SiteService.queryByName(payload.userName)
                 .then(sites => {
                     context.commit({ type: 'loadSites', sites });
                     return sites;
