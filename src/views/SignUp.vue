@@ -2,8 +2,7 @@
     <div class="sign-up">
 
      <main-nav></main-nav>
-     <h1>This is the signup</h1>
-     <div v-if=" isUserLogin">If you wish to register you must first log out</div>
+     <div v-if=" isUserLogin">You are a logged in user</div>
      <form v-else @submit.prevent="signup">
         <p>
             <input v-model="user.userName" type="text" placeholder="UserName" required>

@@ -34,9 +34,7 @@ export default {
     actions: {
         signup(context, { user }) {
             return UserService.addUser({ user })
-                .then(user => {
-                    return user;
-                });
+                .then(user => user);
         },
         login(context, { user }) {
 
