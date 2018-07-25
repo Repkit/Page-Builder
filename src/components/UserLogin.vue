@@ -1,6 +1,5 @@
 <template>
     <div class="user-login">
-
      <form v-if="!isUserLogin" @submit.prevent="login">
         <span>please login </span>
         <input v-model="user.userName" type="text" >
@@ -9,7 +8,7 @@
         <span v-if="isWorng"> worng credinatls</span>
       </form>
 
-      <span v-if="showLoginWelcome"> welcome {{user.userName}}</span>
+      <router-link v-if="!isUserLogin" to="/signup"> -Signup- </router-link> 
       <span v-if="isUserLogin"> hey {{loggedInUser}}  </span>
       <button v-if="isUserLogin" @click.prevent="logOut">  log-out</button>
     </div>
@@ -21,8 +20,7 @@ export default {
   data() {
     return {
       user: { userName: "shuvy", password: "pass" },
-      isWorng: false,
-      showLoginWelcome: false
+      isWorng: false
     };
   },
   computed: {
@@ -50,11 +48,6 @@ export default {
             this.userLogin = true;
             this.$emit("is-login", true);
             this.isWorng = false;
-            this.showLoginWelcome = true;
-
-            setTimeout(() => {
-              this.showLoginWelcome = false;
-            }, 2000);
           }
         });
     },

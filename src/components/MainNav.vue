@@ -5,7 +5,6 @@
         <router-link to="/about">About</router-link> |
         <router-link to="/profile" v-if="showProfile">Profile</router-link>
         <user-login @is-login="isUser"></user-login>
-
     </div>
 </template>
 
