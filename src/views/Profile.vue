@@ -34,18 +34,17 @@ export default {
     created() {
         // User data
         this.user = this.loggedInUser;
-
-        // User sites
-        const userName = this.$route.params.userName;
-        this.$store.dispatch({ type: 'loadSites', userName })
+                // User sites
+        this.$store.dispatch({ type: 'loadSitesByUserName', userName:this.user.userName })
             .then(sites => {
                 this.sites = sites;
             });
+
+
+        
     },
     methods: {
-        userConnect() {
-            this.user = this.$store.getters.loggedInUser;
-        }
+
     },
     computed: {
         loggedInUser() {
