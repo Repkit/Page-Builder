@@ -2,11 +2,10 @@
     <div class="user-login">
 
         <form @submit.prevent="login">
-            <span>please login </span>
-            <input v-model="user.userName" type="text" placeholder="Enter user name...">
-            <input v-model="user.password" type="password" placeholder="Enter password...">
-            <button>login</button>
-            <span v-if="isWorngCreds">Worng credinatls.</span>
+            <input v-model="user.userName" type="text" placeholder="Enter user name..." />
+            <input v-model="user.password" type="password" placeholder="Enter password..." />
+            <button>Login</button>
+            <span v-if="isWorngCreds">Worng credentials.</span>
         </form>
 
     </div>
@@ -37,13 +36,9 @@ export default {
             let user = { userName: this.user.userName, password: this.user.password };
             this.$store.dispatch({ type: 'login', user })
                 .then(user => {
-                    if (!user) {
-                        this.isWorngCreds = true;
-                    } else {
-                        this.isWorngCreds = false;
-                    }
+                    this.isWorngCreds = (user) ? false : true;
                 });
-        },
+        }
     }
 };
 </script>
