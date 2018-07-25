@@ -26,8 +26,7 @@ export default {
         }
     },
     actions: {
-        loadSites(context, payload) {
-            var userId=payload.userId;
+        loadSites(context, { userId }) {
             return SiteService.query(userId)
                 .then(sites => {
                     context.commit({ type: 'loadSites', sites });
