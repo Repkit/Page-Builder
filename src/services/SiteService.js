@@ -7,17 +7,13 @@ import axios from 'axios';
 // const BASE_URL = 'mongodb://page_builder_user:page_builder43@ds145921.mlab.com:45921/page_builder/site';
 const BASE_URL = '//localhost:3000/site';
 
-function query(userId='') {
-    console.log('services site userId:',userId)
-    if(userId){
-        return axios.get(`${BASE_URL}/${userId}`)
+function query(filterBy = { name: '', user_id: '' }) {
+    return axios.get(`${BASE_URL}?name=${filterBy.name}&user_id=${filterBy.user_id}`)
         .then(res => res.data);
-    }
-    else{
-
-        return axios.get(BASE_URL,userId)
+}
+function queryByName(userName) {
+    return axios.get(`${BASE_URL}/user/${userName}`)
         .then(res => res.data);
-    }
 }
 
 function getById(id) {
@@ -25,7 +21,14 @@ function getById(id) {
         .then(res => res.data);
 }
 
+function getByUserName(userName) {
+    return axios.get(`${BASE_URL}/user/${userName}`)
+        .then(res => res.data);
+}
+
 export default {
     query,
-    getById
+    queryByName,
+    getById,
+    getByUserName
 }

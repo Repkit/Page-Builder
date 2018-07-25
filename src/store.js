@@ -9,11 +9,5 @@ export default new Vuex.Store({
     modules: {
         UserModule,
         SiteModule
-    },
-    state: {
-    },
-    mutations: {
-    },
-    actions: {
     }
-})
+});

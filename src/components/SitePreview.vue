@@ -15,7 +15,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .site-preview {
     margin: 10px;
     padding: 25px;
