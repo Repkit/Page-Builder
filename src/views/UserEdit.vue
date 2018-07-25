@@ -1,11 +1,11 @@
 <template>
-    <div class="site-nav">
+    <div class="user-edit">
 
     </div>
 </template>
 
 <script>
 export default {
-    name: 'site-nav',
+    name: 'user-edit',
 };
 </script>

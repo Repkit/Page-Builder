@@ -2,7 +2,6 @@
     <div class="user-details">
 
     </div>
-    
 </template>
 
 <script>

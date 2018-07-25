@@ -5,6 +5,7 @@ import About from './views/About.vue';
 import NotFound from './views/NotFound.vue';
 import SignUp from './views/SignUp.vue';
 import Profile from './views/Profile.vue';
+import UserEdit from './views/UserEdit.vue';
 import UserSites from './views/UserSites.vue';
 import SiteEdit from './views/SiteEdit.vue';
 import SiteDetails from './views/SiteDetails.vue';
@@ -21,6 +22,7 @@ export default new Router({
         // User
         { path: '/signup', name: 'SignUp', component: SignUp },
         { path: '/profile', name: 'Profile', component: Profile },
+        { path: '/profile/edit', name: 'UserEdit', component: UserEdit },
         { path: '/user/:userName', name: 'UserSites', component: UserSites },
 
         // Sites
