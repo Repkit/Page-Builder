@@ -4,12 +4,8 @@ import UserService from '@/services/UserService';
 export default {
     state: {
         user: {
-            userName: '',
-            password: '',
-            _id: '',
-            firstName: '',
-            lastName: '',
-            image: ''
+            _id: null,
+            userName: ''
         }
     },
     getters: {
@@ -22,12 +18,8 @@ export default {
         },
         logout(state) {
             state.user = {
-                userName: '',
-                password: '',
-                _id: '',
-                firstName: '',
-                lastName: '',
-                image: ''
+                _id: null,
+                userName: ''
             }
         }
     },
@@ -37,7 +29,6 @@ export default {
                 .then(user => user);
         },
         login(context, { user }) {
-
             return AuthService.login(user)
                 .then(user => {
                     if (user) {
@@ -52,8 +43,7 @@ export default {
                 .then(() => {
                     context.commit({ type: 'logout', });
                     localStorage.removeItem('loggedInUser');
-                })
-
+                });
         }
     }
 }

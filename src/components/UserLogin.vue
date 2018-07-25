@@ -1,64 +1,49 @@
 <template>
     <div class="user-login">
-     <form v-if="!isUserLogin" @submit.prevent="login">
-        <span>please login </span>
-        <input v-model="user.userName" type="text" >
-        <input v-model="user.password" type="password" >
-        <button>login</button>
-        <span v-if="isWorng"> worng credinatls</span>
-      </form>
 
-      <router-link v-if="!isUserLogin" to="/signup"> -Signup- </router-link> 
-      <span v-if="isUserLogin"> hey {{loggedInUser}}  </span>
-      <button v-if="isUserLogin" @click.prevent="logOut">  log-out</button>
+        <form @submit.prevent="login">
+            <span>please login </span>
+            <input v-model="user.userName" type="text" placeholder="Enter user name...">
+            <input v-model="user.password" type="password" placeholder="Enter password...">
+            <button>login</button>
+            <span v-if="isWorngCreds">Worng credinatls.</span>
+        </form>
+
     </div>
 </template>
 
 <script>
 export default {
-  name: "user-login",
-  data() {
-    return {
-      user: { userName: "shuvy", password: "pass" },
-      isWorng: false
-    };
-  },
-  computed: {
-    isUserLogin() {
-      return this.$store.getters.isUserLoggedIn;
+    name: 'user-login',
+    data() {
+        return {
+            user: {
+                userName: '',
+                password: ''
+            },
+            isWorngCreds: false
+        };
     },
-    loggedInUser() {
-      return this.$store.getters.loggedInUser.userName;
-    }
-  },
-  methods: {
-    login() {
-      this.$store
-        .dispatch({
-          type: "login",
-          user: {
-            userName: this.user.userName,
-            password: this.user.password
-          }
-        })
-        .then(user => {
-          if (!user) {
-            this.isWorng = true;
-          } else {
-            this.userLogin = true;
-            this.$emit("is-login", true);
-            this.isWorng = false;
-          }
-        });
+    computed: {
+        isUserLogin() {
+            return this.$store.getters.isUserLoggedIn;
+        },
+        loggedInUser() {
+            return this.$store.getters.loggedInUser.userName;
+        }
     },
-    logOut() {
-      this.$emit("is-login", false);
-      this.$store
-        .dispatch({
-          type: "logOut"
-        })
-        .then();
+    methods: {
+        login() {
+            let user = { userName: this.user.userName, password: this.user.password };
+            this.$store.dispatch({ type: 'login', user })
+                .then(user => {
+                    if (!user) {
+                        this.isWorngCreds = true;
+                    } else {
+                        this.isWorngCreds = false;
+                    }
+                });
+        },
     }
-  }
 };
 </script>

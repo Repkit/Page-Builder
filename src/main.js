@@ -17,8 +17,8 @@ new Vue({
     store,
     render: h => h(App),
     created() {
-        var user = localStorage.getItem('loggedInUser')
-        user = JSON.parse(user)
+        var user = localStorage.getItem('loggedInUser');
+        user = JSON.parse(user);
         if (user) {
             this.$store.commit({ type: 'setUser', user })
         }
