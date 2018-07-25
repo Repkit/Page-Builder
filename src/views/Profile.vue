@@ -20,39 +20,35 @@
 
 <script>
 import MainNav from "@/components/MainNav.vue";
-import SiteList from '@/components/SiteList.vue';
+import SiteList from "@/components/SiteList.vue";
 
 export default {
-    name: 'profile',
-    components: { MainNav, SiteList },
-    data() {
-        return {
-            user: null,
-            sites: null
-        };
+  name: "profile",
+  components: { MainNav, SiteList },
+  data() {
+    return {
+      user: null,
+      sites: null
+    };
+  },
+  created() {
+    // User data
+    this.user = this.loggedInUser;
+    // User sites
+    this.$store
+      .dispatch({ type: "loadSitesByUserName", userName: this.user.userName })
+      .then(sites => {
+        this.sites = sites;
+      });
+  },
+  methods: {},
+  computed: {
+    loggedInUser() {
+      return this.$store.getters.loggedInUser;
     },
-    created() {
-        // User data
-        this.user = this.loggedInUser;
-                // User sites
-        this.$store.dispatch({ type: 'loadSitesByUserName', userName:this.user.userName })
-            .then(sites => {
-                this.sites = sites;
-            });
-
-
-        
-    },
-    methods: {
-
-    },
-    computed: {
-        loggedInUser() {
-            return this.$store.getters.loggedInUser;
-        },
-        sitesToDisplay() {
-            return this.$store.getters.sitesToDisplay;
-        }
+    sitesToDisplay() {
+      return this.$store.getters.sitesToDisplay;
     }
+  }
 };
 </script>
