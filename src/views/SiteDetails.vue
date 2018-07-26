@@ -4,7 +4,7 @@
         <template v-if="site">
 
             <component v-if="site.elements" v-for="element in site.elements"
-                :key="element._id" :is="element.settings.type+'-widget'" :element="element">
+                :key="element._id" :is="element.settings.type+'-widget'" :element="element" :isEditMode="false">
             </component>
 
         </template>

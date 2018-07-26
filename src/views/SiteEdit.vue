@@ -3,19 +3,19 @@
 
         <SplitArea :size="15" :minSize="100">
 
-            <site-editor @add-element="addElement"></site-editor>
+            <site-editor :site="site" :selected="selectedElement" @add-element="addElement"></site-editor>
 
         </SplitArea>
 
         <SplitArea :size="85">
 
-                <component v-if="site.elements" v-for="element in site.elements"
-                    :key="element._id" :is="element.settings.type+'-widget'" :element="element">
-                </component>
+            <component v-if="site.elements" v-for="element in site.elements"
+                :key="element._id" :is="element.settings.type+'-widget'" :element="element" :isEditMode="true">
+            </component>
 
-                <div class="add-section" @click="addElement('section')">
-                    Add New Section
-                </div>
+            <div class="add-section" @click="addElement('section')">
+                Add New Section
+            </div>
 
         </SplitArea>
 
@@ -57,7 +57,8 @@ export default {
                 thumb: '',
                 date: {},
                 elements: null,
-            }
+            },
+            selectedElement: 'ccccccccccccccccccccc'
         }
     },
     created() {
@@ -84,8 +85,28 @@ export default {
 .site-edit {
     height: 100vh; /* required for split */
 
-    .widget:hover {
-        outline: 2px solid lightskyblue;
+    .widget {
+        position: relative;
+
+        .element-actions {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            display: none;
+        }
+
+        &:hover {
+            outline: 2px solid lightskyblue;
+
+            > .element-actions {
+                display: block;
+            }
+        }
+
+        // .selected {
+        //     outline: 2px solid lightcoral;
+        // }
     }
 
     .add-section {

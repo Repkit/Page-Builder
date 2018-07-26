@@ -3,24 +3,31 @@
 
         <h1>Page Builder</h1>
 
-        <div class="site-editor-inner">
-            <div>Publish</div>
-            <div>Save</div>
-            <div>Update</div>
-            <div>Delete</div>
-            <div>Preview</div>
-        </div>
-
         <div class="new-section">
             <div @click="$emit('add-element', 'section')">Add New Section</div>
+        </div>
+
+        <div class="selected-element" v-if="selectedElement">
+            Selected Element
+            <br><br>
+            <p v-if="selectedElement"><strong>ID:</strong> {{selectedElement._id}}</p>
+            <p v-if="selectedElement"><strong>Type:</strong> {{selectedElement.settings.type}}</p>
         </div>
 
     </aside>
 </template>
 
 <script>
+import EditorService from '@/services/EditorService.js';
+
 export default {
     name: 'site-editor',
+    props: [ 'site', 'selected' ],
+    computed: {
+        selectedElement() {
+            return (this.site && this.site._id) ? EditorService.getSelectedElementById(this.site, this.selected) : null;
+        }
+    }
 };
 </script>
 
@@ -33,15 +40,32 @@ export default {
     h1 {
         margin: 0;
         padding: 0;
-        line-height: 1.5;
+        line-height: 1;
         text-align: center;
+        padding-top: 0.25em;
+        padding-bottom: 0.5em;
         border-bottom: 1px solid #eee;
     }
 
     > div {
-        border-bottom: 1px solid #eee;
+        padding-top: 1em;
         padding-bottom: 1em;
-        margin-bottom: 1em;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+
+        &.new-section {
+            cursor: pointer;
+
+            &:hover {
+                background-color: #666;
+            }
+        }
+
+        &.selected-element {
+            p {
+                text-align: left;
+            }
+        }
     }
 }
 </style>

@@ -1,19 +1,14 @@
 <template>
-    <div class="widget section-widget" :style="element.styles"
-        :class="{ ['widget-'+element._id]: element._id, selected: isEditMode }">
+    <div class="inner-elements">
 
         <component v-if="element.elements" v-for="element in element.elements"
-            :key="element._id" :is="element.settings.type+'-widget'" :element="element" :isEditMode="isEditMode">
+            :key="element._id" :is="element.settings.type+'-widget'" :element="element">
         </component>
-
-        <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
     </div>
 </template>
 
 <script>
-import ElementActions from '@/components/ElementActions.vue';
-
 import SectionWidget from '@/components/widgets/SectionWidget.vue';
 import TextWidget from '@/components/widgets/TextWidget.vue';
 import ImageWidget from '@/components/widgets/ImageWidget.vue';
@@ -25,10 +20,9 @@ import AcordionGroupWidget from '@/components/widgets/AcordionGroupWidget.vue';
 import CounterWidget from '@/components/widgets/CounterWidget.vue';
 
 export default {
-    name: 'section-widget',
-    props: [ 'element', 'isEditMode' ],
+    name: 'recursive-elements-loading',
+    props: [ 'element' ],
     components: {
-        ElementActions,
         SectionWidget,
         TextWidget,
         ImageWidget,

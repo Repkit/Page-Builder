@@ -1,8 +1,7 @@
-
-
 <template>
-    <!-- <div class="widget button-widget" :style="element.styles"> -->
-    <div class="widget acordion-group-widget">
+    <div class="widget acordion-group-widget" :style="element.styles"
+        :class="{ ['widget-'+element._id]: element._id, selected: isEditMode }">
+
         <section class="accordion-group" v-for="item in items" :key="item.id"> -->
             <section class="accordion-container" @click="toggleIsShown(item)">
                 <div name="title">{{item.name}}</div>
@@ -10,31 +9,34 @@
             </section>
         </section>
 
+        <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
     </div>
 </template>
 
 <script>
+import ElementActions from '@/components/ElementActions.vue';
 
 export default {
-  name: "acordion-group-widget",
-  props: ["element"],
-  methods: {
-    toggleIsShown(item) {
-        item.isShown = !item.isShown;
-    }
-  },
-  data() {
+    name: 'acordion-group-widget',
+    props: [ 'element', 'isEditMode' ],
+    components: { ElementActions },
+    methods: {
+        toggleIsShown(item) {
+            item.isShown = !item.isShown;
+        }
+    },
+    data() {
         return {
             items:[
-                { id: "sdsd", name: "Gal", content: 27, isShown: false },
-                { id: "qdsc", name: "Idan", content: 28, isShown: false },
-                { id: "sdsw", name: "Ofir", content: 24, isShown: false }
+                { id: 'sdsd', name: 'Gali', content: 27, isShown: false },
+                { id: 'qdsc', name: 'Idan', content: 28, isShown: false },
+                { id: 'sdsw', name: 'Ofir', content: 24, isShown: false }
             ],
         };
     },
-    created(){
-      if(this.element.element.data.isArray()) this.items=this.element.element.data
+    created() {
+        if (this.element.element.data.isArray()) this.items = this.element.element.data;
     }
 };
 </script>
@@ -43,14 +45,12 @@ export default {
 .accordion-container{
     text-align: center;
 }
-
 .acordion-group-widget {
-  width: 36vw;
-  margin: 0 auto;
+    width: 36vw;
+    margin: 0 auto;
 }
 .accordion-group {
-  cursor: pointer;
-  border: 1px solid black;
+    cursor: pointer;
+    border: 1px solid black;
 }
 </style>
-
