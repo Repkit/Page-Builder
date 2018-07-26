@@ -38,6 +38,9 @@ export default {
         this.loadUser( this.$route.params.userName )
             .then(user => {
                 this.loadUserSites( user );
+            })
+            .catch(err=> {
+                this.$router.push('/notfound');
             });
     },
 	methods: {
