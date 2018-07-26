@@ -1,5 +1,5 @@
 <template>
-    <Split class="site-edit">
+    <Split class="site-edit" v-if="site">
 
         <SplitArea :size="15" :minSize="100">
 
@@ -9,8 +9,6 @@
 
         <SplitArea :size="85">
 
-            <div v-if="site">
-
                 <component v-if="site.elements" v-for="element in site.elements"
                     :key="element._id" :is="element.settings.type+'-widget'" :element="element">
                 </component>
@@ -18,8 +16,6 @@
                 <div class="add-section" @click="addElement('section')">
                     Add New Section
                 </div>
-
-            </div>
 
         </SplitArea>
 
