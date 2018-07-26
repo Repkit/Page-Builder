@@ -1,5 +1,6 @@
 export default {
-    makeId
+    makeId,
+    emptyElement
 }
 
 function makeId(length = 20) {
@@ -10,4 +11,20 @@ function makeId(length = 20) {
         text += possible.charAt(Math.floor(Math.random() * possible.length));
 
     return text;
+}
+
+function emptyElement(type) {
+    let data = {};
+    if (type === 'section') data = { layout: 'boxed', width: '1200px' }; // layout: full_width / boxed
+
+    let style = {};
+    if (type === 'section') style = { margin: '0', padding: '10px', color: 'blue', minHeight: '100px' };
+
+    return {
+        _id: makeId(20),
+        settings: { type },
+        data: data,
+        styles: style,
+        elements: []
+    };
 }
