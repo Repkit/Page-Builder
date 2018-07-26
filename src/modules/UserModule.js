@@ -24,6 +24,10 @@ export default {
         }
     },
     actions: {
+        updateUser(context, { user }) {
+            return UserService.updateUser(user)
+                .then(user => user);
+        },
         signup(context, { user }) {
             return UserService.addUser({ user })
                 .then(user => user);

@@ -69,16 +69,15 @@ export default {
           }
         })
         .then(() => {
-          this.user = {
-            userName: "",
-            password: "",
-            firstName: "",
-            lastName: "",
-            site: "",
-            image: ""
+          let user = {
+            userName: this.user.userName,
+            password: this.user.password
           };
+          this.$store.dispatch({ type: "login", user }).then(user => {
+            if (user) this.$router.push(`/profile`);
+          });
         });
-    }
+    },
   }
 };
 </script>

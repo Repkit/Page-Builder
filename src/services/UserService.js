@@ -26,7 +26,10 @@ function query(filterBy = { id: '', name: '' }) {
 
 function addUser(newUser) {
     return axios.post(`${BASE_URL}`, newUser)
-        .then(res => res.data);
+        .then(res => res.data)
+        .catch(err => {
+            console.log(err);
+        });
 }
 
 function updateUser(updatedUser) {
