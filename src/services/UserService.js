@@ -5,23 +5,27 @@ import axios from 'axios';
 //     : '//localhost:3000/user';
 
 // const BASE_URL = 'mongodb://page_builder_user:page_builder43@ds145921.mlab.com:45921/page_builder/user';
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = '//localhost:3000/user';
 
 export default {
+    query,
     addUser,
     updateUser,
-    query,
     removeUser,
     getUserById,
 }
 
-function query() {
-    return axios.get(BASE_URL)
+function query(filterBy = { id: '', name: '' }) {
+    let queryParams = '';
+    if ( filterBy.id !== 'undefined' ) queryParams += `id=${filterBy.id}&`
+    if ( filterBy.name !== 'undefined' ) queryParams += `name=${filterBy.name}&`
+
+    return axios.get(`${BASE_URL}?${queryParams}`)
         .then(res => res.data);
 }
 
 function addUser(newUser) {
-    return axios.post(`${BASE_URL}/user`, newUser)
+    return axios.post(`${BASE_URL}`, newUser)
         .then(res => res.data);
 }
 
