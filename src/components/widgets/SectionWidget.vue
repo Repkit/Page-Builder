@@ -17,6 +17,7 @@ import MapWidget from '@/components/widgets/MapWidget.vue';
 import ButtonWidget from '@/components/widgets/ButtonWidget.vue';
 import ProgressBarWidget from '@/components/widgets/ProgressBarWidget.vue';
 import AcordionGroupWidget from '@/components/widgets/AcordionGroupWidget.vue';
+import CounterWidget from '@/components/widgets/CounterWidget.vue';
 
 export default {
     name: 'section-widget',
@@ -29,7 +30,8 @@ export default {
         MapWidget,
         ButtonWidget,
         ProgressBarWidget,
-        AcordionGroupWidget
+        AcordionGroupWidget,
+        CounterWidget
     }
 };
 </script>
