@@ -40,6 +40,7 @@ export default {
 .site-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content:center;
 
     .site-list-item {
         margin: 10px;
