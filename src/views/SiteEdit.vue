@@ -1,5 +1,5 @@
 <template>
-    <Split style="height: 100vh;">
+    <Split class="site-edit">
 
         <SplitArea :size="15" :minSize="100">
 
@@ -76,9 +76,12 @@ export default {
 };
 </script>
 
-<style scoped>
-.widget:hover {
-    border: 3px solid lightskyblue;
-    outline: 3px solid lightskyblue;
+<style lang="scss">
+.site-edit {
+    height: 100vh; /* required for split */
+
+    .widget:hover {
+        outline: 2px solid lightskyblue;
+    }
 }
 </style>
