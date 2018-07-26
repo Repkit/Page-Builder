@@ -7,8 +7,8 @@
         <p>
             <input v-model="user.userName" type="text" placeholder="UserName" required>
         </p>
-            <input v-model="user.password" type="password" placeholder="Password" required>
         <p>
+            <input v-model="user.password" type="password" placeholder="Password" required>
         </p>
     
         <p>
@@ -23,6 +23,13 @@
         <p>
             <input v-model="user.image" type="url" placeholder="URL image">
         </p>
+        <p>
+         <span v-if="errNameUser">
+          The user name you selected is present in the system.
+          Please choose a different name 
+        </span> 
+        </p>
+        
         <button>signup</button>
     </form>
 
@@ -45,7 +52,8 @@ export default {
         lastName: "",
         site: "",
         image: ""
-      }
+      },
+      errNameUser: false
     };
   },
   computed: {
@@ -68,16 +76,21 @@ export default {
             image: this.user.image
           }
         })
-        .then(() => {
-          let user = {
-            userName: this.user.userName,
-            password: this.user.password
-          };
-          this.$store.dispatch({ type: "login", user }).then(user => {
-            if (user) this.$router.push(`/profile`);
-          });
+        .then(data => {
+          if (!data) {
+            this.errNameUser = true;
+          } else {
+             //connect user
+            let user = {
+              userName: this.user.userName,
+              password: this.user.password
+            };
+            this.$store.dispatch({ type: "login", user }).then(user => {
+              if (user) this.$router.push(`/profile`);
+            });
+          }
         });
-    },
+    }
   }
 };
 </script>
