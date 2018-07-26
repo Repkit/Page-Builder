@@ -3,19 +3,15 @@
 
         <SplitArea :size="15" :minSize="100">
 
-            <site-editor :site="site" :selected="selectedElement" @add-element="addElement"></site-editor>
+            <editor :site="site" :selected="selectedElement" @add-element="addElement"></editor>
 
         </SplitArea>
 
         <SplitArea :size="85">
 
-            <component v-if="site.elements" v-for="element in site.elements"
-                :key="element._id" :is="element.settings.type+'-element'" :element="element" :isEditMode="true">
-            </component>
+            <site-preview :site="site" :isEditMode="true"></site-preview>
 
-            <div class="add-section" @click="addElement('section')">
-                Add New Section
-            </div>
+            <AddNewSection @add-element="addElement"></AddNewSection>
 
         </SplitArea>
 
@@ -24,31 +20,20 @@
 
 <script>
 import VueSplit from 'vue-split-panel'
+
 import SiteService from '@/services/SiteService.js';
 import EditorService from '@/services/EditorService.js';
-import SiteEditor from "@/components/SiteEditor.vue";
 
-import SectionElement from '@/components/elements/preview/SectionElement.vue';
-import TextElement from '@/components/elements/preview/TextElement.vue';
-import ImageElement from '@/components/elements/preview/ImageElement.vue';
-import ListElement from '@/components/elements/preview/ListElement.vue';
-import MapElement from '@/components/elements/preview/MapElement.vue';
-import ButtonElement from '@/components/elements/preview/ButtonElement.vue';
-import ProgressBarElement from '@/components/elements/preview/ProgressBarElement.vue';
-import AcordionGroupElement from '@/components/elements/preview/AcordionGroupElement.vue';
+import Editor from "@/components/editor/Editor.vue";
+import SitePreview from '@/components/SitePreview.vue';
+import AddNewSection from "@/components/editor/AddNewSection.vue";
 
 export default {
     name: 'site-edit',
     components: {
-        SiteEditor,
-        SectionElement,
-        TextElement,
-        ImageElement,
-        ListElement,
-        MapElement,
-        ButtonElement,
-        ProgressBarElement,
-        AcordionGroupElement
+        Editor,
+        SitePreview,
+        AddNewSection,
     },
     data() {
         return {
@@ -107,21 +92,6 @@ export default {
         // .selected {
         //     outline: 2px solid lightcoral;
         // }
-    }
-
-    .add-section {
-        margin: 1em 3em;
-        padding: 2em 0;
-        border: 3px dashed #aaa;
-        background-color: #fff;
-        color: #333;
-        text-align:center;
-        font-weight: bold;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #f6f6f6;
-        }
     }
 }
 </style>

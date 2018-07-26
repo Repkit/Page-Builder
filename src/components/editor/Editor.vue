@@ -1,5 +1,5 @@
 <template>
-    <aside class="site-editor">
+    <aside class="editor">
 
         <h1>Page Builder</h1>
 
@@ -21,7 +21,7 @@
 import EditorService from '@/services/EditorService.js';
 
 export default {
-    name: 'site-editor',
+    name: 'editor',
     props: [ 'site', 'selected' ],
     computed: {
         selectedElement() {
@@ -32,15 +32,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.site-editor {
-    background-color: #333;
-    color: #eee;
+.editor {
+    background-color: #4a4b4c;
+    color: #fff;
     height: 100vh;
 
     h1 {
         margin: 0;
         padding: 0;
-        line-height: 1;
+        font-size: 1.25em;
+        line-height: 1.5;
         text-align: center;
         padding-top: 0.25em;
         padding-bottom: 0.5em;

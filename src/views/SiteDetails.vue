@@ -1,43 +1,18 @@
 <template>
-    <div class="site-details">
+    <div class="site-details" v-if="site">
 
-        <template v-if="site">
-
-            <component v-if="site.elements" v-for="element in site.elements"
-                :key="element._id" :is="element.settings.type+'-element'" :element="element" :isEditMode="false">
-            </component>
-
-        </template>
+        <site-preview :site="site" :isEditMode="false"></site-preview>
 
     </div>
 </template>
 
 <script>
 import SiteService from '@/services/SiteService.js';
-
-import SectionElement from '@/components/elements/preview/SectionElement.vue';
-import TextElement from '@/components/elements/preview/TextElement.vue';
-import ImageElement from '@/components/elements/preview/ImageElement.vue';
-import ListElement from '@/components/elements/preview/ListElement.vue';
-import MapElement from '@/components/elements/preview/MapElement.vue';
-import ButtonElement from '@/components/elements/preview/ButtonElement.vue';
-import ProgressBarElement from '@/components/elements/preview/ProgressBarElement.vue';
-import AcordionGroupElement from '@/components/elements/preview/AcordionGroupElement.vue';
-import CounterElement from '@/components/elements/preview/CounterElement.vue';
+import SitePreview from '@/components/SitePreview.vue';
 
 export default {
     name: 'site-details',
-    components: {
-        SectionElement,
-        TextElement,
-        ImageElement,
-        ListElement,
-        MapElement,
-        ButtonElement,
-        ProgressBarElement,
-        AcordionGroupElement,
-        CounterElement,
-    },
+    components: { SitePreview },
     data() {
         return {
             site: {
