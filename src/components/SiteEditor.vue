@@ -11,6 +11,10 @@
             <div>Preview</div>
         </div>
 
+        <div class="new-section">
+            <div @click="$emit('add-element', 'section')">Add New Section</div>
+        </div>
+
     </aside>
 </template>
 
@@ -32,6 +36,12 @@ export default {
         line-height: 1.5;
         text-align: center;
         border-bottom: 1px solid #eee;
+    }
+
+    > div {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 1em;
+        margin-bottom: 1em;
     }
 }
 </style>

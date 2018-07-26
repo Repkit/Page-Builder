@@ -3,7 +3,7 @@
 
         <SplitArea :size="15" :minSize="100">
 
-            <site-editor></site-editor>
+            <site-editor @add-element="addElement"></site-editor>
 
         </SplitArea>
 
@@ -15,6 +15,10 @@
                     :key="element._id" :is="element.settings.type+'-widget'" :element="element">
                 </component>
 
+                <div class="add-section" @click="addElement('section')">
+                    Add New Section
+                </div>
+
             </div>
 
         </SplitArea>
@@ -25,6 +29,7 @@
 <script>
 import VueSplit from 'vue-split-panel'
 import SiteService from '@/services/SiteService.js';
+import EditorService from '@/services/EditorService.js';
 import SiteEditor from "@/components/SiteEditor.vue";
 
 import SectionWidget from '@/components/widgets/SectionWidget.vue';
@@ -71,6 +76,9 @@ export default {
                 .catch(err => {
                     this.$router.push('/notfound');
                 });
+        },
+        addElement(elementType) {
+            this.site.elements.push(EditorService.emptyElement(elementType));
         }
 	}
 };
@@ -82,6 +90,21 @@ export default {
 
     .widget:hover {
         outline: 2px solid lightskyblue;
+    }
+
+    .add-section {
+        margin: 1em 3em;
+        padding: 2em 0;
+        border: 3px dashed #aaa;
+        background-color: #fff;
+        color: #333;
+        text-align:center;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f6f6f6;
+        }
     }
 }
 </style>
