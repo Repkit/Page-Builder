@@ -10,7 +10,7 @@
         <SplitArea :size="85">
 
             <component v-if="site.elements" v-for="element in site.elements"
-                :key="element._id" :is="element.settings.type+'-widget'" :element="element" :isEditMode="true">
+                :key="element._id" :is="element.settings.type+'-element'" :element="element" :isEditMode="true">
             </component>
 
             <div class="add-section" @click="addElement('section')">
@@ -28,27 +28,27 @@ import SiteService from '@/services/SiteService.js';
 import EditorService from '@/services/EditorService.js';
 import SiteEditor from "@/components/SiteEditor.vue";
 
-import SectionWidget from '@/components/widgets/SectionWidget.vue';
-import TextWidget from '@/components/widgets/TextWidget.vue';
-import ImageWidget from '@/components/widgets/ImageWidget.vue';
-import ListWidget from '@/components/widgets/ListWidget.vue';
-import MapWidget from '@/components/widgets/MapWidget.vue';
-import ButtonWidget from '@/components/widgets/ButtonWidget.vue';
-import ProgressBarWidget from '@/components/widgets/ProgressBarWidget.vue';
-import AcordionGroupWidget from '@/components/widgets/AcordionGroupWidget.vue';
+import SectionElement from '@/components/elements/preview/SectionElement.vue';
+import TextElement from '@/components/elements/preview/TextElement.vue';
+import ImageElement from '@/components/elements/preview/ImageElement.vue';
+import ListElement from '@/components/elements/preview/ListElement.vue';
+import MapElement from '@/components/elements/preview/MapElement.vue';
+import ButtonElement from '@/components/elements/preview/ButtonElement.vue';
+import ProgressBarElement from '@/components/elements/preview/ProgressBarElement.vue';
+import AcordionGroupElement from '@/components/elements/preview/AcordionGroupElement.vue';
 
 export default {
     name: 'site-edit',
     components: {
         SiteEditor,
-        SectionWidget,
-        TextWidget,
-        ImageWidget,
-        ListWidget,
-        MapWidget,
-        ButtonWidget,
-        ProgressBarWidget,
-        AcordionGroupWidget
+        SectionElement,
+        TextElement,
+        ImageElement,
+        ListElement,
+        MapElement,
+        ButtonElement,
+        ProgressBarElement,
+        AcordionGroupElement
     },
     data() {
         return {
@@ -85,7 +85,7 @@ export default {
 .site-edit {
     height: 100vh; /* required for split */
 
-    .widget {
+    .element {
         position: relative;
 
         .element-actions {

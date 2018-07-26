@@ -1,6 +1,6 @@
 <template>
-    <div class="widget progress-bar-widget" :style="element.styles"
-        :class="{ ['widget-'+element._id]: element._id, selected: isEditMode }">
+    <div class="element progress-bar-element" :style="element.styles"
+        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
 
         <div class="border">
             
@@ -18,10 +18,10 @@
 </template>
 
 <script>
-import ElementActions from '@/components/ElementActions.vue';
+import ElementActions from '@/components/elements/ElementActions.vue';
 
 export default {
-    name: 'progress-bar-widget',
+    name: 'progress-bar-element',
     props: [ 'element', 'isEditMode' ],
     components: { ElementActions },
     data() {

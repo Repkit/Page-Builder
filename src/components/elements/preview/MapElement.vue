@@ -1,6 +1,6 @@
 <template>
-    <div class="widget map-widget" :style="element.styles"
-        :class="{ ['widget-'+element._id]: element._id, selected: isEditMode }">
+    <div class="element map-element" :style="element.styles"
+        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
 
         MAP WIDGET
 
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import ElementActions from '@/components/ElementActions.vue';
+import ElementActions from '@/components/elements/ElementActions.vue';
 
 export default {
-    name: 'map-widget',
+    name: 'map-element',
     props: [ 'element', 'isEditMode' ],
     components: { ElementActions },
 };

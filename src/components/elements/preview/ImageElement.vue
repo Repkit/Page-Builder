@@ -1,6 +1,6 @@
 <template>
-    <div class="widget image-widget" :style="element.styles"
-        :class="{ ['widget-'+element._id]: element._id, selected: isEditMode }">
+    <div class="element image-element" :style="element.styles"
+        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
 
         <img :src="element.data.src" :alt="element.data.alt" />
 
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import ElementActions from '@/components/ElementActions.vue';
+import ElementActions from '@/components/elements/ElementActions.vue';
 
 export default {
-    name: 'image-widget',
+    name: 'image-element',
     props: [ 'element', 'isEditMode' ],
     components: { ElementActions },
 };

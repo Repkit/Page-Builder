@@ -1,20 +1,14 @@
 <template>
-    <div class="site-details">
+    <div class="inner-elements">
 
-        <template v-if="site">
-
-            <component v-if="site.elements" v-for="element in site.elements"
-                :key="element._id" :is="element.settings.type+'-element'" :element="element" :isEditMode="false">
-            </component>
-
-        </template>
+        <component v-if="element.elements" v-for="element in element.elements"
+            :key="element._id" :is="element.settings.type+'-element'" :element="element">
+        </component>
 
     </div>
 </template>
 
 <script>
-import SiteService from '@/services/SiteService.js';
-
 import SectionElement from '@/components/elements/preview/SectionElement.vue';
 import TextElement from '@/components/elements/preview/TextElement.vue';
 import ImageElement from '@/components/elements/preview/ImageElement.vue';
@@ -26,7 +20,8 @@ import AcordionGroupElement from '@/components/elements/preview/AcordionGroupEle
 import CounterElement from '@/components/elements/preview/CounterElement.vue';
 
 export default {
-    name: 'site-details',
+    name: 'recursive-elements-loading',
+    props: [ 'element' ],
     components: {
         SectionElement,
         TextElement,
@@ -36,31 +31,7 @@ export default {
         ButtonElement,
         ProgressBarElement,
         AcordionGroupElement,
-        CounterElement,
-    },
-    data() {
-        return {
-            site: {
-                name: '',
-                thumb: '',
-                date: {},
-                elements: null,
-            }
-        }
-    },
-    created() {
-		this.loadSite();
-    },
-	methods: {
-		loadSite() {
-			this.$store.dispatch({ type: 'loadSite', id: this.$route.params.siteId })
-				.then(site => {
-                    this.site = site;
-                })
-                .catch(err => {
-                    this.$router.push('/notfound');
-                });
-        }
-	}
+        CounterElement
+    }
 };
 </script>

@@ -1,19 +1,19 @@
 <template>
-    <button class="widget button-widget" :style="element.styles"
-        :class="{ ['widget-'+element._id]: element._id, selected: isEditMode }">
+    <div class="element text-element" :style="element.styles"
+        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
 
         {{element.data.text}}
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
-    </button>
+    </div>
 </template>
 
 <script>
-import ElementActions from '@/components/ElementActions.vue';
+import ElementActions from '@/components/elements/ElementActions.vue';
 
 export default {
-    name: 'button-widget',
+    name: 'text-element',
     props: [ 'element', 'isEditMode' ],
     components: { ElementActions },
 };

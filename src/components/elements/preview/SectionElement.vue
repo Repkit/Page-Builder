@@ -1,19 +1,18 @@
 <template>
-    <div class="site-details">
+    <div class="element section-element" :style="element.styles"
+        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
 
-        <template v-if="site">
+        <component v-if="element.elements" v-for="element in element.elements"
+            :key="element._id" :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode">
+        </component>
 
-            <component v-if="site.elements" v-for="element in site.elements"
-                :key="element._id" :is="element.settings.type+'-element'" :element="element" :isEditMode="false">
-            </component>
-
-        </template>
+        <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
     </div>
 </template>
 
 <script>
-import SiteService from '@/services/SiteService.js';
+import ElementActions from '@/components/elements/ElementActions.vue';
 
 import SectionElement from '@/components/elements/preview/SectionElement.vue';
 import TextElement from '@/components/elements/preview/TextElement.vue';
@@ -26,8 +25,10 @@ import AcordionGroupElement from '@/components/elements/preview/AcordionGroupEle
 import CounterElement from '@/components/elements/preview/CounterElement.vue';
 
 export default {
-    name: 'site-details',
+    name: 'section-element',
+    props: [ 'element', 'isEditMode' ],
     components: {
+        ElementActions,
         SectionElement,
         TextElement,
         ImageElement,
@@ -36,31 +37,7 @@ export default {
         ButtonElement,
         ProgressBarElement,
         AcordionGroupElement,
-        CounterElement,
-    },
-    data() {
-        return {
-            site: {
-                name: '',
-                thumb: '',
-                date: {},
-                elements: null,
-            }
-        }
-    },
-    created() {
-		this.loadSite();
-    },
-	methods: {
-		loadSite() {
-			this.$store.dispatch({ type: 'loadSite', id: this.$route.params.siteId })
-				.then(site => {
-                    this.site = site;
-                })
-                .catch(err => {
-                    this.$router.push('/notfound');
-                });
-        }
-	}
+        CounterElement
+    }
 };
 </script>

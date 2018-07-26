@@ -1,6 +1,6 @@
 <template>
-    <div class="widget acordion-group-widget" :style="element.styles"
-        :class="{ ['widget-'+element._id]: element._id, selected: isEditMode }">
+    <div class="element acordion-group-element" :style="element.styles"
+        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
 
         <section class="accordion-group" v-for="item in items" :key="item.id"> -->
             <section class="accordion-container" @click="toggleIsShown(item)">
@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import ElementActions from '@/components/ElementActions.vue';
+import ElementActions from '@/components/elements/ElementActions.vue';
 
 export default {
-    name: 'acordion-group-widget',
+    name: 'acordion-group-element',
     props: [ 'element', 'isEditMode' ],
     components: { ElementActions },
     methods: {
@@ -45,7 +45,7 @@ export default {
 .accordion-container{
     text-align: center;
 }
-.acordion-group-widget {
+.acordion-group-element {
     width: 36vw;
     margin: 0 auto;
 }
