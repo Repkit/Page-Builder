@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { log } from 'util';
 
 // const USER_URL = (process.env.NODE_ENV !== 'development')
 //     ? '/user'
@@ -22,11 +23,16 @@ function query() {
 
 function addUser(newUser) {
     return axios.post(`${BASE_URL}/user`, newUser)
-        .then(res => res.data);
+        .then(res => {
+            res.data
+        })
+        .catch(err => {
+            console.log(err);
+        })
 }
 
 function updateUser(updatedUser) {
-    return axios.put(`${BASE_URL}/${updatedUser._id}`, updatedUser)
+    return axios.put(`${BASE_URL}/user/${updatedUser._id}`, updatedUser)
         .then(res => res.data);
 }
 
