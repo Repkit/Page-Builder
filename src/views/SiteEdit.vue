@@ -1,13 +1,13 @@
 <template>
     <Split style="height: 100vh;">
 
-        <SplitArea :size="20" :minSize="100">
+        <SplitArea :size="15" :minSize="100">
 
             <site-editor></site-editor>
 
         </SplitArea>
 
-        <SplitArea :size="80">
+        <SplitArea :size="85">
 
             <div v-if="site">
 
