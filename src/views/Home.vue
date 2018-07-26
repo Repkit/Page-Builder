@@ -7,7 +7,7 @@
             <div class="container">
                 <h1>Build beautiful websites in minutes.</h1>
                 <p>Our vast library of components and page designs has everything you need to build any type of website.</p>
-                <button>Create Your First Site</button>
+                <button>Start Now</button>
             </div>
         </section>
 

@@ -17,8 +17,8 @@ export default {
 
 function query(filterBy = { id: '', name: '' }) {
     let queryParams = '';
-    if ( filterBy.id !== 'undefined' ) queryParams += `id=${filterBy.id}&`
-    if ( filterBy.name !== 'undefined' ) queryParams += `name=${filterBy.name}&`
+    if ( filterBy.id ) queryParams += `id=${filterBy.id}&`
+    if ( filterBy.name ) queryParams += `name=${filterBy.name}&`
 
     return axios.get(`${BASE_URL}?${queryParams}`)
         .then(res => res.data);

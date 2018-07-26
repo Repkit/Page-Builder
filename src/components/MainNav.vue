@@ -8,8 +8,8 @@
             <li><button @click="logout" v-if="isUserLogin"> Logout </button></li>
             <li><router-link to="/signup" v-if="!isUserLogin"> Signup </router-link></li>
             <li>
-                <span @click="login" v-if="!isUserLogin"> Login </span>
-                <user-login v-if="!isUserLogin"></user-login>
+                <span @click="toggleLogin" v-if="!isUserLogin"> Login </span>
+                <user-login v-if="!isUserLogin && displayLogin" @toggleLogin="toggleLogin"></user-login>
             </li>
         </ul>
 
@@ -22,9 +22,14 @@ import UserLogin from '@/components/UserLogin.vue';
 export default {
     name: 'main-nav',
     components: { UserLogin },
+    data() {
+        return {
+            displayLogin: false,
+        }
+    },
     methods: {
-        login() {
-            // TODO: Open a modal with user-login component
+        toggleLogin(){
+            this.displayLogin = !this.displayLogin;
         },
         logout() {
             this.$store.dispatch({ type: 'logOut' })
