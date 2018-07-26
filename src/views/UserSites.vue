@@ -3,15 +3,13 @@
 
         <main-nav></main-nav>
 
-        <section class="user-data">
+        <section class="user-data" v-if="user">
             <div class="container">
-                <img src="https://randomuser.me/api/portraits/men/9.jpg">
-                <h1>{{this.$route.params.userName}}</h1>
-                <p>First-Name, Last-Name</p>
+                <user-details v-if="user" :user="user"></user-details>
             </div>
         </section>
 
-        <section class="user-sites">
+        <section class="user-sites" v-if="sites">
             <div class="container">
                 <site-list v-if="sites" :sites="sites"></site-list>
                 <p v-else>No sites yet, create new site now.</p>
@@ -23,24 +21,35 @@
 
 <script>
 import MainNav from '@/components/MainNav.vue';
+import UserDetails from '@/components/UserDetails.vue';
 import SiteList from '@/components/SiteList.vue';
+import UserService from '@/services/UserService.js';
 
 export default {
     name: 'user-sites',
-    components: { MainNav, SiteList },
+    components: { MainNav, UserDetails, SiteList },
     data() {
         return {
-            // TODO: add user object from server
+            user: null,
             sites: null
         };
     },
     created() {
-        this.loadSites();
+        this.loadUser( this.$route.params.userName )
+            .then(user => {
+                this.loadUserSites( user );
+            });
     },
 	methods: {
-		loadSites() {
-            const userName = this.$route.params.userName;
-            this.$store.dispatch({ type: 'loadSitesByUserName', userName:userName })
+		loadUser(userName) {
+            return UserService.query({name: userName})
+                .then( users => {
+                    this.user = users[0];
+                    return users[0];
+                });
+        },
+		loadUserSites( user ) {
+            this.$store.dispatch({ type: 'loadSites', user })
                 .then(sites => {
                     this.sites = sites;
                 });
