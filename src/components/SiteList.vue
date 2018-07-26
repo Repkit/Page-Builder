@@ -1,8 +1,9 @@
 <template>
-    <div class="site-list">
+    <div class="site-list" >
 
-        <div v-if="sites" v-for="site in sites" :key="site._id" class="site-list-item">
-            <div class="edit-opns">
+        <div v-if="sites" v-for="site in sites" :key="site._id" class="site-list-item" 
+        @mouseover="showEditOptions" @mouseleave="hideEditOptions" >
+            <div class="edit-opns" v-show="isShowEditOptions">
                 <button @click="editSite(site)">Edit</button>
             </div>
             <h3><router-link :to="'/'+site._id">{{site.name}}</router-link></h3>
@@ -16,21 +17,26 @@
 export default {
     name: 'site-list',
     props: [ 'sites' ],
+    data(){
+        return{
+            isShowEditOptions:false
+        }
+    },
     methods:{
         editSite(site){
             this.$router.push(`/${site._id}/edit`);
+        },
+        showEditOptions(){
+            this.isShowEditOptions=  true
+        },
+        hideEditOptions(){
+            this.isShowEditOptions= false
         }
     }
 };
 </script>
 
 <style scoped lang="scss">
-// .edit-opns{
-//     // display: none;
-// }
-.edit-opns:hover{
-    display: block;
-}
 .site-list {
     display: flex;
     flex-wrap: wrap;
