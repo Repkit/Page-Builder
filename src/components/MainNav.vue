@@ -5,7 +5,7 @@
             <li><router-link to="/"> Home </router-link></li>
             <li><router-link to="/about"> About </router-link></li>
             <li><router-link to="/profile" v-if="isUserLogin"> My Profile </router-link></li>
-            <li><span @click="logout" v-if="isUserLogin"> Logout </span></li>
+            <li><button @click="logout" v-if="isUserLogin"> Logout </button></li>
             <li><router-link to="/signup" v-if="!isUserLogin"> Signup </router-link></li>
             <li>
                 <span @click="login" v-if="!isUserLogin"> Login </span>
