@@ -1,8 +1,7 @@
 <template>
-    <div class="site-list" >
+    <div class="site-list flex flex-wrap justify-center">
 
         <div v-if="sites" v-for="site in sites" :key="site._id" class="site-list-item">
-
             <h3><router-link :to="'/'+site._id">{{site.name}}</router-link></h3>
             <router-link :to="'/'+site._id"><img :src="site.thumb"></router-link>
         </div>
@@ -28,23 +27,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.site-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:center;
+.site-list-item {
+    width: 31%;
+    margin: 10px 1%;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    box-shadow: #999 4px 4px 5px;
+    transition: .3s;
 
-    .site-list-item {
-        margin: 10px;
-        padding: 25px;
-        align-items: center;
-        border: 2px solid #00000014;
-        width: 300px;
+    h3 {
+        margin-top: 0;
+    }
 
-        h3 {
-            text-align: center;
-            display: block;
-            margin-top: 0;
-        }
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    &:hover {
+        box-shadow: #999 2px 2px 2px;
+        transform: scale(1.03);
     }
 }
 </style>
