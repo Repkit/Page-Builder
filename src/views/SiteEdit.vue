@@ -1,5 +1,5 @@
 <template>
-    <Split class="site-edit" v-if="site">
+    <Split class="site-edit" v-if="site" :gutterSize="3">
 
         <SplitArea :size="15" :minSize="100">
 
