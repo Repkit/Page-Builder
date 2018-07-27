@@ -1,45 +1,35 @@
 <template>
     <div class="user-edit">
+
         <main-nav></main-nav>
-        <section  v-if="isUserLogin">
-            <form @submit.prevent="saveUser">
-                <p>
-                    <input v-model="user.userName" type="text" placeholder="UserName" required>
-                </p>
-                    <input v-model="user.password" type="password" placeholder="Password" required>
-                <p>
-                </p>
-            
-                <p>
-                    <input v-model="user.firstName" type="text" placeholder="FirstName" required>
-                </p>
-                <p>
-                    <input v-model="user.lastName" type="text" placeholder="LastName" required>
-                </p>
-                <p>
-                    <input v-model="user.site" type="url" placeholder="Site">
-                </p>
-                <p>
-                    <input v-model="user.image" type="url" placeholder="URL image">
-                </p>
-                <p>
-                  <span v-if="errNameUser">
-                    The user name you selected is present in the system.
-                    Please choose a different name 
-                  </span> 
-                </p>
-                <button>save</button>
-            </form>
 
-            <!-- test -->
-                    <!-- user new: {{user.userName}}
-                     user:{{loggedInUser.userName}}
-                    <!{{loggedInUser.lastName}} -->
-
-                    {{loggedInUser._id}} 
-       
-
+        <section class="form">
+            <div class="container">
+              <h1>Edit user details</h1>
+              <form @submit.prevent="saveUser" v-if="isUserLogin">
+                  <p>
+                      <input v-model="user.userName" type="text" placeholder="UserName" required>
+                  </p>
+                  <p>
+                      <input v-model="user.password" type="password" placeholder="Password" required>
+                  </p>
+                  <p>
+                      <input v-model="user.firstName" type="text" placeholder="FirstName" required>
+                  </p>
+                  <p>
+                      <input v-model="user.lastName" type="text" placeholder="LastName" required>
+                  </p>
+                  <p>
+                      <input v-model="user.image" type="url" placeholder="URL image">
+                  </p>
+                  <p v-if="errNameUser">
+                      The username already exist, please choose a different name.
+                  </p>
+                  <button>Save</button>
+              </form>
+            </div>
         </section>
+
     </div>
 </template>
 
@@ -55,7 +45,6 @@ export default {
         password: "",
         firstName: "",
         lastName: "",
-        site: "",
         image: ""
       },
       errNameUser: false
@@ -112,3 +101,19 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+section {
+    padding: 20px 0;
+    text-align: center;
+
+    &.form {
+        background-color: #efefef;
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+    }
+}
+</style>
