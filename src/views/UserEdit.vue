@@ -10,6 +10,9 @@
                   <p>
                       <input v-model="user.userName" type="text" placeholder="UserName" required>
                   </p>
+                    <p>
+                        <input v-model="user.email" type="email" placeholder="Email" required />
+                    </p>
                   <p>
                       <input v-model="user.password" type="password" placeholder="Password" required>
                   </p>
@@ -22,6 +25,24 @@
                   <p>
                       <input v-model="user.image" type="url" placeholder="URL image">
                   </p>
+                  <p>
+                        <input v-model="user.social.site" type="url" placeholder="URL site" />
+                  </p>
+                  <h3>Social</h3>
+                  <div class="social">
+                    <p> 
+                          <font-awesome-icon size="lg" :icon="['fab', 'facebook-square']" />
+                          <input v-model="user.social.facebook" type="url" placeholder="URL facebook" />
+                    </p>
+                    <p>
+                          <font-awesome-icon size="lg" :icon="['fab', 'twitter-square']" />
+                          <input v-model="user.social.twiter" type="url" placeholder="twiter" />
+                    </p>
+                    <p> 
+                          <font-awesome-icon size="lg" :icon="['fab', 'linkedin']" />
+                          <input v-model="user.social.linkedin" type="url" placeholder="linkedin" />
+                    </p>
+                  </div>
                   <p v-if="errNameUser">
                       The username already exist, please choose a different name.
                   </p>
@@ -42,10 +63,17 @@ export default {
     return {
       user: {
         userName: "",
+        email: "",
         password: "",
         firstName: "",
         lastName: "",
-        image: ""
+        image: "",
+        social: {
+          site: "",
+          facebook: "",
+          twiter: "",
+          linkedin: ""
+        }
       },
       errNameUser: false
     };
@@ -80,7 +108,13 @@ export default {
             firstName: this.user.firstName,
             lastName: this.user.lastName,
             site: this.user.site,
-            image: this.user.image
+            image: this.user.image,
+            social: {
+              site: this.user.social.site,
+              facebook: this.user.social.facebook,
+              twiter: this.user.social.twiter,
+              linkedin: this.user.social.linkedin
+            }
           }
         })
         .then(data => {
@@ -104,16 +138,16 @@ export default {
 
 <style scoped lang="scss">
 section {
-    padding: 20px 0;
-    text-align: center;
+  padding: 20px 0;
+  text-align: center;
 
-    &.form {
-        background-color: #efefef;
+  &.form {
+    background-color: #efefef;
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
     }
+  }
 }
 </style>
