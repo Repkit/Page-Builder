@@ -10,12 +10,12 @@
         </div>
 
         <div class="new-section">
-            <div @click="$emit('add-element', 'section')">Add New Section</div>
+            <h2 @click="$emit('add-element', 'section')">Add New Section</h2>
         </div>
 
         <div class="selected-element" v-if="selectedElement">
-            Selected Element
-            <br><br>
+            <h2>Selected Element</h2>
+
             <p v-if="selectedElement"><strong>ID:</strong> {{selectedElement._id}}</p>
             <p v-if="selectedElement"><strong>Type:</strong> {{selectedElement.settings.type}}</p>
         </div>
@@ -53,6 +53,14 @@ export default {
         padding-bottom: 0.5em;
         background-color: #4e4c4d;
         color: #fff;
+    }
+
+    h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 0.85em;
+        line-height: 1.1;
+        text-align: center;
     }
 
     > div {
