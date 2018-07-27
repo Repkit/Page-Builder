@@ -2,10 +2,10 @@
     <div class="element-actions">
 
         <ul class="inline-list" arial-label="Element Actions">
-            <li>Delete</li>
-            <li>Clone</li>
-            <li>Move</li>
-            <li>Edit</li>
+            <li><font-awesome-icon :icon="['fas', 'trash-alt']" /></li>
+            <li><font-awesome-icon :icon="['fas', 'clone']" /></li>
+            <li><font-awesome-icon :icon="['fas', 'arrows-alt']" /></li>
+            <li><font-awesome-icon :icon="['fas', 'edit']" /></li>
         </ul>
 
     </div>
@@ -21,12 +21,17 @@ export default {
 
 <style lang="scss">
 .element-actions {
-    font-size: 12px;
-    display: none
+    font-size: 11px;
+    color: #fff;
+    display: none;
 
-    li {
-        padding: 3px 10px;
-        background-color: lightskyblue;
+    ul {
+        margin: 0;
+
+        li {
+            padding: 5px 7px;
+            background-color: lightskyblue;
+        }
     }
 }
 </style>
