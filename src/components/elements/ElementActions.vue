@@ -2,10 +2,10 @@
     <div class="element-actions">
 
         <ul class="inline-list" arial-label="Element Actions">
-            <li><font-awesome-icon :icon="['fas', 'trash-alt']" /></li>
-            <li><font-awesome-icon :icon="['fas', 'clone']" /></li>
-            <li><font-awesome-icon :icon="['fas', 'arrows-alt']" /></li>
             <li><font-awesome-icon :icon="['fas', 'edit']" /></li>
+            <li class="drag"><font-awesome-icon :icon="['fas', 'arrows-alt']" /></li>
+            <li><font-awesome-icon :icon="['fas', 'clone']" /></li>
+            <li><font-awesome-icon :icon="['fas', 'trash-alt']" /></li>
         </ul>
 
     </div>
@@ -31,6 +31,16 @@ export default {
         li {
             padding: 5px 7px;
             background-color: lightskyblue;
+            cursor: pointer;
+
+            &:hover {
+                // color: #000;
+                background-color: #6ad;
+            }
+
+            &.drag {
+                cursor: move;
+            }
         }
     }
 }
