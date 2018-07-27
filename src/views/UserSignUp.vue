@@ -1,30 +1,35 @@
 <template>
-    <div class="sign-up">
+    <div class="user-sign-up">
 
         <main-nav></main-nav>
 
-        <p v-if="isUserLogin">You are a logged in user</p>
-        <form v-else @submit.prevent="signup">
-            <p>
-                <input v-model="user.userName" type="text" placeholder="UserName" required />
-            </p>
-            <p>
-                <input v-model="user.password" type="password" placeholder="Password" required />
-            </p>
-            <p>
-                <input v-model="user.firstName" type="text" placeholder="FirstName" required />
-            </p>
-            <p>
-                <input v-model="user.lastName" type="text" placeholder="LastName" required />
-            </p>
-            <p>
-                <input v-model="user.image" type="url" placeholder="URL image" />
-            </p>
-            <p v-if="showErrorMessage">
-                The username already exist, please choose a different name.
-            </p>
-            <button>Signup</button>
-        </form>
+        <section class="form">
+            <div class="container">
+                <h1>Signup</h1>
+                <p v-if="isUserLogin">You are a logged in user.</p>
+                <form v-else @submit.prevent="signup">
+                    <p>
+                        <input v-model="user.userName" type="text" placeholder="UserName" required />
+                    </p>
+                    <p>
+                        <input v-model="user.password" type="password" placeholder="Password" required />
+                    </p>
+                    <p>
+                        <input v-model="user.firstName" type="text" placeholder="FirstName" required />
+                    </p>
+                    <p>
+                        <input v-model="user.lastName" type="text" placeholder="LastName" required />
+                    </p>
+                    <p>
+                        <input v-model="user.image" type="url" placeholder="URL image" />
+                    </p>
+                    <p v-if="showErrorMessage">
+                        The username already exist, please choose a different name.
+                    </p>
+                    <button>Signup</button>
+                </form>
+            </div>
+        </section>
 
     </div>
 </template>
@@ -86,3 +91,19 @@ export default {
     }
 };
 </script>
+
+<style scoped lang="scss">
+section {
+    padding: 20px 0;
+    text-align: center;
+
+    &.form {
+        background-color: #efefef;
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+    }
+}
+</style>
