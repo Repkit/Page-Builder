@@ -7,8 +7,8 @@
 
             <div v-for="element in elementsToDisplay" :key="element.type"
                 class="element-type flex-grow" draggable="true">
-                XX<br><br>
-                {{element.label}}
+                <font-awesome-icon :icon="element.icon" />
+                <div>{{element.label}}</div>
             </div>
 
         </div>
@@ -22,18 +22,18 @@ export default {
     data() {
         return {
             elements: [
-                { type: 'section', label: 'Section', icon: '' },
-                { type: 'columns', label: 'Columns', icon: '' },
-                { type: 'text', label: 'Text', icon: '' },
-                { type: 'list', label: 'List', icon: '' },
-                { type: 'button', label: 'Button', icon: '' },
-                { type: 'divider', label: 'Divider', icon: '' },
-                { type: 'image', label: 'Image', icon: '' },
-                { type: 'video', label: 'Video', icon: '' },
-                { type: 'map', label: 'Map', icon: '' },
-                { type: 'counter', label: 'Counter', icon: '' },
-                { type: 'progressBar', label: 'ProgressBar', icon: '' },
-                { type: 'accordion', label: 'Accordion', icon: '' },
+                { type: 'section', label: 'Section', icon: ['fas', 'columns'] },
+                { type: 'columns', label: 'Columns', icon: ['fas', 'columns'] },
+                { type: 'text', label: 'Text', icon: ['fas', 'font'] },
+                { type: 'list', label: 'List', icon: ['fas', 'list'] },
+                { type: 'button', label: 'Button', icon: ['fas', 'band-aid'] },
+                { type: 'divider', label: 'Divider', icon: ['fas', 'divide'] },
+                { type: 'image', label: 'Image', icon: ['fas', 'images'] },
+                { type: 'video', label: 'Video', icon: ['fas', 'video'] },
+                { type: 'map', label: 'Map', icon: ['fas', 'map-marked-alt'] },
+                { type: 'counter', label: 'Counter', icon: ['fas', 'clock'] },
+                { type: 'progressBar', label: 'ProgressBar', icon: ['fas', 'server'] },
+                { type: 'accordion', label: 'Accordion', icon: ['fas', 'layer-group'] },
             ],
             filterBy: ''
         }
@@ -63,10 +63,17 @@ input {
     border-radius: 3px;
     border: 1px solid #e3e3e3;
     background-color: #eee;
+    font-size: 26px;
+    font-weight: normal;
     cursor: move;
 
     &:hover {
         box-shadow: 0 2px 3px rgba(0,0,0,.2);
+    }
+
+    > div {
+        padding-top: 10px;
+        font-size: 13px;
     }
 }
 </style>
