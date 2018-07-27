@@ -42,7 +42,7 @@ export default {
                     return user;
                 });
         },
-        logOut(context) {
+        logout(context) {
             return AuthService.logout()
                 .then(() => {
                     context.commit({ type: 'logout', });

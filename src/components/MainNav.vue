@@ -28,11 +28,11 @@ export default {
         }
     },
     methods: {
-        toggleLogin(){
+        toggleLogin() {
             this.displayLogin = !this.displayLogin;
         },
         logout() {
-            this.$store.dispatch({ type: 'logOut' })
+            this.$store.dispatch({ type: 'logout' })
                 .then( () => {
                     this.$router.push('/');
                 });
