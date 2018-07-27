@@ -3,6 +3,12 @@
 
         <h1>Page Builder</h1>
 
+        <div class="elements-navigation flex">
+            <p class="text-center flex-grow"> <i>&oplus;</i> <br> Add </p>
+            <p class="text-center flex-grow"> <i>&#9776;</i> <br> Elements </p>
+            <p class="text-center flex-grow"> <i>&#10515;</i> <br> Tree </p>
+        </div>
+
         <div class="new-section">
             <div @click="$emit('add-element', 'section')">Add New Section</div>
         </div>
@@ -33,8 +39,8 @@ export default {
 
 <style scoped lang="scss">
 .editor {
-    background-color: #4a4b4c;
-    color: #fff;
+    background-color: #e6e9ec;
+    color: #6d7882;
     height: 100vh;
 
     h1 {
@@ -45,20 +51,46 @@ export default {
         text-align: center;
         padding-top: 0.25em;
         padding-bottom: 0.5em;
-        border-bottom: 1px solid #eee;
+        background-color: #4e4c4d;
+        color: #fff;
     }
 
     > div {
         padding-top: 1em;
         padding-bottom: 1em;
-        border-bottom: 1px solid #eee;
         text-align: center;
+        background-color: #fff;
+        margin-bottom: 10px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+
+        &.elements-navigation {
+            padding: 0;
+            cursor: pointer;
+
+            p {
+                margin: 0;
+                padding-top: 1em;
+                padding-bottom: 1em;
+                font-size: 0.75em;
+
+                i {
+                    display: inline-block;
+                    font-size: 2em;
+                    padding-bottom: 0.25em;
+                    font-style: normal;
+                }
+
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+        }
 
         &.new-section {
             cursor: pointer;
 
             &:hover {
-                background-color: #666;
+                background-color: #eee;
             }
         }
 

@@ -1,3 +1,5 @@
+/* List */
+
 .clean-list {
     list-style-type: none;
     padding: 0;
@@ -10,4 +12,18 @@
     li {
         display: inline-block;
     }
+}
+
+/* Text Align */
+
+text-center {
+    text-align: center;
+}
+
+text-right {
+    text-align: right;
+}
+
+text-left {
+    text-align: left;
 }
