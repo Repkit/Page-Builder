@@ -6,6 +6,7 @@
         <h1>{{user.firstName}} {{user.lastName}}</h1>
 
         <p>({{user.userName}})</p>
+        <p>{{user.email}}</p>
 
         <ul class="social inline-list" aria-label="User social links">
             <li v-if="user.social.site">
