@@ -9,18 +9,12 @@ const BASE_URL = '//localhost:3000/site';
 
 export default {
     query,
-    queryByName,
     getById,
     getByUserName
 }
 
 function query(filterBy = { name: '', user_id: '' }) {
     return axios.get(`${BASE_URL}?name=${filterBy.name}&user_id=${filterBy.user_id}`)
-        .then(res => res.data);
-}
-
-function queryByName(userName) {
-    return axios.get(`${BASE_URL}/user/${userName}`)
         .then(res => res.data);
 }
 

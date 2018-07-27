@@ -35,7 +35,7 @@ export default {
                 });
         },
         loadSitesByUserName(context, payload) {
-            return SiteService.queryByName(payload.userName)
+            return SiteService.getByUserName(payload.userName)
                 .then(sites => {
                     context.commit({ type: 'loadSites', sites });
                     return sites;
