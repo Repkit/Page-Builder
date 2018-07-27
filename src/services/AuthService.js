@@ -12,11 +12,11 @@ export default {
     logout
 }
 
-function login( user ) {    
-    return axios.put(`${BASE_URL}/login`,user )
+function login(user) {
+    return axios.put(`${BASE_URL}/login`, user)
         .then(res => res.data);
 }
-function logout(){    
+function logout() {
     return axios.post(`${BASE_URL}/logout`)
-    .then(res => res.data);
+        .then(res => res.data);
 }
