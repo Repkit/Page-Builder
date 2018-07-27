@@ -14,8 +14,6 @@
 <script>
 export default {
     name: 'element-actions',
-    methods: {
-    }
 };
 </script>
 
@@ -34,7 +32,6 @@ export default {
             cursor: pointer;
 
             &:hover {
-                // color: #000;
                 background-color: #6ad;
             }
 
