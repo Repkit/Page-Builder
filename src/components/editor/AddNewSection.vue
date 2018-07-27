@@ -49,7 +49,7 @@
 
 <script>
 export default {
-    name: 'site-elements-tree',
+    name: 'add-new-section',
     data() {
         return {
             show: false

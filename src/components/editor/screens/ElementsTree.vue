@@ -1,5 +1,5 @@
 <template>
-    <aside class="site-elements-tree">
+    <aside class="elements-tree">
 
         <h1>Elements Tree</h1>
 
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    name: 'site-elements-tree',
+    name: 'elements-tree',
     props: [ 'site', 'selected' ],
 };
 </script>
