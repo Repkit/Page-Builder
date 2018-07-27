@@ -18,3 +18,9 @@ export default {
     components: { ElementActions },
 };
 </script>
+
+<style scoped>
+img {
+    display: inline-block;
+}
+</style>

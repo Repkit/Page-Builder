@@ -1,21 +1,21 @@
 <template>
-    <Split class="site-edit" v-if="site" :gutterSize="3">
+    <split class="site-edit" v-if="site" :gutterSize="3">
 
-        <SplitArea :size="15" :minSize="100">
+        <split-area :size="15" :minSize="100">
 
-            <editor :site="site" :selected="selectedElement" @add-element="addElement"></editor>
+            <editor :site="site" :selected="selectedElement" @add-element="addElement" />
 
-        </SplitArea>
+        </split-area>
 
-        <SplitArea :size="85">
+        <split-area :size="85">
 
-            <site-preview :site="site" :isEditMode="true"></site-preview>
+            <site-preview :site="site" :isEditMode="true" />
 
-            <AddNewSection @add-element="addElement"></AddNewSection>
+            <add-new-section @add-element="addElement" />
 
-        </SplitArea>
+        </split-area>
 
-    </Split>
+    </split>
 </template>
 
 <script>
