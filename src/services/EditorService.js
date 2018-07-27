@@ -1,7 +1,6 @@
 export default {
     emptyElement,
     getSelectedElementById,
-    makeId
 }
 
 function emptyElement(type) {
@@ -12,7 +11,7 @@ function emptyElement(type) {
     if (type === 'section') style = { margin: '0', padding: '10px', color: 'blue', minHeight: '100px' };
 
     return {
-        _id: makeId(20),
+        _id: _makeId(20),
         settings: { type },
         data: data,
         styles: style,
@@ -58,7 +57,7 @@ function getSelectedElementById(element, id) {
 //     return null;
 // }
 
-function makeId(length = 20) {
+function _makeId(length = 20) {
     var text = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
