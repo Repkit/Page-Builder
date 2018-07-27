@@ -22,8 +22,8 @@ export default {
     data() {
         return {
             elements: [
-                { type: 'section', label: 'Section', icon: ['fas', 'columns'] },
-                { type: 'columns', label: 'Columns', icon: ['fas', 'columns'] },
+                { type: 'section', label: 'Section', icon: ['fas', 'grip-vertical'] },
+                { type: 'column', label: 'Column', icon: ['fas', 'grip-horizontal'] },
                 { type: 'text', label: 'Text', icon: ['fas', 'font'] },
                 { type: 'list', label: 'List', icon: ['fas', 'list'] },
                 { type: 'button', label: 'Button', icon: ['fas', 'band-aid'] },
