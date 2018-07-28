@@ -53,6 +53,7 @@ export default {
 		loadSite() {
 			this.$store.dispatch({ type: 'loadSite', id: this.$route.params.siteId })
 				.then(site => {
+                    this.$store.commit({type:'setSiteToEdit',site})
                     this.site = site;
                 })
                 .catch(err => {

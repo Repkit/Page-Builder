@@ -1,6 +1,7 @@
 export default {
     emptyElement,
     getSelectedElementById,
+    removeSelectedElementById
 }
 
 function emptyElement(type) {
@@ -31,6 +32,22 @@ function getSelectedElementById(element, id) {
 
     // If non found
     return null;
+}
+function removeSelectedElementById(element, id) {
+    console.log('income', element)
+    if (element._id === id) return []
+
+    return element.map(currElement => {
+        if (currElement._id !== id) {
+            if (!getSelectedElementById(currElement, id)) return currElement
+            else {
+                console.log('element parent', currElement)
+                currElement.elements = removeSelectedElementById(currElement.elements, id)
+                return currElement
+
+            }
+        }
+    })
 }
 
 // function getSelectedElementById(element, selected) {
