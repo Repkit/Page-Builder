@@ -1,6 +1,8 @@
 <template>
     <div class="editor-add-element">
 
+        <h2>Add Elements</h2>
+
         <input type="search" v-model="filterBy" placeholder="Search elements..." />
 
         <div class="flex flex-wrap">

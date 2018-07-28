@@ -1,25 +1,13 @@
 <template>
     <section class="editor-screens">
 
-        <div class="add-new-section">
-            <h2>Add Section</h2>
-            <editor-add-section />
-        </div>
+        <editor-add-section />
 
-        <div class="add-new-elements">
-            <h2>Add Elements</h2>
-            <editor-add-element />
-        </div>
+        <editor-add-element />
 
-        <div class="selected-element" v-if="selectedElement">
-            <h2>Edit Selected Element</h2>
-            <editor-edit-element :element="selectedElement" />
-        </div>
+        <editor-edit-element v-if="selectedElement" :element="selectedElement" />
 
-        <div class="elements-tree" v-if="site">
-            <h2>Element Tree</h2>
-            <editor-elements-tree :site="site" :selected="selectedElement" />
-        </div>
+        <editor-elements-tree v-if="site" :site="site" :selected="selectedElement" />
 
     </section>
 </template>
@@ -52,7 +40,7 @@ export default {
 // Search Using: https://vuejs.org/v2/guide/transitions.html#Staggering-List-Transitions
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .editor-screens {
     cursor: default;
 
