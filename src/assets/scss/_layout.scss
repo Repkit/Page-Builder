@@ -52,6 +52,18 @@
     flex-grow: 1;
 }
 
+.flex-dont-grow {
+    flex-grow: 0;
+}
+
+.flex-shrink {
+    flex-shrink: 1;
+}
+
+.flex-dont-shrink {
+    flex-shrink: 0;
+}
+
 /* Height */
 
 .full-height {

@@ -1,9 +1,15 @@
 <template>
-    <aside class="elements-tree">
+    <div class="elements-tree">
 
-        <h1>Elements Tree</h1>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+            <li>item 5</li>
+        </ul>
 
-    </aside>
+    </div>
 </template>
 
 <script>

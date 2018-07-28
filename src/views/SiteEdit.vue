@@ -3,7 +3,7 @@
 
         <split-area :size="15" :minSize="100">
 
-            <editor :site="site" :selected="selectedElement" @add-element="addElement" />
+            <editor :site="site" :selected="selectedElement" />
 
         </split-area>
 
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import VueSplit from 'vue-split-panel'
+import VueSplit from 'vue-split-panel';
 
 import SiteService from '@/services/SiteService.js';
 import EditorService from '@/services/EditorService.js';
@@ -43,7 +43,7 @@ export default {
                 date: {},
                 elements: null,
             },
-            selectedElement: 'ccccccccccccccccccccc'
+            selectedElement: '3YoPAT29K8zcC41oo03W'
         }
     },
     created() {

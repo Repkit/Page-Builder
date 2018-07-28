@@ -1,5 +1,5 @@
 <template>
-    <aside class="elements-list">
+    <div class="elements-list">
 
         <input type="search" v-model="filterBy" placeholder="Search elements..." />
 
@@ -13,7 +13,7 @@
 
         </div>
 
-    </aside>
+    </div>
 </template>
 
 <script>
@@ -44,31 +44,32 @@ export default {
         }
     }
 };
-
-// Search Using: https://vuejs.org/v2/guide/transitions.html#Staggering-List-Transitions
 </script>
 
 <style scoped lang="scss">
 input {
     width: 96%;
     max-width: 100%;
-    margin: 0.5em 2% 0;
-    padding: 5px 10px;
+    margin: 0.5em 2%;
+    padding: 8px 10px;
     border: 1px solid #999;
+    font-size: 12px;
 }
 .element-type {
     flex: 0 46%;
-    margin: 10px 2%;
+    margin: 5px 2%;
     padding: 10px 5px;
     border-radius: 3px;
     border: 1px solid #e3e3e3;
     background-color: #eee;
     font-size: 26px;
     font-weight: normal;
+    transition: 1s;
     cursor: move;
 
     &:hover {
         box-shadow: 0 2px 3px rgba(0,0,0,.2);
+        transition: .25s;
     }
 
     > div {
