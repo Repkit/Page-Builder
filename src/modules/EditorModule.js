@@ -25,9 +25,9 @@ export default {
             state.selectedElement = null;
         },
         removeElement(state, { id }){
-            // console.log('id of the selected element:',id)
-            // console.log('elements:',state.site.elements)
-            // console.log('elements:',EditorService.removeSelectedElementById(state.site.elements, id))
+            console.log('id of the selected element:',id)
+            console.log('elements:',state.site.elements)
+            console.log('elements:',EditorService.removeSelectedElementById(state.site.elements, id))
 
         }
     },
