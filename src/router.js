@@ -11,7 +11,7 @@ import UserEdit from './views/UserEdit.vue';
 import UserSites from './views/UserSites.vue';
 
 import SiteEdit from './views/SiteEdit.vue';
-import SiteDetails from './views/SiteDetails.vue';
+import SiteDisplay from './views/SiteDisplay.vue';
 
 Vue.use(Router);
 
@@ -31,6 +31,6 @@ export default new Router({
         // Sites
         { path: '/add', name: 'SiteAdd', component: SiteEdit },
         { path: '/:siteId/edit', name: 'SiteEdit', component: SiteEdit },
-        { path: '/:siteId', name: 'SiteDetails', component: SiteDetails },
+        { path: '/:siteId', name: 'SiteDisplay', component: SiteDisplay },
     ]
 })
