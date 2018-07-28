@@ -1,9 +1,8 @@
 <template>
-    <div class="element section-element" :style="element.styles"
-        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
+    <div :class="elementClass" :style="elementStyle">
 
-        <component v-if="element.elements" v-for="element in element.elements"
-            :key="element._id" :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode">
+        <component v-if="element.elements" v-for="element in element.elements" :key="element._id"
+            :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode">
         </component>
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
@@ -38,6 +37,29 @@ export default {
         ProgressBarElement,
         AcordionGroupElement,
         CounterElement
+    },
+    computed: {
+        elementClass() {
+            let classes = `element section-element element-${this.element._id}`;
+            classes += (this.isEditMode) ? 'selected' : '';
+            return classes;
+        },
+        elementStyle() {
+            let dir = this.element.data.direction
+            this.element.styles.flexDirection = (dir) ? dir : 'column';
+            return this.element.styles;
+        }
     }
 };
 </script>
+
+<style scoped lang="scss">
+.section-element {
+    width: 100%;
+    display: flex;
+
+    > div {
+        flex-grow: 1;
+    }
+}
+</style>
