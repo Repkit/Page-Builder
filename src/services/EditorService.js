@@ -35,16 +35,15 @@ function getSelectedElementById(element, id) {
 }
 function removeSelectedElementById(element, id) {
     console.log('income', element)
-    if (element[0]._id === id) {
-        element[0].elements = []
-        return element
-    }
+    if (element._id === id) return []
+
     return element.map(currElement => {
         if (currElement._id !== id) {
             if (!getSelectedElementById(currElement, id)) return currElement
             else {
                 console.log('element parent', currElement)
-                return (removeSelectedElementById(currElement.elements, id)[0])
+                currElement.elements = removeSelectedElementById(currElement.elements, id)
+                return currElement
 
             }
         }
