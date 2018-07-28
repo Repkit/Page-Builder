@@ -21,7 +21,6 @@ function emptyElement(type) {
 }
 
 function getSelectedElementById(element, id) {
-    console.log('getSelectedElementById',element)
     // current element check
     if (element._id === id) return element;
 
@@ -35,13 +34,11 @@ function getSelectedElementById(element, id) {
     return null;
 }
 function removeSelectedElementById(element, id) {
-    console.log('income',element)
     return element.map(currElement => {
         if (currElement._id !== id) {
             if (!getSelectedElementById(currElement, id)) return currElement
             else {
                 currElement.elements = removeSelectedElementById(currElement.elements, id)
-                console.log(' currElement', currElement)
                 return currElement
 
             }
@@ -51,13 +48,10 @@ function removeSelectedElementById(element, id) {
 }
 
 // function getSelectedElementById(element, selected) {
-//     //console.log( 'search for id:', selected );
-//     //console.log( 'search current id:', element._id );
-//     //console.log( 'search element:', element );
-
+//
 //     // current element check
 //     if (element._id === selected) return element;
-
+//
 //     // recursive inner elements check
 //     if (!element._id) {
 //         for (let i = 0; i < element.length; i++) {
@@ -69,7 +63,7 @@ function removeSelectedElementById(element, id) {
 //             }
 //         }
 //     }
-
+//
 //     // If non found
 //     return null;
 // }
