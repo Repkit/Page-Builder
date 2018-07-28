@@ -83,6 +83,7 @@ export default {
 
         &:hover {
             outline: 2px solid lightskyblue;
+            z-index: 999;
 
             > .element-actions {
                 display: block;
@@ -91,6 +92,7 @@ export default {
 
         // .selected {
         //     outline: 2px solid lightcoral;
+            // z-index: 999;
         // }
     }
 }
