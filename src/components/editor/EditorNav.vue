@@ -1,15 +1,15 @@
 <template>
     <section class="editor-nav flex flex-wrap text-center">
 
-        <div class="editor-nav-item">
+        <div class="editor-nav-item" @click="setEditorScreen('Section')">
             <font-awesome-icon :icon="['fas', 'plus']" />
             <div class="editor-nav-item-label"> Section </div>
         </div>
-        <div class="editor-nav-item">
+        <div class="editor-nav-item" @click="setEditorScreen('Element')">
             <font-awesome-icon :icon="['fas', 'th']" />
             <div class="editor-nav-item-label"> Elements </div>
         </div>
-        <div class="editor-nav-item">
+        <div class="editor-nav-item" @click="setEditorScreen('Tree')">
             <font-awesome-icon :icon="['fas', 'cog']" />
             <div class="editor-nav-item-label"> Tree </div>
         </div>
@@ -20,6 +20,11 @@
 <script>
 export default {
     name: 'editor-nav',
+    methods:{
+        setEditorScreen(status){
+           this.$store.commit({ type: 'setEditorScreen', status })
+        }
+    },
 };
 </script>
 
