@@ -21,6 +21,7 @@ function emptyElement(type) {
 }
 
 function getSelectedElementById(element, id) {
+    console.log('getSelectedElementById',element)
     // current element check
     if (element._id === id) return element;
 
@@ -34,19 +35,18 @@ function getSelectedElementById(element, id) {
     return null;
 }
 function removeSelectedElementById(element, id) {
-    console.log('income', element)
-    if (element._id === id) return []
-
+    console.log('income',element)
     return element.map(currElement => {
         if (currElement._id !== id) {
             if (!getSelectedElementById(currElement, id)) return currElement
             else {
-                console.log('element parent', currElement)
                 currElement.elements = removeSelectedElementById(currElement.elements, id)
+                console.log(' currElement', currElement)
                 return currElement
 
             }
         }
+        else return []
     })
 }
 
