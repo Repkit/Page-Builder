@@ -4,6 +4,7 @@ export default {
     state: {
         site: {},
         editMode: false,
+        editorScreen:'Element',
         selectedElement: null,
         selectedElementId: null,
     },
@@ -11,8 +12,12 @@ export default {
         editMode: state => state.editMode,
         selectedElement: state => state.selectedElement,
         selectedElementId: state => state.selectedElement,
+        editorScreen:state => state.editorScreen,
     },
     mutations: {
+        setEditorScreen(state,{status}){
+          state.editorScreen=status
+        },
         setSiteToEdit(state, { site }) {
             state.site = site;
         },
