@@ -1,13 +1,13 @@
 <template>
-    <section class="editor-nav flex align-center text-center">
+    <section class="editor-nav flex flex-wrap text-center">
 
+        <div class="editor-nav-item">
+            <font-awesome-icon :icon="['fas', 'plus']" />
+            <div class="editor-nav-item-label"> Section </div>
+        </div>
         <div class="editor-nav-item">
             <font-awesome-icon :icon="['fas', 'th']" />
             <div class="editor-nav-item-label"> Elements </div>
-        </div>
-        <div class="editor-nav-item">
-            <font-awesome-icon :icon="['fas', 'plus']" />
-            <div class="editor-nav-item-label"> Add </div>
         </div>
         <div class="editor-nav-item">
             <font-awesome-icon :icon="['fas', 'cog']" />
@@ -32,7 +32,7 @@ export default {
     cursor: pointer;
 
     .editor-nav-item {
-        width: 33.33%;
+        flex: 0 33.33%;
         padding: 15px 0 10px;
         font-size: 20px;
         color: #333;

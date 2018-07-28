@@ -2,22 +2,23 @@
     <section class="editor-screens">
 
         <div class="add-new-section">
-            <h2 @click="addElement('section')">Add New Section</h2>
+            <h2>Add Section</h2>
+            <editor-add-section />
         </div>
 
         <div class="add-new-elements">
-            <h2>Elements List</h2>
-            <elements-list />
+            <h2>Add Elements</h2>
+            <editor-add-element />
         </div>
 
-        <!-- <div class="elements-tree" v-if="site">
-            <h2>Element Tree</h2>
-            <elements-tree :site="site" :selected="selectedElement" />
-        </div> -->
-
         <div class="selected-element" v-if="selectedElement">
-            <h2>Selected Element</h2>
-            <element-form :element="selectedElement" />
+            <h2>Edit Selected Element</h2>
+            <editor-edit-element :element="selectedElement" />
+        </div>
+
+        <div class="elements-tree" v-if="site">
+            <h2>Element Tree</h2>
+            <editor-elements-tree :site="site" :selected="selectedElement" />
         </div>
 
     </section>
@@ -25,14 +26,15 @@
 
 <script>
 import EditorService from '@/services/EditorService.js';
-import ElementForm from '@/components/editor/screens/ElementForm.vue';
-import ElementsList from '@/components/editor/screens/ElementsList.vue';
-import ElementsTree from '@/components/editor/screens/ElementsTree.vue';
+import EditorAddSection from '@/components/editor/screens/EditorAddSection.vue';
+import EditorAddElement from '@/components/editor/screens/EditorAddElement.vue';
+import EditorEditElement from '@/components/editor/screens/EditorEditElement.vue';
+import EditorElementsTree from '@/components/editor/screens/EditorElementsTree.vue';
 
 export default {
     name: 'editor-screens',
     props: [ 'site', 'selected' ],
-    components: { ElementForm, ElementsList, ElementsTree },
+    components: { EditorAddSection, EditorAddElement, EditorEditElement, EditorElementsTree },
     computed: {
         selectedElement() {
             return (this.site && this.site._id)
@@ -52,13 +54,12 @@ export default {
 
 <style scoped lang="scss">
 .editor-screens {
-    padding: 0;
     cursor: default;
 
     > div {
         text-align: center;
         background-color: #fff;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
         h2 {

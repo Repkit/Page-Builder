@@ -1,5 +1,5 @@
 <template>
-    <div class="element-form" v-if="element">
+    <div class="editor-edit-element" v-if="element">
 
         <p v-if="element"><strong>ID:</strong> {{element._id}}</p>
         <p v-if="element"><strong>Type:</strong> {{element.settings.type}}</p>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: 'element-form',
+    name: 'editor-edit-element',
     props: [ 'element' ],
 };
 </script>

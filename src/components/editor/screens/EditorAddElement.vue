@@ -1,5 +1,5 @@
 <template>
-    <div class="elements-list">
+    <div class="editor-add-element">
 
         <input type="search" v-model="filterBy" placeholder="Search elements..." />
 
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-    name: 'elements-list',
+    name: 'editor-add-element',
     data() {
         return {
             elements: [

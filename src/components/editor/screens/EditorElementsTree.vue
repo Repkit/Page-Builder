@@ -1,5 +1,5 @@
 <template>
-    <div class="elements-tree">
+    <div class="editor-elements-tree">
 
         <ul>
             <li>item 1</li>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-    name: 'elements-tree',
+    name: 'editor-elements-tree',
     props: [ 'site', 'selected' ],
 };
 </script>
