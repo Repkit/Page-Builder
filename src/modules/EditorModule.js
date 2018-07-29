@@ -29,9 +29,7 @@ export default {
             state.site = site;
         },
         removeElement(state, { id }) {
-            console.log('id of the selected element:', id);
-            console.log('elements:', state.site.elements);
-            console.log('elements:', EditorService.removeSelectedElementById(state.site.elements, id));
+            state.site.elements = EditorService.removeSelectedElementById(state.site.elements, id)
         },
         cloneElement(state, { id, element }) {
         },

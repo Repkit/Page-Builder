@@ -34,17 +34,17 @@ function getSelectedElementById(element, id) {
     return null;
 }
 function removeSelectedElementById(element, id) {
-    return element.map(currElement => {
+    var res = []
+    element.forEach(currElement => {
         if (currElement._id !== id) {
-            if (!getSelectedElementById(currElement, id)) return currElement
+            if (!getSelectedElementById(currElement, id)) res.push(currElement)
             else {
                 currElement.elements = removeSelectedElementById(currElement.elements, id)
-                return currElement
-
+                res.push(currElement)
             }
         }
-        else return []
     })
+    return res
 }
 
 // function getSelectedElementById(element, selected) {
