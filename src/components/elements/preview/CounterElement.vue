@@ -1,10 +1,10 @@
 <template>
-    <div class="element button-element" :style="element.styles"
+    <div class="element counter-element" :style="element.styles"
         :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
 
-        <button @click="inc">+</button>
+        <!-- <button @click="inc">+</button> -->
             {{element.data.text}}
-        <button @click="dec">-</button>
+        <!-- <button @click="dec">-</button> -->
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
@@ -15,7 +15,7 @@
 import ElementActions from '@/components/elements/ElementActions.vue';
 
 export default {
-    name: 'button-element',
+    name: 'counter-element',
     props: [ 'element', 'isEditMode' ],
     components: { ElementActions },
     data() {
