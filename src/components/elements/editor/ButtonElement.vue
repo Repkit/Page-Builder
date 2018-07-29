@@ -2,24 +2,48 @@
     <div class="element-editor button-element-editor">
 
         <h3>Content</h3>
-
-        <label>Text</label>
-        <input v-model="element.data.text" type="text" name="text" placeholder="Enter some text..." />
-
-        <label>Link URL</label>
-        <input v-model="element.data.link" type="url" name="link" placeholder="https://your-link.com" />
+        <form-fields :fields="content" />
 
         <h3>Style</h3>
-
-        <label>Font Size</label>
-        <input v-model="element.style.fontSize" type="range" name="fontSize" />
+        <form-fields :fields="styles" />
 
     </div>
 </template>
 
 <script>
+import FormFields from '@/components/controls/FormFields.vue';
+
 export default {
     name: 'button-element-editor',
     props: [ 'element' ],
+    components: { FormFields },
+    data() {
+        return {
+            content: [
+                {
+                    cmp: 'input-text',
+                    name: 'text',
+                    label: 'Text',
+                    placeholder: 'Enter some text...',
+                    value: this.element.data.text
+                },
+                {
+                    cmp: 'input-url',
+                    name: 'link',
+                    label: 'Link URL',
+                    placeholder: 'https://your-link.com',
+                    value: this.element.data.link
+                }
+            ],
+            styles: [
+                {
+                    cmp: 'input-range',
+                    name: 'fontSize',
+                    label: 'Font Size',
+                    value: this.element.styles.fontSize
+                }
+            ]
+        }
+    }
 };
 </script>

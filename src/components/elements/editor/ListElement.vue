@@ -24,9 +24,12 @@
 </template>
 
 <script>
+import FormFields from '@/components/controls/FormFields.vue';
+
 export default {
   name: "list-element-editor",
   props: ["element"],
+  components: { FormFields },
   data() {
     return {
       items: [3]

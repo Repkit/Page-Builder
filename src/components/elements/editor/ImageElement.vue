@@ -38,12 +38,23 @@
 
         <label>Margin</label>
         <input v-model="element.style.padding" type="number" name="padding" placeholder="padding" />
+
     </div>
 </template>
 
 <script>
+import FormFields from '@/components/controls/FormFields.vue';
+
 export default {
     name: 'image-element-editor',
     props: [ 'element' ],
+    components: { FormFields },
+    data() {
+        return {
+            updatedElement: null
+        }
+    },
+    method: {}
+
 };
 </script>
