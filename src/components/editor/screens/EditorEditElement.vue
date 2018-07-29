@@ -4,8 +4,10 @@
         <h2>Edit Element</h2>
 
         <div class="content">
+
             <component v-if="newElement" :is="newElement.settings.type+'-element'"
                 :element="newElement" @change="updateElement" />
+
         </div>
 
     </div>
@@ -49,19 +51,3 @@ export default {
     }
 };
 </script>
-
-<style lang="scss">
-.editor-edit-element {
-    text-align: left;
-
-    .content {
-        padding: 0 5px;
-    }
-
-    h3 {
-        margin-bottom: 20px;
-        text-align: left;
-        font-size: 15px;
-    }
-}
-</style>

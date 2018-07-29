@@ -3,7 +3,7 @@
 
         <h2>Add Section</h2>
 
-        <div class="section-types flex flex-wrap">
+        <div class="content flex flex-wrap">
             <div @click="addSection(1)">
                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"><path d="M100,0V50H0V0Z"></path></svg>
             </div>
@@ -39,12 +39,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.section-types {
-    padding: 10px 0 0;
+.content {
 
     > div {
         flex: 0 42%;
-        margin: 0 4% 10px;
+        margin: 10px 4%;
         opacity: 0.25;
         cursor: pointer;
     }

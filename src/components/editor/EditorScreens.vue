@@ -47,7 +47,6 @@ export default {
     cursor: default;
 
     > div {
-        text-align: center;
         background-color: #fff;
         margin-bottom: 15px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -56,9 +55,22 @@ export default {
             margin: 0;
             padding: 10px 0;
             font-size: 0.85em;
+            font-weight: bold;
             line-height: 1.1;
             text-align: center;
             border-bottom: 1px solid #ccc
+        }
+
+        h3 {
+            margin: 0 0 10px;
+            padding: 10px 0;
+            font-size: 0.85em;
+            font-weight: bold;
+            line-height: 1.1;
+        }
+
+        .content {
+            padding: 0 5px;
         }
     }
 
