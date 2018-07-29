@@ -1,5 +1,5 @@
 <template>
-    <split class="site-edit" v-if="site" :gutterSize="3">
+    <split class="site-edit" v-if="site.user_id" :gutterSize="3">
 
         <split-area :size="15" :minSize="100">
 
@@ -42,18 +42,26 @@ export default {
                 thumb: '',
                 date: {},
                 elements: null,
-            }
+            },
         }
     },
     created() {
-		this.loadSite();
+        this.loadSite();
+    },
+    computed:{
+        getLogginUser() {
+            return this.$store.getters.loggedInUser;
+        }
     },
 	methods: {
 		loadSite() {
 			this.$store.dispatch({ type: 'loadSite', id: this.$route.params.siteId })
 				.then(site => {
-                    this.$store.commit({type:'setSiteToEdit',site})
-                    this.site = site;
+                            if(this.getLogginUser()._id === site.user_id) {
+                                this.$store.commit({type:'setSiteToEdit',site});
+                                this.site = site;
+                            }
+                            else this.$router.push(`/${this.$route.params.siteId}`);
                 })
                 .catch(err => {
                     this.$router.push('/notfound');
