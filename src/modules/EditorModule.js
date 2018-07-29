@@ -4,10 +4,11 @@ export default {
     state: {
         // Site Data
         site: {},
-        drag: null,
+
         // Editor
         editMode: false,
         editorScreen: 'editor-add-element',
+        drag: null,
 
         // Selected Element Data
         selectedElement: null,
@@ -19,14 +20,12 @@ export default {
         // Editor
         editMode: state => state.editMode,
         editorScreen: state => state.editorScreen,
-        drag:state => state.drag,
+        drag: state => state.drag,
+
         // Selected Element Data
         selectedElement: state => state.selectedElement,
     },
     mutations: {
-        setDrag(state,{ drag }){
-            state.drag=drag
-        },
         // Site Data
         setSiteToEdit(state, { site }) {
             state.site = site;
@@ -37,13 +36,15 @@ export default {
         cloneElement(state, { id }) {
             state.site.elements = EditorService.cloneElementById(state.site.elements, id);
         },
-        editElement(state, { id, element }) {
-        },
 
         // Editor
         setEditorScreen(state, { screen }) {
             state.editorScreen = screen;
         },
+        setDrag(state, { drag }) {
+            state.drag = drag;
+        },
+
         // Selected Element Data
         updateSelectedElement(state, { id }) {
             state.selectedElement = EditorService.getSelectedElementById(state.site, id);
