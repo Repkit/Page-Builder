@@ -4,7 +4,7 @@ export default {
     state: {
         // Site Data
         site: {},
-
+        drag: null,
         // Editor
         editMode: false,
         editorScreen: 'editor-add-element',
@@ -19,11 +19,14 @@ export default {
         // Editor
         editMode: state => state.editMode,
         editorScreen: state => state.editorScreen,
-
+        drag:state => state.drag,
         // Selected Element Data
         selectedElement: state => state.selectedElement,
     },
     mutations: {
+        setDrag(state,{ drag }){
+            state.drag=drag
+        },
         // Site Data
         setSiteToEdit(state, { site }) {
             state.site = site;

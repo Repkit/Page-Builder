@@ -1,5 +1,5 @@
 <template>
-    <div class="site-preview" v-if="site">
+    <div class="site-preview" v-if="site" @dragover="allowDrop" @drop="drop">
 
         <component v-if="site.elements" v-for="element in site.elements" :key="element._id"
             :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode" />
@@ -31,6 +31,16 @@ export default {
         ProgressBarElement,
         AcordionGroupElement,
         CounterElement,
+    },
+    methods:{
+        allowDrop(ev){
+            ev.preventDefault();
+        },
+        drop(ev) {
+            ev.preventDefault();
+            var elDrag=this.$store.getters.drag;
+            ev.target.appendChild(elDrag);
+        }
     }
 };
 </script>

@@ -9,8 +9,8 @@
 
             <div class="flex flex-wrap">
 
-                <div v-for="element in elementsToDisplay" :key="element.type"
-                    class="element-type flex-grow" draggable="true">
+                <div v-for="(element, idx) in elementsToDisplay" :key="element.type"
+                    class="element-type flex-grow" draggable="true" ref="drag" @drag="setDrag(idx)">
                     <font-awesome-icon :icon="element.icon" />
                     <div>{{element.label}}</div>
                 </div>
@@ -47,6 +47,11 @@ export default {
     computed: {
         elementsToDisplay() {
             return this.elements.filter( element => element.label.toLowerCase().includes(this.filterBy.toLowerCase()) )
+        }
+    },
+    methods:{
+        setDrag(idx){
+            this.$store.commit({ type: 'setDrag', drag: this.$refs.drag[idx] });
         }
     }
 };
