@@ -1,15 +1,15 @@
 <template>
     <section class="editor-nav flex flex-wrap text-center">
 
-        <div class="editor-nav-item" @click="setEditorScreen('Section')">
+        <div class="editor-nav-item" @click="setEditorScreen('editor-add-section')">
             <font-awesome-icon :icon="['fas', 'plus']" />
             <div class="editor-nav-item-label"> Section </div>
         </div>
-        <div class="editor-nav-item" @click="setEditorScreen('Element')">
+        <div class="editor-nav-item" @click="setEditorScreen('editor-add-element')">
             <font-awesome-icon :icon="['fas', 'th']" />
             <div class="editor-nav-item-label"> Elements </div>
         </div>
-        <div class="editor-nav-item" @click="setEditorScreen('Tree')">
+        <div class="editor-nav-item" @click="setEditorScreen('editor-elements-tree')">
             <font-awesome-icon :icon="['fas', 'cog']" />
             <div class="editor-nav-item-label"> Tree </div>
         </div>
@@ -50,7 +50,7 @@ export default {
 
         .editor-nav-item-label {
             padding-top: 10px;
-            font-size: 15px;
+            font-size: 13px;
         }
     }
 }

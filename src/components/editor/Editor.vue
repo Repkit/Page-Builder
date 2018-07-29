@@ -3,35 +3,35 @@
 
         <editor-header class="flex-dont-shrink" />
         <editor-nav class="flex-dont-shrink" />
-        <editor-screens class="flex-shrink flex-grow" :status="editorScreen" :site="site" :selected="selected" />
+        <editor-screens class="flex-shrink flex-grow" :screen="editorScreen" :site="site" :selected="selected" />
         <editor-footer class="flex-dont-shrink" :site="site" />
 
     </aside>
 </template>
 
 <script>
-import EditorHeader from "@/components/editor/EditorHeader.vue";
-import EditorNav from "@/components/editor/EditorNav.vue";
-import EditorScreens from "@/components/editor/EditorScreens.vue";
-import EditorFooter from "@/components/editor/EditorFooter.vue";
+import EditorHeader from '@/components/editor/EditorHeader.vue';
+import EditorNav from '@/components/editor/EditorNav.vue';
+import EditorScreens from '@/components/editor/EditorScreens.vue';
+import EditorFooter from '@/components/editor/EditorFooter.vue';
 
 export default {
-  name: "editor",
-  props: ["site", "selected"],
-  computed: {
-    editorScreen() {
-        return this.$store.getters.editorScreen
-    }
-  },
-  components: { EditorHeader, EditorNav, EditorScreens, EditorFooter }
+    name: 'editor',
+    props: [ 'site', 'selected' ],
+    computed: {
+        editorScreen() {
+            return this.$store.getters.editorScreen;
+        }
+    },
+    components: { EditorHeader, EditorNav, EditorScreens, EditorFooter }
 };
 </script>
 
 <style lang="scss">
 .editor {
-  background-color: #e3e6e9;
-  color: #333;
-  height: 100vh;
-  transition: 0.3s;
+    background-color: #e3e6e9;
+    color: #333;
+    height: 100vh;
+    transition: 0.3s;
 }
 </style>

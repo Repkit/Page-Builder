@@ -7,39 +7,33 @@
             <div class="container">
               <h1>Edit user details</h1>
               <form @submit.prevent="saveUser" v-if="isUserLogin">
-                  <p>
-                      <input v-model="user.userName" type="text" placeholder="UserName" required>
-                  </p>
-                    <p>
-                        <input v-model="user.email" type="email" placeholder="Email" required />
-                    </p>
-                  <p>
-                      <input v-model="user.password" type="password" placeholder="Password" required>
-                  </p>
-                  <p>
+                  <p>First name:
                       <input v-model="user.firstName" type="text" placeholder="FirstName" required>
                   </p>
-                  <p>
+                  <p>Last name:
                       <input v-model="user.lastName" type="text" placeholder="LastName" required>
                   </p>
-                  <p>
+                  <p> Password:
+                      <input v-model="user.password" type="password" placeholder="Password" required>
+                  </p>
+                  <p> Image user:
                       <input v-model="user.image" type="url" placeholder="URL image">
                   </p>
-                  <p>
+                  <p> Site user:
                         <input v-model="user.social.site" type="url" placeholder="URL site" />
                   </p>
                   <h3>Social</h3>
                   <div class="social">
                     <p> 
-                          <font-awesome-icon size="lg" :icon="['fab', 'facebook-square']" />
+                          <font-awesome-icon size="lg" :icon="['fab', 'facebook-square']" /> 
                           <input v-model="user.social.facebook" type="url" placeholder="URL facebook" />
                     </p>
                     <p>
-                          <font-awesome-icon size="lg" :icon="['fab', 'twitter-square']" />
+                          <font-awesome-icon size="lg" :icon="['fab', 'twitter-square']" /> 
                           <input v-model="user.social.twiter" type="url" placeholder="twiter" />
                     </p>
                     <p> 
-                          <font-awesome-icon size="lg" :icon="['fab', 'linkedin']" />
+                          <font-awesome-icon size="lg" :icon="['fab', 'linkedin']" /> 
                           <input v-model="user.social.linkedin" type="url" placeholder="linkedin" />
                     </p>
                   </div>
@@ -94,8 +88,6 @@ export default {
       this.user = Object.assign({}, this.loggedInUser);
     },
     saveUser() {
-      // var id = this.loggedInUser._id
-      // var id = this.loggedInUser._id
       this.user._id = this.loggedInUser._id;
 
       this.$store
