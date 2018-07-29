@@ -22,11 +22,9 @@ export default {
         getTree(element) {
             var strHTML = '<ul class="tree">';
             element.forEach(child => {
-                if (!child.elements[0]) {
-                    strHTML += `<li> ${child.settings.type} </li>`;
-                } else {
+                strHTML += `<li> ${child.settings.type} </li>`;
+                if (child.elements) {
                     var childsHTML = this.getTree(child.elements);
-                    strHTML += `<li> ${child.settings.type} </li>`;
                     strHTML += `<li class="inner"> ${childsHTML} </li>`;
                 }
             });
