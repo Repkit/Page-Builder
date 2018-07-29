@@ -30,11 +30,12 @@ export default {
         },
         removeElement(state, { id }) {
             state.site.elements = EditorService.removeSelectedElementById(state.site.elements, id)
+            state.selectedElement = null;
         },
         cloneElement(state, { id, element }) {
-            var res= EditorService.cloneElementById(state.site.elements, id)
-            console.log('cloneElementById res:',res)
-           
+            var res = EditorService.cloneElementById(state.site.elements, id)
+            console.log('cloneElementById res:', res)
+
         },
         editElement(state, { id, element }) {
         },
@@ -43,14 +44,12 @@ export default {
         setEditorScreen(state, { status }) {
             state.editorScreen = status;
         },
-
         // Selected Element Data
         updateSelectedElement(state, { id }) {
-            state.selectedElement = EditorService.getSelectedElementById(state.site, id);
+            if (id) state.selectedElement = EditorService.getSelectedElementById(state.site, id);
+            else state.selectedElement = null
+            console.log('current selected element id:', id)
         },
-        removeSelectedElement(state) {
-            state.selectedElement = null;
-        }
 
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div :class="elementClass" :style="elementStyle">
+    <div :class="elementClass" :style="elementStyle"  @mouseover="updateSelectedElement()" >
 
         <component v-if="element.elements" v-for="element in element.elements" :key="element._id"
             :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode">
@@ -37,6 +37,12 @@ export default {
         ProgressBarElement,
         AcordionGroupElement,
         CounterElement
+    },
+    methods:{
+        updateSelectedElement(){
+            console.log('mouseOver')
+            // this.$store.commit({ type: "updateSelectedElement",id});
+        }
     },
     computed: {
         elementClass() {
