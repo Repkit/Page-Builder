@@ -7,7 +7,7 @@ export default {
 
         // Editor
         editMode: false,
-        editorScreen: 'Element',
+        editorScreen: 'editor-add-element',
 
         // Selected Element Data
         selectedElement: null,
