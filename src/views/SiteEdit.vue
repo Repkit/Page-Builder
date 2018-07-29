@@ -55,7 +55,6 @@ export default {
     },
 	methods: {
 		loadSite() {
-            debugger;
 			this.$store.dispatch({ type: 'loadSite', id: this.$route.params.siteId })
 				.then(site => {
                     if(this.getLogginUser._id === site.user_id) {
