@@ -1,12 +1,11 @@
 <template>
-    <div class="element-editor image-element-editor">
+    <div class="element-editor counter-element-editor">
 
         <h3>Content</h3>
         <form-fields :fields="content" />
-        
+
         <h3>Style</h3>
         <form-fields :fields="styles" />
-        
 
     </div>
 </template>
@@ -15,27 +14,19 @@
 import FormFields from '@/components/controls/FormFields.vue';
 
 export default {
-    name: 'image-element-editor',
+    name: 'counter-element-editor',
     props: [ 'element' ],
     components: { FormFields },
     data() {
         return {
-            updatedElement: null,
-              content: [
+            content: [
                 {
-                    cmp: 'input-url',
-                    name: 'src',
-                    label: 'Link src',
-                    placeholder: 'https://your-link.com',
-                    value: this.element.data.src
+                    cmp: 'input-range',
+                    name: 'counter',
+                    label: 'counter',
+                    value: this.element.data.text
                 },
-                {
-                    cmp: 'input-url',
-                    name: 'link',
-                    label: 'Link URL',
-                    placeholder: 'https://your-link.com',
-                    value: this.element.data.link
-                }
+         
             ],
             styles: [
                 {
@@ -46,8 +37,6 @@ export default {
                 }
             ]
         }
-    },
-    method: {}
-
+    }
 };
 </script>

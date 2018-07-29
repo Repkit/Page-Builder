@@ -14,7 +14,7 @@
 </template>
 
 <script>
-// import SectionElement from '@/components/elements/editor/SectionElement.vue';
+import SectionElement from '@/components/elements/editor/SectionElement.vue';
 import TextElement from '@/components/elements/editor/TextElement.vue';
 import ImageElement from '@/components/elements/editor/ImageElement.vue';
 import ListElement from '@/components/elements/editor/ListElement.vue';
@@ -22,7 +22,7 @@ import ListElement from '@/components/elements/editor/ListElement.vue';
 import ButtonElement from '@/components/elements/editor/ButtonElement.vue';
 import ProgressBarElement from '@/components/elements/editor/ProgressBarElement.vue';
 // import AcordionGroupElement from '@/components/elements/editor/AcordionGroupElement.vue';
-// import CounterElement from '@/components/elements/editor/CounterElement.vue';
+import CounterElement from '@/components/elements/editor/CounterElement.vue';
 
 export default {
     name: 'editor-edit-element',
@@ -39,7 +39,7 @@ export default {
         }
     },
     components: {
-        // SectionElement,
+        SectionElement,
         TextElement,
         ImageElement,
         ListElement,
@@ -47,7 +47,7 @@ export default {
         ButtonElement,
         ProgressBarElement,
         // AcordionGroupElement,
-        // CounterElement,
+        CounterElement,
     }
 };
 </script>
