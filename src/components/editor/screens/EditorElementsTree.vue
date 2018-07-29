@@ -3,19 +3,7 @@
 
         <h2>Elements Tree</h2>
 
-<<<<<<< HEAD
         <div class="tree-container" v-html="tree"></div>
-=======
-        <div class="content">
-            <ul>
-                <li>item 1</li>
-                <li>item 2</li>
-                <li>item 3</li>
-                <li>item 4</li>
-                <li>item 5</li>
-            </ul>
-        </div>
->>>>>>> 91a79b78cac17e4cec4ba014e193aea3f834182d
 
     </div>
 </template>
