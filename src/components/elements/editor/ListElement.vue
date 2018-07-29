@@ -11,12 +11,9 @@
             </li>
         </ul>
 
-
         <button @click="addItem">Add item</button>
 
         <button @click="saveItems">save items</button>
-
-
 
         <h3>Style</h3>
 
@@ -43,7 +40,9 @@ export default {
         this.items.splice(1,index);
     },
     addItem(){
+        // 2 ways todo check
         this.items.map((item)=> ++item);
+        //  this.items.push( this.items[this.items.length - 1] + 1);
     }
   }
 };
