@@ -2,8 +2,7 @@
     <div :class="elementClass" :style="elementStyle">
 
         <component v-if="element.elements" v-for="element in element.elements" :key="element._id"
-            :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode">
-        </component>
+            :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode" />
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 

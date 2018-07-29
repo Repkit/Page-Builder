@@ -2,8 +2,7 @@
     <div class="site-preview" v-if="site">
 
         <component v-if="site.elements" v-for="element in site.elements" :key="element._id"
-            :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode">
-        </component>
+            :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode" />
 
     </div>
 </template>
