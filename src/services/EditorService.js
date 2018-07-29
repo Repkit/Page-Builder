@@ -22,10 +22,10 @@ function emptyElement(type) {
 }
 
 function getSelectedElementById(element, id) {
-    // current element check
+    // Current element check
     if (element._id === id) return element;
 
-    // recursive inner elements check
+    // Recursive inner elements check
     for (let elm of element.elements) {
         let match = getSelectedElementById(elm, id);
         if (match) return match;
@@ -34,6 +34,7 @@ function getSelectedElementById(element, id) {
     // If non found
     return null;
 }
+
 function removeSelectedElementById(element, id) {
     var res = []
     element.forEach(currElement => {
@@ -47,7 +48,6 @@ function removeSelectedElementById(element, id) {
     })
     return res
 }
-
 
 function cloneElementById(element, id) {
     var res = []

@@ -29,19 +29,17 @@ export default {
             state.site = site;
         },
         removeElement(state, { id }) {
-            state.site.elements = EditorService.removeSelectedElementById(state.site.elements, id)
+            state.site.elements = EditorService.removeSelectedElementById(state.site.elements, id);
         },
-        cloneElement(state, { id, element }) {
-            var res= EditorService.cloneElementById(state.site.elements, id)
-            console.log('cloneElementById res:',res)
-           
+        cloneElement(state, { id }) {
+            state.site.elements = EditorService.cloneElementById(state.site.elements, id);
         },
         editElement(state, { id, element }) {
         },
 
         // Editor
-        setEditorScreen(state, { status }) {
-            state.editorScreen = status;
+        setEditorScreen(state, { screen }) {
+            state.editorScreen = screen;
         },
 
         // Selected Element Data
@@ -51,6 +49,5 @@ export default {
         removeSelectedElement(state) {
             state.selectedElement = null;
         }
-
     }
 }

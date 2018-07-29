@@ -1,7 +1,7 @@
 <template>
     <div class="editor-site-details" v-if="site">
 
-        <h2>Edit Site</h2>
+        <h2>Site Details</h2>
 
         <div class="content">
             <p><strong>ID:</strong> {{site._id}}</p>

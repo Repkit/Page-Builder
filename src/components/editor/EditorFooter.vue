@@ -19,8 +19,8 @@ export default {
     name: 'editor-footer',
     props: [ 'site' ],
     methods: {
-        setEditorScreen(status) {
-           this.$store.commit({ type: 'setEditorScreen', status });
+        setEditorScreen(screen) {
+           this.$store.commit({ type: 'setEditorScreen', screen });
         }
     }
 };

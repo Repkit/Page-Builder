@@ -3,7 +3,7 @@
 
         <editor-header class="flex-dont-shrink" />
         <editor-nav class="flex-dont-shrink" />
-        <editor-screens class="flex-shrink flex-grow" :screen="editorScreen" :site="site" :selected="selected" />
+        <editor-screens class="flex-shrink flex-grow" :site="site" />
         <editor-footer class="flex-dont-shrink" :site="site" />
 
     </aside>
@@ -17,11 +17,8 @@ import EditorFooter from '@/components/editor/EditorFooter.vue';
 
 export default {
     name: 'editor',
-    props: [ 'site', 'selected' ],
+    props: [ 'site' ],
     computed: {
-        editorScreen() {
-            return this.$store.getters.editorScreen;
-        }
     },
     components: { EditorHeader, EditorNav, EditorScreens, EditorFooter }
 };

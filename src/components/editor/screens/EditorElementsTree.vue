@@ -17,6 +17,6 @@
 <script>
 export default {
     name: 'editor-elements-tree',
-    props: [ 'site', 'selected' ],
+    props: [ 'site' ],
 };
 </script>

@@ -21,8 +21,8 @@
 export default {
     name: 'editor-nav',
     methods: {
-        setEditorScreen(status) {
-           this.$store.commit({ type: 'setEditorScreen', status });
+        setEditorScreen(screen) {
+           this.$store.commit({ type: 'setEditorScreen', screen });
         }
     }
 };

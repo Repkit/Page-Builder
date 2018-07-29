@@ -3,7 +3,7 @@
 
         <split-area :size="15" :minSize="100">
 
-            <editor :site="site" :selected="selectedElement" />
+            <editor :site="site" />
 
         </split-area>
 
@@ -42,8 +42,7 @@ export default {
                 thumb: '',
                 date: {},
                 elements: null,
-            },
-            selectedElement: '3YoPAT29K8zcC41oo03W'
+            }
         }
     },
     created() {

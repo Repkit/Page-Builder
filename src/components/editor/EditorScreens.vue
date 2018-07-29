@@ -20,12 +20,15 @@ import EditorSiteDetails from '@/components/editor/screens/EditorSiteDetails.vue
 
 export default {
     name: 'editor-screens',
-    props: [ 'site', 'selected', 'screen' ],
+    props: [ 'site' ],
     components: { EditorAddSection, EditorAddElement, EditorEditElement, EditorElementsTree, EditorSiteDetails },
     computed: {
+        screen() {
+            return this.$store.getters.editorScreen;
+        },
         selectedElement() {
             return (this.site && this.site._id)
-                ? EditorService.getSelectedElementById(this.site, this.selected)
+                ? this.$store.getters.selectedElement
                 : null;
         }
     },
