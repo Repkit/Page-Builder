@@ -1,6 +1,7 @@
 <template>
     <div class="element-editor map-element-editor">
 
+     
         <h3>Content</h3>
         <form-fields :fields="content" />
 
