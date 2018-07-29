@@ -3,22 +3,6 @@ export default {
     getSelectedElementById,
     removeSelectedElementById,
     cloneElementById,
-    getSiteTree,
-}
-
-function getSiteTree(element) {
-    console.log('income:', element)
-    var strHTML = '<div>';
-    element.forEach(childElement => {
-        if (!childElement.elements[0]) strHTML += `<div class="section-container">${childElement.settings.type}</div>`
-        else{
-            var childsHTML=getSiteTree(childElement.elements)
-            strHTML += `<div class="section-container">${childElement.settings.type}${childsHTML}</div>`
-        } 
-    })
-    strHTML += `</div>`
-    console.log('res:', strHTML)
-    return strHTML
 }
 
 function emptyElement(type) {

@@ -3,36 +3,59 @@
 
         <h2>Elements Tree</h2>
 
-        <div class="tree-container" v-html="tree"></div>
+        <div class="content" v-html="tree">
+        </div>
 
     </div>
 </template>
 
 <script>
-import EditorService from '@/services/EditorService.js';
-
 export default {
     name: 'editor-elements-tree',
     props: [ 'site' ],
     computed: {
         tree() {
-            return EditorService.getSiteTree(this.site.elements);
+            return this.getTree(this.site.elements);
+        }
+    },
+    methods: {
+        getTree(element) {
+            var strHTML = '<ul class="tree">';
+            element.forEach(child => {
+                if (!child.elements[0]) {
+                    strHTML += `<li> ${child.settings.type} </li>`;
+                } else {
+                    var childsHTML = this.getTree(child.elements);
+                    strHTML += `<li> ${child.settings.type} </li>`;
+                    strHTML += `<li class="inner"> ${childsHTML} </li>`;
+                }
+            });
+            strHTML += '</ul>';
+            return strHTML;
         }
     }
 };
 </script>
 
-<style>
-.section-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    margin:5px;
-    background-color: #eeeeee;
-    font-size: 30px;
+<style lang="scss">
+ul.tree {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 20px;
     text-transform: capitalize;
+    font-weight: bold;
+
+    li {
+        background-color: #eee;
+        border: 1px solid #ddd;
+        margin: 3px 0;
+        padding: 5px 0 5px 5px;
+
+        &.inner {
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+        }
+    }
 }
 </style>
-
