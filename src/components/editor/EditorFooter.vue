@@ -1,7 +1,7 @@
 <template>
     <section class="editor-footer flex space-around align-center flex-wrap">
 
-        <span>
+        <span @click="setEditorScreen('editor-site-details')">
             <font-awesome-icon :icon="['fas', 'cog']" />
         </span>
         <router-link :to="'/' + site._id" target="_blank">
@@ -18,6 +18,11 @@
 export default {
     name: 'editor-footer',
     props: [ 'site' ],
+    methods: {
+        setEditorScreen(status) {
+           this.$store.commit({ type: 'setEditorScreen', status });
+        }
+    }
 };
 </script>
 
@@ -43,6 +48,7 @@ export default {
     > span {
         padding: 10px 0;
         font-size: 15px;
+        cursor: pointer;
     }
 }
 </style>

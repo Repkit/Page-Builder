@@ -5,6 +5,7 @@
         <editor-add-element v-if="screen === 'editor-add-element'" />
         <editor-edit-element v-if="screen === 'editor-edit-element' && selectedElement" :element="selectedElement" />
         <editor-elements-tree v-if="screen === 'editor-elements-tree' && site" :site="site" :selected="selectedElement" />
+        <editor-site-details v-if="screen === 'editor-site-details' && site" :site="site" />
 
     </section>
 </template>
@@ -15,11 +16,12 @@ import EditorAddSection from '@/components/editor/screens/EditorAddSection.vue';
 import EditorAddElement from '@/components/editor/screens/EditorAddElement.vue';
 import EditorEditElement from '@/components/editor/screens/EditorEditElement.vue';
 import EditorElementsTree from '@/components/editor/screens/EditorElementsTree.vue';
+import EditorSiteDetails from '@/components/editor/screens/EditorSiteDetails.vue';
 
 export default {
     name: 'editor-screens',
     props: [ 'site', 'selected', 'screen' ],
-    components: { EditorAddSection, EditorAddElement, EditorEditElement, EditorElementsTree },
+    components: { EditorAddSection, EditorAddElement, EditorEditElement, EditorElementsTree, EditorSiteDetails },
     computed: {
         selectedElement() {
             return (this.site && this.site._id)

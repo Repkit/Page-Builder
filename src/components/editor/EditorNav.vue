@@ -20,11 +20,11 @@
 <script>
 export default {
     name: 'editor-nav',
-    methods:{
-        setEditorScreen(status){
-           this.$store.commit({ type: 'setEditorScreen', status })
+    methods: {
+        setEditorScreen(status) {
+           this.$store.commit({ type: 'setEditorScreen', status });
         }
-    },
+    }
 };
 </script>
 
