@@ -21,19 +21,59 @@ export default {
         return {
             content: [
                 {
-                    cmp: 'input-text',
-                    name: 'text',
-                    label: 'Text',
-                    placeholder: 'Enter some text...',
+                    cmp: 'select',
+                    name: 'direction',
+                    options: [
+                        { label: 'Horizontal (rows)', value: 'column' },
+                        { label: 'Vertical (columns)', value: 'row' },
+                    ],
+                    label: 'Oriantation',
                     value: this.element.data.direction
                 },
             ],
             styles: [
                 {
-                    cmp: 'input-range',
-                    name: 'fontSize',
-                    label: 'Font Size',
-                    value: this.element.styles.fontSize
+                    cmp: 'input-text',
+                    name: 'margin',
+                    label: 'Margin',
+                    placeholder: '0px 0px 0px 0px',
+                    value: this.element.styles.margin
+                },
+                {
+                    cmp: 'input-text',
+                    name: 'padding',
+                    label: 'Padding',
+                    placeholder: '0px 0px 0px 0px',
+                    value: this.element.styles.padding
+                },
+                {
+                    cmp: 'input-url',
+                    name: 'backgroundImage',
+                    label: 'Background Image',
+                    placeholder: 'https://your-link.com',
+                    value: this.element.styles.backgroundImage
+                },
+                {
+                    cmp: 'select',
+                    name: 'backgroundSize',
+                    options: [
+                        { label: 'Cover', value: 'cover' },
+                        { label: 'Contain', value: 'contain' },
+                        { label: 'Auto', value: 'auto' },
+                    ],
+                    label: 'Background Size',
+                    value: this.element.data.backgroundSize
+                },
+                {
+                    cmp: 'select',
+                    name: 'backgroundRepeat',
+                    options: [
+                        { label: 'Cover', value: 'cover' },
+                        { label: 'Contain', value: 'contain' },
+                        { label: 'Auto', value: 'auto' },
+                    ],
+                    label: 'Background Repeat',
+                    value: this.element.data.backgroundRepeat
                 }
             ]
         }
