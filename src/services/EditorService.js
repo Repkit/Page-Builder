@@ -1,7 +1,8 @@
 export default {
     emptyElement,
     getSelectedElementById,
-    removeSelectedElementById
+    removeSelectedElementById,
+    cloneElementById,
 }
 
 function emptyElement(type) {
@@ -47,6 +48,27 @@ function removeSelectedElementById(element, id) {
     return res
 }
 
+
+function cloneElementById(element, id) {
+    var res = []
+    element.forEach(currElement => {
+        if (currElement._id !== id) {
+            if (!getSelectedElementById(currElement, id)) res.push(currElement)
+            else {
+                currElement.elements = cloneElementById(currElement.elements, id)
+                res.push(currElement)
+            }
+        }
+        else {
+            res.push(currElement)
+            var cloned = JSON.parse(JSON.stringify(currElement))
+            cloned._id = _makeId()
+            res.push(cloned)
+        }
+    })
+    return res
+
+}
 // function getSelectedElementById(element, selected) {
 //
 //     // current element check
