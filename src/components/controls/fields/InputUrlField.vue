@@ -1,20 +1,20 @@
 <template>
-    <div class="input-text" v-if="field">
+    <div class="input-url-field" v-if="newField">
 
         <label>{{newField.label}}</label>
         <input v-model="newField.value" @input="$emit('change', newField, idx)"
-            type="text" name="newField.name" placeholder="newField.placeholder" />
+            type="url" name="newField.name" placeholder="newField.placeholder" />
 
     </div>
 </template>
 
 <script>
 export default {
-    name: 'input-text',
+    name: 'input-url-field',
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: this.field
+            newField: Object.assign( this.field )
         }
     }
 };

@@ -1,5 +1,5 @@
 <template>
-    <div class="input-range" v-if="field">
+    <div class="input-range-field" v-if="newField">
 
         <label>{{newField.label}}</label>
 
@@ -15,11 +15,11 @@
 
 <script>
 export default {
-    name: 'input-range',
+    name: 'input-range-field',
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: this.field
+            newField: Object.assign( this.field )
         }
     }
 };

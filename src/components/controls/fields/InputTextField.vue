@@ -1,20 +1,20 @@
 <template>
-    <div class="input-number" v-if="field">
+    <div class="input-text-field" v-if="newField">
 
         <label>{{newField.label}}</label>
         <input v-model="newField.value" @input="$emit('change', newField, idx)"
-            type="number" name="newField.name" placeholder="newField.placeholder" />
+            type="text" name="newField.name" placeholder="newField.placeholder" />
 
     </div>
 </template>
 
 <script>
 export default {
-    name: 'input-number',
+    name: 'input-text-field',
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: this.field
+            newField: Object.assign( this.field )
         }
     }
 };

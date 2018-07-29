@@ -21,10 +21,10 @@ export default {
         return {
             content: [
                 {
-                    cmp: 'input-text',
-                    name: 'text',
+                    cmp: 'textarea',
                     label: 'Text',
                     placeholder: 'Enter some text...',
+                    rows: 5,
                     value: this.element.data.text
                 },
                 {
@@ -40,6 +40,17 @@ export default {
                     cmp: 'input-range',
                     name: 'fontSize',
                     label: 'Font Size',
+                    value: this.element.styles.fontSize
+                },
+                {
+                    cmp: 'select',
+                    name: 'textAlign',
+                    options: [
+                        { label: 'Left', value: 'left' },
+                        { label: 'Center', value: 'center' },
+                        { label: 'Right', value: 'right' },
+                    ],
+                    label: 'Align',
                     value: this.element.styles.fontSize
                 }
             ]

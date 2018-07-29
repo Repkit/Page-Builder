@@ -2,29 +2,33 @@
     <div class="form-fields">
 
         <component v-if="fields" v-for="(field, idx) in fields" :key="idx"
-            :is="field.cmp" :field="field" :idx="idx" @change="updateFields" />
+            :is="field.cmp+'-field'" :field="field" :idx="idx" @change="updateFields" />
 
     </div>
 </template>
 
 <script>
-import InputText from '@/components/controls/fields/InputText.vue';
-import InputNumber from '@/components/controls/fields/InputNumber.vue';
-import InputUrl from '@/components/controls/fields/InputUrl.vue';
-import InputRange from '@/components/controls/fields/InputRange.vue';
+import InputTextField from '@/components/controls/fields/InputTextField.vue';
+import InputNumberField from '@/components/controls/fields/InputNumberField.vue';
+import InputUrlField from '@/components/controls/fields/InputUrlField.vue';
+import InputRangeField from '@/components/controls/fields/InputRangeField.vue';
+import SelectField from '@/components/controls/fields/SelectField.vue';
+import TextareaField from '@/components/controls/fields/TextareaField.vue';
 
 export default {
     name: 'form-fields',
     props: [ 'fields' ],
     components: {
-        InputText,
-        InputNumber,
-        InputUrl,
-        InputRange,
+        InputTextField,
+        InputNumberField,
+        InputUrlField,
+        InputRangeField,
+        SelectField,
+        TextareaField,
     },
     data() {
         return {
-            newFields: { ...this.fields }
+            newFields: Object.assign( this.fields )
         }
     },
     methods: {
@@ -43,13 +47,17 @@ export default {
     label {
         display: block;
         margin-bottom: 5px;
+        line-height: 1.25;
     }
 
-    input {
+    input,
+    select,
+    textarea {
         margin-bottom: 20px;
         width: 100%;
         font-size: 13px;
         padding: 5px;
+        line-height: 1.25;
     }
 }
 </style>
