@@ -55,13 +55,14 @@ export default {
     },
 	methods: {
 		loadSite() {
+            debugger;
 			this.$store.dispatch({ type: 'loadSite', id: this.$route.params.siteId })
 				.then(site => {
-                            if(this.getLogginUser()._id === site.user_id) {
-                                this.$store.commit({type:'setSiteToEdit',site});
-                                this.site = site;
-                            }
-                            else this.$router.push(`/${this.$route.params.siteId}`);
+                    if(this.getLogginUser._id === site.user_id) {
+                        this.$store.commit({type:'setSiteToEdit',site});
+                        this.site = site;
+                    }
+                    else this.$router.push(`/${this.$route.params.siteId}`);
                 })
                 .catch(err => {
                     this.$router.push('/notfound');
