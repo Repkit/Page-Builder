@@ -1,5 +1,5 @@
 <template>
-    <section class="editor-nav flex flex-wrap text-center">
+    <section class="editor-nav flex flex-nowrap text-center">
 
         <div class="editor-nav-item" @click="setEditorScreen('editor-add-section')">
             <font-awesome-icon :icon="['fas', 'plus']" />
