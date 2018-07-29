@@ -2,7 +2,7 @@
       <div class="element-actions">
 
         <ul class="inline-list" arial-label="Element Actions">
-            <li @click="editElement" ><font-awesome-icon :icon="['fas', 'edit']" /></li>
+            <li @click="editElement"><font-awesome-icon :icon="['fas', 'edit']" /></li>
             <li class="drag"><font-awesome-icon :icon="['fas', 'arrows-alt']" /></li>
             <li @click="cloneElement"><font-awesome-icon :icon="['fas', 'clone']" /></li>
             <li @click="removeElement"><font-awesome-icon :icon="['fas', 'trash-alt']" /></li>
@@ -15,9 +15,15 @@
 export default {
     name: 'element-actions',
     props: [ 'id' ],
+    computed: {
+        site() {
+            return this.$store.getters.site;
+        }
+    },
     methods: {
         editElement() {
-            this.$store.commit({ type: 'updateSelectedElement', id: this.id });
+            this.$store.commit({ type: 'removeSelectedElement' });
+            this.$store.commit({ type: 'updateSelectedElement', site: this.site, id: this.id });
             this.$store.commit({ type: 'setEditorScreen', screen: 'editor-edit-element' });
         },
         cloneElement() {

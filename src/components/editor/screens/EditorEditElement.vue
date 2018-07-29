@@ -29,7 +29,7 @@ export default {
     props: [ 'element' ],
     data() {
         return {
-            newElement: { ...this.element }
+            newElement: Object.assign( this.element )
         }
     },
     methods: {

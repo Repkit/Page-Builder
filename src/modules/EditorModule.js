@@ -1,10 +1,7 @@
-import EditorService from '@/services/EditorService';
+import SiteService from '@/services/SiteService';
 
 export default {
     state: {
-        // Site Data
-        site: {},
-
         // Editor
         editMode: false,
         editorScreen: 'editor-add-element',
@@ -14,9 +11,6 @@ export default {
         selectedElement: null,
     },
     getters: {
-        // Site Data
-        site: state => state.site,
-
         // Editor
         editMode: state => state.editMode,
         editorScreen: state => state.editorScreen,
@@ -26,17 +20,6 @@ export default {
         selectedElement: state => state.selectedElement,
     },
     mutations: {
-        // Site Data
-        setSiteToEdit(state, { site }) {
-            state.site = site;
-        },
-        removeElement(state, { id }) {
-            state.site.elements = EditorService.removeSelectedElementById(state.site.elements, id);
-        },
-        cloneElement(state, { id }) {
-            state.site.elements = EditorService.cloneElementById(state.site.elements, id);
-        },
-
         // Editor
         setEditorScreen(state, { screen }) {
             state.editorScreen = screen;
@@ -46,8 +29,11 @@ export default {
         },
 
         // Selected Element Data
-        updateSelectedElement(state, { id }) {
-            state.selectedElement = EditorService.getSelectedElementById(state.site, id);
+        updateSelectedElement(state, { site, id }) {
+            console.log('updateSelectedElement:', id);
+            state.selectedElement = SiteService.getSelectedElementById(site, id);
+            console.log('Updated state.selectedElement:', state.selectedElement);
+            console.log('--------------');
         },
         removeSelectedElement(state) {
             state.selectedElement = null;

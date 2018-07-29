@@ -2,12 +2,26 @@ import SiteService from '@/services/SiteService';
 
 export default {
     state: {
-        sites: []
+        // Sites List
+        sites: [],
+
+        // Current site
+        site: {
+            name: '',
+            thumb: '',
+            date: {},
+            elements: null,
+        }
     },
     getters: {
-        sitesToDisplay: state => state.sites
+        // Sites List
+        sitesToDisplay: state => state.sites,
+
+        // Current site
+        site: state => state.site,
     },
     mutations: {
+        // Sites List
         loadSites(state, { sites }) {
             state.sites = sites;
         },
@@ -21,9 +35,18 @@ export default {
         removeSite(state, { id }) {
             state.sites = state.sites.filter(item => item._id !== id);
         },
-        setSites(state, { sites }) {
-            state.sites = sites;
-        }
+
+        // Current site
+        loadSite(state, { site }) {
+            state.site = site;
+        },
+        removeElement(state, { id }) {
+            state.site.elements = EditorService.removeSelectedElementById(state.site.elements, id);
+        },
+        cloneElement(state, { id }) {
+            state.site.elements = EditorService.cloneElementById(state.site.elements, id);
+        },
+
     },
     actions: {
         loadSites(context, payload) {
@@ -41,9 +64,6 @@ export default {
                     return sites;
                 });
         },
-        loadSite(context, { id }) {
-            return SiteService.getById(id);
-        },
         saveSite(context, { newSite }) {
             let isEdit = !!newSite._id;
             if (!isEdit) newSite.createdAt = Date.now();
@@ -60,5 +80,14 @@ export default {
                     context.commit({ type: 'removeSite', id });
                 });
         },
+
+        // Current site
+        loadSite(context, { id }) {
+            return SiteService.getById(id)
+                .then(site => {
+                    context.commit({ type: 'loadSite', site });
+                    return site;
+                });
+        }
     }
 }

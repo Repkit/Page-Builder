@@ -7,20 +7,14 @@
 </template>
 
 <script>
-import SiteService from '@/services/SiteService.js';
 import SitePreview from '@/components/SitePreview.vue';
 
 export default {
     name: 'site-details',
     components: { SitePreview },
-    data() {
-        return {
-            site: {
-                name: '',
-                thumb: '',
-                date: {},
-                elements: null,
-            }
+    computed:{
+        site() {
+            return this.$store.getters.site;
         }
     },
     created() {
@@ -29,9 +23,6 @@ export default {
 	methods: {
 		loadSite() {
 			this.$store.dispatch({ type: 'loadSite', id: this.$route.params.siteId })
-				.then(site => {
-                    this.site = site;
-                })
                 .catch(err => {
                     this.$router.push('/notfound');
                 });
