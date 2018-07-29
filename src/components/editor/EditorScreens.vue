@@ -1,17 +1,10 @@
 <template>
     <section class="editor-screens">
-        <div v-if="status === 'Section'">
-            <editor-add-section />
-        </div>
 
-        <div v-if="status === 'Element'">
-            <editor-add-element />
-            <editor-edit-element v-if="selectedElement" :element="selectedElement" />
-        </div>
-
-        <div v-if="status === 'Tree'">
-            <editor-elements-tree v-if="site" :site="site" :selected="selectedElement" />
-        </div>
+        <editor-add-section v-if="screen === 'editor-add-section'" />
+        <editor-add-element v-if="screen === 'editor-add-element'" />
+        <editor-edit-element v-if="screen === 'editor-edit-element' && selectedElement" :element="selectedElement" />
+        <editor-elements-tree v-if="screen === 'editor-elements-tree' && site" :site="site" :selected="selectedElement" />
 
     </section>
 </template>
@@ -25,7 +18,7 @@ import EditorElementsTree from '@/components/editor/screens/EditorElementsTree.v
 
 export default {
     name: 'editor-screens',
-    props: [ 'site', 'selected','status' ],
+    props: [ 'site', 'selected', 'screen' ],
     components: { EditorAddSection, EditorAddElement, EditorEditElement, EditorElementsTree },
     computed: {
         selectedElement() {
