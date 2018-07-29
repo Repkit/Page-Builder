@@ -4,7 +4,8 @@
         <div v-if="sites" v-for="site in sites" :key="site._id" class="site-list-item">
             <h3><router-link :to="'/'+site._id">{{site.name}}</router-link></h3>
             <router-link :to="'/'+site._id"><img :src="site.thumb"></router-link>
-            <ul class="site-actions inline-list flex space-around">
+
+            <ul v-if="logginUser._id === site.user_id" class="site-actions inline-list flex space-around">
                 <li>
                     <router-link :to="'/'+site._id">
                         <font-awesome-icon :icon="['fas', 'eye']" />
@@ -35,6 +36,11 @@ export default {
         editSite(site){
             this.$router.push(`/${site._id}/edit`);
         },
+    },
+    computed:{
+        logginUser(){
+           return this.$store.getters.loggedInUser
+        } 
     }
 };
 </script>
