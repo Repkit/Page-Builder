@@ -46,14 +46,18 @@ export default {
         }
     },
     created() {
-		this.loadSite();
+        this.loadSite();
+        this.logginUser = this.$store.getters.loggedInUser
     },
 	methods: {
 		loadSite() {
 			this.$store.dispatch({ type: 'loadSite', id: this.$route.params.siteId })
 				.then(site => {
-                    this.$store.commit({type:'setSiteToEdit',site})
-                    this.site = site;
+                    if(this.logginUser._id === site.user_id){
+                        this.$store.commit({type:'setSiteToEdit',site})
+                        this.site = site;
+                    }
+                    else this.$router.push('/notfound');
                 })
                 .catch(err => {
                     this.$router.push('/notfound');
