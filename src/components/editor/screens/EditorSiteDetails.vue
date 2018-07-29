@@ -4,7 +4,7 @@
         <h2>Site Details</h2>
 
         <div class="content">
-            <p><strong>ID:</strong> {{site._id}}</p>
+            <!-- <p><strong>ID:</strong> {{site._id}}</p> -->
             <img :src="site.thumb" />
             <p><strong>{{site.name}}</strong></p>
         </div>
@@ -21,14 +21,10 @@ export default {
 
 <style scoped lang="scss">
 .editor-site-details {
-    padding: 0 0 10px;
+    text-align: center;
 
-    .content {
-        padding: 0 5px;
-
-        img {
-            margin: 0 auto;
-        }
+    img {
+        margin: 0 auto;
     }
 }
 </style>

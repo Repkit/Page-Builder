@@ -3,14 +3,18 @@
 
         <h2>Add Elements</h2>
 
-        <input type="search" v-model="filterBy" placeholder="Search elements..." />
+        <div class="content">
 
-        <div class="flex flex-wrap">
+            <input type="search" v-model="filterBy" placeholder="Search elements..." />
 
-            <div v-for="element in elementsToDisplay" :key="element.type"
-                class="element-type flex-grow" draggable="true">
-                <font-awesome-icon :icon="element.icon" />
-                <div>{{element.label}}</div>
+            <div class="flex flex-wrap">
+
+                <div v-for="element in elementsToDisplay" :key="element.type"
+                    class="element-type flex-grow" draggable="true">
+                    <font-awesome-icon :icon="element.icon" />
+                    <div>{{element.label}}</div>
+                </div>
+
             </div>
 
         </div>
@@ -66,6 +70,7 @@ input {
     background-color: #eee;
     font-size: 26px;
     font-weight: normal;
+    text-align: center;
     transition: 1s;
     cursor: move;
 
