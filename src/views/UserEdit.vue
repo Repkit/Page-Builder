@@ -6,7 +6,7 @@
         <section class="form">
             <div class="container">
               <h1>Edit user details</h1>
-              <form @submit.prevent="saveUser" v-if="isUserLogin">
+              <form @submit.prevent="saveUser" v-if="isUserLoggedIn">
                   <p>First name:
                       <input v-model="user.firstName" type="text" placeholder="FirstName" required>
                   </p>
@@ -79,7 +79,7 @@ export default {
     loggedInUser() {
       return this.$store.getters.loggedInUser;
     },
-    isUserLogin() {
+    isUserLoggedIn() {
       return this.$store.getters.isUserLoggedIn;
     }
   },

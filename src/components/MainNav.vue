@@ -4,12 +4,12 @@
         <ul class="inline-list" arial-label="Main navigation bar">
             <li><router-link to="/"> Home </router-link></li>
             <li><router-link to="/about"> About </router-link></li>
-            <li><router-link to="/profile" v-if="isUserLogin"> My Profile </router-link></li>
-            <li><button @click="logout" v-if="isUserLogin"> Logout </button></li>
-            <li><router-link to="/signup" v-if="!isUserLogin"> Signup </router-link></li>
+            <li><router-link to="/profile" v-if="isUserLoggedIn"> My Profile </router-link></li>
+            <li><button @click="logout" v-if="isUserLoggedIn"> Logout </button></li>
+            <li><router-link to="/signup" v-if="!isUserLoggedIn"> Signup </router-link></li>
             <li>
-                <span @click="toggleLogin" v-if="!isUserLogin"> Login </span>
-                <user-login v-if="!isUserLogin && displayLogin" @toggleLogin="toggleLogin"></user-login>
+                <span @click="toggleLogin" v-if="!isUserLoggedIn"> Login </span>
+                <user-login v-if="!isUserLoggedIn && displayLogin" @toggleLogin="toggleLogin"></user-login>
             </li>
         </ul>
 
@@ -39,7 +39,7 @@ export default {
         }
     },
     computed: {
-        isUserLogin() {
+        isUserLoggedIn() {
             return this.$store.getters.isUserLoggedIn;
         },
         loggedInUser() {

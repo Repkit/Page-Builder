@@ -6,7 +6,7 @@
         <section class="form">
             <div class="container">
                 <h1>Signup</h1>
-                <p v-if="isUserLogin">You are a logged in user.</p>
+                <p v-if="isUserLoggedIn">You are a logged in user.</p>
                 <form v-else @submit.prevent="signup">
                     <p>
                         <input v-model="user.userName" type="text" placeholder="UserName" required />
@@ -58,7 +58,7 @@ export default {
     };
   },
   computed: {
-    isUserLogin() {
+    isUserLoggedIn() {
       return this.$store.getters.isUserLoggedIn;
     }
   },

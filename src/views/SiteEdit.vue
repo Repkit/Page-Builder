@@ -49,7 +49,7 @@ export default {
         this.loadSite();
     },
     computed:{
-        getLogginUser() {
+        loggedInUser() {
             return this.$store.getters.loggedInUser;
         }
     },
@@ -57,7 +57,7 @@ export default {
 		loadSite() {
 			this.$store.dispatch({ type: 'loadSite', id: this.$route.params.siteId })
 				.then(site => {
-                    if(this.getLogginUser._id === site.user_id) {
+                    if (this.loggedInUser._id === site.user_id) {
                         this.$store.commit({type:'setSiteToEdit',site});
                         this.site = site;
                     }

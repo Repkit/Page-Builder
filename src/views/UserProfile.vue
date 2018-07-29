@@ -3,14 +3,14 @@
 
         <main-nav></main-nav>
 
-        <section class="user-data" v-if="isUserLogin">
+        <section class="user-data" v-if="isUserLoggedIn">
             <div class="container">
                 <user-details :user="loggedInUser"></user-details>
             </div>
             <router-link to="/profile/edit" > Edit profile </router-link>
         </section>
 
-        <section class="user-sites" v-if="isUserLogin">
+        <section class="user-sites" v-if="isUserLoggedIn">
             <div class="container">
                 <site-list v-if="sites" :sites="sites"></site-list>
                 <p v-else>No sites yet, create new site now.</p>
@@ -37,7 +37,7 @@ export default {
         loggedInUser() {
             return this.$store.getters.loggedInUser;
         },
-        isUserLogin() {
+        isUserLoggedIn() {
             return this.$store.getters.isUserLoggedIn;
         },
         sitesToDisplay() {

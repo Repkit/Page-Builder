@@ -27,12 +27,9 @@ export default {
     };
   },
   computed: {
-    isUserLogin() {
+    isUserLoggedIn() {
       return this.$store.getters.isUserLoggedIn;
     },
-    loggedInUser() {
-      return this.$store.getters.loggedInUser.userName;
-    }
   },
   methods: {
     login() {
