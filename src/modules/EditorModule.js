@@ -41,7 +41,6 @@ export default {
         setEditorScreen(state, { screen }) {
             state.editorScreen = screen;
         },
-
         // Selected Element Data
         updateSelectedElement(state, { id }) {
             state.selectedElement = EditorService.getSelectedElementById(state.site, id);
