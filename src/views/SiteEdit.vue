@@ -42,19 +42,23 @@ export default {
                 thumb: '',
                 date: {},
                 elements: null,
-            }
+            },
         }
     },
     created() {
-        this.logginUser = this.$store.getters.loggedInUser
         this.loadSite();
+    },
+    computed:{
+        getLogginUser() {
+            return this.$store.getters.loggedInUser;
+        }
     },
 	methods: {
 		loadSite() {
 			this.$store.dispatch({ type: 'loadSite', id: this.$route.params.siteId })
 				.then(site => {
-                            if(this.logginUser._id === site.user_id){
-                                this.$store.commit({type:'setSiteToEdit',site})
+                            if(this.getLogginUser()._id === site.user_id) {
+                                this.$store.commit({type:'setSiteToEdit',site});
                                 this.site = site;
                             }
                             else this.$router.push(`/${this.$route.params.siteId}`);
