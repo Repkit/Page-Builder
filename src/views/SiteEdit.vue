@@ -15,7 +15,7 @@
 
 <script>
 import VueSplit from 'vue-split-panel';
-import EditorService from '@/services/EditorService.js';
+import SiteService from '@/services/SiteService.js';
 
 import Editor from "@/components/editor/Editor.vue";
 import SitePreview from '@/components/SitePreview.vue';
@@ -49,7 +49,7 @@ export default {
                 });
         },
         addElement(elementType) {
-            this.site.elements.push(EditorService.emptyElement(elementType));
+            this.site.elements.push(SiteService.emptyElement(elementType));
         }
 	}
 };

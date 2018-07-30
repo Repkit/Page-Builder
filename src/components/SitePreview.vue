@@ -18,6 +18,7 @@ import ProgressBarElement from '@/components/elements/preview/ProgressBarElement
 import AcordionGroupElement from '@/components/elements/preview/AcordionGroupElement.vue';
 import CounterElement from '@/components/elements/preview/CounterElement.vue';
 
+
 export default {
     name: 'site-preview',
     props: [ 'site', 'isEditMode' ],
@@ -39,7 +40,10 @@ export default {
         drop(ev) {
             ev.preventDefault();
             var elDrag=this.$store.getters.drag;
-            ev.target.appendChild(elDrag);
+            // elDrag.setAttribute("data-element-id", SiteService.makeId());
+            // ev.target.appendChild(elDrag);
+            console.log('target:',ev.target.getAttribute("data-element-id"))
+            this.$store.commit('addToElement', {elementId: ev.target.getAttribute("data-element-id"), elDrag:elDrag})
         }
     }
 };

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import EditorService from '@/services/EditorService.js';
+import SiteService from '@/services/SiteService.js';
 import EditorAddSection from '@/components/editor/screens/EditorAddSection.vue';
 import EditorAddElement from '@/components/editor/screens/EditorAddElement.vue';
 import EditorEditElement from '@/components/editor/screens/EditorEditElement.vue';
@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         addElement(elementType) {
-            this.site.elements.push(EditorService.emptyElement(elementType));
+            this.site.elements.push(SiteService.emptyElement(elementType));
         }
     }
 };
