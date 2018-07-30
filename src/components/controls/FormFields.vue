@@ -60,10 +60,13 @@ export default {
         margin-bottom: 20px;
         width: 100%;
         font-size: 13px;
-        padding: 5px;
+        padding: 7px;
         line-height: 1.25;
         border-radius: 3px;
         border: 1px solid #ddd;
+    }
+    select {
+        padding: 5px;
     }
 }
 </style>
