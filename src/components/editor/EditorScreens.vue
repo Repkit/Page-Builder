@@ -58,7 +58,7 @@ export default {
         }
 
         .content {
-            padding: 5px 5px 10px;
+            padding: 10px;
         }
     }
 

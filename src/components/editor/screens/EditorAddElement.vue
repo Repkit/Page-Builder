@@ -7,7 +7,7 @@
 
             <input type="search" v-model="filterBy" placeholder="Search elements..." />
 
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap space-between">
 
                 <div v-for="element in elementsToDisplay" :key="element.type"
                     class="element-type flex-grow" draggable="true" ref="drag" @drag="setDrag(element.type)">
@@ -59,16 +59,16 @@ export default {
 
 <style scoped lang="scss">
 input {
-    width: 96%;
+    width: 100%;
     max-width: 100%;
-    margin: 0.5em 2%;
+    margin: 5px 0 0;
     padding: 8px 10px;
     border: 1px solid #999;
     font-size: 12px;
 }
 .element-type {
-    flex: 0 46%;
-    margin: 5px 2%;
+    flex: 0 48%;
+    margin: 10px 0 0;
     padding: 10px 5px;
     border-radius: 3px;
     border: 1px solid #e3e3e3;

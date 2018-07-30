@@ -3,7 +3,7 @@
 
         <h2>Add Section</h2>
 
-        <div class="content flex flex-wrap">
+        <div class="content flex flex-wrap space-between">
             <div @click="addSection(1)">
                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"><path d="M100,0V50H0V0Z"></path></svg>
             </div>
@@ -40,8 +40,8 @@ export default {
 
 <style scoped lang="scss">
 .content > div {
-    flex: 0 46%;
-    margin: 5px 2% 0;
+    flex: 0 48%;
+    margin: 5px 0 0;
     opacity: 0.25;
     cursor: pointer;
 }
