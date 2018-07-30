@@ -58,6 +58,8 @@ export default {
         font-size: 13px;
         padding: 5px;
         line-height: 1.25;
+        border-radius: 3px;
+        border: 1px solid #ddd;
     }
 }
 </style>
