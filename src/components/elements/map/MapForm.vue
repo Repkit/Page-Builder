@@ -25,26 +25,30 @@ export default {
         return {
             content: [
                 {
-                    cmp: 'input-text',
                     name: 'text',
+                    cmp: 'input-text',
                     label: 'Text',
-                    placeholder: 'Enter some text...',
-                    value: this.element.data.text
+                    placeholder: 'Enter some location...',
+                    value: this.element.data.location
                 },
                 {
-                    cmp: 'input-url',
-                    name: 'link',
-                    label: 'Link URL',
-                    placeholder: 'https://your-link.com',
-                    value: this.element.data.link
+                    name: 'zoom',
+                    cmp: 'input-range',
+                    label: 'Zoom',
+                    min: 1,
+                    max: 20,
+                    step: 1,
+                    value: this.element.styles.zoom
                 }
             ],
             styles: [
                 {
+                    name: 'height',
                     cmp: 'input-range',
-                    name: 'fontSize',
-                    label: 'Font Size',
-                    value: this.element.styles.fontSize
+                    label: 'Height',
+                    default: '300px',
+                    unit: 'px',
+                    value: this.element.styles.height
                 }
             ]
         }
