@@ -46,9 +46,9 @@ export default {
         cloneElement(state, { id }) {
             state.site.elements = SiteService.cloneElementById(state.site.elements, id);
         },
-        // addToElement(state, { elementId, elDrag }) {
-        //     state.site.elements = SiteService.addElementById(state.site.elements, elementId, elDrag);
-        // },
+        addToElement(state, { elementId, type }) {
+            state.site.elements = SiteService.addElementById(state.site.elements, elementId, type)
+        },
 
     },
     actions: {
