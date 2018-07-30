@@ -39,13 +39,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.content {
-
-    > div {
-        flex: 0 42%;
-        margin: 10px 4%;
-        opacity: 0.25;
-        cursor: pointer;
-    }
+.content > div {
+    flex: 0 46%;
+    margin: 5px 2% 0;
+    opacity: 0.25;
+    cursor: pointer;
 }
 </style>

@@ -70,7 +70,7 @@ export default {
         }
 
         .content {
-            padding: 0 5px;
+            padding: 5px 5px 10px;
         }
     }
 

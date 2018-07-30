@@ -22,7 +22,7 @@ export default {
         getTree(element) {
             var strHTML = '<ul class="tree">';
             element.forEach(child => {
-                strHTML += `<li> ${child.settings.type} </li>`;
+                strHTML += `<li> <span> ${child.settings.type} </span> </li>`;
                 if (child.elements) {
                     var childsHTML = this.getTree(child.elements);
                     strHTML += `<li class="inner"> ${childsHTML} </li>`;
@@ -39,7 +39,7 @@ export default {
 ul.tree {
     list-style-type: none;
     margin: 0;
-    padding-left: 20px;
+    padding-left: 0;
     text-transform: capitalize;
     font-weight: bold;
 
@@ -47,12 +47,20 @@ ul.tree {
         background-color: #eee;
         border: 1px solid #ddd;
         margin: 3px 0;
-        padding: 5px 0 5px 5px;
+        padding: 5px 10px;
 
         &.inner {
             background-color: transparent;
             border: 0;
             padding: 0;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        &:hover > span {
+            color: #F66;
         }
     }
 }
