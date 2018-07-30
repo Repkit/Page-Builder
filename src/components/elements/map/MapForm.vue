@@ -1,5 +1,5 @@
 <template>
-    <div class="element-editor image-element-editor">
+    <div class="element-editor map-form">
 
         <div class="editor-box">
             <h2>Content</h2>
@@ -18,18 +18,18 @@
 import FormFields from '@/components/controls/FormFields.vue';
 
 export default {
-    name: 'image-element-editor',
+    name: 'map-form',
     props: [ 'element' ],
     components: { FormFields },
     data() {
         return {
             content: [
                 {
-                    cmp: 'input-url',
-                    name: 'src',
-                    label: 'Link src',
-                    placeholder: 'https://your-link.com',
-                    value: this.element.data.src
+                    cmp: 'input-text',
+                    name: 'text',
+                    label: 'Text',
+                    placeholder: 'Enter some text...',
+                    value: this.element.data.text
                 },
                 {
                     cmp: 'input-url',
@@ -48,6 +48,6 @@ export default {
                 }
             ]
         }
-    },
+    }
 };
 </script>

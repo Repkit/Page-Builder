@@ -1,5 +1,5 @@
 <template>
-    <div class="element-editor counter-element-editor">
+    <div class="element-editor image-form">
 
         <div class="editor-box">
             <h2>Content</h2>
@@ -18,19 +18,26 @@
 import FormFields from '@/components/controls/FormFields.vue';
 
 export default {
-    name: 'counter-element-editor',
+    name: 'image-form',
     props: [ 'element' ],
     components: { FormFields },
     data() {
         return {
             content: [
                 {
-                    cmp: 'input-range',
-                    name: 'counter',
-                    label: 'counter',
-                    value: this.element.data.text
+                    cmp: 'input-url',
+                    name: 'src',
+                    label: 'Link src',
+                    placeholder: 'https://your-link.com',
+                    value: this.element.data.src
                 },
-         
+                {
+                    cmp: 'input-url',
+                    name: 'link',
+                    label: 'Link URL',
+                    placeholder: 'https://your-link.com',
+                    value: this.element.data.link
+                }
             ],
             styles: [
                 {
@@ -41,6 +48,6 @@ export default {
                 }
             ]
         }
-    }
+    },
 };
 </script>

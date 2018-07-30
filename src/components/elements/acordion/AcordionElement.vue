@@ -1,9 +1,9 @@
 <template>
-    <div class="element acordion-group-element" :style="element.styles"
+    <div class="element acordion-element" :style="element.styles"
         :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
         :data-element-id="element._id">
 
-        <section class="accordion-group" v-for="item in items" :key="item.id">
+        <section class="accordion" v-for="item in items" :key="item.id">
             <section class="accordion-container" @click="toggleIsShown(item)">
                 <div name="title">{{item.name}}</div>
                 <div name="content" v-if="item.isShown">{{item.content}}</div>
@@ -19,7 +19,7 @@
 import ElementActions from '@/components/elements/ElementActions.vue';
 
 export default {
-    name: 'acordion-group-element',
+    name: 'acordion-element',
     props: [ 'element', 'isEditMode' ],
     components: { ElementActions },
     methods: {
@@ -43,14 +43,14 @@ export default {
 </script>
 
 <style scoped>
-.accordion-container{
+.accordion-container {
     text-align: center;
 }
-.acordion-group-element {
+.acordion-element {
     width: 36vw;
     margin: 0 auto;
 }
-.accordion-group {
+.accordion {
     cursor: pointer;
     border: 1px solid black;
 }

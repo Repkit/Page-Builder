@@ -1,5 +1,5 @@
 <template>
-    <div class="element-editor acordion-element-editor">
+    <div class="element-editor list-form">
 
         <div class="editor-box">
             <h2>Content</h2>
@@ -18,26 +18,19 @@
 import FormFields from '@/components/controls/FormFields.vue';
 
 export default {
-    name: 'acordion-element-editor',
+    name: 'list-form',
     props: [ 'element' ],
     components: { FormFields },
     data() {
         return {
             content: [
                 {
-                    cmp: 'input-text',
+                    cmp: 'input-text-repeater',
                     name: 'text',
-                    label: 'Text',
+                    label: 'List',
                     placeholder: 'Enter some text...',
                     value: this.element.data.text
                 },
-                {
-                    cmp: 'input-url',
-                    name: 'link',
-                    label: 'Link URL',
-                    placeholder: 'https://your-link.com',
-                    value: this.element.data.link
-                }
             ],
             styles: [
                 {
@@ -47,7 +40,7 @@ export default {
                     value: this.element.styles.fontSize
                 }
             ]
-        }
+        };
     }
 };
 </script>

@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import SectionElement from '@/components/elements/editor/SectionElement.vue';
-import TextElement from '@/components/elements/editor/TextElement.vue';
-import ImageElement from '@/components/elements/editor/ImageElement.vue';
-import ListElement from '@/components/elements/editor/ListElement.vue';
-import MapElement from '@/components/elements/editor/MapElement.vue';
-import ButtonElement from '@/components/elements/editor/ButtonElement.vue';
-import ProgressBarElement from '@/components/elements/editor/ProgressBarElement.vue';
-// import AcordionGroupElement from '@/components/elements/editor/AcordionGroupElement.vue';
-import CounterElement from '@/components/elements/editor/CounterElement.vue';
+import SectionElement from '@/components/elements/section/SectionForm.vue';
+import TextElement from '@/components/elements/text/TextForm.vue';
+import ImageElement from '@/components/elements/image/ImageForm.vue';
+import ListElement from '@/components/elements/list/ListForm.vue';
+import MapElement from '@/components/elements/map/MapForm.vue';
+import ButtonElement from '@/components/elements/button/ButtonForm.vue';
+import ProgressBarElement from '@/components/elements/progress-bar/ProgressBarForm.vue';
+// import AcordionElement from '@/components/elements/acordion/AcordionForm.vue';
+import CounterElement from '@/components/elements/counter/CounterForm.vue';
 
 export default {
     name: 'editor-edit-element',
@@ -38,7 +38,7 @@ export default {
         MapElement,
         ButtonElement,
         ProgressBarElement,
-        // AcordionGroupElement,
+        // AcordionElement,
         CounterElement,
     }
 };

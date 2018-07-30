@@ -1,5 +1,5 @@
 <template>
-    <div class="element-editor list-element-editor">
+    <div class="element-editor counter-form">
 
         <div class="editor-box">
             <h2>Content</h2>
@@ -18,19 +18,19 @@
 import FormFields from '@/components/controls/FormFields.vue';
 
 export default {
-    name: 'list-element-editor',
+    name: 'counter-form',
     props: [ 'element' ],
     components: { FormFields },
     data() {
         return {
             content: [
                 {
-                    cmp: 'input-text-repeater',
-                    name: 'text',
-                    label: 'List',
-                    placeholder: 'Enter some text...',
+                    cmp: 'input-range',
+                    name: 'counter',
+                    label: 'counter',
                     value: this.element.data.text
                 },
+         
             ],
             styles: [
                 {
@@ -40,7 +40,7 @@ export default {
                     value: this.element.styles.fontSize
                 }
             ]
-        };
+        }
     }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="element-editor section-element-editor">
+    <div class="element-editor section-form">
 
         <div class="editor-box">
             <h2>Setting</h2>
@@ -18,7 +18,7 @@
 import FormFields from '@/components/controls/FormFields.vue';
 
 export default {
-    name: 'section-element-editor',
+    name: 'section-form',
     props: [ 'element' ],
     components: { FormFields },
     data() {

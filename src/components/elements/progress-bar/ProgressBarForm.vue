@@ -1,5 +1,5 @@
 <template>
-    <div class="element-editor progress-bar-element-editor">
+    <div class="element-editor progress-bar-form">
 
         <div class="editor-box">
             <h2>Content</h2>
@@ -18,7 +18,7 @@
 import FormFields from '@/components/controls/FormFields.vue';
 
 export default {
-    name: 'progress-bar-element-editor',
+    name: 'progress-bar-form',
     props: [ 'element' ],
     components: { FormFields },
     data() {

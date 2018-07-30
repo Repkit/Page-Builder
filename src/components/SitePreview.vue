@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import SectionElement from '@/components/elements/preview/SectionElement.vue';
-import TextElement from '@/components/elements/preview/TextElement.vue';
-import ImageElement from '@/components/elements/preview/ImageElement.vue';
-import ListElement from '@/components/elements/preview/ListElement.vue';
-import MapElement from '@/components/elements/preview/MapElement.vue';
-import ButtonElement from '@/components/elements/preview/ButtonElement.vue';
-import ProgressBarElement from '@/components/elements/preview/ProgressBarElement.vue';
-import AcordionGroupElement from '@/components/elements/preview/AcordionGroupElement.vue';
-import CounterElement from '@/components/elements/preview/CounterElement.vue';
+import SectionElement from '@/components/elements/section/SectionElement.vue';
+import TextElement from '@/components/elements/text/TextElement.vue';
+import ImageElement from '@/components/elements/image/ImageElement.vue';
+import ListElement from '@/components/elements/list/ListElement.vue';
+import MapElement from '@/components/elements/map/MapElement.vue';
+import ButtonElement from '@/components/elements/button/ButtonElement.vue';
+import ProgressBarElement from '@/components/elements/progress-bar/ProgressBarElement.vue';
+import AcordionElement from '@/components/elements/acordion/AcordionElement.vue';
+import CounterElement from '@/components/elements/counter/CounterElement.vue';
 
 export default {
     name: 'site-preview',
@@ -29,7 +29,7 @@ export default {
         MapElement,
         ButtonElement,
         ProgressBarElement,
-        AcordionGroupElement,
+        AcordionElement,
         CounterElement,
     },
     computed: {
