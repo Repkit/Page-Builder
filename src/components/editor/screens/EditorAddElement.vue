@@ -9,8 +9,8 @@
 
             <div class="flex flex-wrap">
 
-                <div v-for="(element, idx) in elementsToDisplay" :key="element.type"
-                    class="element-type flex-grow" draggable="true" ref="drag" @drag="setDrag(idx)">
+                <div v-for="element in elementsToDisplay" :key="element.type"
+                    class="element-type flex-grow" draggable="true" ref="drag" @drag="setDrag(element.type)">
                     <font-awesome-icon :icon="element.icon" />
                     <div>{{element.label}}</div>
                 </div>
@@ -50,8 +50,8 @@ export default {
         }
     },
     methods:{
-        setDrag(idx){
-            this.$store.commit({ type: 'setDrag', drag: this.$refs.drag[idx].cloneNode(true) });
+        setDrag(type){
+            this.$store.commit({ type: 'setDrag', drag: type });
         }
     }
 };

@@ -1,5 +1,5 @@
 <template>
-    <div class="site-preview" v-if="site" @dragover="allowDrop" @drop="drop">
+    <div class="site-preview" v-if="site" @dragover="allowDrop" @dragenter="dragEnter" @drop.prevent="drop">
 
         <component v-if="site.elements" v-for="element in site.elements" :key="element._id"
             :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode" />
@@ -18,7 +18,6 @@ import ProgressBarElement from '@/components/elements/preview/ProgressBarElement
 import AcordionGroupElement from '@/components/elements/preview/AcordionGroupElement.vue';
 import CounterElement from '@/components/elements/preview/CounterElement.vue';
 
-
 export default {
     name: 'site-preview',
     props: [ 'site', 'isEditMode' ],
@@ -33,17 +32,28 @@ export default {
         AcordionGroupElement,
         CounterElement,
     },
-    methods:{
-        allowDrop(ev){
+    computed: {
+        drag() {
+            return this.$store.getters.drag;
+        }
+    },
+    methods: {
+        allowDrop(ev) {
             ev.preventDefault();
         },
+        dragEnter(ev) {
+            var id=ev.target.getAttribute("data-element-id")
+            console.log('on dargHover',id)
+
+        },
         drop(ev) {
-            ev.preventDefault();
-            var elDrag=this.$store.getters.drag;
-            // elDrag.setAttribute("data-element-id", SiteService.makeId());
-            // ev.target.appendChild(elDrag);
-            console.log('target:',ev.target.getAttribute("data-element-id"))
-            this.$store.commit('addToElement', {elementId: ev.target.getAttribute("data-element-id"), elDrag:elDrag})
+            console.log('got el id ',ev.target.getAttribute("data-element-id"))
+            var type = this.drag;
+            this.$store.commit('addToElement', 
+            {
+                elementId: ev.target.getAttribute("data-element-id"), 
+                type:type
+            })
         }
     }
 };
