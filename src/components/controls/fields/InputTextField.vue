@@ -2,8 +2,8 @@
     <div class="input-text-field" v-if="newField">
 
         <label>{{newField.label}}</label>
-        <input v-model="newField.value" @input="$emit('change', newField, idx)"
-            type="text" name="newField.name" placeholder="newField.placeholder" />
+        <input v-model="value" @input="$emit('change', newField, idx)"
+            type="text" name="newField.name" :placeholder="newField.placeholder" />
 
     </div>
 </template>
@@ -15,6 +15,16 @@ export default {
     data() {
         return {
             newField: Object.assign( this.field )
+        }
+    },
+    computed: {
+        value: {
+            get() {
+                return parseInt(this.newField.value) || this.newField.default || '';
+            },
+            set(newVal) {
+                this.newField.value = newVal;
+            }
         }
     }
 };
