@@ -40,5 +40,6 @@ span {
     width: 20px;
     font-size: 1.25em;
     font-weight: bold;
+    cursor: pointer;
 }
 </style>

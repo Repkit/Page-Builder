@@ -56,7 +56,8 @@ export default {
 
     input,
     select,
-    textarea {
+    textarea,
+    button {
         margin-bottom: 20px;
         width: 100%;
         font-size: 13px;
@@ -67,6 +68,10 @@ export default {
     }
     select {
         padding: 5px;
+    }
+    button {
+        font-weight: bold;
+        background-color: #eee;
     }
 }
 </style>
