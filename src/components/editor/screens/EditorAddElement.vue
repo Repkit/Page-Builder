@@ -51,7 +51,7 @@ export default {
     },
     methods:{
         setDrag(idx){
-            this.$store.commit({ type: 'setDrag', drag: this.$refs.drag[idx] });
+            this.$store.commit({ type: 'setDrag', drag: this.$refs.drag[idx].cloneNode(true) });
         }
     }
 };
