@@ -1,7 +1,7 @@
 <template>
     <div class="form-fields">
 
-        <component v-if="fields" v-for="(field, idx) in fields" :key="idx"
+        <component class="form-field" v-if="fields" v-for="(field, idx) in fields" :key="idx"
             :is="field.cmp+'-field'" :field="field" :idx="idx" @change="updateFields" />
 
     </div>
@@ -46,11 +46,11 @@ export default {
 
 <style lang="scss">
 .form-fields {
-    text-align: left;
 
     label {
         display: block;
         margin-bottom: 5px;
+        font-size: 14px;
         line-height: 1.25;
     }
 
