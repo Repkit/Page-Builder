@@ -2,12 +2,12 @@
     <div class="element-editor section-form">
 
         <div class="editor-box">
-            <h2>Setting</h2>
+            <h2>Section</h2>
             <form-fields class="content" :fields="content" />
         </div>
 
         <div class="editor-box">
-            <h2>Style</h2>
+            <h2>Section Style</h2>
             <form-fields class="content" :fields="styles" />
         </div>
 

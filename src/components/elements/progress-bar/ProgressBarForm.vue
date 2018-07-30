@@ -2,12 +2,12 @@
     <div class="element-editor progress-bar-form">
 
         <div class="editor-box">
-            <h2>Content</h2>
+            <h2>Progress Bar</h2>
             <form-fields class="content" :fields="content" />
         </div>
 
         <div class="editor-box">
-            <h2>Style</h2>
+            <h2>Progress Bar Style</h2>
             <form-fields class="content" :fields="styles" />
         </div>
 

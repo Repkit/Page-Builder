@@ -2,12 +2,12 @@
     <div class="element-editor list-form">
 
         <div class="editor-box">
-            <h2>Content</h2>
+            <h2>List</h2>
             <form-fields class="content" :fields="content" />
         </div>
 
         <div class="editor-box">
-            <h2>Style</h2>
+            <h2>List Style</h2>
             <form-fields class="content" :fields="styles" />
         </div>
 

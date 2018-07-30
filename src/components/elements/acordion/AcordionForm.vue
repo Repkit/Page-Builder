@@ -2,12 +2,12 @@
     <div class="element-editor acordion-form">
 
         <div class="editor-box">
-            <h2>Content</h2>
+            <h2>Acordion</h2>
             <form-fields class="content" :fields="content" />
         </div>
 
         <div class="editor-box">
-            <h2>Style</h2>
+            <h2>Acordion Style</h2>
             <form-fields class="content" :fields="styles" />
         </div>
 
