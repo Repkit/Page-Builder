@@ -20,7 +20,7 @@ export default {
     computed: {
         value: {
             get() {
-                return parseInt(this.newField.value) || this.newField.default || 'https://';
+                return parseInt(this.newField.value) || this.newField.default || '';
             },
             set(newVal) {
                 this.newField.value = newVal;
