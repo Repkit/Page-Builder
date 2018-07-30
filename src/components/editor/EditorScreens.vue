@@ -27,9 +27,7 @@ export default {
             return this.$store.getters.editorScreen;
         },
         selectedElement() {
-            return (this.site && this.site._id)
-                ? this.$store.getters.selectedElement
-                : null;
+            return this.$store.getters.selectedElement;
         }
     },
     methods: {
