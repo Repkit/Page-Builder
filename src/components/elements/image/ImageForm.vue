@@ -43,14 +43,14 @@ export default {
                 {
                     name: 'align',
                     cmp: 'select',
+                    label: 'Align',
                     options: [
                         { label: 'Default', value: '' },
                         { label: 'Left', value: 'left' },
                         { label: 'Center', value: 'center' },
                         { label: 'Right', value: 'right' },
                     ],
-                    default: '',
-                    label: 'Align',
+                    default: 'center',
                     value: this.element.styles.textAlign
                 },
                 {
