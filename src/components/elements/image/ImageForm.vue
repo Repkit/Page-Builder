@@ -26,7 +26,7 @@ export default {
             content: [
                 {
                     name: 'src',
-                    cmp: 'input-url',
+                    cmp: 'image',
                     label: 'Image',
                     placeholder: 'https://your-link.com',
                     value: this.element.data.src

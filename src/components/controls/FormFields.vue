@@ -15,6 +15,7 @@ import InputRangeField from '@/components/controls/fields/InputRangeField.vue';
 import SelectField from '@/components/controls/fields/SelectField.vue';
 import TextareaField from '@/components/controls/fields/TextareaField.vue';
 import InputTextRepeaterField from '@/components/controls/fields/InputTextRepeaterField.vue';
+import ImageField from '@/components/controls/fields/ImageField.vue';
 
 
 export default {
@@ -28,6 +29,7 @@ export default {
         SelectField,
         TextareaField,
         InputTextRepeaterField,
+        ImageField,
     },
     data() {
         return {
