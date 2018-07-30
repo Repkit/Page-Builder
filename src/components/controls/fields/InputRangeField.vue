@@ -4,8 +4,10 @@
         <label>{{newField.label}}</label>
         <div class="flex">
             <input v-model="value" @input="$emit('change', newField, idx)"
+                :min="newField.min" :max="newField.max" :step="newField.step"
                 type="range" name="newField.name" />
             <input v-model="value" @input="$emit('change', newField, idx)"
+                :min="newField.min" :max="newField.max" :step="newField.step"
                 type="number" name="newField.name" />
         </div>
 
