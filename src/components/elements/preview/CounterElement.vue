@@ -3,9 +3,9 @@
         :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
         :data-element-id="element._id">
 
-        <!-- <button @click="inc">+</button> -->
-            {{element.data.text}}
-        <!-- <button @click="dec">-</button> -->
+        <button @click="inc">+</button>
+            Counter: {{counter}}
+        <button @click="dec">-</button>
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
@@ -21,7 +21,7 @@ export default {
     components: { ElementActions },
     data() {
         return {
-            counter: 0
+            counter: this.element.data.text || 0
         }
     },
     methods: {

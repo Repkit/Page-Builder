@@ -21,11 +21,8 @@ export default {
     components: { ElementActions },
     data() {
         return{
-            items: null
+            items: this.element.data.text || ['Item #1','Item #2','Item #3']
         }
     },
-    created() {
-        this.items = this.element.data.text;
-    }
 };
 </script>
