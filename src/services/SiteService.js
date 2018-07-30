@@ -47,13 +47,13 @@ function emptyElement(type, data = {}, style = {}) {
     };
 }
 
-function emptySectionElement(colsCount) {
-    data = { layout: 'boxed', width: '1200px' };
-    style = { margin: '0', padding: '10px', minHeight: '100px' };
+function emptySectionElement(colsCount = 1) {
+    var data = { layout: 'boxed', width: '1200px' };
+    var style = { margin: '0', padding: '10px', minHeight: '100px' };
     var newSection = {
         id: _makeId(),
         settings: {
-            type: type
+            type: 'section'
         },
         data: {
             direction: (colsCount > 1) ? 'row' : 'column'
@@ -61,6 +61,7 @@ function emptySectionElement(colsCount) {
         styles: style,
         elements: []
     }
+    console.log('new section',newSection)
     if (colsCount > 1) {
         for (var i = 0; i < colsCount; i++) {
             newSection.elements.push(

@@ -21,6 +21,9 @@ export default {
         site: state => state.site,
     },
     mutations: {
+        addSection(state, { colsCount }){
+            state.site.elements.push(SiteService.emptySectionElement(colsCount))
+        },
         // Sites List
         loadSites(state, { sites }) {
             state.sites = sites;

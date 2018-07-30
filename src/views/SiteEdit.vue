@@ -7,7 +7,7 @@
 
         <split-area :size="85">
             <site-preview :site="site" :isEditMode="true" />
-            <add-new-section @add-element="addElement" />
+            <add-new-section @add-section="addSection" />
         </split-area>
 
     </split>
@@ -48,8 +48,8 @@ export default {
                     this.$router.push('/notfound');
                 });
         },
-        addElement(elementType) {
-            this.site.elements.push(SiteService.emptyElement(elementType));
+        addSection(colsCount) {
+            this.$store.commit({ type: 'addSection', colsCount });
         }
 	}
 };
