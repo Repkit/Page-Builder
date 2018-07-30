@@ -48,8 +48,8 @@ export default {
                     this.$router.push('/notfound');
                 });
         },
-        addSection(colsCount) {
-            this.$store.commit({ type: 'addSection', colsCount });
+        addSection(columns) {
+            this.$store.commit({ type: 'addSection', columns });
         }
 	}
 };
