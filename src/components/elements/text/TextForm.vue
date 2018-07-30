@@ -44,6 +44,7 @@ export default {
                 {
                     name: 'textAlign',
                     cmp: 'select',
+                    label: 'Text Align',
                     options: [
                         { label: 'Default', value: '' },
                         { label: 'Left', value: 'left' },
@@ -51,27 +52,26 @@ export default {
                         { label: 'Right', value: 'right' },
                     ],
                     default: '',
-                    label: 'Text Align',
                     value: this.element.styles.textAlign
                 },
                 {
                     name: 'fontSize',
                     cmp: 'input-range',
                     label: 'Font Size',
+                    default: '18px',
                     unit: 'px',
-                    default: '30',
                     value: this.element.styles.fontSize
                 },
                 {
                     name: 'letterSpacing',
                     cmp: 'input-range',
                     label: 'Letter Spacing',
-                    unit: 'px',
                     value: this.element.styles.letterSpacing
                 },
                 {
                     name: 'fontWeight',
                     cmp: 'select',
+                    label: 'Font Weight',
                     options: [
                         { label: 'Default', value: '' },
                         { label: 'Normal', value: 'normal' },
@@ -86,7 +86,7 @@ export default {
                         { label: '800', value: '800' },
                         { label: '900', value: '900' },
                     ],
-                    label: 'Font Weight',
+                    default: '',
                     value: this.element.styles.fontWeight
                 }
             ]
