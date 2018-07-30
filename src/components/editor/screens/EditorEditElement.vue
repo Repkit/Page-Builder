@@ -1,8 +1,8 @@
 <template>
-    <div class="editor-edit-element" v-if="newElement">
+    <div class="editor-edit-element" v-if="selectedElement">
 
-        <component v-if="newElement" :is="newElement.settings.type+'-element'"
-            :element="newElement" @change="updateElement" />
+        <component v-if="selectedElement" :is="selectedElement.settings.type+'-element'"
+            :element="selectedElement" @change="updateElement" />
 
     </div>
 </template>
@@ -20,15 +20,13 @@ import CounterElement from '@/components/elements/editor/CounterElement.vue';
 
 export default {
     name: 'editor-edit-element',
-    props: [ 'element' ],
-    data() {
-        return {
-            newElement: Object.assign( this.element )
+    computed: {
+        selectedElement() {
+            return this.$store.getters.selectedElement;
         }
     },
     methods: {
         updateElement( newElement ) {
-            this.newElement = newElement;
             // this.$emit('change', newField);
         }
     },

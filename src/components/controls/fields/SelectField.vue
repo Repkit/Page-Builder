@@ -3,7 +3,8 @@
 
         <label>{{newField.label}}</label>
         <select v-model="newField.value" @change="$emit('change', newField, idx)">
-            <option v-for="(option, idx) in newField.options" :key="idx" :value="option.value">
+            <option v-for="(option, idx) in newField.options" :key="idx"
+                :value="option.value" :selected="{selected: option.value}">
                 {{option.label}}
             </option>
         </select>

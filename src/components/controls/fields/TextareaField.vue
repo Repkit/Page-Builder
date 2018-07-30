@@ -3,7 +3,7 @@
 
         <label>{{newField.label}}</label>
         <textarea v-model="newField.value" @input="$emit('change', newField, idx)"
-            :rows="newField.rows" placeholder="newField.placeholder" />
+            :rows="newField.rows" :placeholder="newField.placeholder" />
 
     </div>
 </template>

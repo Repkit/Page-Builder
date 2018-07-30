@@ -18,8 +18,6 @@ import EditorFooter from '@/components/editor/EditorFooter.vue';
 export default {
     name: 'editor',
     props: [ 'site' ],
-    computed: {
-    },
     components: { EditorHeader, EditorNav, EditorScreens, EditorFooter }
 };
 </script>

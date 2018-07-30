@@ -3,8 +3,8 @@
 
         <editor-add-section v-if="screen === 'editor-add-section'" />
         <editor-add-element v-if="screen === 'editor-add-element'" />
-        <editor-edit-element v-if="screen === 'editor-edit-element' && selectedElement" :element="selectedElement" />
-        <editor-elements-tree v-if="screen === 'editor-elements-tree' && site" :site="site" :selected="selectedElement" />
+        <editor-edit-element v-if="screen === 'editor-edit-element'" />
+        <editor-elements-tree v-if="screen === 'editor-elements-tree' && site" :site="site" />
         <editor-site-details v-if="screen === 'editor-site-details' && site" :site="site" />
 
     </section>
@@ -25,11 +25,6 @@ export default {
     computed: {
         screen() {
             return this.$store.getters.editorScreen;
-        },
-        selectedElement() {
-            return (this.site && this.site._id)
-                ? this.$store.getters.selectedElement
-                : null;
         }
     },
     methods: {
@@ -58,15 +53,8 @@ export default {
             font-weight: bold;
             line-height: 1.1;
             text-align: center;
-            border-bottom: 1px solid #ccc
-        }
-
-        h3 {
-            margin: 0 0 10px;
-            padding: 10px 0;
-            font-size: 0.85em;
-            font-weight: bold;
-            line-height: 1.1;
+            border-bottom: 1px solid #ccc;
+            background-color: #f6f6f6;
         }
 
         .content {
