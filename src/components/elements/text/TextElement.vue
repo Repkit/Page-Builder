@@ -3,7 +3,7 @@
         :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
         :data-element-id="element._id">
 
-        {{element.data.text}}
+        {{element.data.text ||'New Text'}}
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
