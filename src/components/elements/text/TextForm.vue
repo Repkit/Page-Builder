@@ -2,12 +2,12 @@
     <div class="element-editor text-form">
 
         <div class="editor-box">
-            <h2>Content</h2>
+            <h2>Text</h2>
             <form-fields class="content" :fields="content" />
         </div>
 
         <div class="editor-box">
-            <h2>Style</h2>
+            <h2>Text Style</h2>
             <form-fields class="content" :fields="styles" />
         </div>
 
@@ -25,6 +25,7 @@ export default {
         return {
             content: [
                 {
+                    name: 'text',
                     cmp: 'textarea',
                     label: 'Text',
                     placeholder: 'Enter some text...',
@@ -32,8 +33,8 @@ export default {
                     value: this.element.data.text
                 },
                 {
-                    cmp: 'input-url',
                     name: 'link',
+                    cmp: 'input-url',
                     label: 'Link URL',
                     placeholder: 'https://your-link.com',
                     value: this.element.data.link
@@ -41,24 +42,38 @@ export default {
             ],
             styles: [
                 {
-                    cmp: 'input-range',
+                    name: 'textAlign',
+                    cmp: 'select',
+                    options: [
+                        { label: 'Default', value: '' },
+                        { label: 'Left', value: 'left' },
+                        { label: 'Center', value: 'center' },
+                        { label: 'Right', value: 'right' },
+                    ],
+                    default: '',
+                    label: 'Text Align',
+                    value: this.element.styles.textAlign
+                },
+                {
                     name: 'fontSize',
+                    cmp: 'input-range',
                     label: 'Font Size',
                     unit: 'px',
                     default: '30',
                     value: this.element.styles.fontSize
                 },
                 {
-                    cmp: 'input-range',
                     name: 'letterSpacing',
+                    cmp: 'input-range',
                     label: 'Letter Spacing',
                     unit: 'px',
                     value: this.element.styles.letterSpacing
                 },
                 {
-                    cmp: 'select',
                     name: 'fontWeight',
+                    cmp: 'select',
                     options: [
+                        { label: 'Default', value: '' },
                         { label: 'Normal', value: 'normal' },
                         { label: 'Bold', value: 'bold' },
                         { label: '100', value: '100' },
@@ -73,17 +88,6 @@ export default {
                     ],
                     label: 'Font Weight',
                     value: this.element.styles.fontWeight
-                },
-                {
-                    cmp: 'select',
-                    name: 'textAlign',
-                    options: [
-                        { label: 'Left', value: 'left' },
-                        { label: 'Center', value: 'center' },
-                        { label: 'Right', value: 'right' },
-                    ],
-                    label: 'Text Align',
-                    value: this.element.styles.textAlign
                 }
             ]
         }
