@@ -44,8 +44,8 @@ export default {
             return classes;
         },
         elementStyle() {
-            let dir = this.element.data.direction
-            this.element.styles.flexDirection = (dir) ? dir : 'column';
+            let dir = this.element.data.direction;
+            this.element.styles.flexDirection = (dir)? dir : 'column';
             return this.element.styles;
         }
     }

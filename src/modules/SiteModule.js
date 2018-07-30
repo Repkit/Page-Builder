@@ -49,7 +49,9 @@ export default {
         addToElement(state, { elementId, type }) {
             state.site.elements = SiteService.addElementById(state.site.elements, elementId, type)
         },
-
+        addSection(state, { columns }) {
+            state.site.elements.push(SiteService.emptySectionElement(columns))
+        }
     },
     actions: {
         loadSites(context, payload) {
