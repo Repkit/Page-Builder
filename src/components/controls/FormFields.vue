@@ -14,6 +14,8 @@ import InputUrlField from '@/components/controls/fields/InputUrlField.vue';
 import InputRangeField from '@/components/controls/fields/InputRangeField.vue';
 import SelectField from '@/components/controls/fields/SelectField.vue';
 import TextareaField from '@/components/controls/fields/TextareaField.vue';
+import InputTextRepeaterField from '@/components/controls/fields/InputTextRepeaterField.vue';
+
 
 export default {
     name: 'form-fields',
@@ -25,6 +27,7 @@ export default {
         InputRangeField,
         SelectField,
         TextareaField,
+        InputTextRepeaterField,
     },
     data() {
         return {
