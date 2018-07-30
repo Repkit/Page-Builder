@@ -38,6 +38,8 @@ function getByUserName(userName) {
 
 
 function emptyElement(type, data = {}, style = {}) {
+    style.margin = '0';
+    style.padding = '20px';
     return {
         _id: _makeId(),
         settings: { type },
@@ -48,8 +50,8 @@ function emptyElement(type, data = {}, style = {}) {
 }
 
 function emptySectionElement(colsCount = 1) {
-    var data = { layout: 'boxed', width: '1200px' };
-    var style = { margin: '0', padding: '10px', minHeight: '100px' };
+    // var data = { layout: 'boxed', width: '1200px' };
+    var style = { margin: '0', padding: '20px', minHeight: '100px' };
     var newSection = {
         id: _makeId(),
         settings: {
@@ -150,7 +152,7 @@ function addElementById(element, id, type) {
             }
         }
         else {
-            var elementToAdd = emptyElement(type)
+            var elementToAdd = emptyElement(type);
             currElement.elements.push(elementToAdd);
             res.push(currElement);
         }
