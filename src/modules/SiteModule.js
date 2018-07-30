@@ -41,10 +41,13 @@ export default {
             state.site = site;
         },
         removeElement(state, { id }) {
-            state.site.elements = EditorService.removeSelectedElementById(state.site.elements, id);
+            state.site.elements = SiteService.removeSelectedElementById(state.site.elements, id);
         },
         cloneElement(state, { id }) {
-            state.site.elements = EditorService.cloneElementById(state.site.elements, id);
+            state.site.elements = SiteService.cloneElementById(state.site.elements, id);
+        },
+        addToElement(state, { elementId, type }) {
+            state.site.elements = SiteService.addElementById(state.site.elements, elementId, type)
         },
 
     },

@@ -11,10 +11,13 @@ export default {
     query,
     getById,
     getByUserName,
+    emptyElement,
+    _makeId,
 
     getSelectedElementById,
     removeSelectedElementById,
     cloneElementById,
+    addElementById
 }
 
 function query(filterBy = { name: '', user_id: '' }) {
@@ -32,6 +35,33 @@ function getByUserName(userName) {
         .then(res => res.data);
 }
 
+function emptyElement(type) {
+    let data = {};
+    if (type === 'section') data = { layout: 'boxed', width: '1200px' }; // layout: boxed/full_width
+
+    let style = {};
+    if (type === 'section') style = { margin: '0', padding: '10px', color: 'blue', minHeight: '100px' };
+
+    return {
+        _id: _makeId(20),
+        settings: { type },
+        data: data,
+        styles: style,
+        elements: []
+    };
+}
+
+function _makeId(length = 20) {
+    var text = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    for (var i = 0; i < length; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
+
 function getSelectedElementById(element, id) {
     // Current element check
     if (element._id === id) return element;
@@ -47,36 +77,65 @@ function getSelectedElementById(element, id) {
 }
 
 function removeSelectedElementById(element, id) {
-    var res = []
+    var res = [];
     element.forEach(currElement => {
         if (currElement._id !== id) {
             if (!getSelectedElementById(currElement, id)) res.push(currElement)
             else {
-                currElement.elements = removeSelectedElementById(currElement.elements, id)
-                res.push(currElement)
+                currElement.elements = removeSelectedElementById(currElement.elements, id);
+                res.push(currElement);
             }
         }
     })
-    return res
+    return res;
 }
 
 function cloneElementById(element, id) {
-    var res = []
+    var res = [];
     element.forEach(currElement => {
         if (currElement._id !== id) {
             if (!getSelectedElementById(currElement, id)) res.push(currElement)
             else {
-                currElement.elements = cloneElementById(currElement.elements, id)
-                res.push(currElement)
+                currElement.elements = cloneElementById(currElement.elements, id);
+                res.push(currElement);
             }
         }
         else {
-            res.push(currElement)
-            var cloned = JSON.parse(JSON.stringify(currElement))
-            cloned._id = _makeId()
-            res.push(cloned)
+            res.push(currElement);
+            var cloned = JSON.parse(JSON.stringify(currElement));
+            cloned._id = _makeId();
+            res.push(cloned);
         }
     })
-    return res
+    return res;
+}
 
+function addElementById(element, id, type) {
+    var res = [];
+    element.forEach(currElement => {
+        if (currElement._id !== id) {
+            if (!getSelectedElementById(currElement, id)) res.push(currElement)
+            else {
+                currElement.elements = addElementById(currElement.elements, id, type);
+                res.push(currElement);
+            }
+        }
+        else {
+            var elementToAdd = {
+                _id: _makeId(11),
+                settings: {
+                    type: type
+                },
+                data: {},
+                styles: {
+                    margin: '0',
+                    padding: '20px'
+                },
+                elements: []
+            };
+            currElement.elements.push(elementToAdd);
+            res.push(currElement);
+        }
+    })
+    return res;
 }
