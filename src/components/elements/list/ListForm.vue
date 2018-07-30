@@ -42,6 +42,14 @@ export default {
                     value: this.element.styles.fontSize
                 },
                 {
+                    name: 'lineHeight',
+                    cmp: 'input-range',
+                    label: 'Line Height',
+                    default: '18px',
+                    unit: 'px',
+                    value: this.element.styles.lineHeight
+                },
+                {
                     name: 'letterSpacing',
                     cmp: 'input-range',
                     label: 'Letter Spacing',
@@ -67,6 +75,47 @@ export default {
                     ],
                     default: '',
                     value: this.element.styles.fontWeight
+                },
+                {
+                    name: 'fontStyle',
+                    cmp: 'select',
+                    label: 'Font Style',
+                    options: [
+                        { label: 'Default', value: '' },
+                        { label: 'Normal', value: 'normal' },
+                        { label: 'Italic', value: 'italic' },
+                        { label: 'Oblique', value: 'oblique' },
+                    ],
+                    default: '',
+                    value: this.element.styles.fontStyle
+                },
+                {
+                    name: 'textDecoration',
+                    cmp: 'select',
+                    label: 'Font Decoration',
+                    options: [
+                        { label: 'Default', value: '' },
+                        { label: 'Underline', value: 'underline' },
+                        { label: 'Overline', value: 'overline' },
+                        { label: 'Line Through', value: 'line-through' },
+                        { label: 'None', value: 'none' },
+                    ],
+                    default: '',
+                    value: this.element.styles.textDecoration
+                },
+                {
+                    name: 'textTransform',
+                    cmp: 'select',
+                    label: 'Font Transform',
+                    options: [
+                        { label: 'Default', value: '' },
+                        { label: 'Uppercase', value: 'uppercase' },
+                        { label: 'Lowercase', value: 'lowercase' },
+                        { label: 'Capitalize', value: 'capitalize' },
+                        { label: 'None', value: 'none' },
+                    ],
+                    default: '',
+                    value: this.element.styles.textTransform
                 }
             ]
         };
