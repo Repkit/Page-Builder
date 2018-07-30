@@ -12,6 +12,7 @@ export default {
     getById,
     getByUserName,
     emptyElement,
+    _makeId,
 
     getSelectedElementById,
     removeSelectedElementById,
@@ -76,70 +77,65 @@ function getSelectedElementById(element, id) {
 }
 
 function removeSelectedElementById(element, id) {
-    var res = []
+    var res = [];
     element.forEach(currElement => {
         if (currElement._id !== id) {
             if (!getSelectedElementById(currElement, id)) res.push(currElement)
             else {
-                currElement.elements = removeSelectedElementById(currElement.elements, id)
-                res.push(currElement)
+                currElement.elements = removeSelectedElementById(currElement.elements, id);
+                res.push(currElement);
             }
         }
     })
-    return res
+    return res;
 }
 
 function cloneElementById(element, id) {
-    var res = []
+    var res = [];
     element.forEach(currElement => {
         if (currElement._id !== id) {
             if (!getSelectedElementById(currElement, id)) res.push(currElement)
             else {
-                currElement.elements = cloneElementById(currElement.elements, id)
-                res.push(currElement)
+                currElement.elements = cloneElementById(currElement.elements, id);
+                res.push(currElement);
             }
         }
         else {
-            res.push(currElement)
-            var cloned = JSON.parse(JSON.stringify(currElement))
-            cloned._id = _makeId()
-            res.push(cloned)
+            res.push(currElement);
+            var cloned = JSON.parse(JSON.stringify(currElement));
+            cloned._id = _makeId();
+            res.push(cloned);
         }
     })
-    return res
-
+    return res;
 }
-function addElementById(element, id, elTypeToAdd) {
-    var res = []
+
+function addElementById(element, id, type) {
+    var res = [];
     element.forEach(currElement => {
         if (currElement._id !== id) {
             if (!getSelectedElementById(currElement, id)) res.push(currElement)
             else {
-                currElement.elements = cloneElementById(currElement.elements, id)
-                res.push(currElement)
+                currElement.elements = addElementById(currElement.elements, id, type);
+                res.push(currElement);
             }
         }
         else {
-            var elementToAdd
-            //push elToAdd to currElement
-
-            res.push(currElement)
+            var elementToAdd = {
+                _id: _makeId(11),
+                settings: {
+                    type: type
+                },
+                data: {},
+                styles: {
+                    margin: '0',
+                    padding: '20px'
+                },
+                elements: []
+            };
+            currElement.elements.push(elementToAdd);
+            res.push(currElement);
         }
     })
-    return res
-
+    return res;
 }
-
-
-// "_id": "ccccccccccccsdfsd",
-//     "settings": {
-//     "type": "section"
-// },
-// "data": {
-//     "direction": "column"
-// },
-// "styles": {
-//     "margin": "0",
-//         "padding": "40px"
-// },
-// "elements": [
