@@ -30,10 +30,7 @@ export default {
 
         // Selected Element Data
         updateSelectedElement(state, { site, id }) {
-            console.log('updateSelectedElement:', id);
             state.selectedElement = SiteService.getSelectedElementById(site, id);
-            console.log('Updated state.selectedElement:', state.selectedElement);
-            console.log('--------------');
         },
         removeSelectedElement(state) {
             state.selectedElement = null;
