@@ -1,24 +1,16 @@
 <template>
     <div class="element-editor list-element-editor">
 
-        <h3>Content</h3>
-
-        <ul>
-            <li v-for="(item, index) in items" :key="item.id">
-                <label>{{index}}.</label>
-                <input v-model="items[index]" type="text" placeholder="index">
-                <button @click="delItem(index)">-</button>
-            </li>
-        </ul>
+        
+         <h3>Content</h3>
+        <form-fields :fields="content" />
 
         <button @click="addItem">Add item</button>
 
         <button @click="saveItems">save items</button>
 
-        <h3>Style</h3>
-
-        <label>Font Size</label>
-        <input v-model="element.style.fontSize" type="range" name="fontSize" />
+       <h3>Style</h3>
+       <form-fields :fields="styles" />
 
     </div>
 </template>
@@ -30,12 +22,32 @@ export default {
   name: "list-element-editor",
   props: ["element"],
   components: { FormFields },
+  created() {
+         this.items = this.element.data.text;
+  },
   data() {
     return {
-      items: [3]
+      items: null,
+      content: [
+                {
+                    cmp: 'input-text',
+                    name: 'text',
+                    label: 'Text',
+                    placeholder: 'Enter some text...',
+                    value: this.element.data.text
+                },
+            ],
+            styles: [
+                {
+                    cmp: 'input-range',
+                    name: 'fontSize',
+                    label: 'Font Size',
+                    value: this.element.styles.fontSize
+                }
+            ]
     };
   },
-  methodes: {
+  methods: {
     saveItems() {
       this.element.data.text = this.items;
     },
