@@ -12,6 +12,7 @@ export default {
     getById,
     getByUserName,
     emptyElement,
+    emptySectionElement,
     _makeId,
 
     getSelectedElementById,
@@ -35,20 +36,50 @@ function getByUserName(userName) {
         .then(res => res.data);
 }
 
-function emptyElement(type) {
-    let data = {};
-    if (type === 'section') data = { layout: 'boxed', width: '1200px' }; // layout: boxed/full_width
 
-    let style = {};
-    if (type === 'section') style = { margin: '0', padding: '10px', color: 'blue', minHeight: '100px' };
-
+function emptyElement(type, data = {}, style = {}) {
+    style.margin = '0';
+    style.padding = '20px';
     return {
-        _id: _makeId(20),
+        _id: _makeId(),
         settings: { type },
         data: data,
         styles: style,
         elements: []
     };
+}
+
+function emptySectionElement(colsCount = 1) {
+    // var data = { layout: 'boxed', width: '1200px' };
+    var style = { margin: '0', padding: '20px', minHeight: '100px' };
+    var newSection = {
+        id: _makeId(),
+        settings: {
+            type: 'section'
+        },
+        data: {
+            direction: (colsCount > 1) ? 'row' : 'column'
+        },
+        styles: style,
+        elements: []
+    }
+    if (colsCount > 1) {
+        for (var i = 0; i < colsCount; i++) {
+            newSection.elements.push(
+                {
+                    _id: _makeId(),
+                    settings: {
+                        type: 'section'
+                    },
+                    data: {
+                        direction: 'column'
+                    },
+                    styles: style,
+                    elements: []
+                })
+        }
+    }
+    return newSection
 }
 
 function _makeId(length = 20) {
@@ -121,18 +152,7 @@ function addElementById(element, id, type) {
             }
         }
         else {
-            var elementToAdd = {
-                _id: _makeId(11),
-                settings: {
-                    type: type
-                },
-                data: {},
-                styles: {
-                    margin: '0',
-                    padding: '20px'
-                },
-                elements: []
-            };
+            var elementToAdd = emptyElement(type);
             currElement.elements.push(elementToAdd);
             res.push(currElement);
         }

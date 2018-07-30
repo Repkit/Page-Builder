@@ -7,7 +7,7 @@
 
         <split-area :size="85">
             <site-preview :site="site" :isEditMode="true" />
-            <add-new-section @add-element="addElement" />
+            <add-new-section />
         </split-area>
 
     </split>
@@ -47,9 +47,6 @@ export default {
                 .catch(err => {
                     this.$router.push('/notfound');
                 });
-        },
-        addElement(elementType) {
-            this.site.elements.push(SiteService.emptyElement(elementType));
         }
 	}
 };
