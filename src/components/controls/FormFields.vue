@@ -31,13 +31,12 @@ export default {
     },
     data() {
         return {
-            newFields: Object.assign( this.fields )
+            newFields: this.fields
         }
     },
     methods: {
         updateFields( newValue, idx ) {
             this.newFields[idx] = newValue;
-            this.$emit('change', newField);
         }
     }
 };
