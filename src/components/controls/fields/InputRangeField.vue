@@ -3,7 +3,7 @@
 
         <label>{{newField.label}}</label>
 
-        <div class="flex ">
+        <div class="flex">
             <input v-model="newField.value" @input="$emit('change', newField, idx)"
                 type="range" name="newField.name" />
             <input v-model="newField.value" @input="$emit('change', newField, idx)"
@@ -26,6 +26,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+input[type='range'] {
+    margin-right: 15px;
+}
 input[type='number'] {
     width: 50px;
 }
