@@ -25,58 +25,82 @@ export default {
         return {
             content: [
                 {
-                    cmp: 'select',
                     name: 'direction',
-                    options: [
-                        { label: 'Horizontal (rows)', value: 'column' },
-                        { label: 'Vertical (columns)', value: 'row' },
-                    ],
+                    cmp: 'select',
                     label: 'Oriantation',
+                    options: [
+                        { label: 'Horizontal', value: 'column' },
+                        { label: 'Vertical', value: 'row' },
+                    ],
                     value: this.element.data.direction
                 },
             ],
             styles: [
                 {
-                    cmp: 'input-text',
                     name: 'margin',
+                    cmp: 'input-text',
                     label: 'Margin',
                     placeholder: '0px 0px 0px 0px',
                     value: this.element.styles.margin
                 },
                 {
-                    cmp: 'input-text',
                     name: 'padding',
+                    cmp: 'input-text',
                     label: 'Padding',
                     placeholder: '0px 0px 0px 0px',
                     value: this.element.styles.padding
                 },
                 {
-                    cmp: 'input-url',
                     name: 'backgroundImage',
+                    cmp: 'input-url',
                     label: 'Background Image',
                     placeholder: 'https://your-link.com',
                     value: this.element.styles.backgroundImage
                 },
                 {
+                    name: 'backgroundPosition',
                     cmp: 'select',
-                    name: 'backgroundSize',
+                    label: 'BG Position',
                     options: [
+                        { label: 'Defult', value: '' },
+                        { label: 'Top Left', value: 'top left' },
+                        { label: 'Top Center', value: 'top center' },
+                        { label: 'Top Right', value: 'top right' },
+                        { label: 'Center Left', value: 'center left' },
+                        { label: 'Center Center', value: 'center center' },
+                        { label: 'Center Right', value: 'center right' },
+                        { label: 'Bottom Left', value: 'bottom left' },
+                        { label: 'Bottom Center', value: 'bottom center' },
+                        { label: 'Bottom Right', value: 'bottom right' },
+                    ],
+                    default: 'center center',
+                    value: this.element.data.backgroundPosition
+                },
+                {
+                    name: 'backgroundSize',
+                    cmp: 'select',
+                    label: 'BG Size',
+                    options: [
+                        { label: 'Defult', value: '' },
+                        { label: 'Auto', value: 'auto' },
                         { label: 'Cover', value: 'cover' },
                         { label: 'Contain', value: 'contain' },
-                        { label: 'Auto', value: 'auto' },
                     ],
-                    label: 'Background Size',
+                    default: '',
                     value: this.element.data.backgroundSize
                 },
                 {
-                    cmp: 'select',
                     name: 'backgroundRepeat',
+                    cmp: 'select',
+                    label: 'BG Repeat',
                     options: [
-                        { label: 'Cover', value: 'cover' },
-                        { label: 'Contain', value: 'contain' },
-                        { label: 'Auto', value: 'auto' },
+                        { label: 'Defult', value: '' },
+                        { label: 'No Repeat', value: 'no-repeat' },
+                        { label: 'Repeat', value: 'repeat' },
+                        { label: 'Repeat X', value: 'repeat-x' },
+                        { label: 'Repeat Y', value: 'repeat-y' },
                     ],
-                    label: 'Background Repeat',
+                    default: '',
                     value: this.element.data.backgroundRepeat
                 }
             ]
