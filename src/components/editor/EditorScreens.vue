@@ -53,15 +53,8 @@ export default {
             font-weight: bold;
             line-height: 1.1;
             text-align: center;
-            border-bottom: 1px solid #ccc
-        }
-
-        h3 {
-            margin: 0 0 10px;
-            padding: 10px 0;
-            font-size: 0.85em;
-            font-weight: bold;
-            line-height: 1.1;
+            border-bottom: 1px solid #ccc;
+            background-color: #f6f6f6;
         }
 
         .content {
