@@ -1,6 +1,7 @@
 <template>
     <div class="element text-element" :style="element.styles"
-        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
+        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
+        :data-element-id="element._id">
 
         {{element.data.text}}
 

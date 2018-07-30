@@ -1,6 +1,7 @@
 <template>
     <div class="element counter-element" :style="element.styles"
-        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
+        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
+        :data-element-id="element._id">
 
         <!-- <button @click="inc">+</button> -->
             {{element.data.text}}

@@ -1,6 +1,7 @@
 <template>
     <div class="element progress-bar-element" :style="element.styles"
-        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
+        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
+        :data-element-id="element._id">
 
         <div class="border">
             

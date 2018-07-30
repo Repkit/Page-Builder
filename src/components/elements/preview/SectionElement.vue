@@ -1,5 +1,5 @@
 <template>
-    <div :class="elementClass" :style="elementStyle">
+    <div :class="elementClass" :style="elementStyle" :data-element-id="element._id">
 
         <component v-if="element.elements" v-for="element in element.elements" :key="element._id"
             :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode" />

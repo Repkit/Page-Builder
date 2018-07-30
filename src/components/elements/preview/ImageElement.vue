@@ -1,6 +1,7 @@
 <template>
     <div class="element image-element" :style="element.styles"
-        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }">
+        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
+        :data-element-id="element._id">
 
         <img :src="element.data.src" :alt="element.data.alt" />
 
