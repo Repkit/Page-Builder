@@ -3,7 +3,14 @@
         :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
         :data-element-id="element._id">
 
-        <img :src="src" :alt="element.data.alt" :data-element-id="element._id"/>
+        <template v-if="element.data.link">
+            <a :href="element.data.link">
+                <img :src="src" :alt="element.data.alt" :data-element-id="element._id"/>
+            </a>
+        </template>
+        <template v-else>
+            <img :src="src" :alt="element.data.alt" :data-element-id="element._id"/>
+        </template>
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
