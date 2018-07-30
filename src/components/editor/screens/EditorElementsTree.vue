@@ -1,5 +1,5 @@
 <template>
-    <div class="editor-elements-tree">
+    <div class="editor-elements-tree editor-box">
 
         <h2>Elements Tree</h2>
 

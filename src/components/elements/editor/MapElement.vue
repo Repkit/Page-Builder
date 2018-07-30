@@ -1,12 +1,15 @@
 <template>
     <div class="element-editor map-element-editor">
 
-     
-        <h3>Content</h3>
-        <form-fields :fields="content" />
+        <div class="editor-box">
+            <h2>Content</h2>
+            <form-fields class="content" :fields="content" />
+        </div>
 
-        <h3>Style</h3>
-        <form-fields :fields="styles" />
+        <div class="editor-box">
+            <h2>Style</h2>
+            <form-fields class="content" :fields="styles" />
+        </div>
 
     </div>
 </template>

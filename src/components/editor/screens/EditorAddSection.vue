@@ -1,5 +1,5 @@
 <template>
-    <div class="editor-add-section">
+    <div class="editor-add-section editor-box">
 
         <h2>Add Section</h2>
 

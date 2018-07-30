@@ -1,12 +1,15 @@
 <template>
     <div class="element-editor image-element-editor">
 
-        <h3>Content</h3>
-        <form-fields :fields="content" />
-        
-        <h3>Style</h3>
-        <form-fields :fields="styles" />
-        
+        <div class="editor-box">
+            <h2>Content</h2>
+            <form-fields class="content" :fields="content" />
+        </div>
+
+        <div class="editor-box">
+            <h2>Style</h2>
+            <form-fields class="content" :fields="styles" />
+        </div>
 
     </div>
 </template>
@@ -20,8 +23,7 @@ export default {
     components: { FormFields },
     data() {
         return {
-            updatedElement: null,
-              content: [
+            content: [
                 {
                     cmp: 'input-url',
                     name: 'src',

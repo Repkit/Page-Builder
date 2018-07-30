@@ -1,5 +1,5 @@
 <template>
-    <div class="editor-site-details" v-if="site">
+    <div class="editor-site-details editor-box" v-if="site">
 
         <h2>Site Details</h2>
 

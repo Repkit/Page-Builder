@@ -46,7 +46,7 @@ export default {
 .editor-screens {
     cursor: default;
 
-    > div {
+    .editor-box {
         background-color: #fff;
         margin-bottom: 15px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
