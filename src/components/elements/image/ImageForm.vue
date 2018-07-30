@@ -2,12 +2,12 @@
     <div class="element-editor image-form">
 
         <div class="editor-box">
-            <h2>Content</h2>
+            <h2>Image</h2>
             <form-fields class="content" :fields="content" />
         </div>
 
         <div class="editor-box">
-            <h2>Style</h2>
+            <h2>Image Style</h2>
             <form-fields class="content" :fields="styles" />
         </div>
 
@@ -25,15 +25,15 @@ export default {
         return {
             content: [
                 {
-                    cmp: 'input-url',
                     name: 'src',
-                    label: 'Link src',
+                    cmp: 'input-url',
+                    label: 'Image',
                     placeholder: 'https://your-link.com',
                     value: this.element.data.src
                 },
                 {
-                    cmp: 'input-url',
                     name: 'link',
+                    cmp: 'input-url',
                     label: 'Link URL',
                     placeholder: 'https://your-link.com',
                     value: this.element.data.link
@@ -41,10 +41,26 @@ export default {
             ],
             styles: [
                 {
+                    name: 'align',
+                    cmp: 'select',
+                    options: [
+                        { label: 'Default', value: '' },
+                        { label: 'Left', value: 'left' },
+                        { label: 'Center', value: 'center' },
+                        { label: 'Right', value: 'right' },
+                    ],
+                    default: '',
+                    label: 'Align',
+                    value: this.element.styles.textAlign
+                },
+                {
+                    name: 'opacity',
                     cmp: 'input-range',
-                    name: 'fontSize',
-                    label: 'Font Size',
-                    value: this.element.styles.fontSize
+                    label: 'Opacity',
+                    min: 0,
+                    max: 1,
+                    step: 0.1,
+                    value: this.element.styles.opacity
                 }
             ]
         }
