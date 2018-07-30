@@ -1,14 +1,8 @@
 <template>
     <div class="editor-edit-element" v-if="newElement">
 
-        <h2>Edit Element</h2>
-
-        <div class="content">
-
-            <component v-if="newElement" :is="newElement.settings.type+'-element'"
-                :element="newElement" @change="updateElement" />
-
-        </div>
+        <component v-if="newElement" :is="newElement.settings.type+'-element'"
+            :element="newElement" @change="updateElement" />
 
     </div>
 </template>
