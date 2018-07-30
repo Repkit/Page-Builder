@@ -21,9 +21,6 @@ export default {
         site: state => state.site,
     },
     mutations: {
-        addSection(state, { columns }){
-            state.site.elements.push(SiteService.emptySectionElement(columns))
-        },
         // Sites List
         loadSites(state, { sites }) {
             state.sites = sites;
@@ -52,7 +49,9 @@ export default {
         addToElement(state, { elementId, type }) {
             state.site.elements = SiteService.addElementById(state.site.elements, elementId, type)
         },
-
+        addSection(state, { columns }) {
+            state.site.elements.push(SiteService.emptySectionElement(columns))
+        }
     },
     actions: {
         loadSites(context, payload) {

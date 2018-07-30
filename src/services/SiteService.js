@@ -61,7 +61,6 @@ function emptySectionElement(colsCount = 1) {
         styles: style,
         elements: []
     }
-    console.log('new section',newSection)
     if (colsCount > 1) {
         for (var i = 0; i < colsCount; i++) {
             newSection.elements.push(
@@ -152,18 +151,6 @@ function addElementById(element, id, type) {
         }
         else {
             var elementToAdd = emptyElement(type)
-            // var elementToAdd = {
-            //     _id: _makeId(),
-            //     settings: {
-            //         type: type
-            //     },
-            //     data: {},
-            //     styles: {
-            //         margin: '0',
-            //         padding: '20px'
-            //     },
-            //     elements: []
-            // };
             currElement.elements.push(elementToAdd);
             res.push(currElement);
         }
