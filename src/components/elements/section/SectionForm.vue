@@ -54,7 +54,7 @@ export default {
                     name: 'backgroundColor',
                     cmp: 'color',
                     label: 'Background Color',
-                    default: 'transperant',
+                    default: 'transparent',
                     value: this.element.styles.backgroundColor
                 },
                 {

@@ -34,6 +34,13 @@ export default {
             ],
             styles: [
                 {
+                    name: 'color',
+                    cmp: 'color',
+                    label: 'Text Color',
+                    default: 'transparent',
+                    value: this.element.styles.color
+                },
+                {
                     name: 'fontSize',
                     cmp: 'input-range',
                     label: 'Font Size',

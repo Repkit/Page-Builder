@@ -4,7 +4,7 @@
         <label>{{newField.label}}</label>
         <!-- <input v-model="value" @input="$emit('change', newField, idx)"
             type="color" name="newField.name" /> -->
-        <div @click="display=!display" :style="{ color: value, backgroundColor: value }" class="field">
+        <div @click="display=!display" :style="{ backgroundColor: value }" class="field">
             &nbsp;
             <chrome-picker v-model="value" v-if="display" @input="$emit('change', newField, idx)" />
         </div>
@@ -28,7 +28,7 @@ export default {
     computed: {
         value: {
             get() {
-                return this.newField.value || this.newField.default || '';
+                return this.newField.value || this.newField.default || 'transparent';
             },
             set(newVal) {
                 this.newField.value = newVal;
@@ -46,8 +46,9 @@ export default {
         flex-grow: 1;
     }
 
-    input {
+    div {
         flex: 0 60px;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAAHnlligAAAAGXRFW…G6BOmuIl0CIMBQ/IEMkO0myiSSraaaBhZcbkUOs0HuBwDplz5uFJ3Z4gAAAABJRU5ErkJggg==);
     }
 
     .vc-chrome {
