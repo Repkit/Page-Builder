@@ -28,10 +28,10 @@ export default {
                     name: 'compete',
                     cmp: 'input-range',
                     label: 'Compete',
-                    mix: 0,
-                    max: 1,
-                    step: 0.1,
                     default: 1,
+                    min: 0,
+                    max: 1,
+                    step: '0.1',
                     value: this.element.data.compete
                 },
                 {
@@ -39,6 +39,7 @@ export default {
                     cmp: 'input-range',
                     label: 'Stroke Width',
                     default: 1,
+                    max: 10,
                     value: this.element.data.strokeWidth
                 },
                 {
@@ -46,6 +47,7 @@ export default {
                     cmp: 'input-range',
                     label: 'trail Width',
                     default: 2,
+                    max: 10,
                     value: this.element.data.trailWidth
                 },
                 {
@@ -56,6 +58,20 @@ export default {
                     max: 10000,
                     value: this.element.data.duration
                 },
+                {
+                    name: 'strokeColor',
+                    cmp: 'color',
+                    label: 'Stroke',
+                    default: '#fe8',
+                    value: this.element.data.strokeColor
+                },
+                {
+                    name: 'trailColor',
+                    cmp: 'color',
+                    label: 'Trail',
+                    default: '#eee',
+                    value: this.element.data.trailColor
+                }
             ],
             styles: [
                 {
@@ -70,90 +86,6 @@ export default {
                     ],
                     default: '',
                     value: this.element.styles.textAlign
-                },
-                {
-                    name: 'fontSize',
-                    cmp: 'input-range',
-                    label: 'Font Size',
-                    default: '18px',
-                    unit: 'px',
-                    value: this.element.styles.fontSize
-                },
-                {
-                    name: 'lineHeight',
-                    cmp: 'input-range',
-                    label: 'Line Height',
-                    default: '18px',
-                    unit: 'px',
-                    value: this.element.styles.lineHeight
-                },
-                {
-                    name: 'letterSpacing',
-                    cmp: 'input-range',
-                    label: 'Letter Spacing',
-                    value: this.element.styles.letterSpacing
-                },
-                {
-                    name: 'fontWeight',
-                    cmp: 'select',
-                    label: 'Font Weight',
-                    options: [
-                        { label: 'Default', value: '' },
-                        { label: 'Normal', value: 'normal' },
-                        { label: 'Bold', value: 'bold' },
-                        { label: '100', value: '100' },
-                        { label: '200', value: '200' },
-                        { label: '300', value: '300' },
-                        { label: '400', value: '400' },
-                        { label: '500', value: '500' },
-                        { label: '600', value: '600' },
-                        { label: '700', value: '700' },
-                        { label: '800', value: '800' },
-                        { label: '900', value: '900' },
-                    ],
-                    default: '',
-                    value: this.element.styles.fontWeight
-                },
-                {
-                    name: 'fontStyle',
-                    cmp: 'select',
-                    label: 'Font Style',
-                    options: [
-                        { label: 'Default', value: '' },
-                        { label: 'Normal', value: 'normal' },
-                        { label: 'Italic', value: 'italic' },
-                        { label: 'Oblique', value: 'oblique' },
-                    ],
-                    default: '',
-                    value: this.element.styles.fontStyle
-                },
-                {
-                    name: 'textDecoration',
-                    cmp: 'select',
-                    label: 'Font Decoration',
-                    options: [
-                        { label: 'Default', value: '' },
-                        { label: 'Underline', value: 'underline' },
-                        { label: 'Overline', value: 'overline' },
-                        { label: 'Line Through', value: 'line-through' },
-                        { label: 'None', value: 'none' },
-                    ],
-                    default: '',
-                    value: this.element.styles.textDecoration
-                },
-                {
-                    name: 'textTransform',
-                    cmp: 'select',
-                    label: 'Font Transform',
-                    options: [
-                        { label: 'Default', value: '' },
-                        { label: 'Uppercase', value: 'uppercase' },
-                        { label: 'Lowercase', value: 'lowercase' },
-                        { label: 'Capitalize', value: 'capitalize' },
-                        { label: 'None', value: 'none' },
-                    ],
-                    default: '',
-                    value: this.element.styles.textTransform
                 }
             ]
         }
