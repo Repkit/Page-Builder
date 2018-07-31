@@ -26,10 +26,12 @@ export default {
     computed: {
         value: {
             get() {
-                return this.newField.value || this.newField.default || '';
+                let val = this.newField.value || this.newField.default || '';
+                val = val.replace( this.newField.prefix, '' ).replace( this.newField.suffix, '' );
+                return val;
             },
             set(newVal) {
-                this.newField.value = newVal;
+                this.newField.value = this.newField.prefix + newVal + this.newField.suffix;
             }
         }
     },
@@ -48,6 +50,7 @@ export default {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    min-height: 100px;
 
     img {
         margin: 0 auto;
