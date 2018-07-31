@@ -46,24 +46,27 @@ export default {
                 buttons: true,
                 dangerMode: true,
             })
-            .then(() => {
-                this.$store.dispatch({ type: "deleteSite", site })
-                .then(isDelete =>  {
-                    if (isDelete) {
-                        swal("Your Site has been sucsecfully deleted!", {
-                            icon: "success",
-                            buttons: {
-                                ok: true,
-                            },
-                        })
-                        .then(() => this.$emit('on-delete'))
-                    }
-                    else{
-                            swal("Had a problem in deleting, please try again later", {
-                            icon: "error",
-                        });
-                    }
-                })                  
+            .then((isOk) => {
+                if(isOk){
+                    this.$store.dispatch({ type: "deleteSite", site })
+                    .then(isDelete =>  {
+                        if (isDelete) {
+                            swal("Your Site has been sucsecfully deleted!", {
+                                icon: "success",
+                                buttons: {
+                                    ok: true,
+                                },
+                            })
+                            .then(() => this.$emit('on-delete'))
+                        }
+                        else{
+                                swal("Had a problem in deleting, please try again later", {
+                                icon: "error",
+                            });
+                        }
+                    })      
+                }
+
             })
         }
     },
