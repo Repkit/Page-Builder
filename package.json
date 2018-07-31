@@ -16,6 +16,7 @@
     "normalize.css": "^8.0.0",
     "register-service-worker": "^1.0.0",
     "vue": "^2.5.16",
+    "vue-progress": "^0.2.1",
     "vue-router": "^3.0.1",
     "vue-split-panel": "^1.0.4",
     "vuex": "^3.0.1"

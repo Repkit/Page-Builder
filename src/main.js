@@ -14,11 +14,13 @@ import '@/assets/scss/style.scss';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import VueProgress from 'vue-progress';
 import './registerServiceWorker';
 
 axios.defaults.withCredentials = true;
 Vue.config.productionTip = false;
 Vue.use(VueSplit);
+Vue.use(VueProgress);
 
 library.add(faTrashAlt, faClone, faArrowsAlt, faEdit, faGripVertical, faGripHorizontal, faFont, faList,
     faBandAid, faDivide, faImages, faVideo, faMapMarkedAlt, faClock, faServer, faLayerGroup, faLink,
