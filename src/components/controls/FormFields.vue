@@ -75,5 +75,9 @@ export default {
         font-weight: bold;
         background-color: #eee;
     }
+    .field {
+        width: 60px;
+        padding: 4px;
+    }
 }
 </style>
