@@ -51,10 +51,20 @@ export default {
                     value: this.element.styles.padding
                 },
                 {
+                    name: 'backgroundColor',
+                    cmp: 'color',
+                    label: 'Background Color',
+                    default: 'transperant',
+                    value: this.element.data.backgroundColor
+                },
+                {
                     name: 'backgroundImage',
-                    cmp: 'input-url',
+                    cmp: 'image',
                     label: 'Background Image',
                     placeholder: 'https://your-link.com',
+                    default: '',
+                    prefix: 'url(',
+                    suffix: ')',
                     value: this.element.styles.backgroundImage
                 },
                 {
