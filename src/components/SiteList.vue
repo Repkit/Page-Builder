@@ -59,10 +59,9 @@ export default {
                             })
                             .then(() => this.$emit('on-delete'))
                         }
-                        else{
-                                swal("Had a problem in deleting, please try again later", {
-                                icon: "error",
-                            });
+                        else {
+                            swal("Had a problem in deleting, please try again later", {
+                            icon: "error"});
                         }
                     })      
                 }
