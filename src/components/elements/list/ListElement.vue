@@ -20,8 +20,8 @@ export default {
     props: [ 'element', 'isEditMode' ],
     components: { ElementActions },
     data() {
-        return{
-            items: this.element.data.text || ['Item #1','Item #2','Item #3']
+        return {
+            items: this.element.data.text || [ 'Item #1', 'Item #2', 'Item #3' ]
         }
     },
 };

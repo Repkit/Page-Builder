@@ -26,7 +26,7 @@ export default {
     computed: {
         value: {
             get() {
-                return parseInt(this.newField.value) || this.newField.default || '0';
+                return parseInt(this.newField.value) || this.newField.default || 0;
             },
             set(newVal) {
                 this.newField.value = newVal + this.newField.unit;
@@ -38,7 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 input[type='number'] {
-    width: 50px;
+    width: 60px;
 }
 input[type=range] {
   -webkit-appearance: none;
