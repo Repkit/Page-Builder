@@ -26,8 +26,9 @@ export default {
         }
     },
     methods: {
-        updateElement( newElement ) {
-            // this.$emit('change', newField);
+        updateElement( newElement,idx ) {
+            console.log(newElement,idx,'edit editor');
+        //todo update element
         }
     },
     components: {
