@@ -2,18 +2,26 @@
     <div class="color-field flex align-baseline" v-if="newField">
 
         <label>{{newField.label}}</label>
-        <input v-model="value" @input="$emit('change', newField, idx)"
-            type="color" name="newField.name" />
+        <!-- <input v-model="value" @input="$emit('change', newField, idx)"
+            type="color" name="newField.name" /> -->
+        <div @click="display=!display" :style="{ color: value, backgroundColor: value }" class="field">
+            &nbsp;
+            <chrome-picker v-model="value" v-if="display" @input="$emit('change', newField, idx)" />
+        </div>
 
     </div>
 </template>
 
 <script>
+import { Chrome } from 'vue-color';
+
 export default {
     name: 'color-field',
     props: [ 'field', 'idx' ],
+    components: { 'chrome-picker': Chrome },
     data() {
         return {
+            display: false,
             newField: Object.assign( this.field )
         }
     },
@@ -31,10 +39,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
-label {
-    flex-grow: 1;
-}
-input {
-    flex: 0 60px;
+.color-field {
+    position: relative;
+
+    label {
+        flex-grow: 1;
+    }
+
+    input {
+        flex: 0 60px;
+    }
+
+    .vc-chrome {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
 }
 </style>

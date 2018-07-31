@@ -58,7 +58,8 @@ export default {
     input,
     select,
     textarea,
-    button {
+    button,
+    .field {
         margin-bottom: 20px;
         width: 100%;
         font-size: 13px;
