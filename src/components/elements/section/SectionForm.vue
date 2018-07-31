@@ -55,7 +55,7 @@ export default {
                     cmp: 'color',
                     label: 'Background Color',
                     default: 'transperant',
-                    value: this.element.data.backgroundColor
+                    value: this.element.styles.backgroundColor
                 },
                 {
                     name: 'backgroundImage',
@@ -84,7 +84,7 @@ export default {
                         { label: 'Bottom Right', value: 'bottom right' },
                     ],
                     default: 'center center',
-                    value: this.element.data.backgroundPosition
+                    value: this.element.styles.backgroundPosition
                 },
                 {
                     name: 'backgroundSize',
@@ -97,7 +97,7 @@ export default {
                         { label: 'Contain', value: 'contain' },
                     ],
                     default: '',
-                    value: this.element.data.backgroundSize
+                    value: this.element.styles.backgroundSize
                 },
                 {
                     name: 'backgroundRepeat',
@@ -111,7 +111,7 @@ export default {
                         { label: 'Repeat Y', value: 'repeat-y' },
                     ],
                     default: '',
-                    value: this.element.data.backgroundRepeat
+                    value: this.element.styles.backgroundRepeat
                 }
             ]
         }

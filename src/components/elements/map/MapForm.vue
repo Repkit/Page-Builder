@@ -38,7 +38,7 @@ export default {
                     min: 1,
                     max: 20,
                     step: 1,
-                    value: this.element.styles.zoom
+                    value: this.element.data.zoom
                 }
             ],
             styles: [
