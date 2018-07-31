@@ -1,5 +1,5 @@
 <template>
-    <div :class="elementClass" :style="elementStyle" :data-element-id="element._id">
+    <div v-if="element" :class="elementClass" :style="elementStyle" :data-element-id="element._id">
 
         <component v-if="element.elements" v-for="element in element.elements" :key="element._id"
             :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode" />
@@ -44,11 +44,13 @@ export default {
             return classes;
         },
         elementStyle() {
-            let dir = this.element.data.direction;
-            this.element.styles.flexDirection = (dir)? dir : 'column';
-            return this.element.styles;
+            var copy=JSON.parse(JSON.stringify(this.element))
+            let dir = copy.data.direction;
+            if(!dir) dir = 'column'
+            copy.styles.flexDirection = dir
+            return copy.styles;
         }
-    }
+    },
 };
 </script>
 
