@@ -1,18 +1,23 @@
 <template>
+
     <div class="main-nav">
 
-        <ul class="inline-list" arial-label="Main navigation bar">
-            <li><router-link to="/"> Home </router-link></li>
-            <li><router-link to="/about"> About </router-link></li>
-            <li><router-link to="/profile" v-if="isUserLoggedIn"> My Profile </router-link></li>
-            <li><button @click="logout" v-if="isUserLoggedIn"> Logout </button></li>
-            <li><router-link to="/signup" v-if="!isUserLoggedIn"> Signup </router-link></li>
-            <li>
-                <span @click="toggleLogin" v-if="!isUserLoggedIn"> Login </span>
-                <user-login v-if="!isUserLoggedIn && displayLogin" @toggleLogin="toggleLogin"></user-login>
-            </li>
-        </ul>
+        <div class="flex space-between align-center">
 
+            <h1>Page Builder</h1>
+            <ul class="flex-row align-center flex inline-list" arial-label="Main navigation bar">
+                <li><router-link to="/"> Home </router-link></li>
+                <li><router-link to="/about"> About </router-link></li>
+                <li><router-link to="/profile" v-if="isUserLoggedIn"> My Profile </router-link></li>
+                <li><button @click="logout" v-if="isUserLoggedIn"> Logout </button></li>
+                <li><router-link to="/signup" v-if="!isUserLoggedIn"> Signup </router-link></li>
+                <li>
+                    <span @click="toggleLogin" v-if="!isUserLoggedIn"> Login </span>
+                    <user-login v-if="!isUserLoggedIn && displayLogin" @toggleLogin="toggleLogin"></user-login>
+                </li>
+            </ul>
+
+        </div>
     </div>
 </template>
 
@@ -49,10 +54,13 @@ export default {
 };
 </script>
 
-<style scope lang="scss">
+<style scoped lang="scss">
 .main-nav {
     padding: 20px 0;
-    text-align: center;
+    // text-align: center;
+    h1 {
+        padding-left: 15px;
+    }
 
     li {
         padding: 0.5em 1em;
