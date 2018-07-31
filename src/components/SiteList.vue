@@ -48,9 +48,8 @@ export default {
             })
             .then(() => {
                 this.$store.dispatch({ type: "deleteSite", site })
-                .then(willDelete =>  {
-                    console.log('willDelete',willDelete)
-                    if (willDelete) {
+                .then(isDelete =>  {
+                    if (isDelete) {
                         swal("Your Site has been sucsecfully deleted!", {
                             icon: "success",
                             buttons: {
