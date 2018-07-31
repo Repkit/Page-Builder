@@ -1,30 +1,40 @@
 <template>
-    <div class="editor-site-details editor-box" v-if="site">
+    <div class="editor-site-details" v-if="site">
 
-        <h2>Site Details</h2>
-
-        <div class="content">
-            <!-- <p><strong>ID:</strong> {{site._id}}</p> -->
-            <img :src="site.thumb" />
-            <p><strong>{{site.name}}</strong></p>
+        <div class="editor-box">
+            <h2>Site Details</h2>
+            <form-fields class="content" :fields="data" />
         </div>
 
     </div>
 </template>
 
 <script>
+import FormFields from '@/components/controls/FormFields.vue';
+
 export default {
     name: 'editor-site-details',
     props: [ 'site' ],
+    components: { FormFields },
+    data() {
+        return {
+            data: [
+                {
+                    name: 'name',
+                    cmp: 'input-text',
+                    label: 'Site Name',
+                    default: '',
+                    value: this.site.name
+                },
+                {
+                    name: 'thumb',
+                    cmp: 'image',
+                    label: 'Site Thumbnail',
+                    default: 'http://via.placeholder.com/500x600?text=Site%20Cover%20Image',
+                    value: this.site.thumb
+                }
+            ]
+        }
+    }
 };
 </script>
-
-<style scoped lang="scss">
-.editor-site-details {
-    text-align: center;
-
-    img {
-        margin: 0 auto;
-    }
-}
-</style>
