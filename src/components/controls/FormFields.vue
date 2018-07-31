@@ -16,7 +16,7 @@ import SelectField from '@/components/controls/fields/SelectField.vue';
 import TextareaField from '@/components/controls/fields/TextareaField.vue';
 import InputTextRepeaterField from '@/components/controls/fields/InputTextRepeaterField.vue';
 import ImageField from '@/components/controls/fields/ImageField.vue';
-
+import ColorField from '@/components/controls/fields/ColorField.vue';
 
 export default {
     name: 'form-fields',
@@ -30,6 +30,7 @@ export default {
         TextareaField,
         InputTextRepeaterField,
         ImageField,
+        ColorField,
     },
     data() {
         return {
