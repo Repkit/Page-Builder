@@ -39,7 +39,14 @@ export default {
     },
     methods: {
         updateFields( newValue, idx ) {
-            this.newFields[idx] = newValue;
+
+            // reactive
+            this.newFields.splice(idx, 1, newValue);
+           
+           //no reactive
+            // this.newFields[idx] = newValue;
+
+            this.$emit('change', newValue, idx);
         }
     }
 };
