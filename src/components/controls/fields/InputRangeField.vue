@@ -3,10 +3,10 @@
 
         <label>{{newField.label}}</label>
         <div class="flex">
-            <input v-model="value" @input="$emit('change', newField, idx)"
+            <input v-model="value" @input="$emit('change', newField.name, newField.value, idx)"
                 :min="newField.min" :max="newField.max" :step="newField.step"
                 type="range" name="newField.name" />
-            <input v-model="value" @input="$emit('change', newField, idx)"
+            <input v-model="value" @input="$emit('change', newField.name, newField.value, idx)"
                 :min="newField.min" :max="newField.max" :step="newField.step"
                 type="number" name="newField.name" />
         </div>
@@ -20,7 +20,7 @@ export default {
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: Object.assign( this.field )
+            newField: JSON.parse(JSON.stringify(this.field))
         }
     },
     computed: {

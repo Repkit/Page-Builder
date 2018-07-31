@@ -2,7 +2,7 @@
     <div class="textarea-field" v-if="newField">
 
         <label>{{newField.label}}</label>
-        <textarea v-model="value" @input="$emit('change', newField, idx)"
+        <textarea v-model="value" @input="$emit('change', newField.name, newField.value, idx)"
             :rows="newField.rows" :placeholder="newField.placeholder" />
 
     </div>
@@ -14,7 +14,7 @@ export default {
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: Object.assign( this.field )
+            newField: JSON.parse(JSON.stringify(this.field))
         }
     },
     computed: {

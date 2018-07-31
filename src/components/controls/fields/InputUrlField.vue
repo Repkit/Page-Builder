@@ -2,7 +2,7 @@
     <div class="input-url-field" v-if="newField">
 
         <label>{{newField.label}}</label>
-        <input v-model="value" @input="$emit('change', newField, idx)"
+        <input v-model="value" @input="$emit('change', newField.name, newField.value, idx)"
             type="url" name="newField.name" :placeholder="newField.placeholder" />
 
     </div>
@@ -14,7 +14,7 @@ export default {
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: Object.assign( this.field )
+            newField: JSON.parse(JSON.stringify(this.field))
         }
     },
     computed: {

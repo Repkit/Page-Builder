@@ -18,6 +18,7 @@
         </form>
 
         <input v-model="value" @input="$emit('change', newField, idx)"
+
             type="url" name="newField.name" :placeholder="newField.placeholder" />
     </div>
 </template>
@@ -29,7 +30,7 @@ export default {
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: Object.assign( this.field ),
+            newField: JSON.parse(JSON.stringify(this.field))
         }
     },
     computed: {

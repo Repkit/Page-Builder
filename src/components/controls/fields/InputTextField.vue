@@ -2,7 +2,7 @@
     <div class="input-text-field" v-if="newField">
 
         <label>{{newField.label}}</label>
-        <input v-model="value" @input="$emit('change', newField, idx)"
+        <input v-model="value" @input="$emit('change', newField.name, newField.value, idx)"
             type="text" name="newField.name" :placeholder="newField.placeholder" />
     </div>
 </template>

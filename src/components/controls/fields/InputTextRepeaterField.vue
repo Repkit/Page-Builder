@@ -3,7 +3,7 @@
 
         <label>{{newField.label}}</label>
         <div v-for="(val, idx) in newField.value" :key="idx" class="flex align-baseline">
-            <input v-model="newField.value[idx]" @input="$emit('change', newField, idx)"
+            <input v-model="newField.value[idx]" @input="$emit('change', newField.name, newField.value, idx)"
                 type="text" :placeholder="newField.placeholder" />
             <span @click="removeItem(idx)"> &times; </span>
         </div>
@@ -18,7 +18,7 @@ export default {
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: Object.assign( this.field )
+            newField: JSON.parse(JSON.stringify(this.field))
         }
     },
     methods: {
