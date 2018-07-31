@@ -18,7 +18,7 @@
                         <div>Edit</div>
                     </router-link>
                 </li>
-                <li>
+                <li @click="deleteSite(site)">
                     <font-awesome-icon :icon="['fas', 'trash-alt']" />
                     <div>Delete</div>
                 </li>
@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import swal from 'sweetalert'
+
 export default {
     name: 'site-list',
     props: [ 'sites' ],
@@ -36,6 +38,35 @@ export default {
         editSite(site) {
             this.$router.push(`/${site._id}/edit`);
         },
+        deleteSite(site){
+            swal({
+                title: "Are you sure you want to delete?",
+                text: "Once deleted, you will not be able to recover this Site, Delete anyway?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then(() => {
+                this.$store.dispatch({ type: "deleteSite", site })
+                .then(willDelete =>  {
+                    console.log('willDelete',willDelete)
+                    if (willDelete) {
+                        swal("Your Site has been sucsecfully deleted!", {
+                            icon: "success",
+                            buttons: {
+                                ok: true,
+                            },
+                        })
+                        .then(() => this.$emit('on-delete'))
+                    }
+                    else{
+                            swal("Had a problem in deleting, please try again later", {
+                            icon: "error",
+                        });
+                    }
+                })                  
+            })
+        }
     },
     computed:{
         loggedInUser() {
@@ -96,6 +127,9 @@ export default {
         div {
             padding-top: 10px;
             font-size: 13px;
+        }
+        li{
+            cursor: pointer;
         }
     }
 }
