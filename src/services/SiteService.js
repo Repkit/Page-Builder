@@ -15,6 +15,7 @@ export default {
     emptySectionElement,
     _makeId,
     deleteSite,
+    publishSite,
 
     getSelectedElementById,
     removeSelectedElementById,
@@ -40,16 +41,21 @@ function getByUserName(userName) {
 
 function deleteSite(site) {
     return axios.delete(`${BASE_URL}/${site._id}`)
-        .then(() => {
-            return true
-        })
+        .then(() => true)
         .catch(err => {
             console.log('Eror in delete site:', err)
             return false;
         })
 }
 
-
+function publishSite(site) {
+    return axios.put(`${BASE_URL}/${site._id}`, site)
+        .then(res =>  true)
+        .catch(err => {
+            console.log('Eror in publish site:', err)
+            return false;
+        })
+}
 function emptyElement(type, data = {}, style = {}) {
     style.margin = '0';
     style.padding = '20px';
