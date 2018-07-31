@@ -57,7 +57,6 @@ export default {
 <style scoped lang="scss">
 .main-nav {
     padding: 20px 0;
-    // text-align: center;
     h1 {
         padding-left: 15px;
     }
