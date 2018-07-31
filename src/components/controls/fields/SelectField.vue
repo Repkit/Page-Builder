@@ -2,7 +2,7 @@
     <div class="select-field flex align-baseline" v-if="newField">
 
         <label>{{newField.label}}</label>
-        <select v-model="value" @change="$emit('change', newField, idx)">
+        <select v-model="value" @input="$emit('change', newField.name, newField.value, idx)">
             <option v-for="(option, idx) in newField.options" :key="idx"
                 :value="option.value" :selected="{selected: option.value}">
                 {{option.label}}
@@ -18,7 +18,7 @@ export default {
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: Object.assign( this.field )
+            newField: JSON.parse(JSON.stringify(this.field))
         }
     },
     computed: {

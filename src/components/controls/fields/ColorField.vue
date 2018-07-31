@@ -2,11 +2,10 @@
     <div class="color-field flex align-baseline" v-if="newField">
 
         <label>{{newField.label}}</label>
-        <!-- <input v-model="value" @input="$emit('change', newField, idx)"
-            type="color" name="newField.name" /> -->
         <div @click="display=!display" :style="{ backgroundColor: value }" class="field">
             &nbsp;
-            <chrome-picker v-model="value" v-if="display" @input="$emit('change', newField, idx)" />
+            <chrome-picker v-model="value" v-if="display"
+                @input="$emit('change', newField.name, newField.value, idx)" />
         </div>
 
     </div>
@@ -21,8 +20,8 @@ export default {
     components: { 'chrome-picker': Chrome },
     data() {
         return {
-            display: false,
-            newField: Object.assign( this.field )
+            newField: JSON.parse(JSON.stringify(this.field)),
+            display: false
         }
     },
     computed: {

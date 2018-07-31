@@ -15,7 +15,7 @@ import ListElement from '@/components/elements/list/ListForm.vue';
 import MapElement from '@/components/elements/map/MapForm.vue';
 import ButtonElement from '@/components/elements/button/ButtonForm.vue';
 import ProgressBarElement from '@/components/elements/progress-bar/ProgressBarForm.vue';
-// import AcordionElement from '@/components/elements/acordion/AcordionForm.vue';
+import AcordionElement from '@/components/elements/acordion/AcordionForm.vue';
 import CounterElement from '@/components/elements/counter/CounterForm.vue';
 
 export default {
@@ -26,9 +26,9 @@ export default {
         }
     },
     methods: {
-        updateElement( newElement,idx ) {
-            console.log(newElement,idx,'edit editor');
-        //todo update element
+        updateElement( elementId, newElement ) {
+            // TODO: update element
+            console.log('Edit editor: ', elementId, newElement);
         }
     },
     components: {
@@ -39,7 +39,7 @@ export default {
         MapElement,
         ButtonElement,
         ProgressBarElement,
-        // AcordionElement,
+        AcordionElement,
         CounterElement,
     }
 };

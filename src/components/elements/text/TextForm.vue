@@ -3,12 +3,12 @@
 
         <div class="editor-box">
             <h2>Text</h2>
-            <form-fields class="content" :fields="content" @change="updateValue" />
+            <form-fields class="content" :fields="content" @changeElement="updateElementData" />
         </div>
 
         <div class="editor-box">
             <h2>Text Style</h2>
-            <form-fields class="content" :fields="styles" />
+            <form-fields class="content" :fields="styles" @changeElement="updateElementStyles" />
         </div>
 
     </div>
@@ -18,11 +18,6 @@
 import FormFields from '@/components/controls/FormFields.vue';
 
 export default {
-    methods: {
-        updateValue(newVal, idx) {
-            this.$emit('change', newVal, idx);
-        }
-    },
     name: 'text-form',
     props: [ 'element' ],
     components: { FormFields },
@@ -151,6 +146,18 @@ export default {
                     value: this.element.styles.textTransform
                 }
             ]
+        }
+    },
+    methods: {
+        updateElementData(elementId, fieldName, newVal) {
+            let newElement = JSON.parse(JSON.stringify(this.element));
+            newElement.data[fieldName] = newVal;
+            this.$emit('change', elementId, newElement);
+        },
+        updateElementStyles(elementId, fieldName, newVal) {
+            let newElement = JSON.parse(JSON.stringify(this.element));
+            newElement.styles[fieldName] = newVal;
+            this.$emit('change', elementId, newElement);
         }
     }
 };
