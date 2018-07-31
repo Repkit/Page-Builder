@@ -19,7 +19,8 @@ export default {
     getSelectedElementById,
     removeSelectedElementById,
     cloneElementById,
-    addElementById
+    addElementById,
+    updateElementById,
 }
 
 function query(filterBy = { name: '', user_id: '' }) {
@@ -62,7 +63,6 @@ function emptyElement(type, data = {}, style = {}) {
 }
 
 function emptySectionElement(colsCount = 1) {
-    // var data = { layout: 'boxed', width: '1200px' };
     var style = { margin: '0', padding: '20px', minHeight: '100px' };
     var newSection = {
         id: _makeId(),
@@ -148,6 +148,23 @@ function cloneElementById(element, id) {
             var cloned = JSON.parse(JSON.stringify(currElement));
             cloned._id = _makeId();
             res.push(cloned);
+        }
+    })
+    return res;
+}
+
+function updateElementById(element, id, updateElement) {
+    var res = [];
+    element.forEach(currElement => {
+        if (currElement._id !== id) {
+            if (!getSelectedElementById(currElement, id)) res.push(currElement)
+            else {
+                currElement.elements = updateElementById(element, id, updateElement);
+                res.push(currElement);
+            }
+        }
+        else {
+            res.push(updateElement)
         }
     })
     return res;
