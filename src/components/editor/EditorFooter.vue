@@ -7,7 +7,7 @@
         <router-link :to="'/' + site._id" target="_blank">
             <font-awesome-icon :icon="['fas', 'eye']" />
         </router-link>
-        <span>
+        <span @click="Publish">
             <font-awesome-icon :icon="['fas', 'save']" />
         </span>
 
@@ -21,6 +21,25 @@ export default {
     methods: {
         setEditorScreen(screen) {
            this.$store.commit({ type: 'setEditorScreen', screen });
+        },
+        Publish(){
+            this.$store.dispatch({ type: 'publishSite' })
+                .then(isUpdated =>{
+                    if (isUpdated) {
+                        swal("Your Site has been sucsecfully Updated!", {
+                            icon: "success",
+                            buttons: {
+                                ok: true,
+                            },
+                        })
+                    }
+                    else {
+                        swal("Had a problem in updating, please try again later", {
+                        icon: "error"});
+                    }
+                })
+
+
         }
     }
 };

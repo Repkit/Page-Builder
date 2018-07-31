@@ -54,9 +54,13 @@ export default {
         },
         addSection(state, { columns }) {
             state.site.elements.push(SiteService.emptySectionElement(columns))
-        }
+        },
     },
     actions: {
+        publishSite(context) {
+            return SiteService.publishSite(context.state.site)
+                .then(res => res)
+        },
         loadSites(context, payload) {
             var filterBy = { user_id: payload.user._id }
             return SiteService.query(filterBy)
