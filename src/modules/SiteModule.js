@@ -54,9 +54,25 @@ export default {
         },
         addSection(state, { columns }) {
             state.site.elements.push(SiteService.emptySectionElement(columns))
-        }
+        },
+        // publishSite(state) {
+        //     return SiteService.publishSite(state.site)
+        //         .then(res => {
+        //             console.log('modul result', res)
+        //             return res
+        //         })
+        // },
+
     },
     actions: {
+        publishSite(context) {
+            console.log('site:',context.state.site)
+            return SiteService.publishSite(context.state.site)
+                .then(res => {
+                    console.log('modul result', res)
+                    return res
+                })
+        },
         loadSites(context, payload) {
             var filterBy = { user_id: payload.user._id }
             return SiteService.query(filterBy)

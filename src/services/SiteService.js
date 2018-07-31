@@ -15,6 +15,7 @@ export default {
     emptySectionElement,
     _makeId,
     deleteSite,
+    publishSite,
 
     getSelectedElementById,
     removeSelectedElementById,
@@ -46,6 +47,19 @@ function deleteSite(site) {
         .catch(err => {
             console.log('Eror in delete site:', err)
             return false;
+        })
+}
+
+function publishSite(site) {
+    console.log('site', site)
+    return axios.put(`${BASE_URL}/${site._id}`, site)
+        .then(res => {
+            console.log('service res:', res)
+            return true
+        })
+        .catch(err =>{
+            console.log('service err:')
+            return false
         })
 }
 
