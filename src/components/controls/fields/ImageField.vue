@@ -1,26 +1,35 @@
 <template>
     <div class="image-field" v-if="newField">
 
-        <label>{{newField.label}}</label>
-        <div class="image-preview">
+        <label >{{newField.label}}</label>
+        <label for="123abcd">
+            <div class="image-preview">
             <img :src="value" />
-            <div class="image-upload" @click="cludinary">
+            <div class="image-upload">
                 <span> Upload </span>
             </div>
         </div>
+        </label>
+
+        <form class="publish-form" method="POST" ref="formUpload">
+            <div>
+            <input id="123abcd" type="file" name="img" @change.prevent="uploadImg" hidden/>
+            </div>
+        </form>
+
         <input v-model="value" @input="$emit('change', newField, idx)"
             type="url" name="newField.name" :placeholder="newField.placeholder" />
-
     </div>
 </template>
 
 <script>
+import CloudinaryService from '@/services/CloudinaryService.js';
 export default {
     name: 'image-field',
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: Object.assign( this.field )
+            newField: Object.assign( this.field ),
         }
     },
     computed: {
@@ -36,9 +45,12 @@ export default {
         }
     },
     methods: {
-        cludinary() {
-            // Do something...
-        }
+        uploadImg() {
+            CloudinaryService.doUploadImg(this.$refs.formUpload)
+                .then((urlImg)=>{
+                    this.value = urlImg.url  
+                })
+        },
     }
 };
 </script>
