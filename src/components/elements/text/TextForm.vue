@@ -3,7 +3,7 @@
 
         <div class="editor-box">
             <h2>Text</h2>
-            <form-fields class="content" :fields="content" />
+            <form-fields class="content" :fields="content" @change="updateValue" />
         </div>
 
         <div class="editor-box">
@@ -18,6 +18,11 @@
 import FormFields from '@/components/controls/FormFields.vue';
 
 export default {
+    methods: {
+        updateValue(newVal, idx) {
+            this.$emit('change', newVal, idx);
+        }
+    },
     name: 'text-form',
     props: [ 'element' ],
     components: { FormFields },
