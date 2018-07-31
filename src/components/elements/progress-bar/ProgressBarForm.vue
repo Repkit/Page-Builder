@@ -25,46 +25,36 @@ export default {
         return {
             content: [
                 {
-                    name: 'text',
-                    cmp: 'input-text',
-                    label: 'Text',
-                    placeholder: 'Enter some text...',
-                    value: this.element.data.text
-                },
-                {
-                    name: 'min',
+                    name: 'compete',
                     cmp: 'input-range',
-                    label: 'min',
-                    default: 0,
-                    value: this.element.data.min
-                },
-                {
-                    name: 'max',
-                    cmp: 'input-range',
-                    label: 'max',
-                    default: 100,
-                    value: this.element.data.max
-                },
-                {
-                    name: 'value',
-                    cmp: 'input-range',
-                    label: 'value',
-                    default: 50,
-                    value: this.element.data.value
-                },
-                {
-                    name: 'step',
-                    cmp: 'input-range',
-                    label: 'step',
+                    label: 'Compete',
+                    mix: 0,
+                    max: 1,
+                    step: 0.1,
                     default: 1,
-                    value: this.element.data.step
+                    value: this.element.data.compete
                 },
                 {
-                    name: 'interval',
+                    name: 'strokeWidth',
                     cmp: 'input-range',
-                    label: 'interval',
-                    default: 100,
-                    value: this.element.data.interval
+                    label: 'Stroke Width',
+                    default: 1,
+                    value: this.element.data.strokeWidth
+                },
+                {
+                    name: 'trailWidth',
+                    cmp: 'input-range',
+                    label: 'trail Width',
+                    default: 2,
+                    value: this.element.data.trailWidth
+                },
+                {
+                    name: 'duration',
+                    cmp: 'input-range',
+                    label: 'Duration',
+                    default: 2500,
+                    max: 10000,
+                    value: this.element.data.duration
                 },
             ],
             styles: [

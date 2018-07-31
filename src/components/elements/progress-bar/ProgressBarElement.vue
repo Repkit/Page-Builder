@@ -3,14 +3,7 @@
         :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
         :data-element-id="element._id">
 
-        <div class="progress-bar-wrapper" :style="{ backgroundColor: element.data.wrapperBg }">
-            <div class="progress-bar-inner"
-                :style="{ backgroundColor: element.data.innerBg, width: (status) + '%' }">
-                <span class="progress-bar-text">
-                    {{element.data.text}}
-                </span>
-            </div>
-        </div>
+        <progress-bar type="line" ref="line" :options="options"></progress-bar>
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
@@ -24,16 +17,40 @@ export default {
     name: 'progress-bar-element',
     props: [ 'element', 'isEditMode' ],
     components: { ElementActions },
-    data() {
-        return {
-            status: this.element.data.min
-        };
+    mounted() {
+        this.$refs.line.animate( this.element.data.compete || 0.85 );
     },
-    created() {
-        let progressInterval = setInterval(() => {
-            if (this.status >= this.element.data.max) clearInterval(progressInterval);
-            this.status += this.element.data.step;
-        }, this.element.data.interval);
+    computed: {
+        options() {
+            return Object.assign({
+                easing: 'easeInOut',
+                duration: this.element.data.duration || 3000,
+                strokeWidth: this.element.data.strokeWidth || 2,
+                trailWidth: this.element.data.trailWidth || 1,
+                color: this.element.data.strokeColor || '#fe8',
+                trailColor: this.element.data.trailColor || '#eee',
+                svgStyle: {
+                    width: '100%',
+                    height: '100%'
+                },
+                // text: {
+                //     style: {
+                //         color: '#999',
+                //         transform: null
+                //     },
+                //     autoStyleContainer: false
+                // },
+                from: {
+                    color: '#FFEA82'
+                },
+                to: {
+                    color: '#ED6A5A'
+                },
+                step: (state, bar) => {
+                    bar.setText(Math.round(bar.value() * 100) + ' %');
+                }
+            });
+        }
     }
 };
 </script>
@@ -41,25 +58,5 @@ export default {
 <style scoped lang="scss">
 .progress-bar-element {
     width: 100%;
-    padding: 5px;
-
-    .progress-bar-wrapper {
-        width: 100%;
-        position: relative;
-        background-color: #eee;
-
-        .progress-bar-inner {
-            margin: 0;
-            padding: 0;
-            background-color: #468;
-            border-radius: 3px;
-
-            .progress-bar-text {
-                display: inline-block;
-                height: 1.5em;
-                color: #fff;
-            }
-        }
-    }
 }
 </style>
