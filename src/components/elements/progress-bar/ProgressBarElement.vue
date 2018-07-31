@@ -3,14 +3,13 @@
         :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
         :data-element-id="element._id">
 
-        <div class="border">
-            
-            <div class="fill flex" v-bind:style="{ height:'23px',color:'white','background-color': 'blue',width: status + '%'}">
-                <div class="progress-text">
-                    <slot name="progress-text">{{element.data.text}}</slot>
-                </div>
+        <div class="progress-bar-wrapper" :style="{ backgroundColor: element.data.wrapperBg }">
+            <div class="progress-bar-inner"
+                :style="{ backgroundColor: element.data.innerBg, width: (status) + '%' }">
+                <span class="progress-bar-text">
+                    {{element.data.text}}
+                </span>
             </div>
-            
         </div>
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
@@ -31,52 +30,36 @@ export default {
         };
     },
     created() {
-        var loadInterval = setInterval(() => {
-            if (this.status >= this.element.data.max - this.element.data.step ) clearInterval(loadInterval);
+        let progressInterval = setInterval(() => {
+            if (this.status >= this.element.data.max) clearInterval(progressInterval);
             this.status += this.element.data.step;
         }, this.element.data.interval);
     }
 };
 </script>
 
-<style scoped>
-.border{
-    background-color: gray
-}
-.progress-bar .border {
-    background-color: aliceblue;
-    border: 1px solid black;
+<style scoped lang="scss">
+.progress-bar-element {
     width: 100%;
-    height: 25px;
-    border-radius: 6px;
-    position: relative;
-}
+    padding: 5px;
 
-.progress-bar .fill {
-    color: black;
-    justify-content: center;
-    align-items: center;
-    background-color: #456caa;
-    margin: 0;
-    padding: 0;
-    width: 50%;
-    height: 23px;
-    border-radius: 6px;
-}
+    .progress-bar-wrapper {
+        width: 100%;
+        position: relative;
+        background-color: #eee;
 
-.progress-bar h1 {
-    color: black;
-    font-size: 1em;
-}
+        .progress-bar-inner {
+            margin: 0;
+            padding: 0;
+            background-color: #468;
+            border-radius: 3px;
 
-.progress-bar {
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-.progress-text h2 {
-    margin: 0;
-    padding: 0;
-    text-align: center;
+            .progress-bar-text {
+                display: inline-block;
+                height: 1.5em;
+                color: #fff;
+            }
+        }
+    }
 }
 </style>
