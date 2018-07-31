@@ -35,6 +35,9 @@ export default {
         removeSite(state, { id }) {
             state.sites = state.sites.filter(item => item._id !== id);
         },
+        deleteSite(state, { site }) {
+            state.sites = state.sites.filter(currSite => currSite._id !== site._id)
+        },
 
         // Current site
         loadSite(state, { site }) {
@@ -79,11 +82,13 @@ export default {
                     return site;
                 });
         },
-        removeSite(context, { id }) {
-            return SiteService.remove(id)
-                .then(() => {
-                    context.commit({ type: 'removeSite', id });
-                });
+        deleteSite(context, { site }) {
+            return SiteService.deleteSite(site)
+                .then((isDelete) => {
+                    if (!isDelete) return false
+                    context.commit({ type: 'deleteSite', site });
+                    return true;
+                })
         },
 
         // Current site

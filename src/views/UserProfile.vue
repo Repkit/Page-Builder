@@ -12,7 +12,7 @@
 
         <section class="user-sites" v-if="isUserLoggedIn">
             <div class="container">
-                <site-list v-if="sites" :sites="sites"></site-list>
+                <site-list v-if="sites" :sites="sites" @on-delete="loadUserSites"></site-list>
                 <p v-else>No sites yet, create new site now.</p>
             </div>
         </section>
@@ -26,7 +26,7 @@ import UserDetails from '@/components/UserDetails.vue';
 import SiteList from '@/components/SiteList.vue';
 
 export default {
-    name: 'profile',
+    name: 'UserProfile',
     components: { MainNav, SiteList, UserDetails },
     data() {
         return {
@@ -55,6 +55,14 @@ export default {
                 }
             }, 
             immediate: true
+        }
+    },
+    methods:{
+        loadUserSites(){
+            this.$store.dispatch({ type: 'loadSitesByUserName', userName: this.loggedInUser.userName })
+                .then(sites => {
+                    this.sites = sites;
+                });
         }
     }
 };

@@ -14,6 +14,7 @@ export default {
     emptyElement,
     emptySectionElement,
     _makeId,
+    deleteSite,
 
     getSelectedElementById,
     removeSelectedElementById,
@@ -34,6 +35,17 @@ function getById(id) {
 function getByUserName(userName) {
     return axios.get(`${BASE_URL}/user/${userName}`)
         .then(res => res.data);
+}
+
+function deleteSite(site) {
+    return axios.delete(`${BASE_URL}/${site._id}`)
+        .then(() => {
+            return true
+        })
+        .catch(err => {
+            console.log('Eror in delete site:', err)
+            return false;
+        })
 }
 
 
