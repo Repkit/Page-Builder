@@ -3,7 +3,7 @@
 
         <section class="footer">
             <div class="container">
-                <h3>copyright</h3>
+                <h3> &copy; copyright</h3>
             </div>
         </section>
     </div>
