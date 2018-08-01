@@ -42,6 +42,14 @@ export default {
             this.newFields.splice(idx, 1, newValue);
             this.$emit('changeElement', fieldName, newValue);
         }
+    },
+    watch: {
+        fields: {
+            deep: true,
+            handler() {
+                this.newFields = JSON.parse(JSON.stringify(this.fields))
+            }
+        }
     }
 };
 </script>

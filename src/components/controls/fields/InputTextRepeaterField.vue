@@ -28,6 +28,14 @@ export default {
         removeItem(idx) {
             this.newField.value.splice(idx, 1);
         }
+    },
+    watch: {
+        field: {
+            deep: true,
+            handler() {
+                this.newField = JSON.parse(JSON.stringify(this.field))
+            }
+        }
     }
 };
 </script>

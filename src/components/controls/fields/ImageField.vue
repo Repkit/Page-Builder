@@ -50,6 +50,14 @@ export default {
                     this.value = urlImg.url  
                 })
         },
+    },
+    watch: {
+        field: {
+            deep: true,
+            handler() {
+                this.newField = JSON.parse(JSON.stringify(this.field))
+            }
+        }
     }
 };
 </script>

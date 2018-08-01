@@ -26,6 +26,15 @@ export default {
                 this.newField.value = newVal;
             }
         }
-    }
+    },
+    watch: {
+        field: {
+            deep: true,
+            handler() {
+                console.log('I\'m heeeeeeere!')
+                this.newField = JSON.parse(JSON.stringify(this.field))
+            }
+        }
+    },
 };
 </script>
