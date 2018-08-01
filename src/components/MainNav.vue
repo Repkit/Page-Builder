@@ -55,10 +55,11 @@ export default {
             this.$swal({
                 title: 'Multiple inputs',
                 html:`
-                    <form @submit.prevent="">
-                        Username: <input class="input1" type="text" required> 
-                        Password: <input class="input2" type="password" required>
-                    </form>
+                    <br>
+                    Username: <input class="input1" type="text" required> 
+                    <br>
+                    <br>
+                    Password: <input class="input2" type="password" required>
                 `,
                 focusConfirm: false,
                 preConfirm: () => {
