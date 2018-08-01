@@ -51,6 +51,7 @@ export default {
                     cmp: 'image',
                     label: 'Image',
                     placeholder: 'https://your-link.com',
+                    default: 'http://via.placeholder.com/1200x600?text=My%20Awsome%20Image',
                     value: this.element.data.src
                 },
                 {

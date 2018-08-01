@@ -4,7 +4,7 @@
         :data-element-id="element._id">
 
         <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :style="{ height: element.styles.height, width: '100%' }"
-        :src="`https://maps.google.com/maps?q=${location}&amp;t=m&amp;z=${element.data.zoom}&amp;output=embed&amp;iwloc=near`"></iframe>
+        :src="`https://maps.google.com/maps?q=${location}&amp;t=m&amp;z=${zoom}&amp;output=embed&amp;iwloc=near`"></iframe>
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
@@ -21,6 +21,9 @@ export default {
     computed: {
         location() {
             return this.element.data.location || 'New York';
+        },
+        zoom() {
+            return this.element.data.zoom || 18;
         }
     }
 };

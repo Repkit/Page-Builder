@@ -51,6 +51,7 @@ export default {
                     name: 'text',
                     label: 'Text',
                     placeholder: 'Enter some text...',
+                    default: 'Click here',
                     value: this.element.data.text
                 },
                 {

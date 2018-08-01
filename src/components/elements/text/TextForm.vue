@@ -51,6 +51,7 @@ export default {
                     cmp: 'textarea',
                     label: 'Text',
                     placeholder: 'Enter some text...',
+                    default: 'Enter some text...',
                     rows: 5,
                     value: this.element.data.text
                 },

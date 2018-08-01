@@ -6,12 +6,12 @@
         <template v-if="element.data.link">
             <button>
                 <a :href="element.data.link">
-                    {{element.data.text}}
+                    {{text}}
                 </a>
             </button>
         </template>
         <template v-else>
-            <button>{{element.data.text}}</button>
+            <button>{{text}}</button>
         </template>
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
@@ -25,11 +25,11 @@ import ElementActions from '@/components/elements/ElementActions.vue';
 export default {
     name: 'button-element',
     props: [ 'element', 'isEditMode' ],
+    components: { ElementActions },
     computed: {
         text() {
             return this.element.data.text || 'Click here';
         }
     },
-    components: { ElementActions },
 };
 </script>

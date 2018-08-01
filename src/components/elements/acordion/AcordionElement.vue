@@ -3,7 +3,7 @@
         :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
         :data-element-id="element._id">
 
-        <section class="accordion" v-for="item in items" :key="item.id">
+        <section class="accordion" v-for="item in element.data.acordion" :key="item.id">
             <section class="accordion-container" @click="toggleIsShown(item)">
                 <div name="title">{{item.name}}</div>
                 <div name="content" v-if="item.isShown">{{item.content}}</div>
@@ -26,18 +26,6 @@ export default {
         toggleIsShown(item) {
             item.isShown = !item.isShown;
         }
-    },
-    data() {
-        return {
-            items:[
-                { id: 'sdsd', name: 'Gali', content: 27, isShown: false },
-                { id: 'qdsc', name: 'Idan', content: 28, isShown: false },
-                { id: 'sdsw', name: 'Ofir', content: 24, isShown: false }
-            ],
-        };
-    },
-    created() {
-        if (this.element.element.data.isArray()) this.items = this.element.element.data;
     }
 };
 </script>

@@ -47,11 +47,16 @@ export default {
         getContent() {
             return [
                 {
-                    name: 'text',
+                    name: 'acordion',
                     cmp: 'input-text',
-                    label: 'Text',
+                    label: 'Acordion Data',
                     placeholder: 'Enter some text...',
-                    value: this.element.data.text
+                    default: [
+                        { id: 'sdsd', name: 'Gali', content: 27, isShown: false },
+                        { id: 'qdsc', name: 'Idan', content: 28, isShown: false },
+                        { id: 'sdsw', name: 'Ofir', content: 24, isShown: false },
+                    ],
+                    value: this.element.data.acordion
                 },
                 {
                     name: 'link',

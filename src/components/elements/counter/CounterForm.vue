@@ -47,10 +47,11 @@ export default {
         getContent() {
             return [
                 {
-                    name: 'text',
-                    cmp: 'input-range',
-                    label: 'Text',
-                    value: this.element.data.text
+                    name: 'counter',
+                    cmp: 'input-number',
+                    label: 'Counter',
+                    default: 10,
+                    value: this.element.data.counter
                 }
             ]
         },

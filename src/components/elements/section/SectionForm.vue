@@ -54,6 +54,7 @@ export default {
                         { label: 'Horizontal', value: 'column' },
                         { label: 'Vertical', value: 'row' },
                     ],
+                    default: 'column',
                     value: this.element.data.direction
                 }
             ]

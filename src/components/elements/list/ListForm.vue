@@ -51,6 +51,7 @@ export default {
                     name: 'text',
                     label: 'List',
                     placeholder: 'Enter some text...',
+                    default: [ 'Item #1', 'Item #2', 'Item #3' ],
                     value: this.element.data.text
                 }
             ]

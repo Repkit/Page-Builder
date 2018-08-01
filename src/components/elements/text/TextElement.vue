@@ -5,11 +5,11 @@
 
         <template v-if="element.data.link">
             <a :href="element.data.link">
-                {{element.data.text}}
+                {{text}}
             </a>
         </template>
         <template v-else>
-            {{element.data.text}}
+            {{text}}
         </template>
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
@@ -24,5 +24,10 @@ export default {
     name: 'text-element',
     props: [ 'element', 'isEditMode' ],
     components: { ElementActions },
+    computed: {
+        text() {
+            return this.element.data.text || 'Enter some text...';
+        }
+    }
 };
 </script>

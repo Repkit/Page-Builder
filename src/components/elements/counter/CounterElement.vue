@@ -21,7 +21,7 @@ export default {
     components: { ElementActions },
     data() {
         return {
-            counter: this.element.data.text || 0
+            counter: this.element.data.counter || 10
         }
     },
     methods: {

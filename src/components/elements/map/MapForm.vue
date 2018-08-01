@@ -51,6 +51,7 @@ export default {
                     cmp: 'input-text',
                     label: 'Location',
                     placeholder: 'Enter some location...',
+                    default: 'New York',
                     value: this.element.data.location
                 },
                 {
