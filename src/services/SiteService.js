@@ -50,7 +50,7 @@ function deleteSite(site) {
 
 function publishSite(site) {
     return axios.put(`${BASE_URL}/${site._id}`, site)
-        .then(res =>  true)
+        .then(res => true)
         .catch(err => {
             console.log('Eror in publish site:', err)
             return false;
@@ -151,10 +151,21 @@ function cloneElementById(element, id) {
         }
         else {
             res.push(currElement);
-            var cloned = JSON.parse(JSON.stringify(currElement));
-            cloned._id = _makeId();
-            res.push(cloned);
+            var clone = JSON.parse(JSON.stringify(currElement));
+            clone._id = _makeId();
+            clone.elements = _changeElementsId(clone.elements)
+            res.push(clone);
         }
+    })
+    return res;
+}
+
+function _changeElementsId(element) {
+    var res = [];
+    element.forEach(currElement => {
+        currElement._id = _makeId();
+        res.push(currElement)
+        if (currElement.elements[0]) currElement.elements = _changeElementsId(currElement.elements);
     })
     return res;
 }
