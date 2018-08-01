@@ -74,7 +74,7 @@ export default {
     right: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.753);
+    background-color: rgba(255, 255, 255, 0.829);
 
     h1 {
         margin: 0 10px;
