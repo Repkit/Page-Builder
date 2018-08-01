@@ -1,7 +1,5 @@
 <template>
-    <div class="element acordion-element" :style="element.styles"
-        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
-        :data-element-id="element._id">
+    <div class="element acordion-element" :style="element.styles">
 
         <section class="accordion" v-for="item in element.data.acordion" :key="item.id">
             <section class="accordion-container" @click="toggleIsShown(item)">

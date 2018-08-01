@@ -1,7 +1,5 @@
 <template>
-    <div class="element map-element" :style="element.styles"
-        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
-        :data-element-id="element._id">
+    <div class="element map-element" :style="element.styles">
 
         <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :style="{ height: element.styles.height, width: '100%' }"
         :src="`https://maps.google.com/maps?q=${location}&amp;t=m&amp;z=${zoom}&amp;output=embed&amp;iwloc=near`"></iframe>

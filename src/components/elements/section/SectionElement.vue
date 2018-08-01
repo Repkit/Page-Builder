@@ -1,8 +1,9 @@
 <template>
     <div v-if="element" :class="elementClass" :style="elementStyle" :data-element-id="element._id">
 
-        <component v-if="element.elements" v-for="element in element.elements" :key="element._id"
-            :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode" />
+        <component v-if="element.elements" v-for="elem in element.elements" :key="elem._id"
+            :is="elem.settings.type+'-element'" :element="elem" :isEditMode="isEditMode"
+            :data-element-id="elem._id" :class="elementInnerClass(elem)" />
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
@@ -38,9 +39,12 @@ export default {
         CounterElement
     },
     computed: {
+        selectedElement() {
+            return this.$store.getters.selectedElement;
+        },
         elementClass() {
-            let classes = `element section-element element-${this.element._id}`;
-            classes += (this.isEditMode) ? 'selected' : '';
+            let classes = `element section-element`;
+            classes += ( this.element && this.selectedElement && this.selectedElement._id === this.element._id ) ? ' selected': '';
             return classes;
         },
         elementStyle() {
@@ -49,8 +53,14 @@ export default {
             if(!dir) dir = 'column'
             copy.styles.flexDirection = dir
             return copy.styles;
-        }
+        },
     },
+    methods: {
+        elementInnerClass(element) {
+            let selectedClass = ( element && this.selectedElement && this.selectedElement._id === element._id ) ? true : false;
+            return { selected: selectedClass };
+        }
+    }
 };
 </script>
 

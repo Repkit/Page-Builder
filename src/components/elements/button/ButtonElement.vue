@@ -1,7 +1,5 @@
 <template>
-    <div class="element button-element" :style="element.styles"
-        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
-        :data-element-id="element._id">
+    <div class="element button-element" :style="element.styles">
 
         <template v-if="element.data.link">
             <button>

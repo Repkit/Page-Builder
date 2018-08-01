@@ -1,7 +1,5 @@
 <template>
-    <div class="element list-element" :style="element.styles"
-        :class="{ ['element-'+element._id]: element._id, selected: isEditMode }"
-        :data-element-id="element._id">
+    <div class="element list-element" :style="element.styles">
 
         <div v-for="item in items" :key="item.id">
             {{item}}

@@ -75,11 +75,11 @@ export default {
                 display: block;
             }
         }
+    }
 
-        // .selected {
-        //     outline: 2px solid lightcoral;
-            // z-index: 999;
-        // }
+    .selected {
+        outline: 2px solid lightcoral !important;
+        z-index: 999;
     }
 }
 </style>

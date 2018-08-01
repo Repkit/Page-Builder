@@ -1,8 +1,9 @@
 <template>
     <div class="site-preview" v-if="site" @dragover="allowDrop" @dragenter="dragEnter" @drop.prevent="drop">
 
-        <component v-if="site.elements" v-for="element in site.elements" :key="element._id"
-            :is="element.settings.type+'-element'" :element="element" :isEditMode="isEditMode" />
+        <component v-if="site.elements" v-for="elem in site.elements" :key="elem._id"
+            :is="elem.settings.type+'-element'" :element="elem" :isEditMode="isEditMode"
+            :data-element-id="elem._id" />
 
     </div>
 </template>
