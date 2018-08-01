@@ -57,6 +57,7 @@ export default {
                     name: 'opacity',
                     cmp: 'input-range',
                     label: 'Opacity',
+                    default: 0,
                     min: 0,
                     max: 1,
                     step: 0.1,

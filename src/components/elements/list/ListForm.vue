@@ -54,12 +54,16 @@ export default {
                     label: 'Line Height',
                     default: '18px',
                     unit: 'px',
+                    min: '-10',
+                    max: '20',
                     value: this.element.styles.lineHeight
                 },
                 {
                     name: 'letterSpacing',
                     cmp: 'input-range',
                     label: 'Letter Spacing',
+                    default: '0px',
+                    unit: 'px',
                     value: this.element.styles.letterSpacing
                 },
                 {

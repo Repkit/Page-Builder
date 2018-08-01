@@ -25,9 +25,9 @@ export default {
         return {
             content: [
                 {
-                    name: 'text',
+                    name: 'location',
                     cmp: 'input-text',
-                    label: 'Text',
+                    label: 'Location',
                     placeholder: 'Enter some location...',
                     value: this.element.data.location
                 },
@@ -35,6 +35,7 @@ export default {
                     name: 'zoom',
                     cmp: 'input-range',
                     label: 'Zoom',
+                    default: 18,
                     min: 1,
                     max: 20,
                     step: 1,

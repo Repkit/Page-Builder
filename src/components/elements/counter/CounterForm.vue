@@ -25,18 +25,19 @@ export default {
         return {
             content: [
                 {
+                    name: 'text',
                     cmp: 'input-range',
-                    name: 'counter',
-                    label: 'counter',
+                    label: 'Text',
                     value: this.element.data.text
-                },
-         
+                }
             ],
             styles: [
                 {
-                    cmp: 'input-range',
                     name: 'fontSize',
+                    cmp: 'input-range',
                     label: 'Font Size',
+                    default: '18px',
+                    unit: 'px',
                     value: this.element.styles.fontSize
                 }
             ]

@@ -25,15 +25,15 @@ export default {
         return {
             content: [
                 {
-                    cmp: 'input-text',
                     name: 'text',
+                    cmp: 'input-text',
                     label: 'Text',
                     placeholder: 'Enter some text...',
                     value: this.element.data.text
                 },
                 {
-                    cmp: 'input-url',
                     name: 'link',
+                    cmp: 'input-url',
                     label: 'Link URL',
                     placeholder: 'https://your-link.com',
                     value: this.element.data.link
@@ -41,9 +41,11 @@ export default {
             ],
             styles: [
                 {
-                    cmp: 'input-range',
                     name: 'fontSize',
+                    cmp: 'input-range',
                     label: 'Font Size',
+                    default: '18px',
+                    unit: 'px',
                     value: this.element.styles.fontSize
                 }
             ]
