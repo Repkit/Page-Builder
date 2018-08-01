@@ -99,15 +99,12 @@ section {
         background-image: url('../assets/img/cover.jpg');
         width: 100%;
         height: calc(90vh - 40px);
-        // height: 100%;
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         margin-bottom: 20px;
-        //  filter:blur(5px);
 
-        // background: #4ac2fa url('../assets/img/cover.jpg');
         .container {
             max-width: 800px;
             margin: 0 auto;

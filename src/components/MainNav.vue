@@ -78,25 +78,19 @@ export default {
     background-color: rgba(255, 255, 255, 0.8);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
  
-
-
     h1 {
         margin: 0 10px;
         a {
             text-decoration: none;
             font-weight: bold;
             color: #000;
-            font-family: 'assistant','Verdana', 'Geneva', 'Tahoma', 'sans-serif';
-           
+            font-family: 'assistant','Verdana', 'Geneva', 'Tahoma', 'sans-serif';  
         }
     }
 
     ul {
-        // margin: 0;
-
         li {
             padding: 0.5em 1em;
-
         a {
             font-weight: bold;
             color: #000;
@@ -109,10 +103,10 @@ export default {
         }
     }
 }
- .nav-mobile {
-        display: none;
-    }
- .toggle-screen {
+.nav-mobile {
+    display: none;
+}
+.toggle-screen {
     display: none;
     position: fixed;
     width: 100vw;
@@ -125,15 +119,13 @@ export default {
     visibility: hidden;
     cursor: pointer;
     transition: opacity .5s; 
-    }
-
-
+}
 @media (max-width: 800px) {
     .show-div {
-            visibility: visible;
-            opacity: 1; 
-            display:block;
-          }
+        visibility: visible;
+        opacity: 1; 
+        display:block;
+    }
     .nav-desktop{
         margin: 0;
         z-index: 1;
@@ -152,6 +144,7 @@ export default {
         &.open{
             transform: translate(0, 0);
         }
+
         li a {
             border-bottom: 2px solid black;
             text-decoration: dotted;
@@ -161,7 +154,7 @@ export default {
             line-height: 60px;
             text-align: center;
             font-size: 16px;
-            }
+        }
 
         li a:hover {
             color: #42b983;
@@ -203,5 +196,5 @@ export default {
         transform: rotate(45deg) translate(-8px, -8px) ;
     }
     
-    }
+}
 </style>
