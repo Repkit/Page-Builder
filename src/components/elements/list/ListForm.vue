@@ -88,8 +88,11 @@ export default {
                     name: 'letterSpacing',
                     cmp: 'input-range',
                     label: 'Letter Spacing',
-                    default: '0px',
+                    default: '0',
                     unit: 'px',
+                    min: '0',
+                    max: '25',
+                    step: '1',
                     value: this.element.styles.letterSpacing
                 },
                 {
