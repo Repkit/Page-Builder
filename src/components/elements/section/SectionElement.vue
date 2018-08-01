@@ -1,9 +1,9 @@
 <template>
-    <div v-if="element" :class="elementClass" :style="elementStyle" :data-element-id="element._id">
+    <div v-if="element" :class="elementClass" :style="elementStyle">
 
         <component v-if="element.elements" v-for="elem in element.elements" :key="elem._id"
             :is="elem.settings.type+'-element'" :element="elem" :isEditMode="isEditMode"
-            :data-element-id="elem._id" :class="elementInnerClass(elem)" />
+            :data-element-id="elem._id" :class="selectedClass(elem)" />
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
 
@@ -56,7 +56,7 @@ export default {
         },
     },
     methods: {
-        elementInnerClass(element) {
+        selectedClass(element) {
             let selectedClass = ( element && this.selectedElement && this.selectedElement._id === element._id ) ? true : false;
             return { selected: selectedClass };
         }
