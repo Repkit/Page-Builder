@@ -69,35 +69,30 @@ section {
         background-color: #ffcc46;
     }
 
-    .container {
-        max-width: 1000px;
+    img {
         margin: 0 auto;
+        display: block;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        box-shadow: #000 0 0 10px;
+        width: 150px;
+        height: auto;
+    }
 
-        img {
-            margin: 0 auto;
-            display: block;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            box-shadow: #000 0 0 10px;
-            width: 150px;
-            height: auto;
-        }
+    h1 {
+        margin: 0;
+        font-size: 2.5em;
+        font-weight: 700;
+        line-height: 1.25;
+        color: #f52;
+    }
 
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: 700;
-            line-height: 1.25;
-            color: #f52;
-        }
-
-        p {
-            margin: 0;
-            font-size: 1.5em;
-            font-weight: 300;
-            line-height: 1.5;
-            color: #111;
-        }
+    p {
+        margin: 0;
+        font-size: 1.5em;
+        font-weight: 300;
+        line-height: 1.5;
+        color: #111;
     }
 }
 </style>

@@ -37,31 +37,26 @@ section {
     &.info {
         background-color: #efefef;
 
-        .container {
-            max-width: 1000px;
+        img {
             margin: 0 auto;
+            display: block;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: #000 0 0 10px;
+        }
 
-            img {
-                margin: 0 auto;
-                display: block;
-                border-radius: 50%;
-                border: 3px solid #fff;
-                box-shadow: #000 0 0 10px;
-            }
+        h1 {
+            margin-top: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+            line-height: 1.25;
+        }
 
-            h1 {
-                margin-top: 0;
-                font-size: 2.5em;
-                font-weight: 700;
-                line-height: 1.25;
-            }
-
-            p {
-                margin: 0;
-                font-size: 1.5em;
-                font-weight: 300;
-                line-height: 1.5;
-            }
+        p {
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: 300;
+            line-height: 1.5;
         }
     }
 }

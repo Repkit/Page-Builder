@@ -3,7 +3,7 @@
 
         <div class="editor-box">
             <h2>Site Details</h2>
-            <form-fields class="content" :fields="data" />
+            <form-fields class="content" :fields="data" @changeElement="updateElementData" />
         </div>
 
     </div>
@@ -18,7 +18,22 @@ export default {
     components: { FormFields },
     data() {
         return {
-            data: [
+            data: this.getData(),
+        }
+    },
+    watch: {
+        site(element) {
+            this.data = this.getData();
+        }
+    },
+    methods: {
+        updateElementData(fieldName, fieldValue) {
+            let newSite = JSON.parse(JSON.stringify(this.site));
+            newSite[fieldName] = fieldValue;
+            this.$store.commit({ type: 'updateSiteField', fieldName, fieldValue });
+        },
+        getData() {
+            return [
                 {
                     name: 'name',
                     cmp: 'input-text',

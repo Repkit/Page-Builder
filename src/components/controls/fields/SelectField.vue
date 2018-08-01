@@ -2,7 +2,7 @@
     <div class="select-field flex align-baseline" v-if="newField">
 
         <label>{{newField.label}}</label>
-        <select v-model="value" @input="$emit('change', newField.name, newField.value, idx)">
+        <select v-model="value" @change="$emit('change', newField.name, newField.value, idx)">
             <option v-for="(option, optIdx) in newField.options" :key="optIdx"
                 :value="option.value" :selected="{selected: option.value}">
                 {{option.label}}
@@ -29,7 +29,9 @@ export default {
                 return val;
             },
             set(newVal) {
-                this.newField.value = this.newField.prefix + newVal + this.newField.suffix;
+                this.newField.value = newVal;
+                // If breakes, revert this line
+                // this.newField.value = this.newField.prefix + newVal + this.newField.suffix;
             }
         }
     },

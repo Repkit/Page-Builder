@@ -90,7 +90,7 @@ function emptyElement(type, data = {}, style = {}) {
 function emptySectionElement(colsCount = 1) {
     var style = { margin: '0', padding: '20px', minHeight: '100px' };
     var newSection = {
-        id: _makeId(),
+        _id: _makeId(),
         settings: {
             type: 'section'
         },
