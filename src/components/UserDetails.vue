@@ -1,7 +1,7 @@
 <template>
     <div class="user-details" v-if="user">
 
-        <img :src="user.image" />
+        <img :src="user.image || '/img/user.png'" />
 
         <h1>{{user.firstName}} {{user.lastName}}</h1>
 
