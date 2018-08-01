@@ -29,7 +29,8 @@ export default {
                 return parseInt(this.newField.value) || this.newField.default || 0;
             },
             set(newVal) {
-                this.newField.value = newVal + this.newField.unit;
+                let unit = ( this.newField.unit ) ? this.newField.unit : '';
+                this.newField.value = newVal + unit;
             }
         }
     },

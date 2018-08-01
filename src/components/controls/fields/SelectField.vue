@@ -29,9 +29,9 @@ export default {
                 return val;
             },
             set(newVal) {
-                this.newField.value = newVal;
-                // If breakes, revert this line
-                // this.newField.value = this.newField.prefix + newVal + this.newField.suffix;
+                let prefix = ( this.newField.prefix ) ? this.newField.prefix : '';
+                let suffix = ( this.newField.suffix ) ? this.newField.suffix : '';
+                this.newField.value = prefix + newVal + suffix;
             }
         }
     },
