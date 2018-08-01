@@ -3,7 +3,8 @@
 
         <ul class="inline-list" arial-label="Element Actions">
             <li @click="editElement"><font-awesome-icon :icon="['fas', 'edit']" /></li>
-            <li class="drag"><font-awesome-icon :icon="['fas', 'arrows-alt']" /></li>
+            <li @click="moveElement('up')"><font-awesome-icon :icon="['fas', 'angle-double-up']" /></li>
+            <li @click="moveElement('down')"><font-awesome-icon :icon="['fas', 'angle-double-down']" /></li>
             <li @click="cloneElement"><font-awesome-icon :icon="['fas', 'clone']" /></li>
             <li @click="removeElement"><font-awesome-icon :icon="['fas', 'trash-alt']" /></li>
         </ul>
@@ -36,6 +37,9 @@ export default {
         removeElement() {
             this.$store.commit({ type: 'removeElement', id: this.id });
         },
+        moveElement(direction) {
+            this.$store.commit({ type: 'moveElement', id: this.id, direction });
+        }
     }
 };
 </script>
@@ -56,10 +60,6 @@ export default {
 
             &:hover {
                 background-color: #6ad;
-            }
-
-            &.drag {
-                cursor: move;
             }
         }
     }

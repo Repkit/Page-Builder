@@ -16,6 +16,8 @@
             </div>
         </section>
 
+        <main-footer></main-footer>
+
     </div>
 </template>
 
@@ -23,10 +25,11 @@
 import MainNav from '@/components/MainNav.vue';
 import UserDetails from '@/components/UserDetails.vue';
 import SiteList from '@/components/SiteList.vue';
+import MainFooter from '@/components/MainFooter.vue';
 
 export default {
     name: 'user-profile',
-    components: { MainNav, SiteList, UserDetails },
+    components: { MainNav, SiteList, UserDetails, MainFooter },
     data() {
         return {
             sites: null
@@ -68,6 +71,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.user-profile {
+    padding-top: 100px;
+}
+
 section {
     padding: 20px 0;
     text-align: center;
