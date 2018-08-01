@@ -41,6 +41,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.home {
+padding-top: 100px;
+    }
+
 section {
     padding: 50px 0;
     text-align: center;

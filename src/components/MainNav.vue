@@ -7,7 +7,6 @@
             <h1><router-link to="/">Page Builder</router-link></h1>
 
             <ul ref="navDesktop" class="nav-desktop flex-row align-center flex inline-list" arial-label="Main navigation bar">
-                <li><router-link to="/"> Home </router-link></li>
                 <li><router-link to="/about"> About </router-link></li>
                 <li v-if="isUserLoggedIn"><router-link to="/profile" v-if="isUserLoggedIn"> My Profile </router-link></li>
                 <li v-if="isUserLoggedIn"><button @click="logout" > Logout </button></li>
@@ -70,6 +69,13 @@ export default {
 
 <style scoped lang="scss">
 .main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.753);
+
     h1 {
         margin: 0 10px;
         a {
@@ -141,15 +147,15 @@ export default {
             transform: translate(0, 0);
         }
         li a {
-        border-bottom: 2px solid black;
-        text-decoration: dotted;
-        display: block;
-        // width: 100px;
-        // height: 130px;
-        line-height: 60px;
-        text-align: center;
-        font-size: 16px;
-        }
+            border-bottom: 2px solid black;
+            text-decoration: dotted;
+            display: block;
+            // width: 100px;
+            // height: 130px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 16px;
+            }
 
         li a:hover {
             color: #42b983;
@@ -159,7 +165,7 @@ export default {
     /* nav-mobile button */
     
     .nav-mobile {
-         z-index: 1;
+        z-index: 1;
         cursor: pointer;
         display: block;
         float: right;

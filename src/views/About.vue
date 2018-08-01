@@ -24,6 +24,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.about {
+padding-top: 100px;
+    }
+
 section {
     padding: 50px 0;
     text-align: center;

@@ -70,6 +70,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.user-profile {
+padding-top: 100px;
+    }
 section {
     padding: 20px 0;
     text-align: center;
