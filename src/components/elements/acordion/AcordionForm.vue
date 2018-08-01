@@ -23,7 +23,29 @@ export default {
     components: { FormFields },
     data() {
         return {
-            content: [
+            content: this.getContent(),
+            styles: this.getStyles()
+        }
+    },
+    watch: {
+        element(element) {
+            this.content = this.getContent();     
+            this.styles = this.getStyles();
+        }
+    },
+    methods: {
+        updateElementData(fieldName, newVal) {
+            let newElement = JSON.parse(JSON.stringify(this.element));
+            newElement.data[fieldName] = newVal;
+            this.$emit('change', newElement);
+        },
+        updateElementStyles(fieldName, newVal) {
+            let newElement = JSON.parse(JSON.stringify(this.element));
+            newElement.styles[fieldName] = newVal;
+            this.$emit('change', newElement);
+        },
+        getContent() {
+            return [
                 {
                     name: 'text',
                     cmp: 'input-text',
@@ -38,8 +60,10 @@ export default {
                     placeholder: 'https://your-link.com',
                     value: this.element.data.link
                 }
-            ],
-            styles: [
+            ]
+        },
+        getStyles() {
+            return [
                 {
                     name: 'fontSize',
                     cmp: 'input-range',
@@ -49,18 +73,6 @@ export default {
                     value: this.element.styles.fontSize
                 }
             ]
-        }
-    },
-    methods: {
-        updateElementData(fieldName, newVal) {
-            let newElement = JSON.parse(JSON.stringify(this.element));
-            newElement.data[fieldName] = newVal;
-            this.$emit('change', newElement);
-        },
-        updateElementStyles(fieldName, newVal) {
-            let newElement = JSON.parse(JSON.stringify(this.element));
-            newElement.styles[fieldName] = newVal;
-            this.$emit('change', newElement);
         }
     }
 };

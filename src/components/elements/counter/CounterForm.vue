@@ -23,24 +23,14 @@ export default {
     components: { FormFields },
     data() {
         return {
-            content: [
-                {
-                    name: 'text',
-                    cmp: 'input-range',
-                    label: 'Text',
-                    value: this.element.data.text
-                }
-            ],
-            styles: [
-                {
-                    name: 'fontSize',
-                    cmp: 'input-range',
-                    label: 'Font Size',
-                    default: '18px',
-                    unit: 'px',
-                    value: this.element.styles.fontSize
-                }
-            ]
+            content: this.getContent(),
+            styles: this.getStyles()
+        }
+    },
+    watch: {
+        element(element) {
+            this.content = this.getContent();     
+            this.styles = this.getStyles();
         }
     },
     methods: {
@@ -53,6 +43,28 @@ export default {
             let newElement = JSON.parse(JSON.stringify(this.element));
             newElement.styles[fieldName] = newVal;
             this.$emit('change', newElement);
+        },
+        getContent() {
+            return [
+                {
+                    name: 'text',
+                    cmp: 'input-range',
+                    label: 'Text',
+                    value: this.element.data.text
+                }
+            ]
+        },
+        getStyles() {
+            return [
+                {
+                    name: 'fontSize',
+                    cmp: 'input-range',
+                    label: 'Font Size',
+                    default: '18px',
+                    unit: 'px',
+                    value: this.element.styles.fontSize
+                }
+            ]
         }
     }
 };

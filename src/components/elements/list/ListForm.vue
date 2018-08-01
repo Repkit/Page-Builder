@@ -23,16 +23,40 @@ export default {
     components: { FormFields },
     data() {
         return {
-            content: [
+            content: this.getContent(),
+            styles: this.getStyles()
+        }
+    },
+    watch: {
+        element(element) {
+            this.content = this.getContent();     
+            this.styles = this.getStyles();
+        }
+    },
+    methods: {
+        updateElementData(fieldName, newVal) {
+            let newElement = JSON.parse(JSON.stringify(this.element));
+            newElement.data[fieldName] = newVal;
+            this.$emit('change', newElement);
+        },
+        updateElementStyles(fieldName, newVal) {
+            let newElement = JSON.parse(JSON.stringify(this.element));
+            newElement.styles[fieldName] = newVal;
+            this.$emit('change', newElement);
+        },
+        getContent() {
+            return [
                 {
                     cmp: 'input-text-repeater',
                     name: 'text',
                     label: 'List',
                     placeholder: 'Enter some text...',
                     value: this.element.data.text
-                },
-            ],
-            styles: [
+                }
+            ]
+        },
+        getStyles() {
+            return [
                 {
                     name: 'color',
                     cmp: 'color',
@@ -129,18 +153,6 @@ export default {
                     value: this.element.styles.textTransform
                 }
             ]
-        };
-    },
-    methods: {
-        updateElementData(fieldName, newVal) {
-            let newElement = JSON.parse(JSON.stringify(this.element));
-            newElement.data[fieldName] = newVal;
-            this.$emit('change', newElement);
-        },
-        updateElementStyles(fieldName, newVal) {
-            let newElement = JSON.parse(JSON.stringify(this.element));
-            newElement.styles[fieldName] = newVal;
-            this.$emit('change', newElement);
         }
     }
 };
