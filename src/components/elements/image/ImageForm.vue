@@ -57,6 +57,7 @@ export default {
                     name: 'opacity',
                     cmp: 'input-range',
                     label: 'Opacity',
+                    default: 0,
                     min: 0,
                     max: 1,
                     step: 0.1,
@@ -66,15 +67,15 @@ export default {
         }
     },
     methods: {
-        updateElementData(elementId, fieldName, newVal) {
+        updateElementData(fieldName, newVal) {
             let newElement = JSON.parse(JSON.stringify(this.element));
             newElement.data[fieldName] = newVal;
-            this.$emit('change', elementId, newElement);
+            this.$emit('change', newElement);
         },
-        updateElementStyles(elementId, fieldName, newVal) {
+        updateElementStyles(fieldName, newVal) {
             let newElement = JSON.parse(JSON.stringify(this.element));
             newElement.styles[fieldName] = newVal;
-            this.$emit('change', elementId, newElement);
+            this.$emit('change', newElement);
         }
     }
 };

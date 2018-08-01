@@ -25,33 +25,34 @@ export default {
         return {
             content: [
                 {
+                    name: 'text',
                     cmp: 'input-range',
-                    name: 'counter',
-                    label: 'counter',
+                    label: 'Text',
                     value: this.element.data.text
-                },
-         
+                }
             ],
             styles: [
                 {
-                    cmp: 'input-range',
                     name: 'fontSize',
+                    cmp: 'input-range',
                     label: 'Font Size',
+                    default: '18px',
+                    unit: 'px',
                     value: this.element.styles.fontSize
                 }
             ]
         }
     },
     methods: {
-        updateElementData(elementId, fieldName, newVal) {
+        updateElementData(fieldName, newVal) {
             let newElement = JSON.parse(JSON.stringify(this.element));
             newElement.data[fieldName] = newVal;
-            this.$emit('change', elementId, newElement);
+            this.$emit('change', newElement);
         },
-        updateElementStyles(elementId, fieldName, newVal) {
+        updateElementStyles(fieldName, newVal) {
             let newElement = JSON.parse(JSON.stringify(this.element));
             newElement.styles[fieldName] = newVal;
-            this.$emit('change', elementId, newElement);
+            this.$emit('change', newElement);
         }
     }
 };

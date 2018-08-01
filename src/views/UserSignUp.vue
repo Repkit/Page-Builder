@@ -41,7 +41,7 @@
 import MainNav from "@/components/MainNav.vue";
 
 export default {
-  name: "sign-up",
+  name: "user-sign-up",
   components: { MainNav },
   data() {
     return {

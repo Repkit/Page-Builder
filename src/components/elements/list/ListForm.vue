@@ -54,12 +54,16 @@ export default {
                     label: 'Line Height',
                     default: '18px',
                     unit: 'px',
+                    min: '-10',
+                    max: '20',
                     value: this.element.styles.lineHeight
                 },
                 {
                     name: 'letterSpacing',
                     cmp: 'input-range',
                     label: 'Letter Spacing',
+                    default: '0px',
+                    unit: 'px',
                     value: this.element.styles.letterSpacing
                 },
                 {
@@ -128,15 +132,15 @@ export default {
         };
     },
     methods: {
-        updateElementData(elementId, fieldName, newVal) {
+        updateElementData(fieldName, newVal) {
             let newElement = JSON.parse(JSON.stringify(this.element));
             newElement.data[fieldName] = newVal;
-            this.$emit('change', elementId, newElement);
+            this.$emit('change', newElement);
         },
-        updateElementStyles(elementId, fieldName, newVal) {
+        updateElementStyles(fieldName, newVal) {
             let newElement = JSON.parse(JSON.stringify(this.element));
             newElement.styles[fieldName] = newVal;
-            this.$emit('change', elementId, newElement);
+            this.$emit('change', newElement);
         }
     }
 };

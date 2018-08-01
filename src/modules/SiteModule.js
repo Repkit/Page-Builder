@@ -55,6 +55,9 @@ export default {
         addSection(state, { columns }) {
             state.site.elements.push(SiteService.emptySectionElement(columns))
         },
+        updateElement(state, { newElement }) {
+            state.site.elements = SiteService.updateElement(state.site.elements, newElement)
+        }
     },
     actions: {
         publishSite(context) {

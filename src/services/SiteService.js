@@ -21,7 +21,7 @@ export default {
     removeSelectedElementById,
     cloneElementById,
     addElementById,
-    updateElementById,
+    updateElement,
 }
 
 function query(filterBy = { name: '', user_id: '' }) {
@@ -50,7 +50,7 @@ function deleteSite(site) {
 
 function publishSite(site) {
     return axios.put(`${BASE_URL}/${site._id}`, site)
-        .then(res =>  true)
+        .then(res => true)
         .catch(err => {
             console.log('Eror in publish site:', err)
             return false;
@@ -151,27 +151,36 @@ function cloneElementById(element, id) {
         }
         else {
             res.push(currElement);
-            var cloned = JSON.parse(JSON.stringify(currElement));
-            cloned._id = _makeId();
-            res.push(cloned);
+            var clone = JSON.parse(JSON.stringify(currElement));
+            clone._id = _makeId();
+            clone.elements = _changeElementsId(clone.elements)
+            res.push(clone);
         }
     })
     return res;
 }
 
-function updateElementById(element, id, updateElement) {
+function _changeElementsId(element) {
     var res = [];
     element.forEach(currElement => {
-        if (currElement._id !== id) {
-            if (!getSelectedElementById(currElement, id)) res.push(currElement)
+        currElement._id = _makeId();
+        res.push(currElement)
+        if (currElement.elements[0]) currElement.elements = _changeElementsId(currElement.elements);
+    })
+    return res;
+}
+
+function updateElement(element, newElement) {
+    var res = [];
+    element.forEach(currElement => {
+        if (currElement._id !== newElement._id) {
+            if (!getSelectedElementById(currElement, newElement._id)) res.push(currElement)
             else {
-                currElement.elements = updateElementById(element, id, updateElement);
+                currElement.elements = updateElement(currElement.elements, newElement);
                 res.push(currElement);
             }
         }
-        else {
-            res.push(updateElement)
-        }
+        else res.push(newElement);
     })
     return res;
 }

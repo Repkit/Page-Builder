@@ -1,6 +1,6 @@
 <template>
-
     <div class="main-nav">
+
         <div ref="toggleScreen" class="toggle-screen" @click="toggleNavMobile"></div>
         <div class="flex space-between align-center">
 
@@ -17,13 +17,15 @@
                     <user-login v-if="!isUserLoggedIn && displayLogin" @toggleLogin="toggleLogin"></user-login>
                 </li>
             </ul>
-            <!-- Mobile-nav -->
+
             <div ref="navMobile" class="nav-mobile" @click="toggleNavMobile">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
+
         </div>
+
     </div>
 </template>
 
@@ -68,9 +70,8 @@ export default {
 
 <style scoped lang="scss">
 .main-nav {
-    padding: 20px 0;
     h1 {
-        padding-left: 15px;
+        margin: 0 10px;
         a {
             text-decoration: none;
             font-weight: bold;
@@ -78,16 +79,20 @@ export default {
         }
     }
 
-    li {
-        padding: 0.5em 1em;
+    ul {
+        // margin: 0;
+
+        li {
+            padding: 0.5em 1em;
 
         a {
             font-weight: bold;
             color: #000;
             text-decoration: none;
 
-            &.router-link-exact-active {
-                color: #42b983;
+                &.router-link-exact-active {
+                    color: #42b983;
+                }
             }
         }
     }
