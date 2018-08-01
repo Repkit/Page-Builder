@@ -6,6 +6,7 @@ export default {
         editMode: false,
         editorScreen: 'editor-add-element',
         drag: null,
+        dragParentId: null,
 
         // Selected Element Data
         selectedElement: null,
@@ -15,6 +16,7 @@ export default {
         editMode: state => state.editMode,
         editorScreen: state => state.editorScreen,
         drag: state => state.drag,
+        dragParentId: state => state.dragParentId,
 
         // Selected Element Data
         selectedElement: state => state.selectedElement,
@@ -26,6 +28,10 @@ export default {
         },
         setDrag(state, { drag }) {
             state.drag = drag;
+        },
+        updateDropParent(state, { site, elementId }) {
+            var parent = SiteService.getParentById(site, elementId)
+            state.dragParentId = parent._id
         },
 
         // Selected Element Data
