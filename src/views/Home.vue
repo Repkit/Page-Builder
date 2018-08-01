@@ -88,7 +88,6 @@ section {
         background-image: url('../assets/img/cover.jpg');
         width: 100%;
         height: 400px;
-        // background-position: center;
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
@@ -104,19 +103,12 @@ section {
                 margin: 0;
                 padding: 15px;
                 color: white;
-                // font-size: 6em;
-                // color: #0F243E;
-                // background-color: rgba(240, 255, 255, 0.377);
-                // width: 100%;
+                font-size: 6em;
                 text-align: center;
                 margin-bottom: 15px;
-
-
-                // margin-top: 0;
                 font-size: 3em;
                 font-weight: 700;
                 line-height: 1.25;
-                // color: #f52;
             }
 
             p {
