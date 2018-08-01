@@ -170,17 +170,17 @@ function _changeElementsId(element) {
     return res;
 }
 
-function updateElement(element, updatedElement) {
+function updateElement(element, newElement) {
     var res = [];
     element.forEach(currElement => {
-        if (currElement._id !== updatedElement._id) {
-            if (!getSelectedElementById(currElement, updatedElement._id)) res.push(currElement)
+        if (currElement._id !== newElement._id) {
+            if (!getSelectedElementById(currElement, newElement._id)) res.push(currElement)
             else {
-                currElement.elements = updateElement(currElement.elements, updatedElement);
+                currElement.elements = updateElement(currElement.elements, newElement);
                 res.push(currElement);
             }
         }
-        else res.push(updatedElement)
+        else res.push(newElement);
     })
     return res;
 }
