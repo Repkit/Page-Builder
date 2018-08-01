@@ -1,42 +1,34 @@
-const CLOUD_NAME = "shuvy"
-
-var UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
-
+const CLOUD_NAME = 'shuvy';
+var UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
 
 export default {
-    uploadImg ,
+    uploadImg,
     doUploadImg
 }
 
-// on submit call to this function
+// Call this function on submit
 function uploadImg(elForm, ev) {
     // ev.preventDefault();
-    console.log(elForm,'eldorm');
-    
-   
-    // A function to be called if request succeeds
-    function onSuccess(res) {
-        console.log('uploadedImg', res);
-        console.log('uploadedImg', res.url);
+    console.log(elForm, 'eldorm');
+
+    // Call this function on successful request
+    function onSuccess(response) {
+        console.log('uploadedImg', response);
+        console.log('uploadedImg', response.url);
     }
+
     doUploadImg(elForm, onSuccess);
 }
 
 function doUploadImg(elForm, onSuccess) {
-    var UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
+    var UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
     var formData = new FormData();
+
     formData.append('file', elForm[0].files[0])
     formData.append('upload_preset', 'pluzods3');
 
-    return fetch(UPLOAD_URL, {
-        method: 'POST',
-        body: formData
-    })
-    .then(function (response) {
-        return response.json()
-    })
-    // .then(onSuccess)
-    // .catch(function (error) {
-    //     console.error(error)
-    // })
+    return fetch(UPLOAD_URL, { method: 'POST', body: formData })
+        .then(response => response.json())
+        // .then(onSuccess)
+        // .catch(err => console.error(err));
 }
