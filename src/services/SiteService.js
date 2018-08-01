@@ -22,6 +22,8 @@ export default {
     cloneElementById,
     addElementById,
     updateElement,
+    getParentById,
+    getTypeById
 }
 
 function query(filterBy = { name: '', user_id: '' }) {
@@ -186,8 +188,9 @@ function updateElement(element, newElement) {
 }
 
 function addElementById(element, id, type) {
+    if (element.settings && element.data && element.settings.type === 'section' && element.data.direction === 'row') return;
     var res = [];
-    element.forEach(currElement => {
+    element.forEach((currElement, idx) => {
         if (currElement._id !== id) {
             if (!getSelectedElementById(currElement, id)) res.push(currElement)
             else {
@@ -197,9 +200,33 @@ function addElementById(element, id, type) {
         }
         else {
             var elementToAdd = emptyElement(type);
-            currElement.elements.push(elementToAdd);
+            currElement.elements.splice(idx + 1, 0, elementToAdd)
             res.push(currElement);
         }
+    })
+    return res;
+}
+
+function getParentById(details, id) {
+    var res = {};
+    details.elements.forEach(currElement => {
+        if (currElement._id !== id) {
+            let isContain = getSelectedElementById(currElement, id);
+            if (isContain) res = getParentById(currElement, id);
+        }
+        else res = details
+    })
+    return res;
+}
+
+function getTypeById(element, id) {
+    var res = null;
+    element.forEach(currElement => {
+        if (currElement._id !== id) {
+            let isContain = getSelectedElementById(currElement, id);
+            if (isContain) res = getTypeById(currElement.elements, id);
+        }
+        else res = currElement.settings.type
     })
     return res;
 }
