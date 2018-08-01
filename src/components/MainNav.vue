@@ -9,11 +9,11 @@
             <ul ref="navDesktop" class="nav-desktop flex-row align-center flex inline-list" arial-label="Main navigation bar">
                 <li><router-link to="/"> Home </router-link></li>
                 <li><router-link to="/about"> About </router-link></li>
-                <li><router-link to="/profile" v-if="isUserLoggedIn"> My Profile </router-link></li>
-                <li><button @click="logout" v-if="isUserLoggedIn"> Logout </button></li>
-                <li><router-link to="/signup" v-if="!isUserLoggedIn"> Signup </router-link></li>
-                <li>
-                    <span @click="toggleLogin" v-if="!isUserLoggedIn"> Login </span>
+                <li v-if="isUserLoggedIn"><router-link to="/profile" v-if="isUserLoggedIn"> My Profile </router-link></li>
+                <li v-if="isUserLoggedIn"><button @click="logout" > Logout </button></li>
+                <li v-if="!isUserLoggedIn"><router-link to="/signup" > Signup </router-link></li>
+                <li v-if="!isUserLoggedIn">
+                    <button @click="toggleLogin" > Login </button>
                     <user-login v-if="!isUserLoggedIn && displayLogin" @toggleLogin="toggleLogin"></user-login>
                 </li>
             </ul>
@@ -123,6 +123,7 @@ export default {
             display:block;
           }
     .nav-desktop{
+        margin: 0;
         z-index: 1;
         padding-top: 20px;
         flex-direction: column;
@@ -145,7 +146,7 @@ export default {
         display: block;
         // width: 100px;
         // height: 130px;
-        line-height: 80px;
+        line-height: 60px;
         text-align: center;
         font-size: 16px;
         }
