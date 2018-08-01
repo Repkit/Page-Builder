@@ -75,7 +75,7 @@ export default {
                 }
             })
             .then(result => {
-                if(result.value){
+                if(result.value) {
                     this.user.userName = result.value[0];
                     this.user.password = result.value[1];
                     this.login();
