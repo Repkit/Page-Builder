@@ -9,16 +9,17 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut natus quis sed consequatur! Ab accusantium pariatur molestias et possimus aliquid, exercitationem sequi fugiat officiis, praesentium iure architecto impedit, sed iste?</p>
             </div>
         </section>
-
+        <main-footer></main-footer>
     </div>
 </template>
 
 <script>
 import MainNav from '@/components/MainNav.vue';
+import MainFooter from '@/components/MainFooter.vue';
 
 export default {
     name: 'about',
-    components: { MainNav }
+    components: { MainNav ,MainFooter}
 };
 </script>
 

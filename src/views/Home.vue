@@ -25,16 +25,18 @@
                 <p>Go beyond the oversimplified and generic page designs, by having more control over the various sections. Elementor’s page sections make up the basic architecture of the page, and allow you to reach a level of design reserved until now for high budget custom designed websites.</p>
             </div>
         </section>
+        <main-footer></main-footer>
 
     </div>
 </template>
 
 <script>
 import MainNav from '@/components/MainNav.vue';
+import MainFooter from '@/components/MainFooter.vue';
 
 export default {
     name: 'home',
-	components: { MainNav }
+	components: { MainNav, MainFooter }
 };
 </script>
 
@@ -44,18 +46,39 @@ section {
     text-align: center;
 
     &.main {
-        background-color: #ffcc46;
+         background-color: #323232;
+        background-image: url(../assets/img/cover.jpg);
+        width: 100%;
+        height: 400px;
+        background-position: center;
+
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 20px;
+        // background-color: #ffcc46;
 
         .container {
             max-width: 800px;
             margin: 0 auto;
 
             h1 {
-                margin-top: 0;
+                margin: 0;
+                padding: 15px;
+                // font-size: 6em;
+                color: #0F243E;
+                background-color: rgba(240, 255, 255, 0.377);
+                // width: 100%;
+                text-align: center;
+                margin-bottom: 15px;
+
+
+                // margin-top: 0;
                 font-size: 3em;
                 font-weight: 700;
                 line-height: 1.25;
-                color: #f52;
+                // color: #f52;
             }
 
             p {

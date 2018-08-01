@@ -16,7 +16,7 @@
                 <p v-else>No sites yet, create new site now.</p>
             </div>
         </section>
-
+    <main-footer></main-footer>
     </div>
 </template>
 
@@ -24,10 +24,11 @@
 import MainNav from '@/components/MainNav.vue';
 import UserDetails from '@/components/UserDetails.vue';
 import SiteList from '@/components/SiteList.vue';
+import MainFooter from '@/components/MainFooter.vue';
 
 export default {
     name: 'user-profile',
-    components: { MainNav, SiteList, UserDetails },
+    components: { MainNav, SiteList, UserDetails, MainFooter },
     data() {
         return {
             sites: null
