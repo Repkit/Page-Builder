@@ -6,7 +6,7 @@
 
             <h1><router-link to="/">Page Builder</router-link></h1>
 
-            <ul ref="navDesktop"class="nav-desktop flex-row align-center flex inline-list" arial-label="Main navigation bar">
+            <ul ref="navDesktop" class="nav-desktop flex-row align-center flex inline-list" arial-label="Main navigation bar">
                 <li><router-link to="/about"> About </router-link></li>
                 <li v-if="isUserLoggedIn"><router-link to="/profile" v-if="isUserLoggedIn"> My Profile </router-link></li>
                 <li v-if="isUserLoggedIn"><button @click="logout" > Logout </button></li>
