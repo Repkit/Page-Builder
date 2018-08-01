@@ -41,5 +41,6 @@ export default {
 <style lang="scss" scoped>
 textarea {
     width: 100%;
+    resize: vertical;
 }
 </style>
