@@ -15,7 +15,6 @@
 
 <script>
 import VueSplit from 'vue-split-panel';
-import SiteService from '@/services/SiteService.js';
 
 import Editor from "@/components/editor/Editor.vue";
 import SitePreview from '@/components/SitePreview.vue';
@@ -25,9 +24,10 @@ export default {
     name: 'site-edit',
     components: { Editor, SitePreview, AddNewSection },
     created() {
-        this.loadSite();
+        if ( this.$route.path !== '/add' ) this.loadSite();
+        else this.createNewSite();
     },
-    computed:{
+    computed: {
         site() {
             return this.$store.getters.site;
         },
@@ -47,6 +47,10 @@ export default {
                 .catch(err => {
                     this.$router.push('/notfound');
                 });
+        },
+        createNewSite() {
+            this.$store.commit({ type: 'newSite', userId: this.loggedInUser._id });
+            this.$store.commit({ type: 'setEditorScreen', screen: 'editor-site-details' });
         }
 	}
 };

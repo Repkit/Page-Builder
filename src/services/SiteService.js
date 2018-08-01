@@ -11,14 +11,16 @@ export default {
     query,
     getById,
     getByUserName,
-    emptyElement,
-    emptySectionElement,
-    _makeId,
     deleteSite,
     publishSite,
 
+    emptySite,
+    emptyElement,
+    emptySectionElement,
+
     getSelectedElementById,
     removeSelectedElementById,
+
     cloneElementById,
     addElementById,
     updateElement,
@@ -59,6 +61,20 @@ function publishSite(site) {
             return false;
         })
 }
+
+function emptySite(userId) {
+    return {
+        user_id: userId,
+        name: 'New Site',
+        thumb: '',
+        date: {
+            created: '',
+            updated: ''
+        },
+        elements: []
+    };
+}
+
 function emptyElement(type, data = {}, style = {}) {
     style.margin = '0';
     style.padding = '20px';
@@ -113,7 +129,6 @@ function _makeId(length = 20) {
     return text;
 }
 
-
 function getSelectedElementById(element, id) {
     // Current element check
     if (element._id === id) return element;
@@ -138,7 +153,7 @@ function removeSelectedElementById(element, id) {
                 res.push(currElement);
             }
         }
-    })
+    });
     return res;
 }
 
@@ -159,7 +174,7 @@ function cloneElementById(element, id) {
             clone.elements = _changeElementsId(clone.elements)
             res.push(clone);
         }
-    })
+    });
     return res;
 }
 

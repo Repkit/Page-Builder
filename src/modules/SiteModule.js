@@ -45,6 +45,9 @@ export default {
         loadSite(state, { site }) {
             state.site = site;
         },
+        newSite(state, { userId }) {
+            state.site = SiteService.emptySite(userId);
+        },
         removeElement(state, { id }) {
             state.site.elements = SiteService.removeSelectedElementById(state.site.elements, id);
         },

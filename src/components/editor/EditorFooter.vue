@@ -1,13 +1,13 @@
 <template>
     <section class="editor-footer flex space-around align-center flex-wrap">
 
-        <span @click="setEditorScreen('editor-site-details')">
+        <span @click="setSiteDetailsScreen">
             <font-awesome-icon :icon="['fas', 'cog']" />
         </span>
         <router-link :to="'/' + site._id" target="_blank">
             <font-awesome-icon :icon="['fas', 'eye']" />
         </router-link>
-        <span @click="Publish">
+        <span @click="publish">
             <font-awesome-icon :icon="['fas', 'save']" />
         </span>
 
@@ -19,27 +19,27 @@ export default {
     name: 'editor-footer',
     props: [ 'site' ],
     methods: {
-        setEditorScreen(screen) {
-           this.$store.commit({ type: 'setEditorScreen', screen });
+        setSiteDetailsScreen() {
+           this.$store.commit({ type: 'setEditorScreen', screen: 'editor-site-details' });
         },
-        Publish(){
+        publish() {
+            this.setSiteDetailsScreen();
             this.$store.dispatch({ type: 'publishSite' })
-                .then(isUpdated =>{
+                .then(isUpdated => {
                     if (isUpdated) {
-                        swal("Your Site has been sucsecfully Updated!", {
-                            icon: "success",
+                        swal('Your Site has been sucsecfully Updated!', {
+                            icon: 'success',
                             buttons: {
                                 ok: true,
                             },
-                        })
+                        });
                     }
                     else {
-                        swal("Had a problem in updating, please try again later", {
-                        icon: "error"});
+                        swal('Had a problem in updating, please try again later', {
+                            icon: 'error'
+                        });
                     }
-                })
-
-
+                });
         }
     }
 };
