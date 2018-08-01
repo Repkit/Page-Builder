@@ -12,8 +12,7 @@
 
         <section class="user-sites" v-if="isUserLoggedIn">
             <div class="container">
-                <site-list v-if="sites" :sites="sites" @on-delete="loadUserSites"></site-list>
-                <p v-else>No sites yet, create new site now.</p>
+                <site-list :sites="sites" @on-delete="loadUserSites"></site-list>
             </div>
         </section>
 
