@@ -24,7 +24,7 @@
                       <input v-model="user.image" type="url" placeholder="URL image">
                   </p>
                   <p> 
-                        <label>User site: </label>
+                        <label>Website: </label>
                         <input v-model="user.social.site" type="url" placeholder="URL site" />
                   </p>
                   <h3>Social</h3>
@@ -140,11 +140,6 @@ section {
 
   &.form {
     background-color: #efefef;
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
   }
 }
 </style>
