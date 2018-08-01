@@ -7,33 +7,38 @@
             <div class="container">
               <h1>Edit user details</h1>
               <form @submit.prevent="saveUser" v-if="isUserLoggedIn">
-                  <p>First name:
+                  <p>
+                      <label>First name: </label>
                       <input v-model="user.firstName" type="text" placeholder="FirstName" required>
                   </p>
-                  <p>Last name:
+                  <p>
+                    <label>Last name: </label>
                       <input v-model="user.lastName" type="text" placeholder="LastName" required>
                   </p>
-                  <p> Password:
+                  <p>
+                      <label>Password: </label>
                       <input v-model="user.password" type="password" placeholder="Password" required>
                   </p>
-                  <p> Image user:
+                  <p>
+                      <label>User image: </label>
                       <input v-model="user.image" type="url" placeholder="URL image">
                   </p>
-                  <p> Site user:
+                  <p> 
+                        <label>User site: </label>
                         <input v-model="user.social.site" type="url" placeholder="URL site" />
                   </p>
                   <h3>Social</h3>
                   <div class="social">
                     <p> 
-                          <font-awesome-icon size="lg" :icon="['fab', 'facebook-square']" /> 
+                          <label><font-awesome-icon size="lg" :icon="['fab', 'facebook-square']" />  </label>
                           <input v-model="user.social.facebook" type="url" placeholder="URL facebook" />
                     </p>
                     <p>
-                          <font-awesome-icon size="lg" :icon="['fab', 'twitter-square']" /> 
+                          <label><font-awesome-icon size="lg" :icon="['fab', 'twitter-square']" />  </label>
                           <input v-model="user.social.twiter" type="url" placeholder="twiter" />
                     </p>
-                    <p> 
-                          <font-awesome-icon size="lg" :icon="['fab', 'linkedin']" /> 
+                    <p>
+                          <label><font-awesome-icon size="lg" :icon="['fab', 'linkedin']" />   </label>
                           <input v-model="user.social.linkedin" type="url" placeholder="linkedin" />
                     </p>
                   </div>

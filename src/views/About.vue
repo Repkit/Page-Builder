@@ -10,19 +10,26 @@
             </div>
         </section>
 
+        <main-footer></main-footer>
+
     </div>
 </template>
 
 <script>
 import MainNav from '@/components/MainNav.vue';
+import MainFooter from '@/components/MainFooter.vue';
 
 export default {
     name: 'about',
-    components: { MainNav }
+    components: { MainNav, MainFooter }
 };
 </script>
 
 <style scoped lang="scss">
+.about {
+    padding-top: 100px;
+}
+
 section {
     padding: 50px 0;
     text-align: center;
