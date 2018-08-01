@@ -31,7 +31,6 @@ export default {
         field: {
             deep: true,
             handler() {
-                console.log('I\'m heeeeeeere!')
                 this.newField = JSON.parse(JSON.stringify(this.field))
             }
         }

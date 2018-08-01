@@ -39,7 +39,7 @@ export default {
         dragParentId() {
             return this.$store.getters.dragParentId;
         },
-        dropType(){
+        dropType() {
             return this.$store.getters.dropType;
         }
     },
@@ -48,23 +48,18 @@ export default {
             ev.preventDefault();
         },
         dragEnter(ev) {
-            var id=ev.target.getAttribute("data-element-id")
-            console.log('on dargHover',id)
-
+            var id = ev.target.getAttribute('data-element-id')
         },
         drop(ev) {
             var elementType = this.drag;
-            var elementId = ev.target.getAttribute("data-element-id")
-            this.$store.commit('updatedropType',{ elementId })
-            var dropType = this.dropType
-            if(dropType !== 'section') {
-                this.$store.commit('updateDropParent',{ site: this.site, elementId })
-                elementId = this.dragParentId
+            var elementId = ev.target.getAttribute('data-element-id');
+            this.$store.commit('updatedropType',{ elementId });
+            var dropType = this.dropType;
+            if (dropType !== 'section') {
+                this.$store.commit('updateDropParent',{ site: this.site, elementId });
+                elementId = this.dragParentId;
             }
-            this.$store.commit('addToElement', {
-                elementId: elementId,
-                type: elementType
-            })
+            this.$store.commit('addToElement', { elementId: elementId, type: elementType })
         }
     }
 };

@@ -45,7 +45,7 @@ function deleteSite(site) {
     return axios.delete(`${BASE_URL}/${site._id}`)
         .then(() => true)
         .catch(err => {
-            console.log('Eror in delete site:', err)
+            console.log('Error in delete site:', err)
             return false;
         })
 }
@@ -54,7 +54,7 @@ function publishSite(site) {
     return axios.put(`${BASE_URL}/${site._id}`, site)
         .then(res => true)
         .catch(err => {
-            console.log('Eror in publish site:', err)
+            console.log('Error in publish site:', err)
             return false;
         })
 }
