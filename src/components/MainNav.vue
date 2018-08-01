@@ -13,7 +13,6 @@
                 <li v-if="!isUserLoggedIn"><router-link to="/signup" > Signup </router-link></li>
                 <li v-if="!isUserLoggedIn">
                     <button @click="toggleLogin" > Login </button>
-                    <!-- <user-login v-if="!isUserLoggedIn && displayLogin" @toggleLogin="toggleLogin"></user-login> -->
                 </li>
             </ul>
 
@@ -42,39 +41,39 @@ export default {
         }
     },
     methods: {
-        toggleNavMobile(){
+        toggleNavMobile() {
             this.$refs.navMobile.classList.toggle("change");
             this.$refs.navDesktop.classList.toggle("open");
             this.$refs.toggleScreen.classList.toggle("show-div");
         },
         toggleLogin() {
             this.displayLogin = !this.displayLogin;
-            if(this.displayLogin)this.openLogin()
+            if (this.displayLogin) this.openLogin();
         },
-        openLogin(){
-            if(this.isUserLoggedIn && !this.displayLogin) return
-                        
+        openLogin() {
+            if (this.isUserLoggedIn && !this.displayLogin) return;
             this.$swal({
-            title: 'Multiple inputs',
-            html:`
-                <form @submit.prevent="">
-                    Username: <input class="input1" type="text" required> 
-                    Password: <input class="input2" type="password" required>
-                </form>
-            `,
-            focusConfirm: false,
-            preConfirm:()=> {
-                return new Promise(resolve=> {
-                resolve([
-                    document.querySelector('.input1').value,
-                    document.querySelector('.input2').value,
-                ])})
-            }
+                title: 'Multiple inputs',
+                html:`
+                    <form @submit.prevent="">
+                        Username: <input class="input1" type="text" required> 
+                        Password: <input class="input2" type="password" required>
+                    </form>
+                `,
+                focusConfirm: false,
+                preConfirm: () => {
+                    return new Promise(resolve => {
+                        resolve([
+                            document.querySelector('.input1').value,
+                            document.querySelector('.input2').value,
+                        ]);
+                    })
+                }
             })
             .then(result => {
-                this.user.userName = result.value[0]
-                this.user.password = result.value[1]
-                this.login()
+                this.user.userName = result.value[0];
+                this.user.password = result.value[1];
+                this.login();
             })
             .catch(swal.noop)
         },
@@ -86,20 +85,20 @@ export default {
         },
         login() {
             let user = { userName: this.user.userName, password: this.user.password };
-            this.$store.dispatch({ type: "login", user })
+            this.$store.dispatch({ type: 'login', user })
             .then(user => {
                 if (user) {
                     this.$swal({
-                        title:'Logged In successfully',
+                        title: 'Logged In successfully',
                         type: 'success'
                     })
-                    .then(() =>{
+                    .then(() => {
                         this.$router.push(`/profile`);
                     })
                 } 
                 else this.$swal({
-                    title:'User not found.. Please Sign Up!',
-                    type:'error'
+                    title: 'User not found.. Please Sign Up!',
+                    type: 'error'
                 })
             });
         }
@@ -110,7 +109,7 @@ export default {
         },
         loggedInUser() {
             return this.$store.getters.loggedInUser.userName;
-        },
+        }
     }
 };
 </script>
