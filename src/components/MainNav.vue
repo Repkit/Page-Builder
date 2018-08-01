@@ -41,9 +41,9 @@ export default {
     },
     methods: {
         toggleNavMobile(){
-        this.$refs.navMobile.classList.toggle("change");
-        this.$refs.navDesktop.classList.toggle("open");
-        this.$refs.toggleScreen.classList.toggle("show-div");
+            this.$refs.navMobile.classList.toggle("change");
+            this.$refs.navDesktop.classList.toggle("open");
+            this.$refs.toggleScreen.classList.toggle("show-div");
         },
         toggleLogin() {
             this.displayLogin = !this.displayLogin;
