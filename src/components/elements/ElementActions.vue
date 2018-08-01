@@ -22,7 +22,11 @@ export default {
     },
     methods: {
         editElement() {
+            // Reset Old
             this.$store.commit({ type: 'removeSelectedElement' });
+            this.$store.commit({ type: 'setEditorScreen', screen: '' });
+
+            // Set New
             this.$store.commit({ type: 'updateSelectedElement', site: this.site, id: this.id });
             this.$store.commit({ type: 'setEditorScreen', screen: 'editor-edit-element' });
         },
