@@ -62,6 +62,10 @@ export default {
         },
         updatedropType(state, { elementId }){
             state.dropType = SiteService.getTypeById(state.site.elements, elementId)
+        },
+        moveElement(state, { id, direction}){
+            state.site.elements = SiteService.moveElementById(state.site.elements, id, direction)
+
         }
     },
     actions: {
