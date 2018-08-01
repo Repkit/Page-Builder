@@ -5,7 +5,7 @@ import VueSplit from 'vue-split-panel';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrashAlt, faClone, faArrowsAlt, faEdit, faGripVertical, faGripHorizontal, faFont, faList,
     faBandAid, faDivide, faImages, faVideo, faMapMarkedAlt, faClock, faServer, faLayerGroup, faLink,
-    faTh, faPlus, faCog, faEye, faSave } from '@fortawesome/free-solid-svg-icons';
+    faDollarSign, faComments, faTable, faTh, faPlus, faCog, faEye, faSave } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookSquare, faTwitterSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -24,7 +24,7 @@ Vue.use(VueProgress);
 
 library.add(faTrashAlt, faClone, faArrowsAlt, faEdit, faGripVertical, faGripHorizontal, faFont, faList,
     faBandAid, faDivide, faImages, faVideo, faMapMarkedAlt, faClock, faServer, faLayerGroup, faLink,
-    faTh, faPlus, faCog, faEye, faSave, faFacebookSquare, faTwitterSquare, faLinkedin);
+    faDollarSign, faComments, faTable, faTh, faPlus, faCog, faEye, faSave, faFacebookSquare, faTwitterSquare, faLinkedin);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 new Vue({
