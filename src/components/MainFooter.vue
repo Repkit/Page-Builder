@@ -20,13 +20,8 @@ export default {
     text-align: center;
     background-color: #efefef;
 
-    .container {
-        max-width: 1000px;
-        margin: 0 auto;
-
-        p {
-            margin: 0;
-        }
+    p {
+        margin: 0;
     }
 }
 </style>

@@ -3,8 +3,8 @@
 
         <main-nav></main-nav>
 
-        <section class="main">
-            <div class="container">
+        <section class="main flex align-center flex-column justify-center relative">
+            <div class="container flex align-center flex-column justify-center">
                 <h1>Build beautiful websites in minutes.</h1>
                 <p>Our vast library of components and page designs has everything you need to build any type of website.</p>
                 <button>Start Now</button>
@@ -30,7 +30,7 @@
             <h2>All In One</h2>
             <p>The different parts of the platform are deeply integrated to build the most powerful ecosystem for building professional websites.</p>
            
-            <div class="flex flex-wrap container space-between align-center">
+            <div class="flex flex-wrap container space-around align-center">
               
                 <div class="item-card">
                     <img src="../assets/img/icon-1.png">
@@ -75,28 +75,39 @@ export default {
 
 <style scoped lang="scss">
 .home {
-padding-top: 100px;
+    // padding-top: 100px;
+}
+.relative {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        background: #29232380;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
     }
+}
 
 section {
     padding: 50px 0;
     text-align: center;
 
     &.main {
-        background-color: #4ac2fa8e;
-        opacity: 0.7;
+        background-color: #4ac2fad2;
+        opacity: 0.9;
         background-image: url('../assets/img/cover.jpg');
         width: 100%;
-        height: 400px;
+        height: calc(90vh - 40px);
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         margin-bottom: 20px;
 
-        // background: #4ac2fa url('../assets/img/cover.jpg') no-repeat right top;
         .container {
-            max-width: 800px;
+            width: 800px;
+            max-width: 100%;
             margin: 0 auto;
 
             h1 {
@@ -129,7 +140,8 @@ section {
         background-color: #fff;
 
         .container {
-            max-width: 800px;
+            width: 800px;
+            max-width: 100%;
             margin: 0 auto;
 
             h2 {
@@ -150,7 +162,8 @@ section {
         background-color: #f7f7f7;
 
         .container {
-            max-width: 800px;
+            width: 800px;
+            max-width: 100%;
             margin: 0 auto;
 
             h2 {
@@ -167,27 +180,30 @@ section {
         }
     }
 
-        &.all-in-one {
+    &.all-in-one {
         background-color: white;
 
+        > p {
+            max-width: 500px;
+        }
+
          p {
-                max-width: 500px;
-                margin: 0 auto;
-                margin-bottom: 0;
-                font-size: 1.15em;
-                font-weight: 300;
-                padding-bottom: 15px;
+            margin: 0 auto;
+            margin-bottom: 0;
+            font-size: 1.15em;
+            font-weight: 300;
+            padding-bottom: 15px;
 
-                color: #888;
-                font-weight: 300;
-                line-height: 32px;
-                display: inline-block;
-                margin-top: 16px;
-
-            }
+            color: #888;
+            font-weight: 300;
+            line-height: 32px;
+            display: inline-block;
+            margin-top: 16px;
+        }
 
         .container {
-            max-width: 800px;
+            width: 800px;
+            max-width: 100%;
             margin: 0 auto;
 
             h2 {
@@ -202,6 +218,7 @@ section {
                 font-size: 1.12em;
                 font-weight: 300;
             }
+
             .item-card {
                 max-width: 350px;
                 padding-top: 20px;
