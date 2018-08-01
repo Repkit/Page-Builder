@@ -82,7 +82,7 @@ export default {
     }
 
     .selected {
-        outline: 2px solid lightcoral !important;
+        outline: 4px solid lightskyblue !important;
         z-index: 999;
     }
 }
