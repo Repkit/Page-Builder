@@ -1,7 +1,7 @@
 /* Containers */
 
 .container {
-    width: var($container-width);
+    width: $container-width;
     margin: 0 auto;
     padding: 0 1em;
 }

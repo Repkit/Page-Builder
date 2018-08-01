@@ -82,10 +82,5 @@ section {
     &.user-data {
         background-color: #ffcc46;
     }
-
-    .container {
-        max-width: 1000px;
-        margin: 0 auto;
-    }
 }
 </style>

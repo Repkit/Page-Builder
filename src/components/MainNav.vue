@@ -2,7 +2,7 @@
     <div class="main-nav">
 
         <div ref="toggleScreen" class="toggle-screen" @click="toggleNavMobile"></div>
-        <div class="flex space-between align-center container">
+        <div class="container flex space-between align-center">
 
             <h1><router-link to="/">Page Builder</router-link></h1>
 
@@ -68,10 +68,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.container {
-            max-width: 1100px;
-            margin: 0 auto;
-    }
 .main-nav {
     position: fixed;
     top: 0;
