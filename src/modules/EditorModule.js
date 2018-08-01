@@ -35,13 +35,13 @@ export default {
         },
 
         // Selected Element Data
-        updateSelectedElement(state, { site, id }) {
+        updateSelectedElementById(state, { site, id }) {
             state.selectedElement = SiteService.getSelectedElementById(site, id);
         },
         removeSelectedElement(state) {
             state.selectedElement = null;
         },
-        addSelectedElement(state, { newElement }) {
+        updateSelectedElement(state, { newElement }) {
             state.selectedElement = newElement;
         },
     }
