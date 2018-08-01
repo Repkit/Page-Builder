@@ -50,7 +50,7 @@ export default {
         elementStyle() {
             var copy=JSON.parse(JSON.stringify(this.element))
             let dir = copy.data.direction;
-            if(!dir) dir = 'column'
+            if (!dir) dir = 'column'
             copy.styles.flexDirection = dir
             return copy.styles;
         },
@@ -71,6 +71,11 @@ export default {
 
     > div {
         flex-grow: 1;
+    }
+}
+@media (max-width:720px){
+    .element.section-element {
+        flex-direction: column !important;
     }
 }
 </style>
