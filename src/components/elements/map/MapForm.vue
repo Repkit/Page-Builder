@@ -58,10 +58,10 @@ export default {
                     name: 'zoom',
                     cmp: 'input-range',
                     label: 'Zoom',
-                    default: 18,
-                    min: 1,
-                    max: 20,
-                    step: 1,
+                    default: '18',
+                    min: '1',
+                    max: '20',
+                    step: '1',
                     value: this.element.data.zoom
                 }
             ]
@@ -74,6 +74,9 @@ export default {
                     label: 'Height',
                     default: '300px',
                     unit: 'px',
+                    min: '50',
+                    max: '10000',
+                    step: '1',
                     value: this.element.styles.height
                 }
             ]
