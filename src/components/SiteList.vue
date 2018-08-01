@@ -1,5 +1,9 @@
 <template>
-    <div class="site-list flex flex-wrap justify-center">
+    <div class="site-list flex flex-wrap">
+
+        <div class="site-list-item add-site">
+            <div><router-link to="/add">+</router-link></div>
+        </div>
 
         <div v-if="sites" v-for="site in sites" :key="site._id" class="site-list-item">
             <h3><router-link :to="'/'+site._id">{{site.name}}</router-link></h3>
@@ -33,39 +37,38 @@ import swal from 'sweetalert'
 
 export default {
     name: 'site-list',
-    props: [ 'sites' ],
+    props: [ 'sites', 'add-site' ],
     methods:{
         editSite(site) {
             this.$router.push(`/${site._id}/edit`);
         },
-        deleteSite(site){
+        deleteSite(site) {
             swal({
-                title: "Are you sure you want to delete?",
-                text: "Once deleted, you will not be able to recover this Site, Delete anyway?",
-                icon: "warning",
+                title: 'Are you sure you want to delete?',
+                text: 'Once deleted, you will not be able to recover this Site, Delete anyway?',
+                icon: 'warning',
                 buttons: true,
                 dangerMode: true,
             })
-            .then((isOk) => {
-                if(isOk){
-                    this.$store.dispatch({ type: "deleteSite", site })
-                    .then(isDelete =>  {
-                        if (isDelete) {
-                            swal("Your Site has been sucsecfully deleted!", {
-                                icon: "success",
-                                buttons: {
-                                    ok: true,
-                                },
-                            })
-                            .then(() => this.$emit('on-delete'))
-                        }
-                        else {
-                            swal("Had a problem in deleting, please try again later", {
-                            icon: "error"});
-                        }
-                    })      
+            .then(isOk => {
+                if (isOk) {
+                    this.$store.dispatch({ type: 'deleteSite', site })
+                        .then(isDelete =>  {
+                            if (isDelete) {
+                                swal('Your Site has been sucsecfully deleted!', {
+                                    icon: 'success',
+                                    buttons: {
+                                        ok: true,
+                                    },
+                                })
+                                .then(() => this.$emit('on-delete'))
+                            } else {
+                                swal('Had a problem in deleting, please try again later', {
+                                    icon: 'error'
+                                });
+                            }
+                        })     
                 }
-
             })
         }
     },
@@ -86,7 +89,6 @@ export default {
     border: 1px solid #ccc;
     border-radius: 3px;
     text-align: center;
-    box-shadow: #999 4px 4px 5px;
     transition: .3s;
 
     h3 {
@@ -99,8 +101,7 @@ export default {
     }
 
     &:hover {
-        box-shadow: #999 2px 2px 2px;
-        transform: scale(1.03);
+        transform: scale(1.025);
 
         .site-actions {
             opacity: 1;
@@ -131,6 +132,44 @@ export default {
         }
         li{
             cursor: pointer;
+        }
+    }
+
+    &.add-site {
+        position: relative;
+        background-color: #eee;
+        border: 2px dashed #999;
+        font-size: 100px;
+        line-height: 100px;
+        transition: 0.5s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #ddd;
+            transition: 0.5s;
+
+            a {
+                color: #333;
+                transition: 0.5s;
+            }
+        }
+
+        div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate( -50%, -50% );
+            
+            a {
+                display: flex;
+                justify-content: center;
+                width: 110px;
+                height: 110px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.41);
+                color: #aaa;
+
+            }
         }
     }
 }

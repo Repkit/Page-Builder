@@ -28,6 +28,7 @@ export default {
     methods: {
         updateElement(newElement) {
             this.$store.commit({ type: 'updateElement', newElement });
+            this.$store.commit({ type:'addSelectedElement', newElement });
         }
     },
     components: {

@@ -2,24 +2,22 @@
     <div class="image-field" v-if="newField">
 
         <label >{{newField.label}}</label>
-        <label for="123abcd">
+        <label for="upload-image">
             <div class="image-preview">
-            <img :src="value" />
-            <div class="image-upload">
-                <span> Upload </span>
+                <img :src="value" />
+                <div class="image-upload">
+                    <span> Upload </span>
+                </div>
             </div>
-        </div>
         </label>
 
         <form class="publish-form" method="POST" ref="formUpload">
-            <div>
-            <input id="123abcd" type="file" name="img" @change.prevent="uploadImg" hidden/>
-            </div>
+            <input id="upload-image" type="file" name="img" @change.prevent="uploadImg" hidden />
         </form>
 
         <input v-model="value" @input="$emit('change', newField, idx)"
-
             type="url" name="newField.name" :placeholder="newField.placeholder" />
+
     </div>
 </template>
 

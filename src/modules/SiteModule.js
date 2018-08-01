@@ -11,7 +11,8 @@ export default {
             thumb: '',
             date: {},
             elements: null,
-        }
+        },
+        dropType: null,
     },
     getters: {
         // Sites List
@@ -19,6 +20,7 @@ export default {
 
         // Current site
         site: state => state.site,
+        dropType: state => state.dropType, 
     },
     mutations: {
         // Sites List
@@ -57,6 +59,9 @@ export default {
         },
         updateElement(state, { newElement }) {
             state.site.elements = SiteService.updateElement(state.site.elements, newElement)
+        },
+        updatedropType(state, { elementId }){
+            state.dropType = SiteService.getTypeById(state.site.elements, elementId)
         }
     },
     actions: {

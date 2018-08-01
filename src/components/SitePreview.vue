@@ -35,6 +35,12 @@ export default {
     computed: {
         drag() {
             return this.$store.getters.drag;
+        },
+        dragParentId() {
+            return this.$store.getters.dragParentId;
+        },
+        dropType(){
+            return this.$store.getters.dropType;
         }
     },
     methods: {
@@ -47,12 +53,17 @@ export default {
 
         },
         drop(ev) {
-            console.log('got el id ',ev.target.getAttribute("data-element-id"))
-            var type = this.drag;
-            this.$store.commit('addToElement', 
-            {
-                elementId: ev.target.getAttribute("data-element-id"), 
-                type:type
+            var elementType = this.drag;
+            var elementId = ev.target.getAttribute("data-element-id")
+            this.$store.commit('updatedropType',{ elementId })
+            var dropType = this.dropType
+            if(dropType !== 'section') {
+                this.$store.commit('updateDropParent',{ site: this.site, elementId })
+                elementId = this.dragParentId
+            }
+            this.$store.commit('addToElement', {
+                elementId: elementId,
+                type: elementType
             })
         }
     }

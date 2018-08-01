@@ -11,8 +11,7 @@
 
         <section class="user-sites" v-if="sites">
             <div class="container">
-                <site-list v-if="sites" :sites="sites"></site-list>
-                <p v-else>No sites yet, create new site now.</p>
+                <site-list :sites="sites"></site-list>
             </div>
         </section>
 
