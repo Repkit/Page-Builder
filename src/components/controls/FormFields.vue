@@ -20,7 +20,7 @@ import ColorField from '@/components/controls/fields/ColorField.vue';
 
 export default {
     name: 'form-fields',
-    props: [ 'fields', 'elementId' ],
+    props: [ 'fields' ],
     components: {
         InputTextField,
         InputNumberField,
@@ -40,7 +40,7 @@ export default {
     methods: {
         updateFields( fieldName, newValue, idx ) {            
             this.newFields.splice(idx, 1, newValue);
-            this.$emit('changeElement', this.elementId, fieldName, newValue);
+            this.$emit('changeElement', fieldName, newValue);
         }
     }
 };
