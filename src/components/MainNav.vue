@@ -2,11 +2,11 @@
     <div class="main-nav">
 
         <div ref="toggleScreen" class="toggle-screen" @click="toggleNavMobile"></div>
-        <div class="flex space-between align-center">
+        <div class="flex space-between align-center container">
 
             <h1><router-link to="/">Page Builder</router-link></h1>
 
-            <ul ref="navDesktop" class="nav-desktop flex-row align-center flex inline-list" arial-label="Main navigation bar">
+            <ul ref="navDesktop"class="nav-desktop flex-row align-center flex inline-list" arial-label="Main navigation bar">
                 <li><router-link to="/about"> About </router-link></li>
                 <li v-if="isUserLoggedIn"><router-link to="/profile" v-if="isUserLoggedIn"> My Profile </router-link></li>
                 <li v-if="isUserLoggedIn"><button @click="logout" > Logout </button></li>
@@ -68,13 +68,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container {
+            max-width: 1100px;
+            margin: 0 auto;
+    }
 .main-nav {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.829);
+    z-index: 3;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+ 
+
 
     h1 {
         margin: 0 10px;
@@ -82,6 +90,8 @@ export default {
             text-decoration: none;
             font-weight: bold;
             color: #000;
+            font-family: 'assistant','Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+           
         }
     }
 
