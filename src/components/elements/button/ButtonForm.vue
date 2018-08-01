@@ -96,10 +96,10 @@ export default {
                     name: 'lineHeight',
                     cmp: 'input-range',
                     label: 'Line Height',
-                    default: '18px',
-                    unit: 'px',
-                    min: '-10',
-                    max: '20',
+                    default: '1',
+                    min: '0',
+                    max: '10',
+                    step: '0.1',
                     value: this.element.styles.lineHeight
                 },
                 {
