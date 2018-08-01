@@ -1,5 +1,5 @@
 <template>
-    <div class="profile">
+    <div class="user-profile">
 
         <main-nav></main-nav>
 
@@ -26,7 +26,7 @@ import UserDetails from '@/components/UserDetails.vue';
 import SiteList from '@/components/SiteList.vue';
 
 export default {
-    name: 'UserProfile',
+    name: 'user-profile',
     components: { MainNav, SiteList, UserDetails },
     data() {
         return {
