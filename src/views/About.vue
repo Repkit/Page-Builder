@@ -9,7 +9,9 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut natus quis sed consequatur! Ab accusantium pariatur molestias et possimus aliquid, exercitationem sequi fugiat officiis, praesentium iure architecto impedit, sed iste?</p>
             </div>
         </section>
+
         <main-footer></main-footer>
+
     </div>
 </template>
 
@@ -19,14 +21,14 @@ import MainFooter from '@/components/MainFooter.vue';
 
 export default {
     name: 'about',
-    components: { MainNav ,MainFooter}
+    components: { MainNav, MainFooter }
 };
 </script>
 
 <style scoped lang="scss">
 .about {
-padding-top: 100px;
-    }
+    padding-top: 100px;
+}
 
 section {
     padding: 50px 0;

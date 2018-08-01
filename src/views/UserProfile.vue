@@ -15,7 +15,9 @@
                 <site-list :sites="sites" @on-delete="loadUserSites"></site-list>
             </div>
         </section>
-    <main-footer></main-footer>
+
+        <main-footer></main-footer>
+
     </div>
 </template>
 
@@ -70,8 +72,9 @@ export default {
 
 <style scoped lang="scss">
 .user-profile {
-padding-top: 100px;
-    }
+    padding-top: 100px;
+}
+
 section {
     padding: 20px 0;
     text-align: center;
