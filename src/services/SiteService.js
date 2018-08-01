@@ -23,7 +23,8 @@ export default {
     addElementById,
     updateElement,
     getParentById,
-    getTypeById
+    getTypeById,
+    moveElementById
 }
 
 function query(filterBy = { name: '', user_id: '' }) {
@@ -230,3 +231,44 @@ function getTypeById(element, id) {
     })
     return res;
 }
+
+function moveElementById(element, id, direction) {
+    var alreadyFound = false
+    var res = [];
+    element.forEach((currElement, idx) => {
+        if (currElement._id !== id) {
+            if (!getSelectedElementById(currElement, id)) {
+                if (alreadyFound) {
+                    res[res.length - 2] = currElement
+                    alreadyFound = false
+                }
+                else res.push(currElement)
+            }
+            else {
+                currElement.elements = moveElementById(currElement.elements, id, direction);
+                res.push(currElement);
+            }
+        }
+        else {
+            if (idx === 0 && direction === 'up' ||
+                idx === element.length - 1 && direction === 'down') res.push(currElement)
+            else {
+                if (direction === 'up') {
+                    res.push(currElement);
+                    res = _swapArrayElements(res, res.length - 2, res.length - 1)
+                }
+                else if (direction === 'down') {
+                    res[res.length + 1] = currElement
+                    alreadyFound = true
+                }
+            }
+        }
+    })
+    return res;
+}
+
+function _swapArrayElements(array, idx1, ix2) {
+    if (array.length === 1) return array;
+    array.splice(ix2, 1, array.splice(idx1, 1, array[ix2])[0]);
+    return array;
+};
