@@ -66,7 +66,7 @@ export default {
         getStyles() {
             return [
                 {
-                    name: 'align',
+                    name: 'textAlign',
                     cmp: 'select',
                     label: 'Align',
                     options: [
