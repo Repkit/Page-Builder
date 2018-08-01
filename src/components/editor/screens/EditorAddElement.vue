@@ -9,8 +9,8 @@
 
             <div class="flex flex-wrap space-between">
 
-                <div v-for="element in elementsToDisplay" :key="element.type"
-                    class="element-type flex-grow" draggable="true" ref="drag" @drag="setDrag(element.type)">
+                <div v-for="element in elementsToDisplay" :key="element.type" class="element-type flex-grow"
+                    :class="{ disabled: !element.active }" draggable="true" ref="drag" @drag="setDrag(element.type)">
                     <font-awesome-icon :icon="element.icon" />
                     <div>{{element.label}}</div>
                 </div>
@@ -28,18 +28,22 @@ export default {
     data() {
         return {
             elements: [
-                { type: 'section', label: 'Section', icon: ['fas', 'grip-vertical'] },
-                { type: 'column', label: 'Column', icon: ['fas', 'grip-horizontal'] },
-                { type: 'text', label: 'Text', icon: ['fas', 'font'] },
-                { type: 'list', label: 'List', icon: ['fas', 'list'] },
-                { type: 'button', label: 'Button', icon: ['fas', 'band-aid'] },
-                { type: 'divider', label: 'Divider', icon: ['fas', 'divide'] },
-                { type: 'image', label: 'Image', icon: ['fas', 'images'] },
-                { type: 'video', label: 'Video', icon: ['fas', 'video'] },
-                { type: 'map', label: 'Map', icon: ['fas', 'map-marked-alt'] },
-                { type: 'counter', label: 'Counter', icon: ['fas', 'clock'] },
-                { type: 'progressBar', label: 'ProgressBar', icon: ['fas', 'server'] },
-                { type: 'accordion', label: 'Accordion', icon: ['fas', 'layer-group'] },
+                { active: true, type: 'text', label: 'Text', icon: ['fas', 'font'] },
+                { active: true, type: 'list', label: 'List', icon: ['fas', 'list'] },
+                { active: true, type: 'button', label: 'Button', icon: ['fas', 'band-aid'] },
+                { active: true, type: 'map', label: 'Map', icon: ['fas', 'map-marked-alt'] },
+                { active: true, type: 'image', label: 'Image', icon: ['fas', 'images'] },
+                { active: true, type: 'video', label: 'Video', icon: ['fas', 'video'] },
+                { active: true, type: 'progressBar', label: 'ProgressBar', icon: ['fas', 'server'] },
+                { active: false, type: 'counter', label: 'Counter', icon: ['fas', 'clock'] },
+                { active: false, type: 'accordion', label: 'Accordion', icon: ['fas', 'layer-group'] },
+                { active: false, type: 'tabs', label: 'Tabs', icon: ['fas', 'table'] },
+                { active: false, type: 'gallery', label: 'Gallery', icon: ['fas', 'th'] },
+                { active: false, type: 'carousel', label: 'Carousel', icon: ['fas', 'layer-group'] },
+                { active: false, type: 'slider', label: 'Slider', icon: ['fas', 'clone'] },
+                { active: false, type: 'divider', label: 'Divider', icon: ['fas', 'divide'] },
+                { active: false, type: 'pricetable', label: 'Price Table', icon: ['fas', 'dollar-sign'] },
+                { active: false, type: 'testamonial', label: 'Testamonial', icon: ['fas', 'comments'] },
             ],
             filterBy: ''
         }
@@ -87,6 +91,11 @@ input {
     > div {
         padding-top: 10px;
         font-size: 13px;
+    }
+
+    &.disabled {
+        color: #aaa;
+        cursor: no-drop;
     }
 }
 </style>
