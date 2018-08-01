@@ -29,11 +29,8 @@
 </template>
 
 <script>
-import UserLogin from '@/components/UserLogin.vue';
-
 export default {
     name: 'main-nav',
-    components: { UserLogin },
     data() {
         return {
             navBarMObile: false,
