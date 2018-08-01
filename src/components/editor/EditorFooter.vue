@@ -68,6 +68,12 @@ export default {
         padding: 10px 0;
         font-size: 15px;
         cursor: pointer;
+        transition: .5s;
+
+        &:hover {
+            color: #fff;
+            transition: .5s;
+        }
     }
 }
 </style>

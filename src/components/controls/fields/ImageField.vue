@@ -15,7 +15,7 @@
             <input id="upload-image" type="file" name="img" @change.prevent="uploadImg" hidden />
         </form>
 
-        <input v-model="value" @input="$emit('change', newField, idx)"
+        <input v-model="value" @input="$emit('change', newField.name, newField.value, idx)"
             type="url" name="newField.name" :placeholder="newField.placeholder" />
 
     </div>
@@ -39,15 +39,18 @@ export default {
                 return val;
             },
             set(newVal) {
-                this.newField.value = this.newField.prefix + newVal + this.newField.suffix;
+                let prefix = ( this.newField.prefix ) ? this.newField.prefix : '';
+                let suffix = ( this.newField.suffix ) ? this.newField.suffix : '';
+                this.newField.value = prefix + newVal + suffix;
             }
         }
     },
     methods: {
         uploadImg() {
             CloudinaryService.doUploadImg(this.$refs.formUpload)
-                .then((urlImg)=>{
-                    this.value = urlImg.url  
+                .then(cloudinaryImg => {
+                    this.value = cloudinaryImg.url;
+                    this.$emit('change', this.newField.name, this.newField.value, this.idx);
                 })
         },
     },

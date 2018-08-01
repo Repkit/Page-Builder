@@ -48,6 +48,9 @@ export default {
         newSite(state, { userId }) {
             state.site = SiteService.emptySite(userId);
         },
+        updateSiteField(state, { fieldName, fieldValue }) {
+            state.site[fieldName] = fieldValue;
+        },
         removeElement(state, { id }) {
             state.site.elements = SiteService.removeSelectedElementById(state.site.elements, id);
         },
