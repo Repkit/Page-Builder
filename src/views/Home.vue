@@ -30,7 +30,7 @@
             <h2>All In One</h2>
             <p>The different parts of the platform are deeply integrated to build the most powerful ecosystem for building professional websites.</p>
            
-            <div class="flex flex-wrap container space-between align-center">
+            <div class="flex flex-wrap container space-around align-center">
               
                 <div class="item-card">
                     <img src="../assets/img/icon-1.png">
@@ -106,7 +106,8 @@ section {
         margin-bottom: 20px;
 
         .container {
-            max-width: 800px;
+            width: 800px;
+            max-width: 100%;
             margin: 0 auto;
 
             h1 {
@@ -139,7 +140,8 @@ section {
         background-color: #fff;
 
         .container {
-            max-width: 800px;
+            width: 800px;
+            max-width: 100%;
             margin: 0 auto;
 
             h2 {
@@ -160,7 +162,8 @@ section {
         background-color: #f7f7f7;
 
         .container {
-            max-width: 800px;
+            width: 800px;
+            max-width: 100%;
             margin: 0 auto;
 
             h2 {
@@ -180,8 +183,11 @@ section {
     &.all-in-one {
         background-color: white;
 
-         p {
+        > p {
             max-width: 500px;
+        }
+
+         p {
             margin: 0 auto;
             margin-bottom: 0;
             font-size: 1.15em;
@@ -196,7 +202,8 @@ section {
         }
 
         .container {
-            max-width: 800px;
+            width: 800px;
+            max-width: 100%;
             margin: 0 auto;
 
             h2 {
