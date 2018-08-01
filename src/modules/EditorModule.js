@@ -34,6 +34,9 @@ export default {
         },
         removeSelectedElement(state) {
             state.selectedElement = null;
-        }
+        },
+        addSelectedElement(state, { newElement }) {
+            state.selectedElement = newElement;
+        },
     }
 }
