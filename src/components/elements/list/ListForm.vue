@@ -78,6 +78,7 @@ export default {
                     cmp: 'input-range',
                     label: 'Line Height',
                     default: '1',
+                    unit: 'em',
                     min: '0',
                     max: '10',
                     step: '0.1',

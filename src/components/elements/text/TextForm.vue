@@ -99,7 +99,8 @@ export default {
                     cmp: 'input-range',
                     label: 'Line Height',
                     default: '1',
-                    min: '0',
+                    unit: 'em',
+                    min: '1',
                     max: '10',
                     step: '0.1',
                     value: this.element.styles.lineHeight
