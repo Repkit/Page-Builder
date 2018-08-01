@@ -3,8 +3,8 @@
 
         <main-nav></main-nav>
 
-        <section class="main">
-            <div class="container">
+        <section class="main flex align-center flex-column justify-center relative">
+            <div class="container flex align-center flex-column justify-center">
                 <h1>Build beautiful websites in minutes.</h1>
                 <p>Our vast library of components and page designs has everything you need to build any type of website.</p>
                 <button>Start Now</button>
@@ -75,26 +75,39 @@ export default {
 
 <style scoped lang="scss">
 .home {
-padding-top: 100px;
+    // padding-top: 100px;
+}
+.relative {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        background: #29232380;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
     }
+}
 
 section {
     padding: 50px 0;
     text-align: center;
 
     &.main {
-        background-color: #4ac2fa8e;
-        opacity: 0.7;
+        background-color: #4ac2fad2;
+        opacity: 0.9;
         background-image: url('../assets/img/cover.jpg');
         width: 100%;
-        height: 400px;
+        height: calc(90vh - 40px);
+        // height: 100%;
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         margin-bottom: 20px;
+        //  filter:blur(5px);
 
-        // background: #4ac2fa url('../assets/img/cover.jpg') no-repeat right top;
+        // background: #4ac2fa url('../assets/img/cover.jpg');
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -167,24 +180,23 @@ section {
         }
     }
 
-        &.all-in-one {
+    &.all-in-one {
         background-color: white;
 
          p {
-                max-width: 500px;
-                margin: 0 auto;
-                margin-bottom: 0;
-                font-size: 1.15em;
-                font-weight: 300;
-                padding-bottom: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+            margin-bottom: 0;
+            font-size: 1.15em;
+            font-weight: 300;
+            padding-bottom: 15px;
 
-                color: #888;
-                font-weight: 300;
-                line-height: 32px;
-                display: inline-block;
-                margin-top: 16px;
-
-            }
+            color: #888;
+            font-weight: 300;
+            line-height: 32px;
+            display: inline-block;
+            margin-top: 16px;
+        }
 
         .container {
             max-width: 800px;
@@ -202,6 +214,7 @@ section {
                 font-size: 1.12em;
                 font-weight: 300;
             }
+
             .item-card {
                 max-width: 350px;
                 padding-top: 20px;
