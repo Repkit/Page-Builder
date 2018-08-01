@@ -21,7 +21,7 @@ export default {
     removeSelectedElementById,
     cloneElementById,
     addElementById,
-    updateElementById,
+    updateElement,
 }
 
 function query(filterBy = { name: '', user_id: '' }) {
@@ -170,19 +170,17 @@ function _changeElementsId(element) {
     return res;
 }
 
-function updateElementById(element, id, updateElement) {
+function updateElement(element, newElement) {
     var res = [];
     element.forEach(currElement => {
-        if (currElement._id !== id) {
-            if (!getSelectedElementById(currElement, id)) res.push(currElement)
+        if (currElement._id !== newElement._id) {
+            if (!getSelectedElementById(currElement, newElement._id)) res.push(currElement)
             else {
-                currElement.elements = updateElementById(element, id, updateElement);
+                currElement.elements = updateElement(currElement.elements, newElement);
                 res.push(currElement);
             }
         }
-        else {
-            res.push(updateElement)
-        }
+        else res.push(newElement);
     })
     return res;
 }

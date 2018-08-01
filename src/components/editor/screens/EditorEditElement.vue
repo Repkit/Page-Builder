@@ -26,9 +26,8 @@ export default {
         }
     },
     methods: {
-        updateElement( elementId, newElement ) {
-            // TODO: update element
-            console.log('Edit editor: ', elementId, newElement);
+        updateElement(newElement) {
+            this.$store.commit({ type: 'updateElement', newElement });
         }
     },
     components: {
