@@ -72,7 +72,7 @@ export default {
 
 <style scoped lang="scss">
 .user-profile {
-    padding-top: 100px;
+    padding-top: 60px;
 }
 
 section {

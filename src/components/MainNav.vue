@@ -126,6 +126,7 @@ export default {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
  
     h1 {
+        font-size: 1.4em;
         margin: 0 10px;
         a {
             text-decoration: none;
@@ -136,6 +137,7 @@ export default {
     }
 
     ul {
+        margin: 5px;
         li {
             padding: 0.5em 1em;
         a {

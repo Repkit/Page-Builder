@@ -41,7 +41,7 @@ export default {
 
 <style scoped lang="scss">
 .about {
-    padding-top: 100px;
+    padding-top: 60px;
 }
 
 section {
