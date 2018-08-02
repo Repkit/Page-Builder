@@ -71,16 +71,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.user-profile {
-    padding-top: 60px;
-}
-
 section {
     padding: 20px 0;
     text-align: center;
 
     &.user-data {
-        background-color: #ffcc46;
+        // background-color: #ffcc46;
+        background-color: #9FB3A7;
     }
 }
 </style>
