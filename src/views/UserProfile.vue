@@ -76,8 +76,7 @@ section {
     text-align: center;
 
     &.user-data {
-        // background-color: #ffcc46;
-        background-color: #9FB3A7;
+        background-color: #eee;
     }
 }
 </style>

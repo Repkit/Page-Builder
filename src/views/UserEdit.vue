@@ -135,11 +135,11 @@ export default {
 
 <style scoped lang="scss">
 section {
-  padding: 20px 0;
-  text-align: center;
+    padding: 20px 0;
+    text-align: center;
 
-  &.form {
-    background-color: #efefef;
-  }
+    &.form {
+        background-color: #eee;
+    }
 }
 </style>

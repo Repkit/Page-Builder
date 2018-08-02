@@ -56,14 +56,14 @@ h1 {
     font-size: 2.5em;
     font-weight: 700;
     line-height: 1.25;
-    color: #efefef;
+    color: #333;
 }
 p {
     margin: 0;
     font-size: 1.5em;
     font-weight: 300;
     line-height: 1.5;
-    color: #111;
+    color: #333;
 }
 .social li {
     padding: 0 0.5em;

@@ -122,37 +122,49 @@ export default {
 
 <style scoped lang="scss">
 .main-nav {
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
- 
-    h1 {
-        font-size: 1.4em;
-        margin: 0 10px;
-        a {
-            text-decoration: none;
-            font-weight: bold;
-            color: #000;
-            font-family: 'openSans', 'Geneva', 'Tahoma', 'sans-serif';
+    background-color: #333;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            color: #999;
         }
+    }
+
+    h1 {
+        margin: 0 10px;
+        font-size: 1.4em;
+        font-weight: bold;
+        font-family: 'openSans', 'Geneva', 'Tahoma', 'sans-serif';
     }
 
     ul {
         margin: 0px;
+
         li {
             padding: 0.5em 1em;
+            font-weight: bold;
+
             a {
-                font-family: 'Roboto','OpenSans', 'Geneva', 'Tahoma', 'sans-serif';  
-                font-weight: bold;
-                color: #000;
                 text-decoration: none;
 
-                    &.router-link-exact-active {
-                        color: #42b983;
-                    }
+                &.router-link-exact-active {
+                    color: #999;
                 }
+            }
+
             button {
-                font-family: 'Roboto','OpenSans', 'Geneva', 'Tahoma', 'sans-serif';  
+                font-family: 'Roboto','OpenSans', 'Geneva', 'Tahoma', 'sans-serif';
+                font-weight: bold;
+                color: #fff;
+                border-color: #fff;
+
+                &:hover {
+                    color: #999;
+                    background-color: rgba( 0, 0, 0, 0.5);
+                }
             }
         }
     }

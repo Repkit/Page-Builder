@@ -104,7 +104,7 @@ section {
   text-align: center;
 
   &.form {
-    background-color: #efefef;
+    background-color: #eee;
   }
 }
 </style>
