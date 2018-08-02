@@ -4,8 +4,7 @@
         <label>{{newField.label}}</label>
         <div @click="display=!display" :style="{ backgroundColor: value }" class="field">
             &nbsp;
-            <chrome-picker v-model="value" v-if="display"
-                @input="$emit('change', newField.name, newField.value, idx)" />
+            <chrome-picker v-model="value" v-if="display" />
         </div>
 
     </div>
@@ -30,7 +29,8 @@ export default {
                 return this.newField.value || this.newField.default || 'transparent';
             },
             set(newVal) {
-                this.newField.value = newVal;
+                this.newField.value = newVal.hex;
+                this.$emit('change', this.newField.name, this.newField.value, this.idx);
             }
         }
     },
