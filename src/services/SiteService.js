@@ -95,26 +95,24 @@ function emptySectionElement(colsCount = 1) {
             type: 'section'
         },
         data: {
-            direction: (colsCount > 1) ? 'row' : 'column'
+            direction: 'row'
         },
         styles: style,
         elements: []
     }
-    if (colsCount > 1) {
-        for (var i = 0; i < colsCount; i++) {
-            newSection.elements.push(
-                {
-                    _id: _makeId(),
-                    settings: {
-                        type: 'section'
-                    },
-                    data: {
-                        direction: 'column'
-                    },
-                    styles: style,
-                    elements: []
-                })
-        }
+    for (var i = 0; i < colsCount; i++) {
+        newSection.elements.push(
+            {
+                _id: _makeId(),
+                settings: {
+                    type: 'section'
+                },
+                data: {
+                    direction: 'column'
+                },
+                styles: style,
+                elements: []
+            })
     }
     return newSection
 }
@@ -130,16 +128,13 @@ function _makeId(length = 20) {
 }
 
 function getSelectedElementById(element, id) {
-    // Current element check
     if (element._id === id) return element;
-
-    // Recursive inner elements check
+    
     for (let elm of element.elements) {
         let match = getSelectedElementById(elm, id);
         if (match) return match;
     }
 
-    // If non found
     return null;
 }
 
