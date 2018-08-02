@@ -22,5 +22,13 @@ export default {
             items: this.element.data.text || [ 'Item #1', 'Item #2', 'Item #3' ]
         }
     },
+    watch: {
+        'element.data.text': {
+            deep: true,
+            handler() {
+                this.items = this.element.data.text || [ 'Item #1', 'Item #2', 'Item #3' ];
+            }
+        }
+    }
 };
 </script>

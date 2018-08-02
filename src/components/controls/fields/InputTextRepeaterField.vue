@@ -1,11 +1,11 @@
 <template>
-    <div class="input-text-field" v-if="newField">
+    <div class="input-text-repeater-field" v-if="newField">
 
         <label>{{newField.label}}</label>
-        <div v-for="(val, idx) in newField.value" :key="idx" class="flex align-baseline">
-            <input v-model="newField.value[idx]" @input="$emit('change', newField.name, newField.value, idx)"
+        <div v-for="(val, listIdx) in newField.value" :key="listIdx" class="flex align-baseline">
+            <input v-model="newField.value[listIdx]" @input="updateItem(listIdx, newField.value[listIdx])"
                 type="text" :placeholder="newField.placeholder" />
-            <span @click="removeItem(idx)"> &times; </span>
+            <span @click="removeItem(listIdx)"> &times; </span>
         </div>
         <button @click="addItem"> + Add </button>
 
@@ -14,26 +14,34 @@
 
 <script>
 export default {
-    name: 'input-text-field',
+    name: 'input-text-repeater-field',
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: JSON.parse(JSON.stringify(this.field))
+            newField: null
         }
     },
     methods: {
+        updateItem(idx, newVal) {
+            this.newField.value.splice(idx, 1, newVal);
+            this.$emit('change', this.newField.name, this.newField.value, this.idx);
+        },
         addItem() {
             this.newField.value.push('');
+            this.$emit('change', this.newField.name, this.newField.value, this.idx);
         },
         removeItem(idx) {
             this.newField.value.splice(idx, 1);
+            this.$emit('change', this.newField.name, this.newField.value, this.idx);
         }
     },
     watch: {
         field: {
             deep: true,
+            immediate: true,
             handler() {
-                this.newField = JSON.parse(JSON.stringify(this.field))
+                this.newField = JSON.parse(JSON.stringify(this.field));
+                this.newField.value = this.newField.value || this.newField.default || [];
             }
         }
     }
