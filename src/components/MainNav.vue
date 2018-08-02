@@ -132,7 +132,7 @@ export default {
     }
 
     ul {
-        margin: 5px;
+        margin: 0px;
         li {
             padding: 0.5em 1em;
             a {
