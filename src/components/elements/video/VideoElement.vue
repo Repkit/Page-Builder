@@ -2,8 +2,7 @@
     <div class="element video-element" :style="element.styles">
 
         <div class='embed-container' :style="{ height: element.data.height, width: '100%' }">
-            <iframe  :src='`https://www.youtube.com/embed/${video}`' frameborder='0' allowfullscreen>
-            </iframe>
+            <iframe :src='`https://www.youtube.com/embed/${video}`' frameborder='0' allowfullscreen></iframe>
         </div>
 
         <element-actions v-if="isEditMode" :id="element._id"></element-actions>
