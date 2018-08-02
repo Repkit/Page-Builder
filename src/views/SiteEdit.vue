@@ -1,5 +1,5 @@
 <template>
-    <split class="site-edit" v-if="site && site.user_id" :gutterSize="10">
+    <split class="site-edit" v-if="site" :gutterSize="10">
 
         <split-area :size="15" :minSize="100">
             <editor :site="site" />

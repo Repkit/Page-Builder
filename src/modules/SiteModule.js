@@ -71,8 +71,10 @@ export default {
         },
         moveElement(state, { id, direction}){
             state.site.elements = SiteService.moveElementById(state.site.elements, id, direction)
-
-        }
+        },
+        updateUserId(state, { user }) {
+            state.site.user_id = user._id
+        },
     },
     actions: {
         publishSite(context) {

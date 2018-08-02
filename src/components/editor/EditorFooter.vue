@@ -18,7 +18,20 @@
 export default {
     name: 'editor-footer',
     props: [ 'site' ],
+    computed:{
+        loggedInUser() {
+            return this.$store.getters.loggedInUser;
+        },
+    },
     methods: {
+        setLogginUser() {
+            var user = localStorage.getItem('loggedInUser');
+            user = JSON.parse(user);
+            if (user) {
+                this.$store.commit({ type: 'setUser', user })
+                this.$store.commit({ type: 'updateUserId', user})
+            }
+        },
         showDisplay() {
             if(!this.site._id) return;
             let route = this.$router.resolve({path: '/' + this.site._id});
@@ -46,24 +59,38 @@ export default {
                         }
                     });
             } else {
-                this.$store.dispatch({ type: 'createNewSite' })
-                    .then(site => {
-                        if (site) {
-                            this.$store.commit({ type: 'loadSite', site });
-                            this.$store.commit({ type: 'addSite', site });
-                            swal('Your Site has been sucsecfully Created!', {
-                                icon: 'success',
-                                buttons: {
-                                    ok: true,
-                                },
-                            })
-                            .then(() => this.$router.push('/'+site._id+'/edit'))
-                        } else {
-                            swal('Had a problem creating a new site, please try again later', {
-                                icon: 'error'
-                            });
-                        }
-                    });
+                if (!this.loggedInUser._id) {
+                    this.$swal({
+                        title: 'Please login to create a New site',
+                        icon: 'error',
+                        buttons: {
+                            ok: true,
+                        },
+                        html:`<p> Click 
+                            <a href="http://localhost:8080/#/signup" target="_blank" >Here</a>
+                            to sign up and then please click OK </p>`,
+                    })
+                        .then(() => this.setLogginUser())
+                } else {
+                    this.$store.dispatch({ type: 'createNewSite' })
+                        .then(site => {
+                            if (site) {
+                                this.$store.commit({ type: 'loadSite', site });
+                                this.$store.commit({ type: 'addSite', site });
+                                swal('Your Site has been sucsecfully Created!', {
+                                    icon: 'success',
+                                    buttons: {
+                                        ok: true,
+                                    },
+                                })
+                                .then(() => this.$router.push('/'+site._id+'/edit'))
+                            } else {
+                                swal('Had a problem creating a new site, please try again later', {
+                                    icon: 'error'
+                                });
+                            }
+                        });
+                }
             }
         }
     }
