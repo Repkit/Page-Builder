@@ -6,7 +6,21 @@
         <section class="info">
             <div class="container">
                 <h1>About the service</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut natus quis sed consequatur! Ab accusantium pariatur molestias et possimus aliquid, exercitationem sequi fugiat officiis, praesentium iure architecto impedit, sed iste?</p>
+                <p>
+                   1. Customize your Website
+                    Creating a website has never been so easy
+
+                    Thanks to our revolutionary drag and drop website builder, you can create a website just how you want it.
+                    Just click on the content you wish to change or drag and drop new images.
+                    You can easily add maps, blogs, videos, contact forms or even products to sell.
+                </p>
+
+                <p>
+                    2. Publish your Website
+                    Publish your website live to the world
+
+                    Choose your domain name, then click publish. It's that simple! Once live you can still edit your website again and again
+                </p>
             </div>
         </section>
 
@@ -27,7 +41,7 @@ export default {
 
 <style scoped lang="scss">
 .about {
-    padding-top: 100px;
+    padding-top: 60px;
 }
 
 section {

@@ -53,12 +53,16 @@ export default {
         openLogin() {
             if (this.isUserLoggedIn && !this.displayLogin) return;
             this.$swal({
-                title: 'Multiple inputs',
+                title: 'Login',
                 html:`
-                    <form @submit.prevent="">
-                        Username: <input class="input1" type="text" required> 
-                        Password: <input class="input2" type="password" required>
-                    </form>
+                    <p>
+                        <label>Username:</label>
+                        <input class="input1" type="text" required /> 
+                    </p>
+                    <p>
+                        <label>Password:</label>
+                        <input class="input2" type="password" required />
+                    </p>
                 `,
                 focusConfirm: false,
                 preConfirm: () => {
@@ -71,9 +75,11 @@ export default {
                 }
             })
             .then(result => {
-                this.user.userName = result.value[0];
-                this.user.password = result.value[1];
-                this.login();
+                if(result.value) {
+                    this.user.userName = result.value[0];
+                    this.user.password = result.value[1];
+                    this.login();
+                }
             })
             .catch(swal.noop)
         },
@@ -126,6 +132,7 @@ export default {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
  
     h1 {
+        font-size: 1.4em;
         margin: 0 10px;
         a {
             text-decoration: none;
@@ -136,6 +143,7 @@ export default {
     }
 
     ul {
+        margin: 5px;
         li {
             padding: 0.5em 1em;
         a {
