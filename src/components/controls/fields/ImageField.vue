@@ -49,8 +49,10 @@ export default {
         uploadImg() {
             CloudinaryService.doUploadImg(this.$refs.formUpload)
                 .then(cloudinaryImg => {
-                    this.value = cloudinaryImg.url;
-                    this.$emit('change', this.newField.name, this.newField.value, this.idx);
+                    if  (!cloudinaryImg.error) {
+                        this.value = cloudinaryImg.url;
+                        this.$emit('change', this.newField.name, this.newField.value, this.idx);
+                    }   
                 })
         },
     },
