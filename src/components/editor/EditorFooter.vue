@@ -68,7 +68,7 @@ export default {
                         },
                         html:`<p> Click 
                             <a href="http://localhost:8080/#/signup" target="_blank" >Here</a>
-                            to sign up </p>`,
+                            to sign up and then please click OK </p>`,
                     })
                         .then(() => this.setLogginUser())
                 } else {
