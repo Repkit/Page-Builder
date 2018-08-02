@@ -21,7 +21,8 @@ export default {
     methods: {
         showDisplay() {
             if(!this.site._id) return;
-            this.$router.push('/' + this.site._id)
+            let route = this.$router.resolve({path: '/' + this.site._id});
+            window.open(route.href, '_blank');
         },
         setSiteDetailsScreen() {
            this.$store.commit({ type: 'setEditorScreen', screen: 'editor-site-details' });
