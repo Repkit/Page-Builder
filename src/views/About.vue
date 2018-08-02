@@ -3,9 +3,32 @@
 
         <main-nav></main-nav>
 
+        <section class="anything">
+            <div class="container">
+                <h2>Any Theme. Any Page.</h2>
+                <p>Landing pages, homepages, posts, portfolios, products. Elementor can be used to design any page or custom post type on WordPress.</p>
+            </div>
+        </section>
+
+        <section class="customization">
+            <div class="container">
+                <h2>Total Customization Over Layout</h2>
+                <h3>Section Width & Height</h3>
+                <p>Go beyond the oversimplified and generic page designs, by having more control over the various sections. Elementor’s page sections make up the basic architecture of the page, and allow you to reach a level of design reserved until now for high budget custom designed websites.</p>
+            </div>
+        </section>
+
+        <section class="more">
+            <div class="container">
+                <h2>More Features</h2>
+                <h3>Section Width & Height</h3>
+                <p>Go beyond the oversimplified and generic page designs, by having more control over the various sections. Elementor’s page sections make up the basic architecture of the page, and allow you to reach a level of design reserved until now for high budget custom designed websites.</p>
+            </div>
+        </section>
+
         <section class="info">
             <div class="container">
-                <h1>About the service</h1>
+                <h2>About the service</h2>
                 <p>
                    1. Customize your Website
                     Creating a website has never been so easy
@@ -44,29 +67,30 @@ section {
     padding: 50px 0;
     text-align: center;
 
+    &.anything,
+    &.more {
+        background-color: #eee;
+    }
+
+    &.customization,
     &.info {
-        background-color: #efefef;
+        background-color: #fff;
+    }
 
-        img {
-            margin: 0 auto;
-            display: block;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            box-shadow: #000 0 0 10px;
-        }
+    .container {
+        width: 800px;
+        max-width: 100%;
+        margin: 0 auto;
 
-        h1 {
+        h2 {
             margin-top: 0;
-            font-size: 2.5em;
-            font-weight: 700;
-            line-height: 1.25;
+            font-size: 1.75em;
+            font-weight: bold;
         }
 
         p {
-            margin: 0;
+            margin-bottom: 0;
             font-size: 1.5em;
-            font-weight: 300;
-            line-height: 1.5;
         }
     }
 }

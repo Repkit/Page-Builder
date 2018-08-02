@@ -13,6 +13,7 @@ export default {
     getByUserName,
     deleteSite,
     publishSite,
+    createNewSite,
 
     emptySite,
     emptyElement,
@@ -59,6 +60,16 @@ function publishSite(site) {
         .catch(err => {
             console.log('Error in publish site:', err)
             return false;
+        })
+}
+
+function createNewSite(site) {
+    site.date.created = Date.now()
+    return axios.post(`${BASE_URL}/${site._id}`, site)
+        .then(res => res.data)
+        .catch(err => {
+            console.log('Error in create New Site site:', err)
+            return null;
         })
 }
 

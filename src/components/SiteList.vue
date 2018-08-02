@@ -84,6 +84,7 @@ export default {
 .site-list-item {
     position: relative;
     width: 31%;
+    min-height: 200px;
     margin: 10px 1%;
     padding: 0;
     border: 1px solid #ccc;

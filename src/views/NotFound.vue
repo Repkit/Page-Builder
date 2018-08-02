@@ -28,7 +28,7 @@ section {
     text-align: center;
 
     &.error404 {
-        background-color: #efefef;
+        background-color: #eee;
 
         img {
             margin: 0 auto;

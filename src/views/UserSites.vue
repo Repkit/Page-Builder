@@ -66,7 +66,7 @@ section {
     text-align: center;
 
     &.user-data {
-        background-color: #ffcc46;
+        background-color: #eee;
     }
 
     img {
