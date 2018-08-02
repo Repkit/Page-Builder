@@ -31,7 +31,6 @@ export default {
                 this.$store.commit({ type: 'setUser', user })
                 this.$store.commit({ type: 'updateUserId', user})
             }
-            
         },
         showDisplay() {
             if(!this.site._id) return;
