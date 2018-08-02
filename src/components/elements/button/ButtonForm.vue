@@ -75,7 +75,7 @@ export default {
                         { label: 'Center', value: 'center' },
                         { label: 'Right', value: 'right' },
                     ],
-                    default: 'center',
+                    default: '',
                     value: this.element.styles.textAlign
                 },
                 {
