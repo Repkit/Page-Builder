@@ -18,6 +18,11 @@
 export default {
     name: 'editor-footer',
     props: [ 'site' ],
+    computed:{
+        loggedInUser() {
+            return this.$store.getters.loggedInUser;
+        },
+    },
     methods: {
         showDisplay() {
             if(!this.site._id) return;
@@ -46,7 +51,20 @@ export default {
                         }
                     });
             } else {
-                this.$store.dispatch({ type: 'createNewSite' })
+                console.log(this.loggedInUser._id)
+                if(!this.loggedInUser._id) {
+                    this.$swal({
+                        title: 'Please login to create a New site',
+                        icon: 'error',
+                        buttons: {
+                            ok: true,
+                        },
+                        html:`<p> Click 
+                            <a href="http://localhost:8080/#/signup" target="_blank" >Here</a>
+                            to sign up </p>`,
+                    })
+                } else{
+                    this.$store.dispatch({ type: 'createNewSite' })
                     .then(site => {
                         if (site) {
                             this.$store.commit({ type: 'loadSite', site });
@@ -64,6 +82,7 @@ export default {
                             });
                         }
                     });
+                }
             }
         }
     }
