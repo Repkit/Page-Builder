@@ -4,9 +4,9 @@
         <span @click="setSiteDetailsScreen">
             <font-awesome-icon :icon="['fas', 'cog']" />
         </span>
-        <router-link :to="'/' + site._id" target="_blank">
+        <span @click="showDisplay" target="_blank">
             <font-awesome-icon :icon="['fas', 'eye']" />
-        </router-link>
+        </span>
         <span @click="publish">
             <font-awesome-icon :icon="['fas', 'save']" />
         </span>
@@ -19,6 +19,11 @@ export default {
     name: 'editor-footer',
     props: [ 'site' ],
     methods: {
+        showDisplay() {
+            if(!this.site._id) return;
+            let route = this.$router.resolve({path: '/' + this.site._id});
+            window.open(route.href, '_blank');
+        },
         setSiteDetailsScreen() {
            this.$store.commit({ type: 'setEditorScreen', screen: 'editor-site-details' });
         },
