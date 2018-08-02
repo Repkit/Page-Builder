@@ -99,9 +99,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.user-sign-up {
-    padding-top: 60px;
-  }
 section {
   padding: 20px 0;
   text-align: center;

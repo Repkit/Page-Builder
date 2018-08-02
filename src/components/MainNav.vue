@@ -116,12 +116,7 @@ export default {
 
 <style scoped lang="scss">
 .main-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
     width: 100%;
-    z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
  
@@ -132,7 +127,7 @@ export default {
             text-decoration: none;
             font-weight: bold;
             color: #000;
-            font-family: 'assistant','Verdana', 'Geneva', 'Tahoma', 'sans-serif';  
+            font-family: 'openSans', 'Geneva', 'Tahoma', 'sans-serif';
         }
     }
 
@@ -140,14 +135,18 @@ export default {
         margin: 5px;
         li {
             padding: 0.5em 1em;
-        a {
-            font-weight: bold;
-            color: #000;
-            text-decoration: none;
+            a {
+                font-family: 'Roboto','OpenSans', 'Geneva', 'Tahoma', 'sans-serif';  
+                font-weight: bold;
+                color: #000;
+                text-decoration: none;
 
-                &.router-link-exact-active {
-                    color: #42b983;
+                    &.router-link-exact-active {
+                        color: #42b983;
+                    }
                 }
+            button {
+                font-family: 'Roboto','OpenSans', 'Geneva', 'Tahoma', 'sans-serif';  
             }
         }
     }
