@@ -22,6 +22,7 @@ import ButtonElement from '@/components/elements/button/ButtonElement.vue';
 import ProgressBarElement from '@/components/elements/progress-bar/ProgressBarElement.vue';
 import AcordionElement from '@/components/elements/acordion/AcordionElement.vue';
 import CounterElement from '@/components/elements/counter/CounterElement.vue';
+import VideoElement from '@/components/elements/video/VideoElement.vue';
 
 export default {
     name: 'section-element',
@@ -36,7 +37,8 @@ export default {
         ButtonElement,
         ProgressBarElement,
         AcordionElement,
-        CounterElement
+        CounterElement,
+        VideoElement
     },
     computed: {
         selectedElement() {

@@ -17,6 +17,7 @@ import ButtonElement from '@/components/elements/button/ButtonForm.vue';
 import ProgressBarElement from '@/components/elements/progress-bar/ProgressBarForm.vue';
 import AcordionElement from '@/components/elements/acordion/AcordionForm.vue';
 import CounterElement from '@/components/elements/counter/CounterForm.vue';
+import VideoElement from '@/components/elements/video/VideoForm.vue';
 
 export default {
     name: 'editor-edit-element',
@@ -41,6 +42,7 @@ export default {
         ProgressBarElement,
         AcordionElement,
         CounterElement,
+        VideoElement
     }
 };
 </script>
