@@ -1,11 +1,8 @@
 import axios from 'axios';
 
-// const BASE_URL = (process.env.NODE_ENV !== 'development')
-//     ? ''
-//     : '//localhost:3000';
-
-// const BASE_URL = 'mongodb://page_builder_user:page_builder43@ds145921.mlab.com:45921/page_builder/user';
-const BASE_URL = '//localhost:3000';
+const BASE_URL = (process.env.NODE_ENV !== 'development')
+    ? 'mongodb://page_builder_user:page_builder43@ds145921.mlab.com:45921/page_builder/user'
+    : '//localhost:3000';
 
 export default {
     login,
