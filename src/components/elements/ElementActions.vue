@@ -42,6 +42,7 @@ export default {
 <style lang="scss">
 .element-actions {
     font-size: 11px;
+    line-height: 1;
     color: #fff;
     display: none;
 
