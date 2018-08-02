@@ -79,6 +79,10 @@ export default {
             return SiteService.publishSite(context.state.site)
                 .then(res => res)
         },
+        createNewSite(context) {
+            return SiteService.createNewSite(context.state.site)
+            .then(res => res)
+        },
         loadSites(context, payload) {
             var filterBy = { user_id: payload.user._id }
             return SiteService.query(filterBy)
