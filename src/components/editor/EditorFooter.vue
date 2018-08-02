@@ -51,7 +51,6 @@ export default {
                         }
                     });
             } else {
-                console.log(this.loggedInUser._id)
                 if(!this.loggedInUser._id) {
                     this.$swal({
                         title: 'Please login to create a New site',
