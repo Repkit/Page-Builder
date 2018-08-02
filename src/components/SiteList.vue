@@ -85,19 +85,26 @@ export default {
     position: relative;
     width: 31%;
     margin: 10px 1%;
-    padding: 1em;
+    padding: 0;
     border: 1px solid #ccc;
     border-radius: 3px;
     text-align: center;
     transition: .3s;
 
     h3 {
-        margin-top: 0;
+        margin: 0;
+        line-height: 2.5em;
     }
 
     a {
         color: #333;
         text-decoration: none;
+    }
+
+    img {
+        display: inline-block;
+        width: 100%;
+        max-width: 100%;
     }
 
     &:hover {
@@ -120,6 +127,7 @@ export default {
         font-size: 20px;
         color: #fff;
         background-color: rgba( 0, 0, 0, 0.75);
+        border-radius: 0 0 3px 3px;
         transition: 0.5s;
 
         a {
