@@ -76,6 +76,14 @@ export default {
                     value: this.element.styles.padding
                 },
                 {
+                    name: 'maxWidth',
+                    cmp: 'input-text',
+                    label: 'Max Width',
+                    placeholder: '100%, 1200px',
+                    default: '',
+                    value: this.element.styles.maxWidth
+                },
+                {
                     name: 'backgroundColor',
                     cmp: 'color',
                     label: 'Background Color',
