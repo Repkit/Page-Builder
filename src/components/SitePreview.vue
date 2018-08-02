@@ -65,3 +65,12 @@ export default {
     }
 };
 </script>
+
+<style lang="scss">
+.site-preview {
+    > .element {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+</style>
