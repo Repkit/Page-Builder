@@ -53,11 +53,7 @@ export default {
                     placeholder: 'Enter video id...',
                     default: 'xwtdhWltSIg',
                     value: this.element.data.video
-                }
-            ]
-        },
-        getStyles() {
-            return [
+                },
                 {
                     name: 'height',
                     cmp: 'input-range',
@@ -67,9 +63,12 @@ export default {
                     min: '50',
                     max: '2000',
                     step: '1',
-                    value: this.element.styles.height
+                    value: this.element.data.height
                 }
             ]
+        },
+        getStyles() {
+            return []
         }
     }
 };
