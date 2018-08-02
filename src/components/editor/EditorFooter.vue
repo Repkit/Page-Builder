@@ -29,22 +29,42 @@ export default {
         },
         publish() {
             this.setSiteDetailsScreen();
-            this.$store.dispatch({ type: 'publishSite' })
-                .then(isUpdated => {
-                    if (isUpdated) {
-                        swal('Your Site has been sucsecfully Updated!', {
-                            icon: 'success',
-                            buttons: {
-                                ok: true,
-                            },
-                        });
-                    }
-                    else {
-                        swal('Had a problem in updating, please try again later', {
-                            icon: 'error'
-                        });
-                    }
-                });
+            if (this.site._id) {
+                this.$store.dispatch({ type: 'publishSite' })
+                    .then(isUpdated => {
+                        if (isUpdated) {
+                            swal('Your Site has been sucsecfully Updated!', {
+                                icon: 'success',
+                                buttons: {
+                                    ok: true,
+                                },
+                            });
+                        } else {
+                            swal('Had a problem in updating, please try again later', {
+                                icon: 'error'
+                            });
+                        }
+                    });
+            } else {
+                this.$store.dispatch({ type: 'createNewSite' })
+                    .then(site => {
+                        if (site) {
+                            this.$store.commit({ type: 'loadSite', site });
+                            this.$store.commit({ type: 'addSite', site });
+                            swal('Your Site has been sucsecfully Created!', {
+                                icon: 'success',
+                                buttons: {
+                                    ok: true,
+                                },
+                            })
+                            .then(() => this.$router.push('/'+site._id+'/edit'))
+                        } else {
+                            swal('Had a problem creating a new site, please try again later', {
+                                icon: 'error'
+                            });
+                        }
+                    });
+            }
         }
     }
 };
