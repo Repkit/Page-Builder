@@ -2,9 +2,9 @@
     <div class="color-field flex align-baseline" v-if="newField">
 
         <label>{{newField.label}}</label>
-        <div @click="display=!display" :style="{ backgroundColor: value }" class="field">
+        <div @click="display=!display" :style="{ backgroundColor: newField.value }" class="field">
             &nbsp;
-            <chrome-picker v-model="value" v-if="display" />
+            <chrome-picker v-model="newField.value" @input="update" v-if="display" />
         </div>
 
     </div>
@@ -19,26 +19,22 @@ export default {
     components: { 'chrome-picker': Chrome },
     data() {
         return {
-            newField: JSON.parse(JSON.stringify(this.field)),
+            newField: null,
             display: false
         }
     },
-    computed: {
-        value: {
-            get() {
-                return this.newField.value || this.newField.default || 'transparent';
-            },
-            set(newVal) {
-                this.newField.value = newVal.hex;
-                this.$emit('change', this.newField.name, this.newField.value, this.idx);
-            }
+    methods: {
+        update() {
+            this.newField.value = this.newField.value.hex;
+            this.$emit('change', this.newField.name, this.newField.value, this.idx);
         }
     },
     watch: {
         field: {
-            deep: true,
+            immediate: true,
             handler() {
-                this.newField = JSON.parse(JSON.stringify(this.field))
+                this.newField = JSON.parse(JSON.stringify(this.field));
+                this.newField.value = this.newField.value || this.newField.default || 'transparent';
             }
         }
     }
