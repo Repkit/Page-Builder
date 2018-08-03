@@ -84,8 +84,8 @@ function emptySite(userId) {
 }
 
 function emptyElement(type, data = {}, style = {}) {
-    style.margin = '0';
-    style.padding = '20px';
+    style.margin = style.margin || '0';
+    style.padding = style.margin || '30px';
     return {
         _id: _makeId(),
         settings: { type },
@@ -96,8 +96,7 @@ function emptyElement(type, data = {}, style = {}) {
 }
 
 function emptySectionElement(colsCount = 1) {
-    var style = { margin: '0 auto 0 auto', padding: '20px', minHeight: '100px' };
-    var newSection = {
+    let mainSection = {
         _id: _makeId(),
         settings: {
             type: 'section'
@@ -105,24 +104,30 @@ function emptySectionElement(colsCount = 1) {
         data: {
             direction: 'row'
         },
-        styles: style,
+        styles: {
+            margin: '0 auto 0 auto',
+            padding: '30px'
+        },
         elements: []
+    };
+    for (let i = 0; i < colsCount; i++) {
+        let innerSection = {
+            _id: _makeId(),
+            settings: {
+                type: 'section'
+            },
+            data: {
+                direction: 'column'
+            },
+            styles: {
+                margin: '0 auto 0 auto',
+                padding: '30px'
+            },
+            elements: []
+        };
+        mainSection.elements.push(innerSection);
     }
-    for (var i = 0; i < colsCount; i++) {
-        newSection.elements.push(
-            {
-                _id: _makeId(),
-                settings: {
-                    type: 'section'
-                },
-                data: {
-                    direction: 'column'
-                },
-                styles: style,
-                elements: []
-            })
-    }
-    return newSection
+    return mainSection;
 }
 
 function _makeId(length = 20) {
@@ -137,7 +142,7 @@ function _makeId(length = 20) {
 
 function getSelectedElementById(element, id) {
     if (element._id === id) return element;
-    
+
     for (let elm of element.elements) {
         let match = getSelectedElementById(elm, id);
         if (match) return match;
