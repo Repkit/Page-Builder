@@ -42,6 +42,7 @@ export default {
             handler() {
                 this.newField = JSON.parse(JSON.stringify(this.field));
                 this.newField.value = this.newField.value || this.newField.default || [];
+                this.newField.placeholder = this.newField.placeholder || '';
             }
         }
     }
