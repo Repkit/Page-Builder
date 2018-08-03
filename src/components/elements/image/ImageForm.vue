@@ -66,6 +66,22 @@ export default {
         getStyles() {
             return [
                 {
+                    name: 'margin',
+                    cmp: 'input-text',
+                    label: 'Margin',
+                    placeholder: '0px 0px 0px 0px',
+                    default: '0',
+                    value: this.element.styles.margin
+                },
+                {
+                    name: 'padding',
+                    cmp: 'input-text',
+                    label: 'Padding',
+                    placeholder: '0px 0px 0px 0px',
+                    default: '30px',
+                    value: this.element.styles.padding
+                },
+                {
                     name: 'textAlign',
                     cmp: 'select',
                     label: 'Align',
@@ -82,10 +98,10 @@ export default {
                     name: 'opacity',
                     cmp: 'input-range',
                     label: 'Opacity',
-                    default: 0,
-                    min: 0,
-                    max: 1,
-                    step: 0.1,
+                    default: '1',
+                    min: '0',
+                    max: '1',
+                    step: '0.1',
                     value: this.element.styles.opacity
                 }
             ]

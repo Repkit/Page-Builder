@@ -59,6 +59,22 @@ export default {
         getStyles() {
             return [
                 {
+                    name: 'margin',
+                    cmp: 'input-text',
+                    label: 'Margin',
+                    placeholder: '0px 0px 0px 0px',
+                    default: '0',
+                    value: this.element.styles.margin
+                },
+                {
+                    name: 'padding',
+                    cmp: 'input-text',
+                    label: 'Padding',
+                    placeholder: '0px 0px 0px 0px',
+                    default: '30px',
+                    value: this.element.styles.padding
+                },
+                {
                     name: 'color',
                     cmp: 'color',
                     label: 'Text Color',

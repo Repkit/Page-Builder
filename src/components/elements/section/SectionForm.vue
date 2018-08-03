@@ -66,6 +66,7 @@ export default {
                     cmp: 'input-text',
                     label: 'Margin',
                     placeholder: '0px 0px 0px 0px',
+                    default: '0 auto',
                     value: this.element.styles.margin
                 },
                 {
@@ -73,6 +74,7 @@ export default {
                     cmp: 'input-text',
                     label: 'Padding',
                     placeholder: '0px 0px 0px 0px',
+                    default: '30px',
                     value: this.element.styles.padding
                 },
                 {
