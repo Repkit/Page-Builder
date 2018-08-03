@@ -8,28 +8,30 @@
                 <h1>Signup</h1>
                 <p v-if="isUserLoggedIn">You are a logged in user.</p>
                 <form v-else @submit.prevent="signup">
-                    <p>
-                        <input v-model="user.userName" type="text" placeholder="UserName" required />
-                    </p>
-                    <p>
-                        <input v-model="user.email" type="email" placeholder="Email" required />
-                    </p>
-                    <p>
-                        <input v-model="user.password" type="password" placeholder="Password" required />
-                    </p>
-                    <p>
-                        <input v-model="user.firstName" type="text" placeholder="FirstName" required />
-                    </p>
-                    <p>
-                        <input v-model="user.lastName" type="text" placeholder="LastName" required />
-                    </p>
-                    <p>
-                        <input v-model="user.image" type="url" placeholder="URL image" />
-                    </p>
+                  <div class="signup-form">
+                    <div class="signup-optns-container">
+                      <span>User name:</span>
+                      <span>Password:</span>
+                      <span>Email:</span>
+                      <span>First Name:</span>
+                      <span>Last Name:</span>
+                      <span>Profile Image:</span>
+                    </div>
+
+                    <div  class="signup-optns-container">
+                      <input v-model="user.userName" type="text" placeholder="UserName" required />
+                      <input v-model="user.password" type="password" placeholder="Password" required />
+                      <input v-model="user.email" type="email" placeholder="Email" required />
+                      <input v-model="user.firstName" type="text" placeholder="FirstName" required />
+                      <input v-model="user.lastName" type="text" placeholder="LastName" required />
+                      <input v-model="user.image" type="url" placeholder="URL image" />
+                    </div>
+
                     <p v-if="showErrorMessage">
-                        The username already exist, please choose a different name.
+                      The username already exist, please choose a different name.
                     </p>
-                    <button>Signup</button>
+                  </div>
+                  <button>Signup</button>
                 </form>
             </div>
         </section>
@@ -105,6 +107,57 @@ section {
 
   &.form {
     background-color: #eee;
+  }
+  form {
+    height: 70vh;
+  }
+  .signup-form {
+    display: flex;
+    justify-content:space-between;
+    height: 282px;
+    width: 46vw;
+    margin: 0 auto;
+    margin-bottom: 36px;
+  }
+  .signup-optns-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    span {
+      font-size: 27px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+  }
+  button {
+    height: 90px;
+    width: 120px;
+  }
+}
+@media (max-width: 770px) {
+  section {
+    .signup-form {
+      width:70vw;
+    }
+  }
+
+}
+@media (max-width:490px) {
+  section {
+    .container {
+      padding: 0px
+    }
+    .signup-form {
+      width:90vw;
+    }
+    .signup-optns-container {
+      padding: 0px;
+      span {
+        font-size: 15px;
+      }
+    }
   }
 }
 </style>
