@@ -52,6 +52,7 @@ function deleteSite(site) {
 }
 
 function publishSite(site) {
+    site.date.updated = Date.now()
     return axios.put(`${BASE_URL}/${site._id}`, site)
         .then(res => true)
         .catch(err => {
@@ -62,6 +63,7 @@ function publishSite(site) {
 
 function createNewSite(site) {
     site.date.created = Date.now()
+    site.date.updated = Date.now()
     return axios.post(`${BASE_URL}/${site._id}`, site)
         .then(res => res.data)
         .catch(err => {
