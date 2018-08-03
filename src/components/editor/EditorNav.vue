@@ -1,15 +1,15 @@
 <template>
     <section class="editor-nav flex flex-nowrap text-center">
 
-        <div class="editor-nav-item" @click="setEditorScreen('editor-add-section')">
+        <div class="flex-grow" title="Add New Section" @click="setEditorScreen('editor-add-section')">
             <font-awesome-icon :icon="['fas', 'plus']" />
             <div class="editor-nav-item-label"> Section </div>
         </div>
-        <div class="editor-nav-item" @click="setEditorScreen('editor-add-element')">
+        <div class="flex-grow" title="Add New Elements" @click="setEditorScreen('editor-add-element')">
             <font-awesome-icon :icon="['fas', 'th']" />
             <div class="editor-nav-item-label"> Elements </div>
         </div>
-        <div class="editor-nav-item" @click="setEditorScreen('editor-elements-tree')">
+        <div class="flex-grow" title="Elements Tree" @click="setEditorScreen('editor-elements-tree')">
             <font-awesome-icon :icon="['fas', 'cog']" />
             <div class="editor-nav-item-label"> Tree </div>
         </div>
@@ -36,8 +36,7 @@ export default {
     background-color: #fff;
     cursor: pointer;
 
-    .editor-nav-item {
-        flex: 0 33.33%;
+    > div {
         padding: 15px 0 10px;
         font-size: 20px;
         color: #333;

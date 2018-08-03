@@ -1,15 +1,18 @@
 <template>
     <section class="editor-footer flex space-around align-center flex-wrap">
 
-        <span @click="setSiteDetailsScreen">
+        <div class="flex-grow" title="Details" @click="setSiteDetailsScreen">
             <font-awesome-icon :icon="['fas', 'cog']" />
-        </span>
-        <span @click="showDisplay" target="_blank">
-            <font-awesome-icon :icon="['fas', 'eye']" />
-        </span>
-        <span @click="publish">
+        </div>
+        <div class="flex-grow" title="Save" @click="publish">
             <font-awesome-icon :icon="['fas', 'save']" />
-        </span>
+        </div>
+        <div class="flex-grow" title="Preview" @click="showDisplay" target="_blank">
+            <font-awesome-icon :icon="['fas', 'eye']" />
+        </div>
+        <div class="flex-grow" title="Exit" @click="exit">
+            <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
+        </div>
 
     </section>
 </template>
@@ -46,14 +49,16 @@ export default {
                 this.$store.dispatch({ type: 'publishSite' })
                     .then(isUpdated => {
                         if (isUpdated) {
-                            swal('Your Site has been sucsecfully Updated!', {
+                            swal({
+                                title: 'Your Site has been sucsecfully Updated!',
                                 icon: 'success',
                                 buttons: {
                                     ok: true,
                                 },
                             });
                         } else {
-                            swal('Had a problem in updating, please try again later', {
+                            swal({
+                                title: 'Had a problem in updating, please try again later',
                                 icon: 'error'
                             });
                         }
@@ -66,18 +71,21 @@ export default {
                         buttons: {
                             ok: true,
                         },
-                        html:`<p> Click 
-                            <a href="http://localhost:8080/#/signup" target="_blank" >Here</a>
-                            to sign up and then please click OK </p>`,
+                        html:`
+                            <p> 
+                                <a href="http://localhost:8080/#/signup" target="_blank">Click Here</a>
+                                to sign up and then please click OK
+                            </p>`,
                     })
-                        .then(() => this.setLogginUser())
+                    .then(() => this.setLogginUser())
                 } else {
                     this.$store.dispatch({ type: 'createNewSite' })
                         .then(site => {
                             if (site) {
                                 this.$store.commit({ type: 'loadSite', site });
                                 this.$store.commit({ type: 'addSite', site });
-                                swal('Your Site has been sucsecfully Created!', {
+                                swal({
+                                    title: 'Your Site has been sucsecfully Created!',
                                     icon: 'success',
                                     buttons: {
                                         ok: true,
@@ -85,13 +93,17 @@ export default {
                                 })
                                 .then(() => this.$router.push('/'+site._id+'/edit'))
                             } else {
-                                swal('Had a problem creating a new site, please try again later', {
+                                swal({
+                                    title: 'Had a problem creating a new site, please try again later',
                                     icon: 'error'
                                 });
                             }
                         });
                 }
             }
+        },
+        exit() {
+            this.$router.push('/');
         }
     }
 };
@@ -100,29 +112,19 @@ export default {
 <style scoped lang="scss">
 .editor-footer {
     background-color: #333;
-    color: #999;
+    color: #fff;
+    text-align: center;
 
-    a {
+    > div {
         padding: 10px 0;
         font-size: 0.85em;
         line-height: 1.5;
-        color: #999;
-        cursor: pointer;
-        transition: .5s;
-
-        &:hover {
-            color: #fff;
-            transition: .5s;
-        }
-    }
-
-    > span {
-        padding: 10px 0;
         font-size: 15px;
         cursor: pointer;
         transition: .5s;
 
         &:hover {
+            background-color: #666;
             color: #fff;
             transition: .5s;
         }
