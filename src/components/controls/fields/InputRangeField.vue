@@ -3,12 +3,10 @@
 
         <label>{{newField.label}}</label>
         <div class="flex">
-            <input v-model="value" @input="$emit('change', newField.name, newField.value, idx)"
-                :min="newField.min" :max="newField.max" :step="newField.step"
-                type="range" name="newField.name" />
-            <input v-model="value" @input="$emit('change', newField.name, newField.value, idx)"
-                :min="newField.min" :max="newField.max" :step="newField.step"
-                type="number" name="newField.name" />
+            <input v-model="newField.value" @input="update" :min="newField.min" :max="newField.max"
+                :step="newField.step" type="range" name="newField.name" />
+            <input v-model="newField.value" @input="update" :min="newField.min" :max="newField.max"
+                :step="newField.step" type="number" name="newField.name" />
         </div>
 
     </div>
@@ -20,25 +18,26 @@ export default {
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: JSON.parse(JSON.stringify(this.field))
+            newField: null
         }
     },
-    computed: {
-        value: {
-            get() {
-                return parseInt(this.newField.value) || this.newField.default || 0;
-            },
-            set(newVal) {
-                let unit = ( this.newField.unit ) ? this.newField.unit : '';
-                this.newField.value = newVal + unit;
-            }
+    methods: {
+        update() {
+            let unit = ( this.newField.unit ) ? this.newField.unit : '';
+            this.newField.value += unit;
+            this.$emit('change', this.newField.name, this.newField.value, this.idx);
         }
     },
     watch: {
         field: {
-            deep: true,
+            immediate: true,
             handler() {
-                this.newField = JSON.parse(JSON.stringify(this.field))
+                this.newField = JSON.parse(JSON.stringify(this.field));
+                this.newField.value = parseInt(this.newField.value) || parseInt(this.newField.default) || 0;
+                this.newField.min = ( this.newField.min ) ? this.newField.min : '0';
+                this.newField.max = ( this.newField.max ) ? this.newField.max : '100';
+                this.newField.step = ( this.newField.step ) ? this.newField.step : '1';
+                this.newField.unit = ( this.newField.unit ) ? this.newField.unit : '';
             }
         }
     }
