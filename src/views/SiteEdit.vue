@@ -73,6 +73,7 @@ export default {
 
         &:hover {
             outline: 2px solid lightskyblue;
+            outline-offset: -1px;
             z-index: 999;
 
             > .element-actions {
@@ -82,7 +83,8 @@ export default {
     }
 
     .selected {
-        outline: 4px solid lightskyblue !important;
+        outline: 2px solid lightskyblue;
+        outline-offset: -1px;
         z-index: 999;
     }
 }
