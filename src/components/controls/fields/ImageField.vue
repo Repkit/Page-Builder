@@ -4,7 +4,7 @@
         <label >{{newField.label}}</label>
         <label for="upload-image">
             <div class="image-preview">
-                <img :src="value" />
+                <img :src="newField.value" />
                 <div class="image-upload">
                     <span> Upload </span>
                 </div>
@@ -15,8 +15,8 @@
             <input id="upload-image" type="file" name="img" @change.prevent="uploadImg" hidden />
         </form>
 
-        <input v-model="value" @input="$emit('change', newField.name, newField.value, idx)"
-            type="url" name="newField.name" :placeholder="newField.placeholder" />
+        <input :value="newField.value" readonly
+            type="url" :name="newField.name" :placeholder="newField.placeholder" />
 
     </div>
 </template>
@@ -28,39 +28,38 @@ export default {
     props: [ 'field', 'idx' ],
     data() {
         return {
-            newField: JSON.parse(JSON.stringify(this.field))
-        }
-    },
-    computed: {
-        value: {
-            get() {
-                let val = this.newField.value || this.newField.default || '';
-                val = val.replace( this.newField.prefix, '' ).replace( this.newField.suffix, '' );
-                return val;
-            },
-            set(newVal) {
-                let prefix = ( this.newField.prefix ) ? this.newField.prefix : '';
-                let suffix = ( this.newField.suffix ) ? this.newField.suffix : '';
-                this.newField.value = prefix + newVal + suffix;
-            }
+            newField: null
         }
     },
     methods: {
+        update(newVal) {
+            let value = newVal ? newVal : this.newField.value;
+            let prefix = ( this.newField.prefix ) ? this.newField.prefix : '';
+            let suffix = ( this.newField.suffix ) ? this.newField.suffix : '';
+            this.newField.value = prefix + value + suffix;
+            this.$emit('change', this.newField.name, this.newField.value, this.idx);
+        },
         uploadImg() {
             CloudinaryService.doUploadImg(this.$refs.formUpload)
                 .then(cloudinaryImg => {
                     if  (!cloudinaryImg.error) {
-                        this.value = cloudinaryImg.url;
-                        this.$emit('change', this.newField.name, this.newField.value, this.idx);
-                    }   
-                })
+                        this.update( cloudinaryImg.url );
+                    }
+                });
         },
     },
     watch: {
         field: {
-            deep: true,
+            immediate: true,
             handler() {
-                this.newField = JSON.parse(JSON.stringify(this.field))
+                this.newField = JSON.parse(JSON.stringify(this.field));
+                let value = this.newField.value || this.newField.default || '';
+                let prefix = ( this.newField.prefix ) ? this.newField.prefix : '';
+                let suffix = ( this.newField.suffix ) ? this.newField.suffix : '';
+                value = value.replace( prefix, '' );
+                value = value.replace( suffix, '' );
+                this.newField.value = value;
+                this.newField.placeholder = this.newField.placeholder || '';
             }
         }
     }
