@@ -1,16 +1,16 @@
 <template>
-    <div class="user-profile">
+    <div class="user-profile" v-if="isUserLoggedIn">
 
         <main-nav></main-nav>
 
-        <section class="user-data" v-if="isUserLoggedIn">
+        <section class="user-data">
             <div class="container">
                 <user-details :user="loggedInUser"></user-details>
             </div>
             <router-link to="/profile/edit" > Edit Profile </router-link>
         </section>
 
-        <section class="user-sites" v-if="isUserLoggedIn">
+        <section class="user-sites">
             <div class="container">
                 <site-list :sites="sites" @on-delete="loadUserSites"></site-list>
             </div>
@@ -48,23 +48,21 @@ export default {
     },
     watch: {
         'loggedInUser': {
+            immediate: true,
             handler() {
-                if (this.loggedInUser._id) {
+                if (this.isUserLoggedIn) {
                     this.$store.dispatch({ type: 'loadSitesByUserName', userName: this.loggedInUser.userName })
-                        .then(sites => {
-                            this.sites = sites;
-                        });
+                        .then(sites => this.sites = sites );
+                } else {
+                    this.$router.push(`/notfound`);
                 }
-            }, 
-            immediate: true
+            }
         }
     },
     methods:{
         loadUserSites() {
             this.$store.dispatch({ type: 'loadSitesByUserName', userName: this.loggedInUser.userName })
-                .then(sites => {
-                    this.sites = sites;
-                });
+                .then(sites => this.sites = sites );
         }
     }
 };
