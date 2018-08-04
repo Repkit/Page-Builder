@@ -60,7 +60,7 @@ export default {
         }
     },
     methods:{
-        loadUserSites(){
+        loadUserSites() {
             this.$store.dispatch({ type: 'loadSitesByUserName', userName: this.loggedInUser.userName })
                 .then(sites => {
                     this.sites = sites;

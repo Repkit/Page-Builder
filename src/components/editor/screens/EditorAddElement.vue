@@ -54,7 +54,7 @@ export default {
         }
     },
     methods:{
-        setDrag(type){
+        setDrag(type) {
             this.$store.commit({ type: 'setDrag', drag: type });
         }
     }

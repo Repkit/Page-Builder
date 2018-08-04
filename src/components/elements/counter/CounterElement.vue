@@ -27,7 +27,7 @@ export default {
             this.counter++;
         },
         dec() {
-            if(this.counter === 0) return
+            if (this.counter === 0) return
             this.counter--
         }
     }

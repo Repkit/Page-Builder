@@ -75,7 +75,7 @@ export default {
         flex-grow: 1;
     }
 }
-@media (max-width:720px){
+@media (max-width:720px) {
     .element.section-element {
         flex-direction: column !important;
     }

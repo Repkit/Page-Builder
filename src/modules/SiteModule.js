@@ -12,6 +12,8 @@ export default {
             date: {},
             elements: null,
         },
+
+        // Drag & Drop
         dropType: null,
     },
     getters: {
@@ -20,6 +22,8 @@ export default {
 
         // Current site
         site: state => state.site,
+
+        // Drag & Drop
         dropType: state => state.dropType, 
     },
     mutations: {
@@ -66,15 +70,17 @@ export default {
         updateElement(state, { newElement }) {
             state.site.elements = SiteService.updateElement(state.site.elements, newElement)
         },
-        updatedropType(state, { elementId }){
-            state.dropType = SiteService.getTypeById(state.site.elements, elementId)
-        },
-        moveElement(state, { id, direction}){
+        moveElement(state, { id, direction}) {
             state.site.elements = SiteService.moveElementById(state.site.elements, id, direction)
         },
         updateUserId(state, { user }) {
             state.site.user_id = user._id
         },
+
+        // Drag & Drop
+        updateDropType(state, { elementId }) {
+            state.dropType = SiteService.getTypeById(state.site.elements, elementId)
+        }
     },
     actions: {
         publishSite(context) {

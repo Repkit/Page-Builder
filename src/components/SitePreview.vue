@@ -56,7 +56,7 @@ export default {
         drop(ev) {
             var elementType = this.drag;
             var elementId = ev.target.getAttribute('data-element-id');
-            this.$store.commit('updatedropType',{ elementId });
+            this.$store.commit('updateDropType',{ elementId });
             var dropType = this.dropType;
             if (dropType !== 'section') {
                 this.$store.commit('updateDropParent',{ site: this.site, elementId });

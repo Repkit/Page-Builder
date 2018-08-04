@@ -36,7 +36,7 @@ export default {
             }
         },
         showDisplay() {
-            if(!this.site._id) return;
+            if (!this.site._id) return;
             let route = this.$router.resolve({path: '/' + this.site._id});
             window.open(route.href, '_blank');
         },
