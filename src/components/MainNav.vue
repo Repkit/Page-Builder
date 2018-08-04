@@ -54,7 +54,7 @@ export default {
             if (this.isUserLoggedIn && !this.displayLogin) return;
             this.$swal({
                 title: 'Login',
-                html:`
+                html: `
                     <p>
                         <label>Username:</label>
                         <input class="input1" type="text" required /> 
@@ -85,28 +85,33 @@ export default {
         },
         logout() {
             this.$store.dispatch({ type: 'logout' })
-                .then( () => {
-                    this.$router.push('/');
-                });
+                .then( () => this.$router.push('/'));
         },
         login() {
             let user = { userName: this.user.userName, password: this.user.password };
             this.$store.dispatch({ type: 'login', user })
-            .then(user => {
-                if (user) {
-                    this.$swal({
-                        title: 'Logged In successfully',
-                        type: 'success'
-                    })
-                    .then(() => {
-                        this.$router.push(`/profile`);
-                    })
-                } 
-                else this.$swal({
-                    title: 'User not found.. Please Sign Up!',
-                    type: 'error'
-                })
-            });
+                .then(user => {
+                    if (user) {
+                        swal({
+                            title: 'Login',
+                            text: 'Logged in successfully.',
+                            timer: 5000,
+                            button: {
+                                ok: true
+                            }
+                        })
+                        .then(() => this.$router.push(`/profile`));
+                    } else {
+                        swal({
+                            title: 'Login',
+                            text: 'User not found. Please sign up!',
+                            timer: 5000,
+                            button: {
+                                ok: true
+                            }
+                        });
+                    }
+                });
         }
     },
     computed: {

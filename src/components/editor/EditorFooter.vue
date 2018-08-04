@@ -50,28 +50,33 @@ export default {
                     .then(isUpdated => {
                         if (isUpdated) {
                             swal({
-                                title: 'Your Site has been sucsecfully Updated!',
-                                icon: 'success',
-                                buttons: {
-                                    ok: true,
-                                },
+                                title: 'Site Updated',
+                                text: 'The site has been sucsecfully updated.',
+                                timer: 5000,
+                                button: {
+                                    ok: true
+                                }
                             });
                         } else {
                             swal({
-                                title: 'Had a problem in updating, please try again later',
-                                icon: 'error'
+                                title: 'Site Not Updated',
+                                text: 'An error accord. The site was not updated. Please try again later.',
+                                timer: 5000,
+                                button: {
+                                    ok: true
+                                }
                             });
                         }
                     });
             } else {
                 if (!this.loggedInUser._id) {
                     this.$swal({
-                        title: 'Please login to create a New site',
-                        icon: 'error',
-                        buttons: {
-                            ok: true,
+                        title: 'Create Site',
+                        text: 'Please login to create a new site.',
+                        button: {
+                            ok: true
                         },
-                        html:`
+                        html: `
                             <p> 
                                 <a href="http://localhost:8080/#/signup" target="_blank">Click Here</a>
                                 to sign up and then please click OK
@@ -85,17 +90,22 @@ export default {
                                 this.$store.commit({ type: 'loadSite', site });
                                 this.$store.commit({ type: 'addSite', site });
                                 swal({
-                                    title: 'Your Site has been sucsecfully Created!',
-                                    icon: 'success',
-                                    buttons: {
-                                        ok: true,
-                                    },
+                                    title: 'Site Created',
+                                    text: 'The site has been sucsecfully created.',
+                                    timer: 5000,
+                                    button: {
+                                        ok: true
+                                    }
                                 })
                                 .then(() => this.$router.push('/'+site._id+'/edit'))
                             } else {
                                 swal({
-                                    title: 'Had a problem creating a new site, please try again later',
-                                    icon: 'error'
+                                    title: 'Site Not Created',
+                                    text: 'An error accord. The site was not created. Please try again later.',
+                                    timer: 5000,
+                                    button: {
+                                        ok: true
+                                    }
                                 });
                             }
                         });

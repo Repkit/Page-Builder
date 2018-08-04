@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import swal from 'sweetalert'
+import swal from 'sweetalert';
 
 export default {
     name: 'site-list',
@@ -44,9 +44,8 @@ export default {
         },
         deleteSite(site) {
             swal({
-                title: 'Are you sure you want to delete?',
-                text: 'Once deleted, you will not be able to recover this Site, Delete anyway?',
-                icon: 'warning',
+                title: 'Delete Site',
+                text: 'Are you sure you want to delete? Once deleted, you will not be able to recover this Site, Delete anyway?',
                 buttons: true,
                 dangerMode: true,
             })
@@ -55,19 +54,26 @@ export default {
                     this.$store.dispatch({ type: 'deleteSite', site })
                         .then(isDelete =>  {
                             if (isDelete) {
-                                swal('Your Site has been sucsecfully deleted!', {
-                                    icon: 'success',
-                                    buttons: {
-                                        ok: true,
-                                    },
+                                swal({
+                                    title: 'Site Deleted',
+                                    text: 'The site has been sucsecfully deleted.',
+                                    timer: 5000,
+                                    button: {
+                                        ok: true
+                                    }
                                 })
                                 .then(() => this.$emit('on-delete'))
                             } else {
-                                swal('Had a problem in deleting, please try again later', {
-                                    icon: 'error'
+                                swal({
+                                    title: 'Site Not Deleted',
+                                    text: 'An error accord. The site was not deleted. Please try again later.',
+                                    timer: 5000,
+                                    button: {
+                                        ok: true
+                                    }
                                 });
                             }
-                        })     
+                        })
                 }
             })
         }
