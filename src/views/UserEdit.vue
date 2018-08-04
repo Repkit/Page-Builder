@@ -1,9 +1,9 @@
 <template>
-    <div class="user-edit">
+    <div class="user-edit" v-if="isUserLoggedIn">
 
         <main-nav></main-nav>
 
-        <section class="user-data" v-if="isUserLoggedIn">
+        <section class="user-data">
             <div class="container">
                 <user-details :user="loggedInUser"></user-details>
             </div>
@@ -13,41 +13,41 @@
         <section class="form">
             <div class="container">
 
-                <form @submit.prevent="saveUser" v-if="isUserLoggedIn">
+                <form @submit.prevent="saveUser">
                     <h3>User Details</h3>
                     <p>
                         <label> First name: </label>
-                        <input v-model="user.firstName" type="text" placeholder="FirstName" required>
+                        <input v-model="user.firstName" type="text" placeholder="Enter first name..." required />
                     </p>
                     <p>
                         <label> Last name: </label>
-                        <input v-model="user.lastName" type="text" placeholder="LastName" required>
+                        <input v-model="user.lastName" type="text" placeholder="Enter last name..." required />
                     </p>
                     <p>
                         <label> Password: </label>
-                        <input v-model="user.password" type="password" placeholder="Password" required>
+                        <input v-model="user.password" type="password" placeholder="Enter password..." required />
                     </p>
                     <p>
                         <label> User image: </label>
-                        <input v-model="user.image" type="url" placeholder="URL image">
+                        <input v-model="user.image" type="url" placeholder="https://..." />
                     </p>
                     <p>
                         <label> Website: </label>
-                        <input v-model="user.social.site" type="url" placeholder="URL site" />
+                        <input v-model="user.social.site" type="url" placeholder="https://..." />
                     </p>
 
                     <h3>Social Links</h3>
                     <p>
-                        <label> <font-awesome-icon size="lg" :icon="['fab', 'facebook-square']" /> </label>
-                        <input v-model="user.social.facebook" type="url" placeholder="URL facebook" />
+                        <label> <font-awesome-icon size="lg" :icon="['fab', 'facebook-square']" /> Facebook </label>
+                        <input v-model="user.social.facebook" type="url" placeholder="https://..." />
                     </p>
                     <p>
-                        <label> <font-awesome-icon size="lg" :icon="['fab', 'twitter-square']" /> </label>
-                        <input v-model="user.social.twitter" type="url" placeholder="twitter" />
+                        <label> <font-awesome-icon size="lg" :icon="['fab', 'twitter-square']" /> Twitter </label>
+                        <input v-model="user.social.twitter" type="url" placeholder="https://..." />
                     </p>
                     <p>
-                        <label> <font-awesome-icon size="lg" :icon="['fab', 'linkedin']" /> </label>
-                        <input v-model="user.social.linkedin" type="url" placeholder="linkedin" />
+                        <label> <font-awesome-icon size="lg" :icon="['fab', 'linkedin']" /> Linkedin </label>
+                        <input v-model="user.social.linkedin" type="url" placeholder="https://..." />
                     </p>
 
                     <p v-if="errNameUser">
@@ -72,25 +72,13 @@ export default {
     components: { MainNav, UserDetails },
     data() {
         return {
-            user: {
-                userName: '',
-                email: '',
-                password: '',
-                firstName: '',
-                lastName: '',
-                image: '',
-                social: {
-                    site: '',
-                    facebook: '',
-                    twitter: '',
-                    linkedin: ''
-                }
-            },
+            user: null,
             errNameUser: false
         };
     },
     created() {
-        this.copyUser();
+        if (this.isUserLoggedIn) this.user = JSON.parse(JSON.stringify(this.loggedInUser))
+        else this.$router.push(`/notfound`);
     },
     computed: {
         loggedInUser() {
@@ -101,36 +89,11 @@ export default {
         }
     },
     methods: {
-        copyUser() {
-            this.user = Object.assign({}, this.loggedInUser);
-        },
         saveUser() {
-            this.user._id = this.loggedInUser._id;
-
-            this.$store
-                .dispatch({
-                    type: 'updateUser',
-                    user: {
-                        _id: this.user._id,
-                        userName: this.user.userName,
-                        password: this.user.password,
-                        firstName: this.user.firstName,
-                        lastName: this.user.lastName,
-                        site: this.user.site,
-                        image: this.user.image,
-                        social: {
-                            site: this.user.social.site,
-                            facebook: this.user.social.facebook,
-                            twitter: this.user.social.twitter,
-                            linkedin: this.user.social.linkedin
-                        }
-                    }
-                })
+            this.$store.dispatch({ type: 'updateUser', user: this.user })
                 .then(data => {
-                    if (!data) {
-                        this.errNameUser = true;
-                    } else {
-                        //connect user
+                    if (data) {
+                        // Connect user
                         let user = {
                             userName: this.user.userName,
                             password: this.user.password
@@ -139,6 +102,9 @@ export default {
                             .then(user => {
                                 if (user) this.$router.push(`/profile`);
                             });
+                    } else {
+                        // Return an error
+                        this.errNameUser = true;
                     }
                 });
         }
@@ -159,19 +125,18 @@ section {
         .container {
             width: 500px;
         }
-    }
-
-    h3 {
-        margin: 1.5em auto;
-    }
-    label {
-        display: inline-block;
-        min-width: 150px;
-        text-align: left;
-    }
-    input {
-        min-width: 300px;
-        padding: 5px 10px;
+        h3 {
+            margin: 1.5em auto;
+        }
+        label {
+            display: inline-block;
+            min-width: 150px;
+            text-align: left;
+        }
+        input {
+            min-width: 300px;
+            padding: 5px 10px;
+        }
     }
 }
 </style>
