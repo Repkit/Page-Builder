@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const USER_URL = (process.env.NODE_ENV !== 'development')
+const BASE_URL = (process.env.NODE_ENV !== 'development')
     ? '/user'
     : '//localhost:3000/user';
 
