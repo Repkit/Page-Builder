@@ -5,33 +5,35 @@
 
         <section class="form">
             <div class="container">
-                <h1>Signup</h1>
+
                 <form @submit.prevent="signup">
-                  <div class="signup-form">
-                    <div class="signup-optns-container">
-                      <span>User name:</span>
-                      <span>Password:</span>
-                      <span>Email:</span>
-                      <span>First Name:</span>
-                      <span>Last Name:</span>
-                      <span>Profile Image:</span>
-                    </div>
-
-                    <div  class="signup-optns-container">
-                      <input v-model="user.userName" type="text" placeholder="UserName" required />
-                      <input v-model="user.password" type="password" placeholder="Password" required />
-                      <input v-model="user.email" type="email" placeholder="Email" required />
-                      <input v-model="user.firstName" type="text" placeholder="FirstName" required />
-                      <input v-model="user.lastName" type="text" placeholder="LastName" required />
-                      <input v-model="user.image" type="url" placeholder="URL image" />
-                    </div>
-
-                    <p v-if="showErrorMessage">
-                      The username already exist, please choose a different name.
+                    <h3>Signup</h3>
+                    <p>
+                        <label> User Name: </label>
+                        <input v-model="user.userName" type="text" placeholder="Enter user name..." required />
                     </p>
-                  </div>
-                  <button>Signup</button>
+                    <p>
+                        <label> Password: </label>
+                        <input v-model="user.password" type="password" placeholder="Enter password..." required />
+                    </p>
+                    <p>
+                        <label> Email: </label>
+                        <input v-model="user.email" type="email" placeholder="Enter Email..." required />
+                    </p>
+                    <p>
+                        <label> First name: </label>
+                        <input v-model="user.firstName" type="text" placeholder="Enter first name..." required />
+                    </p>
+                    <p>
+                        <label> Last name: </label>
+                        <input v-model="user.lastName" type="text" placeholder="Enter last name..." required />
+                    </p>
+                    <p v-if="showErrorMessage">
+                        <strong>Warning:</strong> The username already exist, please choose a different name.
+                    </p>
+                    <button>Signup</button>
                 </form>
+
             </div>
         </section>
 
@@ -45,121 +47,80 @@ import MainNav from '@/components/MainNav.vue';
 import MainFooter from '@/components/MainFooter.vue';
 
 export default {
-  name: "user-sign-up",
-  components: { MainNav, MainFooter },
-  data() {
-    return {
-      user: {
-        userName: "",
-        email: "",
-        password: "",
-        firstName: "",
-        lastName: "",
-        image: "",
-        social: {}
-      },
-      showErrorMessage: false
-    };
-  },
-  created() {
-    if (this.isUserLoggedIn) this.$router.push('/profile');
-  },
-  computed: {
-    isUserLoggedIn() {
-      return this.$store.getters.isUserLoggedIn;
+    name: 'user-sign-up',
+    components: { MainNav, MainFooter },
+    data() {
+        return {
+            user: {
+                userName: '',
+                password: '',
+                email: '',
+                firstName: '',
+                lastName: '',
+                image: '',
+                site: '',
+                social: {}
+            },
+            showErrorMessage: false
+        };
+    },
+    created() {
+        if (this.isUserLoggedIn) this.$router.push('/profile');
+    },
+    computed: {
+        isUserLoggedIn() {
+            return this.$store.getters.isUserLoggedIn;
+        }
+    },
+    methods: {
+        signup() {
+            var user = this.user;
+            this.$store.dispatch({ type: 'signup', user })
+                .then(data => {
+                    if (data) {
+                        let user = {
+                            userName: this.user.userName,
+                            password: this.user.password
+                        };
+                        this.$store.dispatch({ type: 'login', user })
+                            .then(user => {
+                                if (user) this.$router.push('/profile');
+                            });
+                    } else {
+                        this.showErrorMessage = true;
+                    }
+                });
+        }
     }
-  },
-  methods: {
-    signup() {
-      var user = this.user;
-      this.$store
-        .dispatch({
-          type: "signup",
-          user: {
-            userName: this.user.userName,
-            email: this.user.email,
-            password: this.user.password,
-            firstName: this.user.firstName,
-            lastName: this.user.lastName,
-            image: this.user.image,
-            social: {}
-          }
-        })
-        .then(data => {
-          if (!data) {
-            this.showErrorMessage = true;
-          } else {
-            // Connect user
-            let user = {
-              userName: this.user.userName,
-              password: this.user.password
-            };
-            this.$store.dispatch({ type: "login", user })
-            .then(user => {
-              if (user) this.$router.push(`/profile`);
-            });
-          }
-        });
-    }
-  }
 };
 </script>
 
 <style scoped lang="scss">
 section {
-  padding: 20px 0;
-  text-align: center;
+    padding: 20px 0;
 
-  form {
-    height: 70vh;
-  }
-  .signup-form {
-    display: flex;
-    justify-content:space-between;
-    height: 282px;
-    width: 46vw;
-    margin: 0 auto;
-    margin-bottom: 36px;
-  }
-  .signup-optns-container {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
-    span {
-      font-size: 27px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-  }
-  button {
-    height: 90px;
-    width: 120px;
-  }
-}
-@media (max-width: 770px) {
-  section {
-    .signup-form {
-      width:70vw;
-    }
-  }
+    &.form {
+        height: 85vh;
 
-}
-@media (max-width:490px) {
-  section {
-    .container {
-      padding: 0px
+        .container {
+            width: 500px;
+        }
+        h3 {
+            margin: 1.5em auto;
+            text-align: center;
+        }
+        label {
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 5px 10px;
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+        }
     }
-    .signup-form {
-      width:90vw;
-    }
-    .signup-optns-container {
-      padding: 0px;
-      span {
-        font-size: 15px;
-      }
-    }
-  }
 }
 </style>
