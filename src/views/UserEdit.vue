@@ -50,10 +50,6 @@
                         <input v-model="user.social.linkedin" type="url" placeholder="https://..." />
                     </p>
 
-                    <p v-if="errNameUser">
-                        The username already exist, please choose a different name.
-                    </p>
-
                     <button>Save</button>
                 </form>
 
@@ -75,8 +71,7 @@ export default {
     components: { MainNav, UserDetails, MainFooter },
     data() {
         return {
-            user: null,
-            errNameUser: false
+            user: null
         };
     },
     created() {
@@ -96,7 +91,6 @@ export default {
             this.$store.dispatch({ type: 'updateUser', user: this.user })
                 .then(data => {
                     if (data) {
-                        // Connect user
                         let user = {
                             userName: this.user.userName,
                             password: this.user.password
@@ -105,9 +99,6 @@ export default {
                             .then(user => {
                                 if (user) this.$router.push('/profile');
                             });
-                    } else {
-                        // Return an error
-                        this.errNameUser = true;
                     }
                 });
         }
