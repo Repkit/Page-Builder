@@ -7,7 +7,7 @@
             <div class="container">
                 <user-details :user="loggedInUser"></user-details>
             </div>
-            <router-link to="/profile/" > User Profile </router-link>
+            <router-link to="/profile/"> User Profile </router-link>
         </section>
 
         <section class="form">
@@ -60,16 +60,19 @@
             </div>
         </section>
 
+        <main-footer></main-footer>
+
     </div>
 </template>
 
 <script>
 import MainNav from '@/components/MainNav.vue';
 import UserDetails from '@/components/UserDetails.vue';
+import MainFooter from '@/components/MainFooter.vue';
 
 export default {
     name: 'user-edit',
-    components: { MainNav, UserDetails },
+    components: { MainNav, UserDetails, MainFooter },
     data() {
         return {
             user: null,
@@ -78,7 +81,7 @@ export default {
     },
     created() {
         if (this.isUserLoggedIn) this.user = JSON.parse(JSON.stringify(this.loggedInUser))
-        else this.$router.push(`/notfound`);
+        else this.$router.push('/');
     },
     computed: {
         loggedInUser() {
@@ -100,7 +103,7 @@ export default {
                         };
                         this.$store.dispatch({ type: 'login', user })
                             .then(user => {
-                                if (user) this.$router.push(`/profile`);
+                                if (user) this.$router.push('/profile');
                             });
                     } else {
                         // Return an error
