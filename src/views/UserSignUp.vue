@@ -1,13 +1,12 @@
 <template>
-    <div class="user-sign-up">
+    <div class="user-sign-up" v-if="!isUserLoggedIn">
 
         <main-nav></main-nav>
 
         <section class="form">
             <div class="container">
                 <h1>Signup</h1>
-                <p v-if="isUserLoggedIn">You are a logged in user.</p>
-                <form v-else @submit.prevent="signup">
+                <form @submit.prevent="signup">
                   <div class="signup-form">
                     <div class="signup-optns-container">
                       <span>User name:</span>
@@ -36,15 +35,18 @@
             </div>
         </section>
 
+        <main-footer></main-footer>
+
     </div>
 </template>
 
 <script>
-import MainNav from "@/components/MainNav.vue";
+import MainNav from '@/components/MainNav.vue';
+import MainFooter from '@/components/MainFooter.vue';
 
 export default {
   name: "user-sign-up",
-  components: { MainNav },
+  components: { MainNav, MainFooter },
   data() {
     return {
       user: {
@@ -58,6 +60,9 @@ export default {
       },
       showErrorMessage: false
     };
+  },
+  created() {
+    if (this.isUserLoggedIn) this.$router.push('/profile');
   },
   computed: {
     isUserLoggedIn() {
@@ -105,9 +110,6 @@ section {
   padding: 20px 0;
   text-align: center;
 
-  &.form {
-    background-color: #eee;
-  }
   form {
     height: 70vh;
   }
