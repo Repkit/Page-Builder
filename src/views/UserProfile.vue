@@ -73,10 +73,10 @@ export default {
 <style scoped lang="scss">
 section {
     padding: 20px 0;
-    text-align: center;
 
     &.user-data {
         background-color: #eee;
+        text-align: center;
     }
 }
 </style>

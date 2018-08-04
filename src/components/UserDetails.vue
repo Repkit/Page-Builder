@@ -39,33 +39,38 @@ export default {
 </script>
 
 <style scoped lang="scss">
-img {
-    display: inline-block;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    box-shadow: #000 0 0 10px;
-    width: 150px;
-    height: auto;
-}
-a {
-    text-decoration: none;
-    color: #000;
-}
-h1 {
-    margin: 0;
-    font-size: 2.5em;
-    font-weight: 700;
-    line-height: 1.25;
-    color: #333;
-}
-p {
-    margin: 0;
-    font-size: 1.5em;
-    font-weight: 300;
-    line-height: 1.5;
-    color: #333;
-}
-.social li {
-    padding: 0 0.5em;
+.user-details {
+    padding: 20px 0;
+    text-align: center;
+
+    img {
+        display: inline-block;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        box-shadow: #000 0 0 10px;
+        width: 150px;
+        height: auto;
+    }
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    h1 {
+        margin: 0;
+        font-size: 2.5em;
+        font-weight: 700;
+        line-height: 1.25;
+        color: #333;
+    }
+    p {
+        margin: 0;
+        font-size: 1.5em;
+        font-weight: 300;
+        line-height: 1.5;
+        color: #333;
+    }
+    .social li {
+        padding: 0 0.5em;
+    }
 }
 </style>
