@@ -7,7 +7,7 @@
             <div class="container">
                 <user-details :user="loggedInUser"></user-details>
             </div>
-            <router-link to="/profile/edit" > Edit Profile </router-link>
+            <router-link to="/profile/edit"> Edit Profile </router-link>
         </section>
 
         <section class="user-sites">
@@ -50,12 +50,8 @@ export default {
         'loggedInUser': {
             immediate: true,
             handler() {
-                if (this.isUserLoggedIn) {
-                    this.$store.dispatch({ type: 'loadSitesByUserName', userName: this.loggedInUser.userName })
-                        .then(sites => this.sites = sites );
-                } else {
-                    this.$router.push(`/notfound`);
-                }
+                if (this.isUserLoggedIn) this.loadUserSites();
+                else this.$router.push('/');
             }
         }
     },
