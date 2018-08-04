@@ -7,7 +7,7 @@
             <div class="container">
                 <user-details :user="loggedInUser"></user-details>
             </div>
-            <router-link to="/profile/edit" > Edit profile </router-link>
+            <router-link to="/profile/edit" > Edit Profile </router-link>
         </section>
 
         <section class="user-sites" v-if="isUserLoggedIn">
