@@ -11,9 +11,7 @@
                 <li v-if="isUserLoggedIn"><router-link to="/profile" v-if="isUserLoggedIn"> My Profile </router-link></li>
                 <li v-if="isUserLoggedIn"><button @click="logout" > Logout </button></li>
                 <li v-if="!isUserLoggedIn"><router-link to="/signup" > Signup </router-link></li>
-                <li v-if="!isUserLoggedIn">
-                    <button @click="toggleLogin" > Login </button>
-                </li>
+                <li v-if="!isUserLoggedIn"><button @click="toggleLogin" > Login </button></li>
             </ul>
 
             <div ref="navMobile" class="nav-mobile" @click="toggleNavMobile">
@@ -35,9 +33,17 @@ export default {
             navBarMObile: false,
             displayLogin: false,
             user: {
-                userName: "",
-                password: ""
-            },            
+                userName: '',
+                password: ''
+            }
+        }
+    },
+    computed: {
+        isUserLoggedIn() {
+            return this.$store.getters.isUserLoggedIn;
+        },
+        loggedInUser() {
+            return this.$store.getters.loggedInUser.userName;
         }
     },
     methods: {
@@ -45,6 +51,10 @@ export default {
             this.$refs.navMobile.classList.toggle("change");
             this.$refs.navDesktop.classList.toggle("open");
             this.$refs.toggleScreen.classList.toggle("show-div");
+        },
+        logout() {
+            this.$store.dispatch({ type: 'logout' })
+                .then( () => this.$router.push('/'));
         },
         toggleLogin() {
             this.displayLogin = !this.displayLogin;
@@ -83,10 +93,6 @@ export default {
             })
             .catch(swal.noop)
         },
-        logout() {
-            this.$store.dispatch({ type: 'logout' })
-                .then( () => this.$router.push('/'));
-        },
         login() {
             let user = { userName: this.user.userName, password: this.user.password };
             this.$store.dispatch({ type: 'login', user })
@@ -112,14 +118,6 @@ export default {
                         });
                     }
                 });
-        }
-    },
-    computed: {
-        isUserLoggedIn() {
-            return this.$store.getters.isUserLoggedIn;
-        },
-        loggedInUser() {
-            return this.$store.getters.loggedInUser.userName;
         }
     }
 };
