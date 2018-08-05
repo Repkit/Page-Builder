@@ -56,7 +56,7 @@ export default {
                         this.$store.commit({ type: 'loadSite', site });
                         setTimeout(() => {
                             this.loading = false;
-                        },2500)
+                        },1000)
                     }
                     else this.$router.push(`/${this.$route.params.siteId}`);
                 })
