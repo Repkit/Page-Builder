@@ -207,7 +207,6 @@ export default {
         right: 0;
         background: rgba(0, 0, 0, 0.897);
         border-left: 1px solid rgba(102, 102, 102, 0.5);
-        // color:  rgba(0, 0, 0, 0.781);
         min-width: 200px;
         transform: translate(100%, 0);
         transition: all .8s;
