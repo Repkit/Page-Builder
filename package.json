@@ -15,7 +15,6 @@
     "axios": "^0.18.0",
     "normalize.css": "^8.0.0",
     "register-service-worker": "^1.0.0",
-    "sweetalert": "^2.1.0",
     "vue": "^2.5.16",
     "vue-color": "^2.4.6",
     "vue-progress": "^0.2.1",

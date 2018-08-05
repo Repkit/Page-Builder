@@ -41,8 +41,6 @@
 </template>
 
 <script>
-import swal from 'sweetalert';
-
 export default {
     name: 'site-list',
     props: [ 'sites', 'addSite' ],
@@ -60,7 +58,7 @@ export default {
             this.$router.push(`/${site._id}/edit`);
         },
         deleteSite(site) {
-            swal({
+            this.$swal({
                 title: 'Delete Site',
                 text: 'Are you sure you want to delete? Once deleted, you will not be able to recover this Site, Delete anyway?',
                 buttons: true,
@@ -71,7 +69,7 @@ export default {
                     this.$store.dispatch({ type: 'deleteSite', site })
                         .then(isDelete =>  {
                             if (isDelete) {
-                                swal({
+                                this.$swal({
                                     title: 'Site Deleted',
                                     text: 'The site has been sucsecfully deleted.',
                                     timer: 5000,
@@ -81,7 +79,7 @@ export default {
                                 })
                                 .then(() => this.$emit('on-delete'))
                             } else {
-                                swal({
+                                this.$swal({
                                     title: 'Site Not Deleted',
                                     text: 'An error accord. The site was not deleted. Please try again later.',
                                     timer: 5000,

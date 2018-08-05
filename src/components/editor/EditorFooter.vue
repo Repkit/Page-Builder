@@ -49,7 +49,7 @@ export default {
                 this.$store.dispatch({ type: 'publishSite' })
                     .then(isUpdated => {
                         if (isUpdated) {
-                            swal({
+                            this.$swal({
                                 title: 'Site Updated',
                                 text: 'The site has been sucsecfully updated.',
                                 timer: 5000,
@@ -58,7 +58,7 @@ export default {
                                 }
                             });
                         } else {
-                            swal({
+                            this.$swal({
                                 title: 'Site Not Updated',
                                 text: 'An error accord. The site was not updated. Please try again later.',
                                 timer: 5000,
@@ -89,7 +89,7 @@ export default {
                             if (site) {
                                 this.$store.commit({ type: 'loadSite', site });
                                 this.$store.commit({ type: 'addSite', site });
-                                swal({
+                                this.$swal({
                                     title: 'Site Created',
                                     text: 'The site has been sucsecfully created.',
                                     timer: 5000,
@@ -99,7 +99,7 @@ export default {
                                 })
                                 .then(() => this.$router.push('/'+site._id+'/edit'))
                             } else {
-                                swal({
+                                this.$swal({
                                     title: 'Site Not Created',
                                     text: 'An error accord. The site was not created. Please try again later.',
                                     timer: 5000,

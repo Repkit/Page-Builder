@@ -98,7 +98,7 @@ export default {
             this.$store.dispatch({ type: 'login', user })
                 .then(user => {
                     if (user) {
-                        swal({
+                        this.$swal({
                             title: 'Login',
                             text: 'Logged in successfully.',
                             timer: 5000,
@@ -108,7 +108,7 @@ export default {
                         })
                         .then(() => this.$router.push(`/profile`));
                     } else {
-                        swal({
+                        this.$swal({
                             title: 'Login',
                             text: 'User not found. Please sign up!',
                             timer: 5000,
