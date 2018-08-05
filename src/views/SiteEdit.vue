@@ -1,26 +1,24 @@
 <template>
 
-    <split class="site-edit" v-if="isLoaded" :gutterSize="10">
-
-
-        <split-area :size="15" :minSize="100">
-            <editor :site="site" />
-        </split-area>
-
-        <split-area :size="85">
-            <site-preview :site="site" :isEditMode="true" />
-            <add-new-section />
-        </split-area>
-
-    </split>
-    
-    <div class="spinner" v-else>
+    <div v-if="loading" class="spinner">
         <div class="rect1"></div>
         <div class="rect2"></div>
         <div class="rect3"></div>
         <div class="rect4"></div>
         <div class="rect5"></div>
     </div>
+
+    <split v-else :gutterSize="10" class="site-edit">
+        <split-area :size="15" :minSize="100">
+            <editor :site="site" />
+        </split-area>
+        <split-area :size="85">
+            <site-preview :site="site" :isEditMode="true" />
+            <add-new-section />
+        </split-area>
+    </split>
+
+
 </template>
 
 <script>
@@ -35,7 +33,7 @@ export default {
     components: { Editor, SitePreview, AddNewSection },
     data() {
         return {
-            isLoaded: false,
+            loading: true,
         }
     },
     created() {
@@ -57,8 +55,8 @@ export default {
                     if (this.loggedInUser._id === site.user_id) {
                         this.$store.commit({ type: 'loadSite', site });
                         setTimeout(() => {
-                            this.isLoaded= true;
-                        },2000)
+                            this.loading = false;
+                        },2500)
                     }
                     else this.$router.push(`/${this.$route.params.siteId}`);
                 })
