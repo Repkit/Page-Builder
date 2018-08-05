@@ -12,7 +12,7 @@
 
         <section class="user-sites">
             <div class="container">
-                <site-list :sites="sites" @on-delete="loadUserSites"></site-list>
+                <site-list :addSite="true" :sites="sites" @on-delete="loadUserSites"></site-list>
             </div>
         </section>
 

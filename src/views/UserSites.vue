@@ -11,7 +11,7 @@
 
         <section class="user-sites" v-if="sites">
             <div class="container">
-                <site-list :sites="sites"></site-list>
+                <site-list :addSite="false" :sites="sites"></site-list>
             </div>
         </section>
 

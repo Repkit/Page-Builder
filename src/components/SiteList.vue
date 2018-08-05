@@ -1,11 +1,21 @@
 <template>
     <div class="site-list flex flex-wrap">
 
-        <div class="site-list-item add-site">
+        <div v-if="addSite" class="site-list-item add-site">
             <div><router-link to="/add">+</router-link></div>
         </div>
 
-        <div v-if="sites" v-for="site in sites" :key="site._id" class="site-list-item">
+        {{isLoading}}
+
+        <div v-if="loading" class="spinner" :class="{'center-spinner': !addSite}">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+
+        <div v-else v-for="site in sites" :key="site._id" class="site-list-item">
             <h3><router-link :to="'/'+site._id">{{site.name}}</router-link></h3>
             <router-link :to="'/'+site._id"><img :src="site.thumb"></router-link>
 
@@ -37,7 +47,12 @@ import swal from 'sweetalert';
 
 export default {
     name: 'site-list',
-    props: [ 'sites', 'add-site' ],
+    props: [ 'sites', 'addSite'],
+    data() {
+        return {
+            loading: true,
+        }
+    },
     methods:{
         editSite(site) {
             this.$router.push(`/${site._id}/edit`);
@@ -81,7 +96,10 @@ export default {
     computed:{
         loggedInUser() {
            return this.$store.getters.loggedInUser;
-        } 
+        },
+        isLoading(){
+            if(this.sites) setTimeout(() => this.loading = false, 1500);
+        }
     }
 };
 </script>
@@ -187,5 +205,12 @@ export default {
             }
         }
     }
+}
+.spinner {
+    top: 86%;
+    left: 62%;
+}
+.center-spinner {
+    left:50%
 }
 </style>
