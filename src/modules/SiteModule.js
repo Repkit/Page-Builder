@@ -24,7 +24,7 @@ export default {
         site: state => state.site,
 
         // Drag & Drop
-        dropType: state => state.dropType, 
+        dropType: state => state.dropType,
     },
     mutations: {
         // Sites List
@@ -70,7 +70,7 @@ export default {
         updateElement(state, { newElement }) {
             state.site.elements = SiteService.updateElement(state.site.elements, newElement);
         },
-        moveElement(state, { id, direction}) {
+        moveElement(state, { id, direction }) {
             state.site.elements = SiteService.moveElementById(state.site.elements, id, direction);
         },
         updateUserId(state, { user }) {
@@ -116,7 +116,7 @@ export default {
         },
         deleteSite(context, { site }) {
             return SiteService.deleteSite(site)
-                .then((isDelete) => {
+                .then(isDelete => {
                     if (!isDelete) return false;
                     context.commit({ type: 'deleteSite', site });
                     return true;
