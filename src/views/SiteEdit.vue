@@ -18,7 +18,6 @@
         </split-area>
     </split>
 
-
 </template>
 
 <script>
@@ -72,7 +71,7 @@ export default {
 
 <style lang="scss">
 .site-edit {
-    height: 100vh; /* required for split */
+    height: 100vh !important; /* required for split */
 
     .element {
         position: relative;
