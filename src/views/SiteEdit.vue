@@ -56,13 +56,16 @@ export default {
                         this.$store.commit({ type: 'loadSite', site });
                         setTimeout(() => {this.loading = false}, 1000);
                     }
-                    else this.$router.push(`/${this.$route.params.siteId}`);
+                    else {
+                        this.$router.push(`/${this.$route.params.siteId}`)
+                    }
                 })
                 .catch(err => {
                     this.$router.push('/notfound');
                 });
         },
         createNewSite() {
+            setTimeout(() => {this.loading = false}, 1000);
             this.$store.commit({ type: 'newSite', userId: this.loggedInUser._id });
             this.$store.commit({ type: 'setEditorScreen', screen: 'editor-site-details' });
         }
