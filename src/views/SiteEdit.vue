@@ -73,7 +73,7 @@ export default {
 <style lang="scss">
 .site-edit {
 
-    .split {
+    &.split {
         height: 100vh !important; /* required for split */
     }
 
