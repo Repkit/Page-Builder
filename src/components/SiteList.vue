@@ -5,7 +5,7 @@
             <div><router-link to="/add">+</router-link></div>
         </div>
 
-        <div v-if="isLoading" class="spinner" :class="{'center-spinner': !addSite}">
+        <div v-if="isLoading" class="spinner">
             <div class="rect1"></div>
             <div class="rect2"></div>
             <div class="rect3"></div>
@@ -46,6 +46,15 @@ import swal from 'sweetalert';
 export default {
     name: 'site-list',
     props: [ 'sites', 'addSite' ],
+    computed: {
+        loggedInUser() {
+           return this.$store.getters.loggedInUser;
+        },
+        isLoading() {
+            if (this.sites) return false;
+            else return true;
+        }
+    },
     methods: {
         editSite(site) {
             this.$router.push(`/${site._id}/edit`);
@@ -85,20 +94,19 @@ export default {
                 }
             })
         }
-    },
-    computed:{
-        loggedInUser() {
-           return this.$store.getters.loggedInUser;
-        },
-        isLoading() {
-            if (this.sites) return false;
-            else return true;
-        }
     }
 };
 </script>
 
 <style scoped lang="scss">
+.site-list {
+    position: relative;
+
+    .spinner {
+        top: 50%;
+        left: 50%;
+    }
+}
 .site-list-item {
     position: relative;
     width: 31%;
@@ -199,12 +207,5 @@ export default {
             }
         }
     }
-}
-.spinner {
-    top: 86%;
-    left: 62%;
-}
-.center-spinner {
-    left:50%
 }
 </style>
