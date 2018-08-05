@@ -5,9 +5,8 @@
             <div><router-link to="/add">+</router-link></div>
         </div>
 
-        {{isLoading}}
 
-        <div v-if="loading" class="spinner" :class="{'center-spinner': !addSite}">
+        <div v-if="isLoading" class="spinner" :class="{'center-spinner': !addSite}">
             <div class="rect1"></div>
             <div class="rect2"></div>
             <div class="rect3"></div>
@@ -47,13 +46,8 @@ import swal from 'sweetalert';
 
 export default {
     name: 'site-list',
-    props: [ 'sites', 'addSite'],
-    data() {
-        return {
-            loading: true,
-        }
-    },
-    methods:{
+    props: [ 'sites', 'addSite' ],
+    methods: {
         editSite(site) {
             this.$router.push(`/${site._id}/edit`);
         },
@@ -97,8 +91,9 @@ export default {
         loggedInUser() {
            return this.$store.getters.loggedInUser;
         },
-        isLoading(){
-            if(this.sites) setTimeout(() => this.loading = false, 1500);
+        isLoading() {
+            if (this.sites) return false;
+            else return true;
         }
     }
 };
