@@ -191,6 +191,7 @@ export default {
 }
 @media (max-width: 800px) {
     .show-div {
+        z-index: 1;
         visibility: visible;
         opacity: 1; 
         display:block;
@@ -204,8 +205,9 @@ export default {
         position: fixed;
         top: 0;
         right: 0;
-        background: rgba(255, 255, 255, 0.808);
+        background: rgba(0, 0, 0, 0.897);
         border-left: 1px solid rgba(102, 102, 102, 0.5);
+        // color:  rgba(0, 0, 0, 0.781);
         min-width: 200px;
         transform: translate(100%, 0);
         transition: all .8s;
@@ -243,7 +245,7 @@ export default {
     .bar1, .bar2, .bar3 {
         width: 35px;
         height: 5px;
-        background-color: black;
+        background-color: rgb(255, 255, 255);
         margin: 6px 0;
         transition: 0.4s;
     }
