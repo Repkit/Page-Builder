@@ -54,9 +54,7 @@ export default {
 				.then(site => {
                     if (this.loggedInUser._id === site.user_id) {
                         this.$store.commit({ type: 'loadSite', site });
-                        setTimeout(() => {
-                            this.loading = false;
-                        },2500)
+                        setTimeout(() => {this.loading = false}, 1000);
                     }
                     else this.$router.push(`/${this.$route.params.siteId}`);
                 })
