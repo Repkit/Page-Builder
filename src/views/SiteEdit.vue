@@ -71,7 +71,10 @@ export default {
 
 <style lang="scss">
 .site-edit {
-    height: 100vh !important; /* required for split */
+
+    .split {
+        height: 100vh !important; /* required for split */
+    }
 
     .element {
         position: relative;
