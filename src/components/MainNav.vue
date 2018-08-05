@@ -205,8 +205,8 @@ export default {
         position: fixed;
         top: 0;
         right: 0;
-        background: rgba(0, 0, 0, 0.897);
-        border-left: 1px solid rgba(102, 102, 102, 0.5);
+        background: rgba(0, 0, 0, 0.9);
+        border-left: 1px solid rgba(100, 100, 100, 0.5);
         min-width: 200px;
         transform: translate(100%, 0);
         transition: all .8s;
@@ -219,15 +219,13 @@ export default {
             border-bottom: 2px solid black;
             text-decoration: dotted;
             display: block;
-            // width: 100px;
-            // height: 130px;
             line-height: 60px;
             text-align: center;
             font-size: 16px;
         }
 
         li a:hover {
-            color: #42b983;
+            color: #999;
         }
     }
 
@@ -244,7 +242,7 @@ export default {
     .bar1, .bar2, .bar3 {
         width: 35px;
         height: 5px;
-        background-color: rgb(255, 255, 255);
+        background-color: #fff;
         margin: 6px 0;
         transition: 0.4s;
     }

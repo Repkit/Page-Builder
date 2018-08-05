@@ -65,16 +65,15 @@ section {
     text-align: center;
 
     &.main {
-        background-color: #4ac2fad2;
-        opacity: 0.9;
+        position: relative;
         background-image: url('../assets/img/cover.jpg');
-        width: 100%;
-        height: 75vh;
         background-attachment: fixed;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-        position: relative;
+        opacity: 0.9;
+        width: 100%;
+        min-height: 75vh;
 
         &::before {
             content: "";
@@ -94,7 +93,7 @@ section {
                 margin: 0 0 0.5em;
                 font-size: 3em;
                 font-weight: bold;
-                line-height: 1.5;
+                line-height: 1.25;
                 text-align: center;
                 color: #fff;
                 text-shadow: #000 0 0 5px;
@@ -106,6 +105,7 @@ section {
                 line-height: 1.5;
                 color: #fff;
             }
+
             button {
                 font-size: 1.5em;
                 border-color: #fff;
