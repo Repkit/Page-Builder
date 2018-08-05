@@ -1,16 +1,24 @@
 <template>
-    <split class="site-edit" v-if="site" :gutterSize="10">
 
+    <div v-if="loading" class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+
+    <split v-else :gutterSize="10" class="site-edit">
         <split-area :size="15" :minSize="100">
             <editor :site="site" />
         </split-area>
-
         <split-area :size="85">
             <site-preview :site="site" :isEditMode="true" />
             <add-new-section />
         </split-area>
-
     </split>
+
+
 </template>
 
 <script>
@@ -23,6 +31,11 @@ import AddNewSection from "@/components/editor/AddNewSection.vue";
 export default {
     name: 'site-edit',
     components: { Editor, SitePreview, AddNewSection },
+    data() {
+        return {
+            loading: true,
+        }
+    },
     created() {
         if ( this.$route.path !== '/add' ) this.loadSite();
         else this.createNewSite();
@@ -41,6 +54,9 @@ export default {
 				.then(site => {
                     if (this.loggedInUser._id === site.user_id) {
                         this.$store.commit({ type: 'loadSite', site });
+                        setTimeout(() => {
+                            this.loading = false;
+                        },2500)
                     }
                     else this.$router.push(`/${this.$route.params.siteId}`);
                 })
