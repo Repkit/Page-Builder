@@ -5,7 +5,6 @@
             <div><router-link to="/add">+</router-link></div>
         </div>
 
-
         <div v-if="isLoading" class="spinner" :class="{'center-spinner': !addSite}">
             <div class="rect1"></div>
             <div class="rect2"></div>
