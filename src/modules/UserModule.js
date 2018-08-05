@@ -45,7 +45,7 @@ export default {
         logout(context) {
             return AuthService.logout()
                 .then(() => {
-                    context.commit({ type: 'logout', });
+                    context.commit({ type: 'logout' });
                     localStorage.removeItem('loggedInUser');
                 });
         }

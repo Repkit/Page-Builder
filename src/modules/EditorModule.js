@@ -30,8 +30,8 @@ export default {
             state.drag = drag;
         },
         updateDropParent(state, { site, elementId }) {
-            var parent = SiteService.getParentById(site, elementId)
-            state.dragParentId = parent._id
+            var parent = SiteService.getElementParentById(site, elementId);
+            state.dragParentId = parent._id;
         },
 
         // Selected Element Data

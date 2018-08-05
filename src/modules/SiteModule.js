@@ -42,7 +42,7 @@ export default {
             state.sites = state.sites.filter(item => item._id !== id);
         },
         deleteSite(state, { site }) {
-            state.sites = state.sites.filter(currSite => currSite._id !== site._id)
+            state.sites = state.sites.filter(currSite => currSite._id !== site._id);
         },
 
         // Current site
@@ -62,24 +62,24 @@ export default {
             state.site.elements = SiteService.cloneElementById(state.site.elements, id);
         },
         addToElement(state, { elementId, type }) {
-            state.site.elements = SiteService.addElementById(state.site.elements, elementId, type)
+            state.site.elements = SiteService.addElementById(state.site.elements, elementId, type);
         },
         addSection(state, { columns }) {
-            state.site.elements.push(SiteService.emptySectionElement(columns))
+            state.site.elements.push(SiteService.emptySectionElement(columns));
         },
         updateElement(state, { newElement }) {
-            state.site.elements = SiteService.updateElement(state.site.elements, newElement)
+            state.site.elements = SiteService.updateElement(state.site.elements, newElement);
         },
         moveElement(state, { id, direction}) {
-            state.site.elements = SiteService.moveElementById(state.site.elements, id, direction)
+            state.site.elements = SiteService.moveElementById(state.site.elements, id, direction);
         },
         updateUserId(state, { user }) {
-            state.site.user_id = user._id
+            state.site.user_id = user._id;
         },
 
         // Drag & Drop
         updateDropType(state, { elementId }) {
-            state.dropType = SiteService.getTypeById(state.site.elements, elementId)
+            state.dropType = SiteService.getElementTypeById(state.site.elements, elementId);
         }
     },
     actions: {
@@ -117,10 +117,10 @@ export default {
         deleteSite(context, { site }) {
             return SiteService.deleteSite(site)
                 .then((isDelete) => {
-                    if (!isDelete) return false
+                    if (!isDelete) return false;
                     context.commit({ type: 'deleteSite', site });
                     return true;
-                })
+                });
         },
 
         // Current site

@@ -22,8 +22,8 @@ export default {
     cloneElementById,
     addElementById,
     updateElement,
-    getParentById,
-    getTypeById,
+    getElementParentById,
+    getElementTypeById,
     moveElementById
 }
 
@@ -233,24 +233,24 @@ function addElementById(element, id, type) {
     return res;
 }
 
-function getParentById(details, id) {
+function getElementParentById(details, id) {
     var res = {};
     details.elements.forEach(currElement => {
         if (currElement._id !== id) {
             let isContain = getSelectedElementById(currElement, id);
-            if (isContain) res = getParentById(currElement, id);
+            if (isContain) res = getElementParentById(currElement, id);
         }
         else res = details
     })
     return res;
 }
 
-function getTypeById(element, id) {
+function getElementTypeById(element, id) {
     var res = null;
     element.forEach(currElement => {
         if (currElement._id !== id) {
             let isContain = getSelectedElementById(currElement, id);
-            if (isContain) res = getTypeById(currElement.elements, id);
+            if (isContain) res = getElementTypeById(currElement.elements, id);
         }
         else res = currElement.settings.type
     })
@@ -268,8 +268,7 @@ function moveElementById(element, id, direction) {
                     alreadyFound = false
                 }
                 else res.push(currElement)
-            }
-            else {
+            } else {
                 currElement.elements = moveElementById(currElement.elements, id, direction);
                 res.push(currElement);
             }
@@ -281,8 +280,7 @@ function moveElementById(element, id, direction) {
                 if (direction === 'up') {
                     res.push(currElement);
                     res = _swapArrayElements(res, res.length - 2, res.length - 1)
-                }
-                else if (direction === 'down') {
+                } else if (direction === 'down') {
                     res[res.length + 1] = currElement
                     alreadyFound = true
                 }
